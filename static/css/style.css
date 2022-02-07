@@ -3,15 +3,61 @@
     /* color: var(--orange); */
     --blue: #14213D;
     /* color: var(--blue); */
+    --grey: #E5E5E5;
+    /* color: var(--grey); */
+    --white: #FFFFFF;
+    /* color: var(--white); */
+    --black: #000000;
+    /* color: var(--black); */ 
+    --youtube : #FF0000;
+     /* color: var(--youtube); */ 
+    --facebook : #4267B2;
+    /* color: var(--facebook); */ 
+    --instagram : #fbad50;
+    /* color: var(--instagram); */ 
+    --twitter : #1DA1F2;
+    /* color: var(--twitter); */ 
 }
 
 .blue-section {
     background-color: var(--blue);
 }
-
+nav ul a {
+    font-size: 20px;
+}
+a.brand-logo {
+    font-size: 36px;
+}
 nav ul a, a.brand-logo {
     color: var(--orange);
+}
+nav ul a:hover {
+    color: var(--white);
 }
 nav a, nav h4 {
     color: var(--orange);
 }
+
+/* Social media  */
+.social-media .icon {
+    font-size: 20px;
+    padding-right: 20px;
+    
+}
+footer a .fa-youtube.icon {
+    color: var(--youtube);
+}
+footer a .fa-facebook.icon {
+    ccolor: var(--facebook);
+}
+footer a .fa-instagram.icon {
+    color: var(--instagram);
+}
+footer a .fa-twitter.icon {
+    color: var(--twitter);
+}
+
+footer .copyright {
+    color: var(--red)
+}
+
