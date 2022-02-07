@@ -1,0 +1,17 @@
+:root {
+    --orange: #FCA311;
+    /* color: var(--orange); */
+    --blue: #14213D;
+    /* color: var(--blue); */
+}
+
+.blue-section {
+    background-color: var(--blue);
+}
+
+nav ul a, a.brand-logo {
+    color: var(--orange);
+}
+nav a, nav h4 {
+    color: var(--orange);
+}
