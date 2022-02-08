@@ -18,10 +18,15 @@
     --twitter : #1DA1F2;
     /* color: var(--twitter); */ 
 }
-
+/* General */
 .blue-section {
     background-color: var(--blue);
 }
+.grey-section {
+    background-color: var(--grey);
+}
+
+/* Header */
 nav ul a {
     font-size: 20px;
 }
@@ -38,11 +43,10 @@ nav a, nav h4 {
     color: var(--orange);
 }
 
-/* Social media  */
+/* Footer - Social Media  */
 .social-media .icon {
     font-size: 20px;
-    padding-right: 20px;
-    
+    padding-right: 20px;  
 }
 footer a .fa-youtube.icon {
     color: var(--youtube);
@@ -56,7 +60,6 @@ footer a .fa-instagram.icon {
 footer a .fa-twitter.icon {
     color: var(--twitter);
 }
-
 footer .copyright {
     color: var(--red)
 }
