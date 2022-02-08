@@ -33,7 +33,7 @@ nav ul a {
 a.brand-logo {
     font-size: 36px;
 }
-nav ul a, a.brand-logo {
+nav ul a, a.brand-logo, ul h4{
     color: var(--orange);
 }
 nav ul a:hover {
@@ -41,6 +41,35 @@ nav ul a:hover {
 }
 nav a, nav h4 {
     color: var(--orange);
+}
+/* Flashed Messages */
+.flashes h4 {
+    line-height: 2; 
+    color: var(--blue);
+}
+.flashed-container{
+    background-color: var(--orange);
+}
+/* Form - Sing UP Page */
+form i {
+    color: var(--orange);
+}
+form i:hover {
+    color: var(--blue);
+}
+.sign-up-button{
+    padding: 20px 10px 20px 10px;
+    border-radius: 10px;
+    background-color: var(--blue);
+    color: var(--orange);
+    font-weight: 700;
+    font-size:16px;
+    margin-top:30px;
+}
+.sign-up-button:hover{
+    background-color: var(--orange);
+    color: var(--blue);
+    cursor: pointer;
 }
 
 /* Footer - Social Media  */

@@ -32,6 +32,32 @@ def get_properties():
 # --- SIGN UP / REGISTER FUNCTIONALITY --- #
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    if request.method == "POST":
+        # then check if the username exists within the database
+        existing_user = mongo.db.users.find_one(
+            # check if Mongo username matches input for username in form
+            {"username": request.form.get("username").lower()})
+
+        # if match with exisiting user then give message
+        if existing_user:
+            flash("Oh no, this Username already exists...")
+            # take the user back to the sign up page
+            return redirect(url_for("register"))
+
+        # if no user is found, then insert data in the dictionary
+        register = {
+            "username": request.form.get("username").lower(),
+            "email": request.form.get("email"),
+            "password": generate_password_hash(request.form.get("password")),
+            "bookmarks": []
+        }
+        mongo.db.users.insert_one(register)
+
+        # put the new user into 'session' cookie
+        session["user"] = request.form.get("username").lower()
+        # to replace with modal
+        flash("Registration successful! You can now view or share properties!")
+
     return render_template("register.html")
 
 
