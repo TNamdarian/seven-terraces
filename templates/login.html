@@ -3,19 +3,19 @@
 
 <div class="container">
     <!-- Page Heading -->
-    <div class="row center-align">
-        <div class="col s12 m12 l12 ">
-            <h3 class="center-align">Join the Seven Terraces Club for Free!</h3>
+    <div class="row resource-header-row">
+        <div class="col s12 m12 l12">
+            <h3 class="resource-h center-align">Log Into My Account.</h3>
         </div>
     </div>
     <!-- Form -->
     <div class="row">
-        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login') }}">
             <div class="card-panel grey-section">
                 <!-- Username -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fas fa-user-plus prefix"></i>
+                        <i class="fas fa-user-cog prefix"></i>
                         <input id="username" name="username" type="text" minlength="5" maxlength="15" patern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
                         <label for="username">Username</label>
                     </div>
@@ -39,7 +39,7 @@
                 <!-- Button -->
                 <div class="row center-align">
                     <div class="col s12">
-                        <button type="submit" class="sign-up-button">Sign Up<i class="fas fa-sign-in-alt"></i></button>
+                        <button type="submit" class="sign-up-button">Log In<i class="fas fa-sign-in-alt"></i></button>
                     </div>
                 </div>
         </form>
@@ -47,10 +47,11 @@
     <div class="row">
         <div class="col s12">
             <p class="center-align">
-                Already have an account?
-                <a href="{{ url_for('login') }}" class="light-blue-text text-darken-4">Log In Here.</a>
+                New Here?
+                <a href="{{ url_for('register') }}" class="light-blue-text text-darken-4">Sign Up Here.</a>
             </p>
         </div>
     </div>
+
 
     {% endblock %}

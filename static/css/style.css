@@ -8,20 +8,22 @@
     --white: #FFFFFF;
     /* color: var(--white); */
     --black: #000000;
-    /* color: var(--black); */ 
-    --youtube : #FF0000;
-     /* color: var(--youtube); */ 
-    --facebook : #4267B2;
-    /* color: var(--facebook); */ 
-    --instagram : #fbad50;
-    /* color: var(--instagram); */ 
-    --twitter : #1DA1F2;
-    /* color: var(--twitter); */ 
+    /* color: var(--black); */
+    --youtube: #FF0000;
+    /* color: var(--youtube); */
+    --facebook: #4267B2;
+    /* color: var(--facebook); */
+    --instagram: #fbad50;
+    /* color: var(--instagram); */
+    --twitter: #1DA1F2;
+    /* color: var(--twitter); */
 }
+
 /* General */
 .blue-section {
     background-color: var(--blue);
 }
+
 .grey-section {
     background-color: var(--grey);
 }
@@ -30,43 +32,56 @@
 nav ul a {
     font-size: 20px;
 }
+
 a.brand-logo {
     font-size: 36px;
 }
-nav ul a, a.brand-logo, ul h4{
+
+nav ul a,
+a.brand-logo,
+ul h4 {
     color: var(--orange);
 }
+
 nav ul a:hover {
     color: var(--white);
 }
-nav a, nav h4 {
+
+nav a,
+nav h4 {
     color: var(--orange);
 }
+
 /* Flashed Messages */
 .flashes h4 {
-    line-height: 2; 
+    line-height: 2;
     color: var(--blue);
 }
-.flashed-container{
+
+.flashed-container {
     background-color: var(--orange);
 }
+
 /* Form - Sing UP Page */
 form i {
     color: var(--orange);
 }
+
 form i:hover {
     color: var(--blue);
 }
-.sign-up-button{
+
+.sign-up-button {
     padding: 20px 10px 20px 10px;
     border-radius: 10px;
     background-color: var(--blue);
     color: var(--orange);
     font-weight: 700;
-    font-size:16px;
-    margin-top:30px;
+    font-size: 16px;
+    margin-top: 30px;
 }
-.sign-up-button:hover{
+
+.sign-up-button:hover {
     background-color: var(--orange);
     color: var(--blue);
     cursor: pointer;
@@ -75,21 +90,25 @@ form i:hover {
 /* Footer - Social Media  */
 .social-media .icon {
     font-size: 20px;
-    padding-right: 20px;  
+    padding-right: 20px;
 }
+
 footer a .fa-youtube.icon {
     color: var(--youtube);
 }
+
 footer a .fa-facebook.icon {
-    ccolor: var(--facebook);
+    color: var(--facebook);
 }
+
 footer a .fa-instagram.icon {
     color: var(--instagram);
 }
+
 footer a .fa-twitter.icon {
     color: var(--twitter);
 }
+
 footer .copyright {
     color: var(--red)
 }
-

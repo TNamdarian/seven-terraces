@@ -12,80 +12,83 @@
     {% endblock %}
     <title>Seven Terraces</title>
 </head>
- <!--Flash Message -->
+<!--Flash Message -->
+
 <body>
-  <!-- Header -->
+    <!-- Header -->
     <header>
         <!-- Top Navbar -->
         <nav class="blue-section">
             <div class="nav-wrapper">
-              <a href="{{ url_for('get_properties') }}" class="brand-logo">Seven Terraces</a>
-              <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
-              <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('get_properties') }}">Home</a></li>
-                <li><a href="#">Properties</a></li>
-                <li><a href="#">Add Property</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Log Out</a></li>
-                <li><a href="#">Log In</a></li>
-                <li><a href="{{ url_for('register') }}">Register</a></li>
-              </ul>
+                <a href="{{ url_for('get_properties') }}" class="brand-logo">Seven Terraces</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('get_properties') }}">Home</a></li>
+                    <li><a href="#">Properties</a></li>
+                    <li><a href="#">Add Property</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Log Out</a></li>
+                    <li><a href="{{ url_for('login') }}">Log In</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                </ul>
             </div>
-          </nav>
-           <!-- Mobile Side Navbar -->
-          <ul class="sidenav" id="mobile-demo">
-            <li><h4 class="center-align">Seven Terraces</h4></li>
+        </nav>
+        <!-- Mobile Side Navbar -->
+        <ul class="sidenav" id="mobile-demo">
+            <li>
+                <h4 class="center-align">Seven Terraces</h4>
+            </li>
             <li><a href="{{ url_for('get_properties') }}">Home</a></li>
             <li><a href="#">Properties</a></li>
             <li><a href="#">Add Property</a></li>
             <li><a href="#">Profile</a></li>
             <li><a href="#">Contact Us</a></li>
             <li><a href="#">Log Out</a></li>
-            <li><a href="#">Log In</a></li>
+            <li><a href="{{ url_for('login') }}">Log In</a></li>
             <li><a href="{{ url_for('register') }}">Register</a></li>
-          </ul>        
+        </ul>
     </header>
-  <section class="container flashed-container">
-      {% with messages = get_flashed_messages() %}
-          {% if messages %}
-              {% for message in messages %}
-                  <div class="row flashes">
-                      <h4 class="center-align">{{ message }}</h4>
-                  </div>
-              {% endfor %}
-          {% endif %}
-      {% endwith %}
+    <section class="container flashed-container">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="row flashes">
+            <h4 class="center-align">{{ message }}</h4>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
     </section>
-     <!-- Page Content -->
-  <main>
-    {% block content %}
-    {% endblock %}
-  </main>
-  <!-- Footer -->
+    <!-- Page Content -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <!-- Footer -->
     <footer class="page-footer blue-section">
-      <div class="container">
-        <div class="row">
-            <div class="col s12 center-align social-media">
-                <a href="https://www.youtube.com/" target="_blank" aria-label="youtube icon"><i class="fab fa-youtube icon"></i></a>
-                <a href="https://www.instagram.com/" target="_blank" aria-label="instagram icon"><i class="fab fa-instagram icon"></i></a>
-                <a href="https://www.facebook.com/" target="_blank" aria-label="facebook icon"><i class="fab fa-facebook icon"></i></a>
-                <a href="https://www.twitter.com/" target="_blank" aria-label="twitter icon"><i class="fab fa-twitter icon"></i></a>
+        <div class="container">
+            <div class="row">
+                <div class="col s12 center-align social-media">
+                    <a href="https://www.youtube.com/" target="_blank" aria-label="youtube icon"><i class="fab fa-youtube icon"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank" aria-label="instagram icon"><i class="fab fa-instagram icon"></i></a>
+                    <a href="https://www.facebook.com/" target="_blank" aria-label="facebook icon"><i class="fab fa-facebook icon"></i></a>
+                    <a href="https://www.twitter.com/" target="_blank" aria-label="twitter icon"><i class="fab fa-twitter icon"></i></a>
+                </div>
             </div>
-          </div>
         </div>
         <div class="footer-copyright container center-align copyright">
             <div class="row">
-              <div class="col s12 center-align">© 2022 Teema Namdarian</div>
-            </div>        
+                <div class="col s12 center-align">© 2022 Teema Namdarian</div>
+            </div>
         </div>
     </footer>
-     <!-- jQuery -->
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-     <!-- Materialize Script-->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-     <!-- Custom Scripts -->
-     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- Materialize Script-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Custom Scripts -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     {% block scripts %}
     {% endblock %}
 </body>
