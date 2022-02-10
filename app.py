@@ -114,6 +114,25 @@ def logout():
     return redirect(url_for("login"))
 
 
+# --- Add_PROPERTY FUNCTIONALITY --- #
+@app.route("/add_property", methods=["GET", "POST"])
+def add_property():
+    if request.method == "POST":
+        property = {
+            "category_name": request.form.get("category_name"),
+            "property_name": request.form.get("property_name"),
+            "property_description": request.form.get("property_description"),
+            "property_added_date": request.form.get("property_added_date"),
+            "created_by": session["user"]
+        }
+        mongo.db.properties.insert_one(property)
+        flash("Your Property Successfully Added")
+        return redirect(url_for("get_properties"))
+
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("add_property.html", categories=categories)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

@@ -21,6 +21,8 @@
     /* color: var(--instagram); */
     --twitter: #1DA1F2;
     /* color: var(--twitter); */
+    --AccentTransparent: rgba(241, 241, 241, 0.4);
+    /* color: var(--AccentTransparent); */
 }
 
 /* General */
@@ -106,6 +108,77 @@ form i:hover {
 
 .property-card {
     border-radius: 5px;
+}
+
+/* ADD PROPERTY PAGE  */
+.property-header {
+    border-radius: 20px;
+    background-image:url(/static/images/add-property-heading.png);
+    margin-top: 20px;
+    padding-bottom: 20px;
+    background-color: transparent;
+
+}
+
+.form-container img {
+    width: 50%;
+    padding-top: 30px;
+    padding-left: 20px;
+}
+
+.add-resource-heading {
+    padding-top: 30px;
+    padding-left: 20px;
+    background-color: var(--AccentTransparent);
+    border-radius: 20px;
+    padding-right:20px;
+    color: var(--blue);
+}
+.general-button {
+    padding: 18px 20px 20px;
+    border-radius: 10px;
+    background-color: var(--blue);
+    color: var(--orange);
+    font-weight: 600;
+    font-size:16px;
+    margin-top:10px;
+    margin-right: 10px;
+}
+
+.general-button:hover{
+    background-color: var(--orange);
+    color: var(--blue);
+    border: 1px solid var(--blue) ;
+}
+.cancel-button {
+    padding: 18px 20px 20px;
+    border-radius: 10px;
+    background-color: var(--youtube);
+    color: var(--blue);
+    font-weight: 600;
+    font-size:16px;
+    margin-top:10px;
+    margin-right: 10px;
+}
+.cancel-button:hover {
+    background-color: var(--black);
+    color: var(--youtube);
+}
+.input-field .helper-text {
+    font-size: 10px;
+    color: var(--teal);
+    font-style: italic;
+}
+
+.field-row {
+    background-color: var(--grey);
+    border-radius: 10px;
+    padding-top: 10px
+  }
+
+  .material-icons {
+    font-size: 40px;
+    padding-top: 10px;
 }
 
 /* Bookmark  */
