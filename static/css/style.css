@@ -1,10 +1,14 @@
 :root {
     --orange: #FCA311;
     /* color: var(--orange); */
-    --blue: #14213D;
+    --blue: #023047;
     /* color: var(--blue); */
     --grey: #E5E5E5;
     /* color: var(--grey); */
+    --light-blue: #8ecae6;
+    /* color: var(--light-blue); */
+    --teal: #219ebc;
+    /* color: var(--teal); */
     --white: #FFFFFF;
     /* color: var(--white); */
     --black: #000000;
@@ -85,6 +89,23 @@ form i:hover {
     background-color: var(--orange);
     color: var(--blue);
     cursor: pointer;
+}
+
+/* Properties  */
+.card .card-reveal {
+    background-color: var(--grey);
+}
+
+.card .card-title {
+    color: var(--orange);
+}
+
+.card-reveal p {
+    color: var(--blue)
+}
+
+.property-card {
+    border-radius: 5px;
 }
 
 /* Footer - Social Media  */
