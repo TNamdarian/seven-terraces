@@ -113,7 +113,7 @@ form i:hover {
 /* ADD PROPERTY PAGE  */
 .property-header {
     border-radius: 20px;
-    background-image:url(/static/images/add-property-heading.png);
+    background-image: url(/static/images/add-property-heading.png);
     margin-top: 20px;
     padding-bottom: 20px;
     background-color: transparent;
@@ -131,39 +131,43 @@ form i:hover {
     padding-left: 20px;
     background-color: var(--AccentTransparent);
     border-radius: 20px;
-    padding-right:20px;
+    padding-right: 20px;
     color: var(--blue);
 }
+
 .general-button {
     padding: 18px 20px 20px;
     border-radius: 10px;
     background-color: var(--blue);
     color: var(--orange);
     font-weight: 600;
-    font-size:16px;
-    margin-top:10px;
+    font-size: 16px;
+    margin-top: 10px;
     margin-right: 10px;
 }
 
-.general-button:hover{
+.general-button:hover {
     background-color: var(--orange);
     color: var(--blue);
-    border: 1px solid var(--blue) ;
+    border: 1px solid var(--blue);
 }
+
 .cancel-button {
     padding: 18px 20px 20px;
     border-radius: 10px;
     background-color: var(--youtube);
     color: var(--blue);
     font-weight: 600;
-    font-size:16px;
-    margin-top:10px;
+    font-size: 16px;
+    margin-top: 10px;
     margin-right: 10px;
 }
+
 .cancel-button:hover {
     background-color: var(--black);
     color: var(--youtube);
 }
+
 .input-field .helper-text {
     font-size: 10px;
     color: var(--teal);
@@ -174,9 +178,9 @@ form i:hover {
     background-color: var(--grey);
     border-radius: 10px;
     padding-top: 10px
-  }
+}
 
-  .material-icons {
+.material-icons {
     font-size: 40px;
     padding-top: 10px;
 }
