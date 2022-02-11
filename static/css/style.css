@@ -110,6 +110,22 @@ form i:hover {
     border-radius: 5px;
 }
 
+/* LOG IN PAGE  */
+.register-link,
+.reminder {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.register-link {
+    color: var(--teal);
+    border-bottom: 5px solid var(--orange);
+}
+
+.register-link:hover {
+    color: var(--orange);
+}
+
 /* ADD PROPERTY PAGE  */
 .property-header {
     border-radius: 20px;
