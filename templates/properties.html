@@ -3,6 +3,16 @@
 
 
 <div class="container">
+    <!-- Page Header -->
+    <div class="row property-header">
+        <div class="col s12 m12 l6">
+            <h1 class="center-align add-resource-heading">Search Properties</h1>
+        </div>
+        <div class="col s12 m12 l6 center-align">
+            <img src="static/images/buy_house.svg" alt="buy property">
+        </div>
+    </div>
+    <!-- Property Cards -->
     <div class="row">
         <div class="col s12 m6 l3">
             <div class="card sticky-action hoverable blue-section property-card">
@@ -14,7 +24,7 @@
                     <img class="activator" src="{{ property.property_link }}">
                 </div>
                 <div class="card-content">
-                    <h4 class="card-title activator">{{ property.property_category_name }}<i class="fas fa-caret-down right"></i></h4>
+                    <h4 class="card-title activator">{{ property.category_name }}<i class="fas fa-caret-down right"></i></h4>
                 </div>
                 <div class="card-reveal">
                     <h5 class="card-title">{{ property.property_name }}<i class="fas fa-xmark right"></i></h5>
