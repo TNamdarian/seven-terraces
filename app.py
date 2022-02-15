@@ -133,6 +133,14 @@ def add_property():
     return render_template("add_property.html", categories=categories)
 
 
+@app.route("/edit_property/<property_id>", methods=["GET", "POST"])
+def edit_property(property_id):
+    property = mongo.db.properties.find_one({"_id": ObjectId(property_id)})
+
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("edit_property.html", property=property, categories=categories)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container form-container">
+    <!-- Page Header -->
+    <div class="row property-header">
+        <div class="col s12 m12 l6">
+            <h1 class="center-align add-resource-heading">Edit a property you have already added.</h1>
+        </div>
+        <div class="col s12 m12 l6 center-align">
+            <img src="{{ url_for('static', filename='images/add_property.svg') }}" alt="add property">
+        </div>
+    </div>
+    <!-- Add a Property Form -->
+    <div class="row">
+        <form class="col s12 m8 offset-m2 " method="POST" action="{{ url_for('edit_property', property_id=property._id) }}">
+            <!-- Category Selection -->
+            <div class="row field-row">
+                <div class="input-field col s12">
+                    <i class="fa-solid fa-folder prefix"></i>
+                    <select id="category_name" name="category_name" class="validate" required>
+                        <option value="" disabled selected>Choose Category</option>
+                        {% for category in categories %}
+                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="category_name">Category</label>
+                </div>
+            </div>
+            <!-- Property Name -->
+            <div class="row field-row">
+                <div class="input-field col s12">
+                    <i class="fa-regular fa-pen-to-square prefix"></i>
+                    <input id="property_name" name="property_name" minlength="5" maxlength="50" type="text" class="validate" required>
+                    <label for="property_name">Property Name</label>
+                    <span class="helper-text" data-error="The property name should be between 5-50 characters." data-success="Awesome!">Give the new property a cool name that is between 5-50 characters.</span>
+                </div>
+            </div>
+            <!-- Property Description -->
+            <div class="row field-row">
+                <div class="input-field col s12">
+                    <i class="fa-solid fa-align-left prefix"></i>
+                    <textarea id="property_description" name="property_description" minlength="5" maxlength="200" class="materialize-textarea validate" required></textarea>
+                    <label for="property_description">Property Description</label>
+                    <span class="helper-text" data-error="The description should be between 5 - 200 characters" data-success="Sounds interesting!">Write a description of the property in 5-200 characters.</span>
+                </div>
+            </div>
+            <!-- Date picker -->
+            <div class="row field-row">
+                <div class="input-field col s12">
+                    <i class="fa-regular fa-calendar-days prefix"></i>
+                    <input id="property_added_date" name="property_added_date" type="text" class="datepicker validate">
+                    <label for="property_added_date">Date Added</label>
+                    <span class="helper-text" data-success="Can't wait!">The date will indicate when this property is added.</span>
+                </div>
+            </div>
+            <!-- property Link -->
+            <div class="row field-row">
+                <div class="input-field col s12">
+                    <i class="fa-solid fa-link prefix"></i>
+                    <input id="property_link" name="property_link" minlength="5" type="url" class="validate" required>
+                    <label for="property_link">Link to the property</label>
+                    <span class="helper-text" data-error="Rather try using a valid URL for example: https://www.google.com/" data-success="Excellent!">Paste the URL of the property picture here, for example: https://www.google.com/</span>
+                </div>
+            </div>
+            <!-- Form Buttons -->
+            <div class="row center-align subit-btn-div">
+                <!-- Cancel Button -->
+                <a href="{{ url_for('get_properties')}}" class="cancel-button">
+                    Cancel
+                </a>
+                <!-- Add property Button -->
+                <button type="submit" class="general-button">
+                    Edit property
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}
