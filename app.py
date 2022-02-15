@@ -141,6 +141,13 @@ def edit_property(property_id):
     return render_template("edit_property.html", property=property, categories=categories)
 
 
+@app.route("/delete_property/<property_id>")
+def delete_property(property_id):
+    mongo.db.categories.delete_one({"_id": ObjectId(property_id)})
+    flash("Property Successfully deleted!")
+    return redirect(url_for("get_properties"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
