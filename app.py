@@ -133,6 +133,7 @@ def add_property():
     return render_template("add_property.html", categories=categories)
 
 
+# --- Edit_PROPERTY FUNCTIONALITY --- #
 @app.route("/edit_property/<property_id>", methods=["GET", "POST"])
 def edit_property(property_id):
     property = mongo.db.properties.find_one({"_id": ObjectId(property_id)})
@@ -141,6 +142,7 @@ def edit_property(property_id):
     return render_template("edit_property.html", property=property, categories=categories)
 
 
+# --- Delete_PROPERTY FUNCTIONALITY --- #
 @app.route("/delete_property/<property_id>")
 def delete_property(property_id):
     mongo.db.categories.delete_one({"_id": ObjectId(property_id)})
