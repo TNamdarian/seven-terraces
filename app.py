@@ -136,8 +136,18 @@ def add_property():
 # --- Edit_PROPERTY FUNCTIONALITY --- #
 @app.route("/edit_property/<property_id>", methods=["GET", "POST"])
 def edit_property(property_id):
-    property = mongo.db.properties.find_one({"_id": ObjectId(property_id)})
+    if request.method == "POST":
+        submit = {
+            "category_name": request.form.get("category_name"),
+            "property_name": request.form.get("property_name"),
+            "property_description": request.form.get("property_description"),
+            "property_added_date": request.form.get("property_added_date"),
+            "created_by": session["user"]
+        }
+        mongo.db.properties.update_one({"_id": ObjectId(property_id)}, {"$set": submit})
+        flash("Property successfully updated")
 
+    property = mongo.db.properties.find_one({"_id": ObjectId(property_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_property.html", property=property, categories=categories)
 

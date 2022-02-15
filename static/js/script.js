@@ -9,6 +9,7 @@ $(document).ready(function() {
         i18n: {
             done: "Select"
         }
+    $('.modal').modal();
     });
     $('select').formSelect();
     validateMaterializeSelect();
