@@ -46,12 +46,14 @@
                         <p>Are you sure you want to <u>delete</u> the proprty? If you delete it, you will no longer can see your property!</p>
                     </div>
                     <div class="modal-btns">
+                        {%  if session.user|lower == property.creatd_by|lower %}
                         <!-- cancel button -->
                         <a href="{{ url_for('get_properties') }}" class="waves-effect waves-light btn modal-cancel-btn">
                             Cancel
                         </a>
                         <!-- submit button -->
                         <a href="{{ url_for('delete_property', property_id=property._id) }}" class="btn modal-delete-btn"><i class="material-icons left">delete_outline</i>Delete</a>
+                        {% endif %}
                     </div>
                 </div>
                 <!-- Edit Btn-->
