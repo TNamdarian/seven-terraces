@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $('.modal').modal();
     $('.sidenav').sidenav({
         edge: "right"
     });
@@ -9,7 +10,6 @@ $(document).ready(function() {
         i18n: {
             done: "Select"
         }
-    $('.modal').modal();
     });
     $('select').formSelect();
     validateMaterializeSelect();
@@ -53,3 +53,4 @@ $(document).ready(function() {
         });
     }
 });
+
