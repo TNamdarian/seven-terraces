@@ -206,16 +206,6 @@ form i:hover {
     padding-top: 10px;
 }
 
-/* Bookmark  */
-.btn-floating {
-    background-color: var(--blue);
-}
-
-.btn-floating:hover {
-    background-color: var(--blue);
-}
-
-
 /* Footer - Social Media  */
 .social-media .icon {
     font-size: 20px;

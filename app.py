@@ -48,8 +48,7 @@ def register():
         register = {
             "username": request.form.get("username").lower(),
             "email": request.form.get("email"),
-            "password": generate_password_hash(request.form.get("password")),
-            "bookmarks": []
+            "password": generate_password_hash(request.form.get("password")), 
         }
         mongo.db.users.insert_one(register)
 
@@ -123,6 +122,7 @@ def add_property():
             "property_name": request.form.get("property_name"),
             "property_description": request.form.get("property_description"),
             "property_added_date": request.form.get("property_added_date"),
+            "img_link": request.form.get("img_link"),
             "created_by": session["user"]
         }
         mongo.db.properties.insert_one(property)
@@ -142,6 +142,7 @@ def edit_property(property_id):
             "property_name": request.form.get("property_name"),
             "property_description": request.form.get("property_description"),
             "property_added_date": request.form.get("property_added_date"),
+            "img_link": request.form.get("img_link"),
             "created_by": session["user"]
         }
         mongo.db.properties.update_one({"_id": ObjectId(property_id)}, {"$set": submit})
