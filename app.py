@@ -25,7 +25,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_properties")
 def get_properties():
-    properties = mongo.db.properties.find()
+    properties = list(mongo.db.properties.find())
     return render_template("properties.html", properties=properties)
 
 
@@ -110,7 +110,7 @@ def logout():
     # remove user from session cookie
     flash("You have been logged out")
     session.pop("user")
-    return redirect(url_for("login"))
+    return redirect(url_for("get_properties"))
 
 
 # --- Add_PROPERTY FUNCTIONALITY --- #
@@ -156,7 +156,7 @@ def edit_property(property_id):
 # --- Delete_PROPERTY FUNCTIONALITY --- #
 @app.route("/delete_property/<property_id>")
 def delete_property(property_id):
-    mongo.db.categories.delete_one({"_id": ObjectId(property_id)})
+    mongo.db.properties.delete_one({"_id": ObjectId(property_id)})
     flash("Property Successfully deleted!")
     return redirect(url_for("get_properties"))
 

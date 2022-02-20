@@ -34,16 +34,15 @@
                 </div>
                 {% if session.user|lower == property.created_by|lower %}
                 <!-- Modal Trigger -->
-                <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons left"></i>Delete</a>
+                <a class="waves-effect waves-light btn modal-trigger" href="#modal1{{ property._id }}"><i class="material-icons left"></i>Delete</a>
+                <a href="{{ url_for('edit_property', property_id=property._id) }}" class="waves-effect waves-light btn-small model-edit-btn"><i class="material-icons left"></i>Edit</a>
                 {% endif %}
-                <!-- Modal Structure -->
-                <div id="modal1" class="modal">
+                <div id="modal1{{ property._id }}" class="modal">
                     <div class="modal-content delete-property-modal-content">
                         <i class="material-icons delete-icon"></i>
                         <h4>Delete Property</h4>
                         <p>Are you sure you want to <u>delete</u> the proprty? If you delete it, you will no longer can see your property!</p>
                     </div>
-                    {% if session.user|lower == property.created_by|lower %}
                     <div class="modal-btns">
                         <!-- cancel button -->
                         <a href="{{ url_for('get_properties') }}" class="waves-effect waves-light btn modal-cancel-btn">
@@ -53,10 +52,7 @@
                         <a href="{{ url_for('delete_property', property_id=property._id) }}" class="btn modal-delete-btn"><i class="material-icons left"></i>Delete</a>
                     </div>
                 </div>
-                <!-- Edit Btn-->
-                <a href="{{ url_for('edit_property', property_id=property._id) }}" class="waves-effect waves-light btn-small model-edit-btn"><i class="material-icons left"></i>Edit</a>
             </div>
-            {% endif %}
         </div>
         {% endfor %}
     </div>
