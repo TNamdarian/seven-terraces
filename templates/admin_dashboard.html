@@ -11,91 +11,95 @@
             <img src="{{ url_for('static', filename='images/add_property.svg') }}" alt="add property">
         </div>
     </div>
-    <!-- Edit dashboard-->
+</div>
+<!-- Edit dashboard-->
 <div class="container">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="card manage-properties">
-                    <div>
-                        <!-- Modal Trigger -->
-                        <a class="waves-effect waves-light btn-floating modal-trigger right modal-btn" href="#modal-featured"><i class="material-icons"></i></a>
-                        <!-- Modal Structure -->
-                        <div id="modal-featured" class="modal info-modal">
-                            <div class="modal-content">
-                                <h4 class="info-modal-h"> 🧐 What is a Featured Property?</h4>
-                                <p class="info-modal-p">A Featured Property is a property chosen by the Administrator each month from each category to showcase the hottest deals for that month. </p>
-                            </div>
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <div class="card manage-properties">
+                <div>
+                    <!-- Modal Trigger -->
+                    <a class="waves-effect waves-light btn-floating modal-trigger right modal-btn" href="#modal-featured"><i class="material-icons"></i></a>
+                    <!-- Modal Structure -->
+                    <div id="modal-featured" class="modal info-modal">
+                        <div class="modal-content">
+                            <h4 class="info-modal-h"> 🧐 What is a Featured Property?</h4>
+                            <p class="info-modal-p">A Featured Property is a property chosen by the Administrator each month from each category to showcase the hottest deals for that month. </p>
                         </div>
-                    </div>
-                    <h4 class=" manage-properties-h">Featured Property Section</h4>
-                    <p class="manage-featured-p">Here you can add featured items that appear on the home page each month.</p>
-                    <p class="manage-featured-p">You can edit the featured items directly on the home page.</p>
-                    <div class="center-align featured-btn">
-                        <!-- Add Property Button-->
-                        <a href="#" class="waves-effect waves-light general-button"><i class="material-icons left btn-icon">add</i>Add Featured Property</a>
-                        <!-- Delete or Edit Property Button-->
-                        <a href="#" class="waves-effect waves-light general-button"><i class="material-icons left btn-icon">edit</i>Delete or Edit Featured property</a>
                     </div>
                 </div>
+                <h4 class=" manage-properties-h">Featured Property Section</h4>
+                <p class="manage-featured-p">Here you can add featured items that appear on the home page each month.</p>
+                <p class="manage-featured-p">You can edit the featured items directly on the home page.</p>
+                <div class="center-align featured-btn">
+                    <!-- Add Property Button-->
+                    <a href="#" class="waves-effect waves-light general-button"><i class="material-icons left btn-icon">add</i>Add Featured Property</a>
+                    <!-- Delete or Edit Property Button-->
+                    <a href="#" class="waves-effect waves-light general-button"><i class="material-icons left btn-icon">edit</i>Delete or Edit Featured property</a>
+                </div>
             </div>
-            <!-- Category section -->
-            <div class="col s12 m12 l12">
-                <div class="card manage-properties-c">
-                    <div>
-                        <!-- Modal Trigger -->
-                        <a class="waves-effect waves-light btn-floating modal-trigger right modal-btn" href="#modal-cat"><i class="material-icons">info_outline</i></a>
-                        <!-- Modal Structure -->
-                        <div id="modal-cat" class="modal info-modal">
-                            <div class="modal-content">
-                                <h4 class="info-modal-h"> 🧐 What is a category?</h4>
-                                <p class="info-modal-p">A category can either be an Event to attend, Something to Read, a Tool to use or a Video to watch. It is the type of property. </p>
-                            </div>
+        </div>
+        <!-- Category section -->
+        <div class="col s12 m12 l12">
+            <div class="card manage-properties-c">
+                <div>
+                    <!-- Modal Trigger -->
+                    <a class="waves-effect waves-light btn-floating modal-trigger right modal-btn" href="#modal-cat"><i class="material-icons">info_outline</i></a>
+                    <!-- Modal Structure -->
+                    <div id="modal-cat" class="modal info-modal">
+                        <div class="modal-content">
+                            <h4 class="info-modal-h"> 🧐 What is a category?</h4>
+                            <p class="info-modal-p">A category can either be an Event to attend, Something to Read, a Tool to use or a Video to watch. It is the type of property. </p>
                         </div>
                     </div>
-                    <h4 class="manage-properties-h">Categories Section</h4>
-                    <p class="manage-featured-p">Here you can manage the current categories of properties.</p>
-                    <!-- Add category button -->
-                    <div class=" property-btn-c center-align">
-                        <a href="#" class="waves-effect waves-light general-button"><i class="material-icons left btn-icon">add</i>Add Category</a>
-                    </div>
-                    <!-- Current Categories -->
-                    <div class="container container-manage-cat">
-                        <div class="row" >
-                            <h4 class="manage-categories-h">Current Categories</h4>
-                            {% for category in categories %}
-                            <div class="col s12 m6" >
-                                <div class="card manage-card center-align">
-                                    <div class="card-content">
-                                        <p class="cat-name-p" >{{ category.category_name }}</p>
-                                        <!-- Delete & Edit Buttons -->
-                                        <div>
-                                            <!-- Delete Btn Modal Trigger-->
-                                            <a class="modal-trigger btn-small delete-btn" href="#{{ category._id }}"><i class="material-icons left">delete_outline</i>Delete</a>
-                                            <!-- Modal Structure -->
-                                            <div id="{{ category._id }}" class="modal ">
-                                                <div class="modal-content delete-property-modal-content">
-                                                    <i class="material-icons delete-icon">delete_outline</i>
-                                                    <h4>Delete Category</h4>
-                                                    <p>Are you sure you want to <u>delete</u> the category?</p>
-                                                </div>
-                                                <div class="modal-btns">
-                                                    <!-- cancel button -->
-                                                    <a href="#" class="waves-effect waves-light btn modal-cancel-btn">
-                                                        Cancel
-                                                    </a>
-                                                    <!-- submit button -->
-                                                    <a href="#" class="btn modal-delete-btn">
-                                                        <i class="material-icons left">delete_outline</i>Delete
-                                                    </a>
-                                                </div>
+                </div>
+                <h4 class="manage-properties-h">Categories Section</h4>
+                <p class="manage-featured-p">Here you can manage the current categories of properties.</p>
+                <!-- Add category button -->
+                <div class=" property-btn-c center-align">
+                    <a href="#" class="waves-effect waves-light general-button"><i class="material-icons left btn-icon">add</i>Add Category</a>
+                </div>
+                <!-- Current Categories -->
+                <div class="container container-manage-cat">
+                    <div class="row">
+                        <h4 class="manage-categories-h">Current Categories</h4>
+                        {% for category in categories %}
+                        <div class="col s12 m6">
+                            <div class="card manage-card center-align">
+                                <div class="card-content">
+                                    <p class="cat-name-p">{{ category.category_name }}</p>
+                                    <!-- Delete & Edit Buttons -->
+                                    <div>
+                                        <!-- Delete Btn Modal Trigger-->
+                                        <a class="modal-trigger btn-small delete-btn" href="#{{ category._id }}"><i class="material-icons left">delete_outline</i>Delete</a>
+                                        <!-- Modal Structure -->
+                                        <div id="{{ category._id }}" class="modal ">
+                                            <div class="modal-content delete-property-modal-content">
+                                                <i class="material-icons delete-icon">delete_outline</i>
+                                                <h4>Delete Category</h4>
+                                                <p>Are you sure you want to <u>delete</u> the category?</p>
                                             </div>
-                                            <a href="#" class="waves-effect waves-light btn-small edit-btn"><i class="material-icons left">edit_note</i>Edit</a>
+                                            <div class="modal-btns">
+                                                <!-- cancel button -->
+                                                <a href="#" class="waves-effect waves-light btn modal-cancel-btn">
+                                                    Cancel
+                                                </a>
+                                                <!-- submit button -->
+                                                <a href="#" class="btn modal-delete-btn">
+                                                    <i class="material-icons left">delete_outline</i>Delete
+                                                </a>
+                                            </div>
                                         </div>
+                                        <a href="#" class="waves-effect waves-light btn-small edit-btn"><i class="material-icons left">edit_note</i>Edit</a>
                                     </div>
                                 </div>
                             </div>
-                            {% endfor %}
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
 </div>
+{% endblock %}

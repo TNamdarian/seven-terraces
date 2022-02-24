@@ -24,10 +24,11 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_properties') }}">Home</a></li>
                     {% if session.user %}
-                    <li><a href="#">Properties</a></li>
+                    <li><a href="{{ url_for('get_properties') }}">Properties</a></li>
                     <li><a href="{{ url_for('add_property') }}">Add Property</a></li>
-                    {% if session.user|lower == "admin"|lower %}
                     <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                    {% if session.user|lower == "admin"|lower %}
+                    <li><a href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a></li>
                     {% endif %}
                     <li><a href="#">Contact Us</a></li>
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
@@ -45,10 +46,11 @@
             </li>
             <li><a href="{{ url_for('get_properties') }}">Home</a></li>
             {% if session.user %}
-            <li><a href="#">Properties</a></li>
+            <li><a href="{{ url_for('get_properties') }}">Properties</a></li>
             <li><a href="{{ url_for('add_property') }}">Add Property</a></li>
-            {% if session.user|lower == "admin"|lower %}
             <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+            {% if session.user|lower == "admin"|lower %}
+            <li><a href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a></li>
             {% endif %}
             <li><a href="#">Contact Us</a></li>
             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
