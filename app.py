@@ -40,7 +40,7 @@ def register():
 
         # if match with exisiting user then give message
         if existing_user:
-            flash("Oh no, this Username already exists...")
+            flash("Oh no, this username already exists...")
             # take the user back to the sign up page
             return redirect(url_for("register"))
 
