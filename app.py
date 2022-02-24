@@ -161,6 +161,73 @@ def delete_property(property_id):
     return redirect(url_for("get_properties"))
 
 
+# --- ADMIN DASHBOARD FUNCTIONALITY --- #
+@app.route("/admin_dashboard")
+def admin_dashboard():
+    # check that someone isn't brute-forcing the url get admin functionalities
+    if admin():
+        categories = list(mongo.db.categories.find().sort("category_name", 1))
+    else:
+        flash('You are not authorised to view this page')
+        return redirect(url_for("get_featured_properties"))
+    # return the admin dashboard template
+    return render_template("admin_dashboard.html", categories=categories)
+
+
+# --- READ FEATURED PROPERTY FUNCTIONALITY --- #
+@app.route('/')
+@app.route("/get_featured_properties")
+def get_featured_properties():
+    # find featured properties in the the database
+    featured_properties = list(mongo.db.featured_properties.find())
+    # loop through all properties
+    for featured_property in featured_properties:
+        try:
+            category = mongo.db.categories.find_one({
+                '_id': ObjectId(featured_property['category_name'])
+            })
+            # if category exists, display the category
+            if category:
+                featured_property['category_name'] = category['category_name']
+            # if category does not exists, display the message
+            else:
+                featured_property['category_name'] = "No Category"
+        except Exception:
+            pass
+    # render the properties template
+    return render_template("properties.html", featured_properties=featured_properties)
+
+
+# --- ADD A FEATURED PPROPERTY FUNCTIONALITY --- #
+@app.route("/add_featured_property", methods=["GET", "POST"])
+def add_featured_property():
+    if admin():
+        if request.method == "POST":
+            # find the collections and the keys
+            category = mongo.db.categories.find_one({'category_name':
+                                                    request.form.get(
+                                                        "category_name")})
+            # create dictionary for items in form by ObjectId
+            featured_property = {
+                "category_name": ObjectId(category['_id']),
+                "featured_name": request.form.get("featured_name"),
+                "featured_description": request.form.get(
+                    "featured_description"),
+                "featured_added_date": request.form.get("featured_added_date"),
+                "featured_img": request.form.get("featured_img")
+                }
+            mongo.db.featured_properties.insert_one(featured_property)
+            flash("Featured Property Successfully Added")
+            return redirect(url_for("get_featured_properties"))
+        # find category & topic in database
+        categories = mongo.db.categories.find().sort("category_name", 1)
+    else:
+        flash('You are not authorised to view this page')
+        return redirect(url_for("get_featured_properties"))
+    # render the add_properties template
+    return render_template("add_featured_property.html", categories=categories)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
