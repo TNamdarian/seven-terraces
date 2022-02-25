@@ -267,6 +267,14 @@ def edit_featured_property(featured_property_id):
                            featured_property=featured_property, categories=categories)
 
 
+# --- DELETE A FEATURED PROPERTY FUNCTIONALITY --- #
+@app.route("/delete_featured_property/<featured_property_id>")
+def delete_featured_property(featured_property_id):
+    mongo.db.featured_properties.remove({"_id": ObjectId(featured_property_id)})
+    flash("The Featured property was successfully deleted")
+    return redirect(url_for("get_featured_properties"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
