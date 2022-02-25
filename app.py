@@ -275,6 +275,25 @@ def delete_featured_property(featured_property_id):
     return redirect(url_for("get_featured_properties"))
 
 
+# --- ADD A CATEGORY FUNCTIONALITY --- #
+@app.route("/add_category", methods=["GET", "POST"])
+def add_category():
+    if admin():
+        if request.method == "POST":
+            category = {
+                "category_name": request.form.get("category_name")
+            }
+    
+            mongo.db.categories.insert_one(category)
+            flash("The new category was added")
+            return redirect(url_for("admin_dashboard"))
+    else:
+        flash('You are not authorised to view this page')
+        return redirect(url_for("get_featured_resources"))
+
+    return render_template("add_category.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
