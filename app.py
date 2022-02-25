@@ -183,23 +183,22 @@ def admin_dashboard():
 @app.route('/')
 @app.route("/get_featured_properties")
 def get_featured_properties():
-    # find featured properties in the the database
     featured_properties = list(mongo.db.featured_properties.find())
-    # loop through all properties
+
     for featured_property in featured_properties:
         try:
             category = mongo.db.categories.find_one({
                 '_id': ObjectId(featured_property['category_name'])
             })
-            # if category exists, display the category
+      
             if category:
                 featured_property['category_name'] = category['category_name']
-            # if category does not exists, display the message
+         
             else:
                 featured_property['category_name'] = "No Category"
         except Exception:
             pass
-    # render the properties template
+ 
     return render_template("properties.html", featured_properties=featured_properties)
 
 
@@ -223,13 +222,11 @@ def add_featured_property():
                 }
             mongo.db.featured_properties.insert_one(featured_property)
             flash("Featured Property Successfully Added")
-            return redirect(url_for("get_featured_properties"))
-        # find category & topic in database
-        categories = mongo.db.categories.find().sort("category_name", 1)
+            return redirect(url_for("get_featured_properties")) 
     else:
         flash('You are not authorised to view this page')
         return redirect(url_for("get_featured_properties"))
-    # render the add_properties template
+  
     return render_template("add_featured_property.html", categories=categories)
 
 
@@ -292,6 +289,33 @@ def add_category():
         return redirect(url_for("get_featured_resources"))
 
     return render_template("add_category.html")
+
+
+# --- EDIT A CATEGORY FUNCTIONALITY --- #
+@app.route("/edit_category/<category_id>", methods=["GET", "POST"])
+def edit_category(category_id):
+    if admin():
+        if request.method == "POST":
+            submit = {
+                "category_name": request.form.get("category_name")
+            }
+            mongo.db.categories.update({"_id": ObjectId(category_id)}, submit)
+            flash("Category Successfully Updated")
+            return redirect(url_for("admin_dashboard"))
+      
+        category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+    else:
+        flash('You are not authorised to view this page')
+        return redirect(url_for("get_featured_resources"))
+    return render_template("edit_category.html", category=category)
+
+
+# --- DELETE A CATEGORY FUNCTIONALITY --- #
+@app.route("/delete_category/<category_id>")
+def delete_category(category_id):
+    mongo.db.categories.remove({"_id": ObjectId(category_id)})
+    flash("Category Successfully Deleted")
+    return redirect(url_for("admin_dashboard"))
 
 
 if __name__ == "__main__":
