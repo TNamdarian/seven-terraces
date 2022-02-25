@@ -21,6 +21,11 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+# --- ADMIN USER FUNCTION --- #
+def admin():
+    return session['user'] == 'admin'
+
+
 # --- READ PROPERTIES FUNCTIONALITY --- #
 @app.route("/")
 @app.route("/get_properties")
@@ -153,7 +158,7 @@ def edit_property(property_id):
     return render_template("edit_property.html", property=property, categories=categories)
 
 
-# --- Delete_PROPERTY FUNCTIONALITY --- #
+# --- DELETE_PROPERTY FUNCTIONALITY --- #
 @app.route("/delete_property/<property_id>")
 def delete_property(property_id):
     mongo.db.properties.delete_one({"_id": ObjectId(property_id)})
@@ -226,6 +231,40 @@ def add_featured_property():
         return redirect(url_for("get_featured_properties"))
     # render the add_properties template
     return render_template("add_featured_property.html", categories=categories)
+
+
+# --- EDIT A FEATURED PROPERTY FUNCTIONALITY --- #
+@app.route("/edit_featured_property/<featured_property_id>",
+           methods=["GET", "POST"])
+def edit_featured_property(featured_property_id):
+    if admin():
+        if request.method == "POST":
+            # find the collections and the keys
+            category = mongo.db.categories.find_one({'category_name':
+                                                    request.form.get(
+                                                        "category_name")})
+            submit = {
+                 "category_name": ObjectId(category['_id']),
+                "featured_name": request.form.get("featured_name"),
+                "featured_description": request.form.get(
+                    "featured_description"),
+                "featured_added_date": request.form.get("featured_added_date"),
+                "featured_img": request.form.get("featured_img")
+            }
+            mongo.db.featured_properties.update({
+                                "_id": ObjectId(featured_property_id)}, submit)
+            flash("The Featured property was successfully edited and updated")
+            return redirect(url_for("get_featured_properties"))
+        featured_property = mongo.db.featured_properties.find_one({
+            "_id": ObjectId(featured_property_id)})
+
+        categories = mongo.db.categories.find().sort("category_name", 1)
+    else:
+        flash('You are not authorised to view this page')
+        return redirect(url_for("get_featured_properties"))
+
+    return render_template("edit_featured_property.html",
+                           featured_property=featured_property, categories=categories)
 
 
 if __name__ == "__main__":

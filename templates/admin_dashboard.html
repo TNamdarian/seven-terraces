@@ -28,14 +28,14 @@
                         </div>
                     </div>
                 </div>
-                <h4 class=" manage-properties-h">Featured Property Section</h4>
+                <h4 class="manage-properties-h">Featured Property Section</h4>
                 <p class="manage-featured-p">Here you can add featured items that appear on the home page each month.</p>
                 <p class="manage-featured-p">You can edit the featured items directly on the home page.</p>
                 <div class="center-align featured-btn">
                     <!-- Add Property Button-->
-                    <a href="#" class="waves-effect waves-light general-button"><i class="material-icons left btn-icon">add</i>Add Featured Property</a>
+                    <a href="{{ url_for('add_featured_property') }}" class="waves-effect waves-light general-button"><i class="material-icons left btn-icon">add</i>Add Featured Property</a>
                     <!-- Delete or Edit Property Button-->
-                    <a href="#" class="waves-effect waves-light general-button"><i class="material-icons left btn-icon">edit</i>Delete or Edit Featured property</a>
+                    <a href="{{ url_for('get_featured_properties') }}" class="waves-effect waves-light general-button"><i class="material-icons left btn-icon">edit</i>Delete or Edit Featured property</a>
                 </div>
             </div>
         </div>
@@ -57,7 +57,7 @@
                 <p class="manage-featured-p">Here you can manage the current categories of properties.</p>
                 <!-- Add category button -->
                 <div class=" property-btn-c center-align">
-                    <a href="#" class="waves-effect waves-light general-button"><i class="material-icons left btn-icon">add</i>Add Category</a>
+                    <a href="{{ url_for('add_category') }}" class="waves-effect waves-light general-button"><i class="material-icons left btn-icon"></i>Add Category</a>
                 </div>
                 <!-- Current Categories -->
                 <div class="container container-manage-cat">
@@ -71,26 +71,26 @@
                                     <!-- Delete & Edit Buttons -->
                                     <div>
                                         <!-- Delete Btn Modal Trigger-->
-                                        <a class="modal-trigger btn-small delete-btn" href="#{{ category._id }}"><i class="material-icons left">delete_outline</i>Delete</a>
+                                        <a class="modal-trigger btn-small delete-btn" href="#{{ category._id }}"><i class="material-icons left"></i>Delete</a>
                                         <!-- Modal Structure -->
-                                        <div id="{{ category._id }}" class="modal ">
+                                        <div id="{{ category._id }}" class="modal">
                                             <div class="modal-content delete-property-modal-content">
-                                                <i class="material-icons delete-icon">delete_outline</i>
+                                                <i class="material-icons delete-icon"></i>
                                                 <h4>Delete Category</h4>
                                                 <p>Are you sure you want to <u>delete</u> the category?</p>
                                             </div>
                                             <div class="modal-btns">
                                                 <!-- cancel button -->
-                                                <a href="#" class="waves-effect waves-light btn modal-cancel-btn">
+                                                <a href="{{ url_for('admin_dashboard') }}" class="waves-effect waves-light btn modal-cancel-btn">
                                                     Cancel
                                                 </a>
                                                 <!-- submit button -->
                                                 <a href="#" class="btn modal-delete-btn">
-                                                    <i class="material-icons left">delete_outline</i>Delete
+                                                    <i class="material-icons left"></i>Delete
                                                 </a>
                                             </div>
                                         </div>
-                                        <a href="#" class="waves-effect waves-light btn-small edit-btn"><i class="material-icons left">edit_note</i>Edit</a>
+                                        <a href="{{ url_for('delete_category', category_id=category._id) }}" class="waves-effect waves-light btn-small edit-btn"><i class="material-icons left"></i>Edit</a>
                                     </div>
                                 </div>
                             </div>
