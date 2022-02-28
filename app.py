@@ -166,6 +166,28 @@ def delete_property(property_id):
     return redirect(url_for("get_properties"))
 
 
+# --- SEARCH FOR A property FUNCTIONALITY --- #
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    properties = list(mongo.db.properties.find({"$text": {"$search": query}}))
+    for property in properties:
+        try:
+            user = mongo.db.users.find_one({
+                '_id': ObjectId(property['created_by'])
+            })
+            category = mongo.db.categories.find_one({
+                '_id': ObjectId(property['category_name'])
+            })
+            property['created_by'] = user['username']
+            property['category_name'] = category['category_name']
+        except Exception:
+            pass
+    categories = list(mongo.db.categories.find().sort("category_name", 1))
+    return render_template("properties.html", properties=properties,
+                           categories=categories)
+
+
 # --- ADMIN DASHBOARD FUNCTIONALITY --- #
 @app.route("/admin_dashboard")
 def admin_dashboard():
@@ -286,7 +308,7 @@ def add_category():
             return redirect(url_for("admin_dashboard"))
     else:
         flash('You are not authorised to view this page')
-        return redirect(url_for("get_featured_resources"))
+        return redirect(url_for("get_featured_properties"))
 
     return render_template("add_category.html")
 
@@ -306,7 +328,7 @@ def edit_category(category_id):
         category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
     else:
         flash('You are not authorised to view this page')
-        return redirect(url_for("get_featured_resources"))
+        return redirect(url_for("get_featured_properties"))
     return render_template("edit_category.html", category=category)
 
 

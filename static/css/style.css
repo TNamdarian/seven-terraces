@@ -189,21 +189,88 @@ form i:hover {
     color: var(--youtube);
 }
 
-.input-field .helper-text {
+.input-field .hint-text {
     font-size: 10px;
     color: var(--teal);
     font-style: italic;
 }
 
-.field-row {
-    background-color: var(--grey);
-    border-radius: 10px;
-    padding-top: 10px
+/* Search Properties */
+.search-section {
+    margin-top: 20px;
+    border: 2px rgba(0, 0, 0, 0.1);
 }
 
-.material-icons {
-    font-size: 40px;
-    padding-top: 10px;
+.button-wrapper {
+    margin-top: 16px;
+}
+
+#search-btn {
+    background-color: var(--blue);
+    border-radius: 10px;
+    color: var(--orange);
+    border: 1px solid var(--Orange);
+    padding: 12px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#search-btn:hover {
+    background-color: var(--Orange);
+    color: var(--blue);
+    border: 1px solid var(--Orange);
+}
+
+#reset-btn {
+    padding: 10px;
+    background-color: var(--orange);
+    color: var(--blue);
+    border: 1px solid var(--Orange);
+    border-radius: 10px;
+}
+
+#reset-btn:hover {
+    font-weight: 400;
+    background-color: var(--light-blue);
+    color: var(--blue);
+    border: 1px solid var(--light-blue);
+}
+
+.add-property-btn {
+    padding: 18px 20px 20px;
+    border-radius: 10px;
+    background-color: var(--blue);
+    color: var(--orange);
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.gadd-property-btn:hover {
+    background-color: var(--prange);
+    color: var(--bgBlack);
+    border: 1px solid var(--orange);
+}
+
+/* Add Resource Button */
+.resource-btn-c {
+    margin-bottom: 30px;
+}
+
+.resource-add-btn {
+    background-color: var(--Main-Text);
+    color: var(--Accent);
+    font-weight: 500;
+    padding-top: 8px;
+    padding-bottom: 45px;
+    padding-left: 10px;
+}
+
+.resource-add-btn:hover {
+    background-color: var(--Accent);
+    color: var(--bgBlack);
+    border: 1px solid var(--Main-Text);
 }
 
 /* Footer - Social Media  */
