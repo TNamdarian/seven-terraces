@@ -77,7 +77,7 @@ form i:hover {
     color: var(--blue);
 }
 
-.sign-up-button {
+.sign-up-btn {
     padding: 20px 10px 20px 10px;
     border-radius: 10px;
     background-color: var(--blue);
@@ -87,10 +87,11 @@ form i:hover {
     margin-top: 30px;
 }
 
-.sign-up-button:hover {
-    background-color: var(--orange);
+.sign-up-btn:hover {
+    background-color: var(--light-blue);
     color: var(--blue);
     cursor: pointer;
+    border: 1px solid var(--light-blue);
 }
 
 /* Properties  */
@@ -216,9 +217,10 @@ form i:hover {
 }
 
 #search-btn:hover {
-    background-color: var(--Orange);
+    font-weight: 400;
+    background-color: var(--light-blue);
     color: var(--blue);
-    border: 1px solid var(--Orange);
+    border: 1px solid var(--light-blue);
 }
 
 #reset-btn {
@@ -247,31 +249,12 @@ form i:hover {
     margin-right: 10px;
 }
 
-.gadd-property-btn:hover {
-    background-color: var(--prange);
-    color: var(--bgBlack);
-    border: 1px solid var(--orange);
+.add-property-btn:hover {
+    background-color: var(--light-blue);
+    color: var(--blue);
+    border: 1px solid var(--light-blue);
 }
 
-/* Add Resource Button */
-.resource-btn-c {
-    margin-bottom: 30px;
-}
-
-.resource-add-btn {
-    background-color: var(--Main-Text);
-    color: var(--Accent);
-    font-weight: 500;
-    padding-top: 8px;
-    padding-bottom: 45px;
-    padding-left: 10px;
-}
-
-.resource-add-btn:hover {
-    background-color: var(--Accent);
-    color: var(--bgBlack);
-    border: 1px solid var(--Main-Text);
-}
 
 /* Footer - Social Media  */
 .social-media .icon {
