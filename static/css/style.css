@@ -157,7 +157,7 @@ form i:hover {
     color: var(--blue);
 }
 
-.general-button {
+.add-property-btn {
     padding: 18px 20px 20px;
     border-radius: 10px;
     background-color: var(--blue);
@@ -168,10 +168,10 @@ form i:hover {
     margin-right: 10px;
 }
 
-.general-button:hover {
-    background-color: var(--orange);
+.add-property-btn:hover {
+    background-color: var(--light-blue);
     color: var(--blue);
-    border: 1px solid var(--blue);
+    border: 1px solid var(--light-blue);
 }
 
 .cancel-button {
@@ -233,8 +233,8 @@ form i:hover {
 
 #reset-btn:hover {
     font-weight: 400;
-    background-color: var(--light-blue);
-    color: var(--blue);
+    background-color: var(--black);
+    color: var(--light-blue);
     border: 1px solid var(--light-blue);
 }
 
@@ -255,6 +255,9 @@ form i:hover {
     border: 1px solid var(--light-blue);
 }
 
+.add-property-section {
+    margin-bottom: 50px;
+}
 
 /* Footer - Social Media  */
 .social-media .icon {
