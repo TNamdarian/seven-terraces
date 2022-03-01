@@ -140,6 +140,12 @@ form i:hover {
     color: var(--blue);
 }
 
+/* Profile page */
+.view-link {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
 /* Buttons  */
 .sign-up-btn,
 .view-btn {
@@ -173,7 +179,7 @@ form i:hover {
     margin-right: 10px;
 }
 
-.cancel-btn {
+.cancel-button {
     padding: 18px 20px 20px;
     border-radius: 10px;
     background-color: var(--youtube);
@@ -184,7 +190,7 @@ form i:hover {
     margin-right: 10px;
 }
 
-.cancel-btn:hover {
+.cancel-button:hover {
     background-color: var(--black);
     color: var(--youtube);
 }

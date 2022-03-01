@@ -340,6 +340,43 @@ def delete_category(category_id):
     return redirect(url_for("admin_dashboard"))
 
 
+
+# --- CHANGE PASSWORD FUNCTIONALITY --- #
+@app.route('/change_password/<username>', methods=["GET", "POST"])
+def change_password(username):
+    if request.method == "POST":
+        newPassword = generate_password_hash(request.form.get
+                                             ("password_change"))
+        mongo.db.users.update_one(
+            {"username": username},
+            {'$set':
+                {"password": newPassword}})
+        flash("Your password has been updated")
+        return redirect(url_for("get_properties"))
+    if session:
+        return redirect(url_for("get_properties"))
+    return redirect(url_for(
+                        "profile", username=session["user"]))
+
+
+# --- DELETE PROFILE FUNCTIONALITY --- #
+@app.route('/delete_account/<user_id>', methods=["GET", "POST"])
+def delete_account(user_id):
+    user = mongo.db.users.find_one({'username': session["user"]})
+    # Checks if password matches existing password in database
+    if check_password_hash(user["password"],
+                           request.form.get("confirm_to_delete")):
+        flash("We can confirm that your account has been deleted.")
+        session.pop("user")
+        mongo.db.users.delete_one({"_id": ObjectId(user['_id'])})
+        return redirect(url_for("get_featured_properties"))
+    else:
+        flash("The password you entered was incorrect. Please try again!")
+        return redirect(url_for("profile", user=user.get("username")))
+    # return to home page page
+    return redirect(url_for("get_featured_properties"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

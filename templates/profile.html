@@ -18,7 +18,7 @@
         <div class="col s12 m12 l6">
             <!-- Links to properties page-->
             <div class="view-link center">
-                <!-- Link to resources page -->
+                <!-- Link to properties page -->
                 <a href="{{ url_for('get_properties') }}" class="view-btn">View Properties</a>
             </div>
         </div>
@@ -31,4 +31,79 @@
     </div>
 </div>
 
+<!-- Manage Profile -->
+<section class="container">
+    <div class="row center-align">
+        <div class="col s12 m12 l12 center-align">
+            <!-- Change password -->
+            <div class="center-align">
+                <!-- Change password Modal Trigger -->
+                <a href="#change_password_modal" class="waves-effect waves-light btn change-pw-btn modal-trigger"> <i class="material-icons left">lock_outline</i>
+                    Change Password
+                </a>
+                <!-- Change password Modal Structure -->
+                <div id="change_password_modal" class="modal">
+                    <div class="modal-content">
+                        <h4 class="modal-h">Hi {{ username }}! </h4>
+                        <p>You can change your password here. <br>
+                            Please enter your new password.</p>
+                    </div>
+                    <form method="POST" action="{{ url_for('change_password', username=session['user']) }}" class="change-form container">
+                        <div class="row field-row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">lock_outline</i>
+                                <input id="password_change" name="password_change" type="password" class="validate" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
+                                <label for="password_change">New password</label>
+                                <span class="helper-text" data-error="Type a valid password. It should contain 5-15 characters." data-success="Nice!">Choose a new password between 5-15 characters. You can use numbers and letters.</span>
+                            </div>
+                        </div>
+                        <!--Form Buttons -->
+                        <div>
+                            <!-- Cancel Button -->
+                            <a href="{{ url_for('profile', username=session['user']) }}" class="general-btn">
+                                Cancel
+                            </a>
+                            <!-- Submit Button -->
+                            <button type="submit" class="general-btn" aria-label="Change Password">Change password
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Delete account -->
+            <div class="center-align">
+                <p class="delete-p">Don’t want access to your profile?</p>
+                <!-- Delete account Modal Trigger -->
+                <p class="delete-p"><a class="modal-trigger delete-link redirect-p" href="#deletemodal">Click here to delete your profile.</a></p>
+                <!-- Delete account Modal Structure -->
+                <div id="deletemodal" class="modal ">
+                    <div class="modal-content">
+                        <i class="material-icons prefix" id="delete-warning-icon">error_outline</i>
+                        <h4 class="modal-h">Hi {{ username }}! </h4>
+                        <p class="delete-modal-p">You are about to <u>delete</u> your account! Are you sure you would like to continue?</p>
+                    </div>
+                    <form method="POST" action="{{ url_for('delete_account', user_id=username) }}" class="delete-form container">
+                        <div class="row field-row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">lock_outline</i>
+                                <input id="confirm_to_delete" name="confirm_to_delete" type="password" class="validate" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
+                                <label for="confirm_to_delete">Confirm Your Password</label>
+                            </div>
+                        </div>
+                        <!--Form Buttons -->
+                        <div>
+                            <!-- Cancel Button -->
+                            <a href="{{ url_for('profile', username=session['user']) }}" class="general-btn">
+                                Cancel
+                            </a>
+                            <!-- Submit Button -->
+                            <button type="submit" class="general-btn" aria-label="Delete account">Delete my account
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
