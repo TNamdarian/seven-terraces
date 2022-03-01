@@ -77,23 +77,6 @@ form i:hover {
     color: var(--blue);
 }
 
-.sign-up-btn {
-    padding: 20px 10px 20px 10px;
-    border-radius: 10px;
-    background-color: var(--blue);
-    color: var(--orange);
-    font-weight: 700;
-    font-size: 16px;
-    margin-top: 30px;
-}
-
-.sign-up-btn:hover {
-    background-color: var(--light-blue);
-    color: var(--blue);
-    cursor: pointer;
-    border: 1px solid var(--light-blue);
-}
-
 /* Properties  */
 .card .card-reveal {
     background-color: var(--grey);
@@ -157,6 +140,28 @@ form i:hover {
     color: var(--blue);
 }
 
+/* Buttons  */
+.sign-up-btn,
+.view-btn {
+    padding: 20px 10px 20px 10px;
+    border-radius: 10px;
+    background-color: var(--blue);
+    color: var(--orange);
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 30px;
+}
+
+.sign-up-btn:hover,
+.view-btn:hover,
+.add-property-btn:hover,
+.add-property-btn:hover {
+    background-color: var(--light-blue);
+    color: var(--blue);
+    cursor: pointer;
+    border: 1px solid var(--light-blue);
+}
+
 .add-property-btn {
     padding: 18px 20px 20px;
     border-radius: 10px;
@@ -168,13 +173,7 @@ form i:hover {
     margin-right: 10px;
 }
 
-.add-property-btn:hover {
-    background-color: var(--light-blue);
-    color: var(--blue);
-    border: 1px solid var(--light-blue);
-}
-
-.cancel-button {
+.cancel-btn {
     padding: 18px 20px 20px;
     border-radius: 10px;
     background-color: var(--youtube);
@@ -185,25 +184,9 @@ form i:hover {
     margin-right: 10px;
 }
 
-.cancel-button:hover {
+.cancel-btn:hover {
     background-color: var(--black);
     color: var(--youtube);
-}
-
-.input-field .hint-text {
-    font-size: 10px;
-    color: var(--teal);
-    font-style: italic;
-}
-
-/* Search Properties */
-.search-section {
-    margin-top: 20px;
-    border: 2px rgba(0, 0, 0, 0.1);
-}
-
-.button-wrapper {
-    margin-top: 16px;
 }
 
 #search-btn {
@@ -249,14 +232,24 @@ form i:hover {
     margin-right: 10px;
 }
 
-.add-property-btn:hover {
-    background-color: var(--light-blue);
-    color: var(--blue);
-    border: 1px solid var(--light-blue);
+/* Search Properties */
+.search-section {
+    margin-top: 20px;
+    border: 2px rgba(0, 0, 0, 0.1);
+}
+
+.button-wrapper {
+    margin-top: 16px;
 }
 
 .add-property-section {
     margin-bottom: 50px;
+}
+
+.input-field .hint-text {
+    font-size: 10px;
+    color: var(--teal);
+    font-style: italic;
 }
 
 /* Footer - Social Media  */

@@ -12,5 +12,23 @@
         </div>
     </div>
 </div>
+<!--Access to the properties and featured properties-->
+<div class="container profile-container center-align">
+    <div class="row center-align">
+        <div class="col s12 m12 l6">
+            <!-- Links to properties page-->
+            <div class="view-link center">
+                <!-- Link to resources page -->
+                <a href="{{ url_for('get_properties') }}" class="view-btn">View Properties</a>
+            </div>
+        </div>
+        <div class="col s12 m12 l6">
+            <div class="view-link center">
+                <!-- Link to featured properties page-->
+                <a href="{{ url_for('get_featured_properties') }}" class="view-btn">View Featured Properties</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
