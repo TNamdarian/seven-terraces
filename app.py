@@ -166,7 +166,7 @@ def delete_property(property_id):
     return redirect(url_for("get_properties"))
 
 
-# --- SEARCH FOR A property FUNCTIONALITY --- #
+# --- SEARCH FOR A PROPERTY FUNCTIONALITY --- #
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
