@@ -47,7 +47,7 @@
                         <p>You can change your password here. <br>
                             Please enter your new password.</p>
                     </div>
-                    <form method="POST" action="{{ url_for('change_password', username=session['user']) }}" class="change-form container">
+                    <form method="POST" action="{{ url_for('change_password', username=session['user']) }}" class="container warning">
                         <div class="row field-row">
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">lock_outline</i>
@@ -81,7 +81,7 @@
                     <h4 class="modal-h">Hi {{ username }}! </h4>
                     <p class="delete-modal-p">You are about to <u>delete</u> your account! Are you sure you would like to continue?</p>
                 </div>
-                <form method="POST" action="{{ url_for('delete_account', user_id=username) }}">
+                <form method="POST" action="{{ url_for('delete_account', user_id=username) }}" class="warning container">
                     <div class="row field-row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">lock_outline</i>

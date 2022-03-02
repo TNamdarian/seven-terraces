@@ -182,7 +182,8 @@ nav h4 {
     border-radius: 20px;
 }
 
-#delete-warning-icon {
+#delete-warning-icon,
+.warning {
     color: var(--orange);
     font-size: 50px;
 }
@@ -192,7 +193,8 @@ nav h4 {
 }
 
 /* Form - Sing UP Page */
-form i {
+form.sign-up-form,
+form.sign-in-form {
     color: var(--orange);
 }
 
@@ -317,7 +319,8 @@ form i:hover {
     color: var(--blue);
     font-weight: 700;
     margin: 0px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
 .delete-link {
