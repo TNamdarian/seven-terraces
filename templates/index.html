@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Banner Section -->
+<div class="container banner">
+    <div class="row banner-row ">
+        <!-- Banner Text-->
+        <div class="col s12 m12 l6">
+            <h1 class="home-heading">Welcome to Seven Terraces!</h1>
+            <p class="home-p"> Where you can source & inveset in properties and make your money work for you for free! </p>
+            <a href="#featured-section" class="waves-effect waves-light btn" id="home-featured-btn">View Featured Properties</a>
+        </div>
+        <!-- Banner Image -->
+        <div class="col s12 m12 l6">
+            <div class="triangle-right"></div>
+            <img src="{{ url_for('static', filename='images/house_searching.svg') }}" alt="a house" class="banner-img">
+            <div class="triangle-left"></div>
+        </div>
+    </div>
+</div>
+<div class="container form-container">
+    <!-- Page Header -->
+    <div class="row property-header">
+        <div class="col s12 m12 l6">
+            <h1 class="center-align add-property-heading">Featured Properties.</h1>
+        </div>
+        <div class="col s12 m12 l6 center-align">
+            <img src="{{ url_for('static', filename='images/add_property.svg') }}" alt="add property">
+        </div>
+    </div>
+    <!-- Property Cards -->
+    {% if properties|length > 0 %}
+    <div class="row">
+        {% for property in properties %}
+        <div class="col s12 m6 l3">
+            <div class="card sticky-action blue-section property-card">
+                <!-- Card Img -->
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{{ property.img_link }}">
+                </div>
+                <!-- Card Category -->
+                <div class="card-content">
+                    <h4 class="card-title activator">{{ property.category_name }}<i class="fas fa-caret-down right"></i></h4>
+                </div>
+                <!-- Card Reveal -->
+                <div class="card-reveal">
+                    <h5 class="card-title">
+                        {{ property.property_name }}<i class="fas fa-xmark right"></i></h5>
+                    <p>{{ property.property_description }}</p>
+                    <p>{{ property.property_added_date }}</p>
+                    <p>{{ property.created_by }}</p>
+                </div>
+                {% if session.user|lower == property.created_by|lower %}
+                <!-- Modal Trigger -->
+                <a class="waves-effect waves-light btn modal-trigger" href="#modal1{{ property._id }}"><i class="material-icons left"></i>Delete</a>
+                <a href="{{ url_for('edit_property', property_id=property._id) }}" class="waves-effect waves-light btn-small model-edit-btn"><i class="material-icons left"></i>Edit</a>
+                {% endif %}
+                <div id="modal1{{ property._id }}" class="modal">
+                    <div class="modal-content delete-property-modal-content">
+                        <i class="material-icons delete-icon"></i>
+                        <h4>Delete Property</h4>
+                        <p>Are you sure you want to <u>delete</u> the proprty? If you delete it, you will no longer can see your property!</p>
+                    </div>
+                    <div class="modal-btns">
+                        <!-- cancel button -->
+                        <a href="{{ url_for('get_properties') }}" class="waves-effect waves-light btn modal-cancel-btn">
+                            Cancel
+                        </a>
+                        <!-- submit button -->
+                        <a href="{{ url_for('delete_property', property_id=property._id) }}" class="btn modal-delete-btn"><i class="material-icons left"></i>Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <h3 class="red-text text-darken-4 centre-align">No results found</h3>
+    {% endif %}
+</div>
+
+{% endblock %}
