@@ -3,7 +3,7 @@
 
 <!-- Banner Section -->
 <div class="container banner">
-    <div class="row banner-row ">
+    <div class="row banner-row">
         <!-- Banner Text-->
         <div class="col s12 m12 l6">
             <h1 class="home-heading">Welcome to Seven Terraces!</h1>
@@ -17,9 +17,7 @@
             <div class="triangle-left"></div>
         </div>
     </div>
-</div>
-<div class="container form-container">
-    <!-- Page Header -->
+    <!-- Featured Properties Header -->
     <div class="row property-header">
         <div class="col s12 m12 l6">
             <h1 class="center-align add-property-heading">Featured Properties.</h1>
@@ -28,6 +26,7 @@
             <img src="{{ url_for('static', filename='images/add_property.svg') }}" alt="add property">
         </div>
     </div>
+
     <!-- Property Cards -->
     {% if properties|length > 0 %}
     <div class="row">

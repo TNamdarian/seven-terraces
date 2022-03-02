@@ -34,7 +34,7 @@
     background-color: var(--grey);
 }
 
-/* Header */
+/* Navbar */
 nav ul a {
     font-size: 20px;
 }
@@ -46,7 +46,11 @@ a.brand-logo {
 nav ul a,
 a.brand-logo,
 ul h4 {
-    color: var(--orange);
+    color: var(--light-blue);
+}
+
+a.brand-logo {
+    margin-left: 30px;
 }
 
 nav ul a:hover {
@@ -55,7 +59,12 @@ nav ul a:hover {
 
 nav a,
 nav h4 {
-    color: var(--orange);
+    color: var(--light-blue);
+}
+
+.logo-underline {
+    border-bottom: 5px solid var(--orange);
+    margin-bottom: 10px;
 }
 
 /* Flashed Messages */
@@ -66,6 +75,52 @@ nav h4 {
 
 .flashed-container {
     background-color: var(--orange);
+}
+
+/* Home Page */
+.banner {
+    min-width: 100vw;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 8px;
+    min-height: 100vh;
+}
+
+.banner-row {
+    margin-top: 50px;
+}
+
+.home-heading {
+    font-weight: 900;
+    font-size: 70px;
+    margin-top: 10px;
+}
+
+.home-p {
+
+    padding-bottom: 30px;
+    color: var(--black);
+    font-size: 30px;
+}
+
+#home-featured-btn {
+    background-color: var(--blue);
+    color: var(--orange);
+    font-weight: 700;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-bottom: 100px;
+}
+
+#home-featured-btn:hover {
+    background-color: var(--light-blue);
+    color: var(--blue);
+    border: 1px solid var(--light-blue);
+}
+
+.banner-img {
+    width: 90%;
 }
 
 /* Form - Sing UP Page */

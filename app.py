@@ -212,16 +212,13 @@ def get_featured_properties():
             category = mongo.db.categories.find_one({
                 '_id': ObjectId(featured_property['category_name'])
             })
-      
             if category:
                 featured_property['category_name'] = category['category_name']
-         
             else:
                 featured_property['category_name'] = "No Category"
         except Exception:
             pass
- 
-    return render_template("properties.html", featured_properties=featured_properties)
+    return render_template("index.html", featured_properties=featured_properties)
 
 
 # --- ADD A FEATURED PPROPERTY FUNCTIONALITY --- #
@@ -338,7 +335,6 @@ def delete_category(category_id):
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
     return redirect(url_for("admin_dashboard"))
-
 
 
 # --- CHANGE PASSWORD FUNCTIONALITY --- #
