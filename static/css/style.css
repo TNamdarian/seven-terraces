@@ -177,6 +177,20 @@ nav h4 {
     text-align: center;
 }
 
+.delete-modal {
+    background-color: var(--grey);
+    border-radius: 20px;
+}
+
+#delete-warning-icon {
+    color: var(--orange);
+    font-size: 50px;
+}
+
+.modal-content h3 {
+    font-size: 24px;
+}
+
 /* Form - Sing UP Page */
 form i {
     color: var(--orange);

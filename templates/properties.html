@@ -58,22 +58,26 @@
                 <div class="card-reveal">
                     <h5 class="card-title">
                         {{ property.property_name }}<i class="fas fa-xmark right"></i></h5>
+                    <span>Description:</span>
                     <p>{{ property.property_description }}</p>
+                    <span>Date added:</span>
                     <p>{{ property.property_added_date }}</p>
-                    <p>{{ property.created_by }}</p>
+                    <span>Added by:</span>
+                    <p>{{ property.created_by|capitalize }}</p>
                 </div>
                 {% if session.user|lower == property.created_by|lower %}
                 <!-- Modal Trigger -->
-                <a class="waves-effect waves-light btn-small modal-delete-btn modal-trigger" href="#modal1{{ property._id }}"><i class="material-icons left"></i>Delete</a>
-                <a href="{{ url_for('edit_property', property_id=property._id) }}" class="waves-effect waves-light btn-small modal-edit-btn"><i class="material-icons left"></i>Edit</a>
+                <a class="waves-effect waves-light btn-small modal-delete-btn modal-trigger center-align" href="#modal1{{ property._id }}"><i class="material-icons left"></i>Delete</a>
+                <a href="{{ url_for('edit_property', property_id=property._id) }}" class="waves-effect waves-light btn-small modal-edit-btn center-align"><i class=" material-icons left"></i>Edit</a>
                 {% endif %}
-                <div id="modal1{{ property._id }}" class="modal">
+                <!-- Modal Structure -->
+                <div id="modal1{{ property._id }}" class="modal delete-modal">
                     <div class="modal-content">
                         <i class="material-icons prefix" id="delete-warning-icon">error_outline</i>
-                        <h4>Delete Property</h4>
+                        <h3>Delete Property</h3>
                         <p>Are you sure you want to <u>delete</u> the proprty? If you delete it, you will no longer can see your property!</p>
                     </div>
-                    <div>
+                    <div class="center-align">
                         <!-- cancel button -->
                         <a href="{{ url_for('get_properties') }}" class="waves-effect waves-light btn modal-cancel-btn"><i class="fa-solid fa-ban"></i>
                         </a>
