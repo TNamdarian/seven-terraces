@@ -57,52 +57,51 @@
                             </div>
                         </div>
                         <!--Form Buttons -->
-                        <div>
+                        <div class="center-align">
                             <!-- Cancel Button -->
-                            <a href="{{ url_for('profile', username=session['user']) }}" class="cancel-pw-modal-button">
-                                Cancel
+                            <a href="{{ url_for('profile', username=session['user']) }}" class="waves-effect waves-light btn modal-cancel-btn">
+                                <i class="fa-solid fa-ban"></i>
                             </a>
                             <!-- Submit Button -->
-                            <button type="submit" class="change-pw-modal-btn" aria-label="Change Password">Change password
-                            </button>
+                            <button type="submit" class="btn modal-delete-btn" aria-label="Change Password">Change Password</button>
                         </div>
-                    </form>
                 </div>
-            </div>
-            <!-- Delete account -->
-            <div class="center-align">
-                <p class="delete-p">Don’t want access to your profile?</p>
-                <!-- Delete account Modal Trigger -->
-                <p class="delete-p"><a class="modal-trigger delete-link redirect-p" href="#deletemodal">Click here to delete your profile.</a></p>
-                <!-- Delete account Modal Structure -->
-                <div id="deletemodal" class="modal ">
-                    <div class="modal-content">
-                        <i class="material-icons prefix" id="delete-warning-icon">error_outline</i>
-                        <h4 class="modal-h">Hi {{ username }}! </h4>
-                        <p class="delete-modal-p">You are about to <u>delete</u> your account! Are you sure you would like to continue?</p>
-                    </div>
-                    <form method="POST" action="{{ url_for('delete_account', user_id=username) }}" class="delete-form container">
-                        <div class="row field-row">
-                            <div class="input-field col s12">
-                                <i class="material-icons prefix">lock_outline</i>
-                                <input id="confirm_to_delete" name="confirm_to_delete" type="password" class="validate" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
-                                <label for="confirm_to_delete">Confirm Your Password</label>
-                            </div>
-                        </div>
-                        <!--Form Buttons -->
-                        <div>
-                            <!-- Cancel Button -->
-                            <a href="{{ url_for('profile', username=session['user']) }}" class="general-btn">
-                                Cancel
-                            </a>
-                            <!-- Submit Button -->
-                            <button type="submit" class="general-btn" aria-label="Delete account">Delete my account
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
+        <!-- Delete account -->
+        <div class="center-align">
+            <p class="delete-p">Don’t want access to your profile?</p>
+            <!-- Delete account Modal Trigger -->
+            <p class="delete-p"><a class="modal-trigger delete-link redirect-p" href="#deletemodal">Click here to delete your profile.</a></p>
+            <!-- Delete account Modal Structure -->
+            <div id="deletemodal" class="modal delete-modal">
+                <div class="modal-content">
+                    <i class="material-icons prefix" id="delete-warning-icon">error_outline</i>
+                    <h4 class="modal-h">Hi {{ username }}! </h4>
+                    <p class="delete-modal-p">You are about to <u>delete</u> your account! Are you sure you would like to continue?</p>
+                </div>
+                <form method="POST" action="{{ url_for('delete_account', user_id=username) }}">
+                    <div class="row field-row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">lock_outline</i>
+                            <input id="confirm_to_delete" name="confirm_to_delete" type="password" class="validate" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
+                            <label for="confirm_to_delete">Confirm Your Password</label>
+                        </div>
+                    </div>
+                    <!--Form Buttons -->
+                    <div class="center-align">
+                        <!-- Cancel Button -->
+                        <a href="{{ url_for('profile', username=session['user']) }}" class="btn modal-cancel-btn"><i class="fa-solid fa-ban"></i>
+                        </a>
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn modal-delete-btn" aria-label="Delete account"><i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     </div>
 </section>
 {% endblock %}
