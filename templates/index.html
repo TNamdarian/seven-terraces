@@ -8,7 +8,7 @@
         <div class="col s12 m12 l6">
             <h1 class="home-heading">Welcome to Seven Terraces!</h1>
             <p class="home-p"> Where you can source & inveset in properties and make your money work for you for free! </p>
-            <a href="#featured-section" class="waves-effect waves-light btn" id="home-featured-btn">View Featured Properties</a>
+            <a href="#featured-section" class="waves-effect waves-light" id="home-featured-btn">View Featured Properties</a>
         </div>
         <!-- Banner Image -->
         <div class="col s12 m12 l6">
@@ -26,7 +26,6 @@
             <img src="{{ url_for('static', filename='images/add_property.svg') }}" alt="add property">
         </div>
     </div>
-
     <!-- Property Cards -->
     {% if properties|length > 0 %}
     <div class="row">

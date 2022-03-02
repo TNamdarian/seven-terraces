@@ -109,8 +109,9 @@ nav h4 {
     color: var(--orange);
     font-weight: 700;
     font-size: 18px;
-    border-radius: 5px;
+    border-radius: 10px;
     margin-bottom: 100px;
+    padding: 20px 20px 20px 20px;
 }
 
 #home-featured-btn:hover {
@@ -122,6 +123,9 @@ nav h4 {
 .banner-img {
     width: 90%;
 }
+
+/* Properties Page */
+
 
 /* Form - Sing UP Page */
 form i {
@@ -208,6 +212,7 @@ form i:hover {
     border: 1px solid var(--orange);
     color: var(--blue);
     margin-bottom: 30px;
+    padding: 10px 20px 10px 20px;
     border-radius: 5px;
     font-size: 18px;
     font-weight: 500;
@@ -223,16 +228,17 @@ form i:hover {
 
 .change-pw-modal-btn {
     margin-left: 20px;
+    padding: 10px 20px 10px 20px;
 }
 
 .cancel-pw-modal-button {
     background-color: var(--youtube);
     border: 1px solid var(--youtube);
     color: var(--blue);
-    margin-bottom: 30px;
     border-radius: 5px;
     font-size: 18px;
     font-weight: 500;
+    padding: 10px 20px 10px 20px;
 }
 
 .cancel-pw-modal-button:hover {
@@ -287,21 +293,22 @@ form i:hover {
 .sign-up-btn:hover,
 .view-btn:hover,
 .add-property-btn:hover,
-.add-property-btn:hover {
+.add-property-btn:hover,
+.general-btn:hover {
     background-color: var(--light-blue);
     color: var(--blue);
     cursor: pointer;
-    border: 1px solid var(--light-blue);
+    border: 0px solid var(--light-blue);
 }
 
-.add-property-btn {
+.add-property-btn,
+.general-btn {
     padding: 18px 20px 20px;
     border-radius: 10px;
     background-color: var(--blue);
     color: var(--orange);
     font-weight: 600;
     font-size: 16px;
-    margin-top: 10px;
     margin-right: 10px;
 }
 
@@ -312,7 +319,6 @@ form i:hover {
     color: var(--blue);
     font-weight: 600;
     font-size: 16px;
-    margin-top: 10px;
     margin-right: 10px;
 }
 
