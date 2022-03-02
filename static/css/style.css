@@ -125,7 +125,57 @@ nav h4 {
 }
 
 /* Properties Page */
+/* Propertices Cards Delete and Edit Button */
+.modal-cancel-btn,
+.modal-edit-btn {
+    background-color: var(--light-blue);
+    color: var(--blue);
+    border-style: 1px solid var(--orange);
+    border-radius: 8px;
+    border-color: var(--orange);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 10px;
+}
 
+.modal-cancel-btn:hover,
+.modal-edit-btn:hover {
+    background-color: var(--teal);
+    color: var(--blue);
+    border-style: 1px solid var(--teal);
+}
+
+.modal-delete-btn {
+    background-color: var(--youtube);
+    border: 1px solid var(--youtube);
+    color: var(--blue);
+    border-radius: 8px;
+    border-color: var(--youtube);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 10px;
+}
+
+.modal-delete-btn:hover {
+    background-color: var(--black);
+    color: var(--youtube);
+    border: 1px solid var(--black);
+}
+
+.card .card-title {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.modal-content {
+    text-align: center;
+}
 
 /* Form - Sing UP Page */
 form i {
