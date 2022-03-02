@@ -192,6 +192,11 @@ nav h4 {
     font-size: 24px;
 }
 
+/* Add Properties Page */
+.form-container i {
+    color: var(--orange)
+}
+
 /* Form - Sing UP Page */
 form.sign-up-form,
 form.sign-in-form {
