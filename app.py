@@ -366,7 +366,7 @@ def delete_account(user_id):
     # Checks if password matches existing password in database
     if check_password_hash(user["password"],
                            request.form.get("confirm_to_delete")):
-        flash("We can confirm that your account has been deleted.")
+        flash("Your account has been deleted successfully.")
         session.pop("user")
         mongo.db.users.delete_one({"_id": ObjectId(user['_id'])})
         return redirect(url_for("get_featured_properties"))

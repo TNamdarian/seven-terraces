@@ -30,7 +30,6 @@
         </div>
     </div>
 </div>
-
 <!-- Manage Profile -->
 <section class="container">
     <div class="row center-align">
@@ -60,11 +59,11 @@
                         <!--Form Buttons -->
                         <div>
                             <!-- Cancel Button -->
-                            <a href="{{ url_for('profile', username=session['user']) }}" class="general-btn">
+                            <a href="{{ url_for('profile', username=session['user']) }}" class="cancel-pw-modal-button">
                                 Cancel
                             </a>
                             <!-- Submit Button -->
-                            <button type="submit" class="general-btn" aria-label="Change Password">Change password
+                            <button type="submit" class="change-pw-modal-btn" aria-label="Change Password">Change password
                             </button>
                         </div>
                     </form>

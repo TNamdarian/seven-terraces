@@ -146,6 +146,77 @@ form i:hover {
     margin-bottom: 30px;
 }
 
+/* Change Password Button*/
+.change-pw-btn,
+.change-pw-modal-btn {
+    background-color: var(--orange);
+    border: 1px solid var(--orange);
+    color: var(--blue);
+    margin-bottom: 30px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.change-pw-btn:hover,
+.change-pw-modal-btn:hover {
+    background-color: var(--light-blue);
+    border: 1px solid var(--light-blue);
+    color: var(--blue);
+}
+
+.change-pw-modal-btn {
+    margin-left: 20px;
+}
+
+.cancel-pw-modal-button {
+    background-color: var(--youtube);
+    border: 1px solid var(--youtube);
+    color: var(--blue);
+    margin-bottom: 30px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.cancel-pw-modal-button:hover {
+    background-color: var(--black);
+    color: var(--youtube);
+    border: 1px solid var(--black);
+}
+
+/* Delete Password Button*/
+.delete-p {
+    font-size: 18px;
+    color: var(--blue);
+    font-weight: 700;
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+.delete-link {
+    color: var(--blue);
+    border-bottom: 5px solid var(--orange);
+    font-weight: 700;
+}
+
+/* Modal style*/
+#change_password_modal {
+    border-radius: 8px;
+    background-color: var(--grey);
+}
+
+.change-form {
+    padding-bottom: 30px;
+}
+
+.modal-h {
+    text-transform: capitalize;
+    font-size: 18px;
+    font-weight: 500;
+}
+
 /* Buttons  */
 .sign-up-btn,
 .view-btn {
