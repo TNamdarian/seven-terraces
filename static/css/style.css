@@ -487,3 +487,12 @@ footer a .fa-twitter.icon {
 footer .copyright {
     color: var(--red)
 }
+
+/* Email */
+#alert {
+    position: fixed;
+    top: 5px;
+    margin: auto 50%;
+    transform: translateX(-50%);
+    width: 60vh
+}

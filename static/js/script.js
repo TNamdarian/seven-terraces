@@ -56,8 +56,9 @@ $(document).ready(function() {
 
 // ..................... Email functionality 
 function sendMail(contactForm) {
-    emailjs.send("gmail", "NamaStay", {
+    emailjs.send("gmail", "SevenTerraces", {
             "from_name": contactForm.name.value,
+            "from_telephone": contactForm.telephone.value,
             "from_email": contactForm.email.value,
             "message": contactForm.message.value
         })
