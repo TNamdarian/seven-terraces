@@ -29,6 +29,13 @@
 .blue-section {
     background-color: var(--blue);
 }
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    overflow-x: hidden;
+}
 
 .grey-section {
     background-color: var(--grey);
@@ -201,6 +208,7 @@ nav h4 {
 form.sign-up-form,
 form.sign-in-form {
     color: var(--orange);
+    border-radius: 10px;
 }
 
 form i:hover {
@@ -486,6 +494,25 @@ footer a .fa-twitter.icon {
 
 footer .copyright {
     color: var(--red)
+}
+
+/* Contact Page */
+.contact-form {
+    border-radius: 10px;
+}
+
+.submit-btn{ 
+        background-color: var(--blue);
+        border: 1px solid var(--blue);
+        color: var(--orange);
+        border-radius: 10px;
+        font-weight: 500;
+}
+
+.submit-btn:hover{ 
+    background-color: var(--light-blue);
+    border: 1px solid var(--light-blue);
+    color: var(--blue);
 }
 
 /* Email */
