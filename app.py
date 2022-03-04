@@ -112,7 +112,7 @@ def profile(username):
 # --- LOG OUT FUNCTIONALITY --- #
 @app.route("/logout")
 def logout():
-    # remove user from session cookie
+    # Delete user from session cookie
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("get_properties"))
@@ -267,8 +267,8 @@ def edit_featured_property(featured_property_id):
                 "featured_added_date": request.form.get("featured_added_date"),
                 "featured_img": request.form.get("featured_img")
             }
-            mongo.db.featured_properties.update({
-                                "_id": ObjectId(featured_property_id)}, submit)
+            mongo.db.featured_properties.update_one({
+                                "_id": ObjectId(featured_property_id)}, {"$set": submit})
             flash("The Featured property was successfully edited and updated")
             return redirect(url_for("get_featured_properties"))
         featured_property = mongo.db.featured_properties.find_one({
@@ -286,7 +286,7 @@ def edit_featured_property(featured_property_id):
 # --- DELETE A FEATURED PROPERTY FUNCTIONALITY --- #
 @app.route("/delete_featured_property/<featured_property_id>")
 def delete_featured_property(featured_property_id):
-    mongo.db.featured_properties.remove({"_id": ObjectId(featured_property_id)})
+    mongo.db.featured_properties.delete_one({"_id": ObjectId(featured_property_id)})
     flash("The Featured property was successfully deleted")
     return redirect(url_for("get_featured_properties"))
 
@@ -332,7 +332,7 @@ def edit_category(category_id):
 # --- DELETE A CATEGORY FUNCTIONALITY --- #
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
-    mongo.db.categories.remove({"_id": ObjectId(category_id)})
+    mongo.db.categories.delete_one({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
     return redirect(url_for("admin_dashboard"))
 
