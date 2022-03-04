@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container form-container">
+    <!-- Page Header -->
+    <div class="row property-header">
+        <div class="col s12 m12 l6">
+            <h1 class="center-align add-property-heading">If you're interested in viewing any of these properties, please contact us.</h1>
+        </div>
+        <div class="col s12 m12 l6 center-align">
+            <img src="{{ url_for('static', filename='images/add_property.svg') }}" alt="add property">
+        </div>
+    </div>
+    <div class="row">
+        <form class="col s12 m8 offset-m2 contact-form" onsubmit="return sendMail(this);" target="_blank">
+            <!-- Option Selection -->
+            <div class="row field-row">
+                <div class="input-field col s12">
+                    <i class="fa-solid fa-folder prefix"></i>
+                    <select id="option_name" name="option_name" class="validate" required>
+                        <option selected>What's it regarding?</option>
+                        <option value="1">I am inquiring about a residential property.</option>
+                        <option value="2">I'd like to register a commercial property.</option>
+                        <option value="3">I want to book a retreat.</option>
+                    </select>
+                    <label for="option_name">Category</label>
+                </div>
+            </div>
+            <!-- Full Name -->
+            <div class="row field-row">
+                <div class="input-field col s12 l6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="name" name="name" type="text" class="validate" placeholder="Your name" required>
+                    <label class="active" for="name">Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">phone</i>
+                    <input id="icon_telephone" type="tel" class="validate">
+                    <label for="icon_telephone">Telephone</label>
+                </div>
+            </div>
+            <!-- Email -->
+            <div class="row field-row">
+                <div class="input-field col s12 l6">
+                    <i class="material-icons prefix">email</i>
+                    <input id="emailaddress" name="emailaddress" type="email" class="validate" placeholder="Your emailaddress" required>
+                    <label class="active" for="emailaddress">Email</label>
+                </div>
+            </div>
+            <!-- Input message-->
+            <div class="row field-row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">mode_edit</i>
+                    <label class="active" for="message">Message</label>
+                    <textarea placeholder="Write your message here" id="message" name="message" class="materialize-textarea validate" minlength="5" maxlength="500" required></textarea>
+                </div>
+            </div>
+            <!-- Form Buttons -->
+            <button class="btn submit-btn" type="submit">Send</button>
+            <div id="success-alert" style="display:none">
+                <p>Your email has been successfully sent!</p>
+            </div>
+            <div id="error-alert" style="display:none">
+                <p>Your email was not sent, please try again</p>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
