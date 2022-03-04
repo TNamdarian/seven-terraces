@@ -245,7 +245,7 @@ def add_featured_property():
     else:
         flash('You are not authorised to view this page')
         return redirect(url_for("get_featured_properties"))
-  
+    categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_featured_property.html", categories=categories)
 
 
