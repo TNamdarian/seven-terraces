@@ -29,11 +29,12 @@
 .blue-section {
     background-color: var(--blue);
 }
+
 html {
     scroll-behavior: smooth;
 }
 
-body{
+body {
     overflow-x: hidden;
 }
 
@@ -501,15 +502,15 @@ footer .copyright {
     border-radius: 10px;
 }
 
-.submit-btn{ 
-        background-color: var(--blue);
-        border: 1px solid var(--blue);
-        color: var(--orange);
-        border-radius: 10px;
-        font-weight: 500;
+.submit-btn {
+    background-color: var(--blue);
+    border: 1px solid var(--blue);
+    color: var(--orange);
+    border-radius: 10px;
+    font-weight: 500;
 }
 
-.submit-btn:hover{ 
+.submit-btn:hover {
     background-color: var(--light-blue);
     border: 1px solid var(--light-blue);
     color: var(--blue);
@@ -522,4 +523,110 @@ footer .copyright {
     margin: auto 50%;
     transform: translateX(-50%);
     width: 60vh
+}
+
+/* Dashboard Page  */
+
+.manage-properties,
+.cat-section {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-radius: 8px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.btn-floating {
+    background-color: var(--orange);
+}
+
+.modal-content,
+.cat-section {
+    border-radius: 10px;
+}
+
+.info-modal-h {
+    color: var(--black);
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.info-modal-p {
+    color: var(--black);
+    font-size: 18px;
+}
+
+.manage-properties-h {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.manage-featured-p {
+    font-size: 16px;
+}
+
+.categories-card {
+    background-color: var(--white);
+}
+
+.manage-categories-h {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.featured-btn {
+    margin-top: 20px;
+}
+
+.manage-card {
+    border-radius: 8px;
+    background-color: var(--Accent);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.container-manage-cat {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 15px 30px;
+}
+
+.cat-name-p {
+    font-size: 18px;
+    font-weight: 700;
+    padding-bottom: 10px;
+}
+
+/* Add Property Button */
+.property-btn {
+    margin-bottom: 30px;
+}
+
+.property-add-btn {
+    background-color: var(--Main-Text);
+    color: var(--Accent);
+    font-weight: 500;
+    padding-top: 8px;
+    padding-bottom: 45px;
+    padding-left: 10px;
+}
+
+.add-cat-btn,
+.add-featured-p-btn {
+    padding: 18px 20px 20px;
+    border-radius: 10px;
+    background-color: var(--blue);
+    color: var(--orange);
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.add-cat-btn:hover,
+.add-featured-p-btn:hover {
+    background-color: var(--light-blue);
+    color: var(--blue);
+    border: 1px solid var(--light-blue);
 }
