@@ -318,7 +318,7 @@ def edit_category(category_id):
             submit = {
                 "category_name": request.form.get("category_name")
             }
-            mongo.db.categories.update({"_id": ObjectId(category_id)}, submit)
+            mongo.db.categories.update_one({"_id": ObjectId(category_id)}, {"$set": submit})
             flash("Category Successfully Updated")
             return redirect(url_for("admin_dashboard"))
       
