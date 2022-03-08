@@ -56,7 +56,7 @@ nav ul a {
 nav ul a,
 a.brand-logo,
 ul h4 {
-    color: var(--light-blue);
+    color: var(--orange);
 }
 
 a.brand-logo {
@@ -69,12 +69,7 @@ nav ul a:hover {
 
 nav a,
 nav h4 {
-    color: var(--light-blue);
-}
-
-.logo-underline {
-    border-bottom: 5px solid var(--orange);
-    margin-bottom: 10px;
+    color: var(--orange);
 }
 
 /* Flashed Messages */
@@ -85,6 +80,7 @@ nav h4 {
 
 .flashed-container {
     background-color: var(--orange);
+    border-radius: 10px;
 }
 
 /* Home Page */
