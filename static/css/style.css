@@ -43,12 +43,14 @@ body {
 }
 
 /* Navbar */
-nav ul a {
-    font-size: 20px;
+.nav-wrapper img {
+    width: 15vh;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-a.brand-logo {
-    font-size: 36px;
+nav ul a {
+    font-size: 20px;
 }
 
 nav ul a,
@@ -252,7 +254,7 @@ form i:hover {
 /* ADD PROPERTY PAGE  */
 .property-header {
     border-radius: 20px;
-    margin-top: 20px;
+    margin-top: 70px;
     padding-bottom: 20px;
     background-color: transparent;
     background-image: url(/static/images/add-property-heading.png);
@@ -475,6 +477,10 @@ form i:hover {
 .social-media .icon {
     font-size: 20px;
     padding-right: 20px;
+}
+
+.social-media {
+    margin-top: 30px;
 }
 
 footer a .fa-youtube.icon {
