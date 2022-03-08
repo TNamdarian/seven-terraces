@@ -2,31 +2,43 @@
 {% block content %}
 
 
-<h1>This page will be amended. I'd like to see if the function works or not.</h1>
-<h3 class="light-blue-text text-darken-4 center-align">Categories.</h3>
-
-<div class="row">
-    <div class="col s12 center-align">
-        <a href="{{ url_for('add_category') }}" class="btn-large light-blue darken-2">
-            Add Category <i class="fas fa-plus-square right"></i>
-        </a>
-    </div>
-</div>
-
-<div class="row">
-    {% for category in categories %}
-    <div class="col s12 m6 l3">
-        <div class="card light-blue darken-4 center-align">
-            <div class="card-content white-text">
-                <span class="card-title">{{ category.category_name }}</span>
-            </div>
-            <div class="card-action">
-                <a href="{{ url_for('edit_category', category_id=category._id) }}" class="btn green accent-4">Edit</a>
-                <a href="{{ url_for('delete_category', category_id=category._id) }}" class="btn red">Delete</a>
-            </div>
+{% extends "base.html" %}
+{% block content %}
+<div class="container form-container">
+    <!-- Page Header -->
+    <div class="row property-header">
+        <div class="col s12 m12 l6">
+            <h1 class="center-align add-property-heading">Add category.</h1>
+        </div>
+        <div class="col s12 m12 l6 center-align">
+            <img src="{{ url_for('static', filename='images/add_property.svg') }}" alt="edit property">
         </div>
     </div>
-    {% endfor %}
+    <div class="row ">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('add_category') }}">
+            <!--Category Name Input -->
+            <div class="row field-row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">folder_open</i>
+                    <input id="category_name" name="category_name" minlength="3" maxlength="20" type="text" class="validate" required>
+                    <label for="category_name">Category Name</label>
+                    <span class="helper-text" data-error="Type a new category name in 3 - 20 characters" data-success="That sounds cool!">Type a new category name in 3 - 20 characters</span>
+                </div>
+            </div>
+            <!-- Form Buttons -->
+            <div class="row center-align">
+                <div class="col s12 center-align">
+                    <!-- Cancel Button -->
+                    <a href="{{ url_for('admin_dashboard')}}" class="cancel-button">
+                        Cancel
+                    </a>
+                    <!-- Add Button -->
+                    <button type="submit" class="general-btn">
+                        Add Category
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
-
 {% endblock %}
