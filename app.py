@@ -11,7 +11,7 @@ if os.path.exists("env.py"):
 
 app = Flask(__name__)
 
-   
+
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
@@ -23,15 +23,27 @@ mongo = PyMongo(app)
 
 # --- ADMIN USER FUNCTION --- #
 def admin():
+    """ Verify is user is in session and is the admin user
+    """
     return session['user'] == 'admin'
 
 
 # --- READ PROPERTIES FUNCTIONALITY --- #
-@app.route("/")
 @app.route("/get_properties")
 def get_properties():
     properties = list(mongo.db.properties.find())
     return render_template("properties.html", properties=properties)
+
+
+@app.route("/update_property_feature/<property_id>", methods=["POST"])
+def update_property_feature(property_id):
+    """ Update property feature
+    """
+    # import pdb;pdb.set_trace()
+    featured = request.json['featured']
+    result = mongo.db.properties.update_one(
+        {"_id": ObjectId(property_id)}, {"$set": {"featured": featured }})
+    return result
 
 
 # --- SIGN UP / REGISTER FUNCTIONALITY --- #
@@ -53,7 +65,7 @@ def register():
         register = {
             "username": request.form.get("username").lower(),
             "email": request.form.get("email"),
-            "password": generate_password_hash(request.form.get("password")), 
+            "password": generate_password_hash(request.form.get("password")),
         }
         mongo.db.users.insert_one(register)
 
@@ -78,11 +90,11 @@ def login():
             # ensure hashed password matches user input
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
-                        session["user"] = request.form.get("username").lower()
-                        flash("Welcome, {}".format(
-                            request.form.get("username")))
-                        return redirect(url_for(
-                            "profile", username=session["user"]))
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(
+                    request.form.get("username")))
+                return redirect(url_for(
+                    "profile", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -150,7 +162,8 @@ def edit_property(property_id):
             "img_link": request.form.get("img_link"),
             "created_by": session["user"]
         }
-        mongo.db.properties.update_one({"_id": ObjectId(property_id)}, {"$set": submit})
+        mongo.db.properties.update_one(
+            {"_id": ObjectId(property_id)}, {"$set": submit})
         flash("Property successfully updated")
 
     property = mongo.db.properties.find_one({"_id": ObjectId(property_id)})
@@ -205,6 +218,8 @@ def admin_dashboard():
 @app.route('/')
 @app.route("/get_featured_properties")
 def get_featured_properties():
+    """
+    """
     featured_properties = list(mongo.db.featured_properties.find())
 
     for featured_property in featured_properties:
@@ -238,10 +253,10 @@ def add_featured_property():
                     "featured_description"),
                 "featured_added_date": request.form.get("featured_added_date"),
                 "featured_img": request.form.get("featured_img")
-                }
+            }
             mongo.db.featured_properties.insert_one(featured_property)
             flash("Featured Property Successfully Added")
-            return redirect(url_for("get_featured_properties")) 
+            return redirect(url_for("get_featured_properties"))
     else:
         flash('You are not authorised to view this page')
         return redirect(url_for("get_featured_properties"))
@@ -260,7 +275,7 @@ def edit_featured_property(featured_property_id):
                                                     request.form.get(
                                                         "category_name")})
             submit = {
-                 "category_name": ObjectId(category['_id']),
+                "category_name": ObjectId(category['_id']),
                 "featured_name": request.form.get("featured_name"),
                 "featured_description": request.form.get(
                     "featured_description"),
@@ -268,7 +283,7 @@ def edit_featured_property(featured_property_id):
                 "featured_img": request.form.get("featured_img")
             }
             mongo.db.featured_properties.update_one({
-                                "_id": ObjectId(featured_property_id)}, {"$set": submit})
+                "_id": ObjectId(featured_property_id)}, {"$set": submit})
             flash("The Featured property was successfully edited and updated")
             return redirect(url_for("get_featured_properties"))
         featured_property = mongo.db.featured_properties.find_one({
@@ -286,7 +301,8 @@ def edit_featured_property(featured_property_id):
 # --- DELETE A FEATURED PROPERTY FUNCTIONALITY --- #
 @app.route("/delete_featured_property/<featured_property_id>")
 def delete_featured_property(featured_property_id):
-    mongo.db.featured_properties.delete_one({"_id": ObjectId(featured_property_id)})
+    mongo.db.featured_properties.delete_one(
+        {"_id": ObjectId(featured_property_id)})
     flash("The Featured property was successfully deleted")
     return redirect(url_for("get_featured_properties"))
 
@@ -299,7 +315,7 @@ def add_category():
             category = {
                 "category_name": request.form.get("category_name")
             }
-    
+
             mongo.db.categories.insert_one(category)
             flash("The new category was added")
             return redirect(url_for("admin_dashboard"))
@@ -318,10 +334,11 @@ def edit_category(category_id):
             submit = {
                 "category_name": request.form.get("category_name")
             }
-            mongo.db.categories.update_one({"_id": ObjectId(category_id)}, {"$set": submit})
+            mongo.db.categories.update_one(
+                {"_id": ObjectId(category_id)}, {"$set": submit})
             flash("Category Successfully Updated")
             return redirect(url_for("admin_dashboard"))
-      
+
         category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
     else:
         flash('You are not authorised to view this page')
@@ -352,7 +369,7 @@ def change_password(username):
     if session:
         return redirect(url_for("get_properties"))
     return redirect(url_for(
-                        "profile", username=session["user"]))
+        "profile", username=session["user"]))
 
 
 # --- DELETE PROFILE FUNCTIONALITY --- #
@@ -374,13 +391,14 @@ def delete_account(user_id):
 
 
 @app.route("/contact")
-# Navigates to contact page
 def contact():
+    """ Navigates to contact page
+    """
     return render_template("contact.html")
 
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True) 
-            # Change this to False before submission #
+            debug=True)
+    # Change this to False before submission #

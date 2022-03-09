@@ -42,7 +42,7 @@
     </div>
     <!-- Property Cards -->
     {% if properties|length > 0 %}
-    <div class="row">
+    <div class="row" id="properties-container">
         {% for property in properties %}
         <div class="col s12 m6 l3">
             <div class="card sticky-action blue-section property-card">
@@ -52,7 +52,15 @@
                 </div>
                 <!-- Card Category -->
                 <div class="card-content">
-                    <h6 class="card-title activator">{{ property.category_name }}<i class="fas fa-caret-down right"></i></h6>
+                    <div class="switch">
+                        <label>
+                            Featured
+                            <input class="feature-checkbox" data-property-id="{{ property._id }}" type="checkbox">
+                            <span class="lever"></span>
+                        </label>
+                    </div>
+                    <h6 class="card-title activator">{{ property.category_name }}<i class="fas fa-caret-down right"></i>
+                    </h6>
                 </div>
                 <!-- Card Reveal -->
                 <div class="card-reveal">
@@ -75,7 +83,8 @@
                     <div class="modal-content">
                         <i class="material-icons prefix" id="delete-warning-icon">error_outline</i>
                         <h3>Delete Property</h3>
-                        <p>Are you sure you want to <u>delete</u> the proprty? If you delete it, you will no longer can see your property!</p>
+                        <p>Are you sure you want to <u>delete</u> the proprty? If you delete it, you will no longer can
+                            see your property!</p>
                     </div>
                     <div class="center-align">
                         <!-- cancel button -->

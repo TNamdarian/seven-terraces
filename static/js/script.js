@@ -52,6 +52,21 @@ $(document).ready(function() {
             }
         });
     }
+
+    $("#properties-container").on("click", ".feature-checkbox", (e) => {
+        const propertyId = e.target.dataset.propertyId;
+        const checked = e.target.checked;
+        $.ajax({
+            url: `${BASE_URL}${propertyId}`,
+            method: 'POST',
+            contentType: 'application/json',
+            data: {
+                "featured": checked
+            }
+        }, (data) => {
+            console.log(data);
+        });
+    });
 });
 
 // ..................... Email functionality 
