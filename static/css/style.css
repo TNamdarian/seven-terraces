@@ -253,7 +253,7 @@ form i:hover {
     margin-top: 70px;
     padding-bottom: 20px;
     background-color: transparent;
-    background-image: url(/static/images/add-property-heading.png);
+    background-image: url(/static/images/test.svg);
 }
 
 .form-container img,
