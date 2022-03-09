@@ -21,7 +21,7 @@
     /* color: var(--instagram); */
     --twitter: #1DA1F2;
     /* color: var(--twitter); */
-    --AccentTransparent: rgba(241, 241, 241, 0.637);
+    --AccentTransparent: rgba(280, 280, 280, 0.6371);
     /* color: var(--AccentTransparent); */
 }
 
@@ -253,7 +253,7 @@ form i:hover {
     margin-top: 70px;
     padding-bottom: 20px;
     background-color: transparent;
-    background-image: url(/static/images/test.svg);
+    background-image: url(/static/images/circle-scatter-haikei.svg);
 }
 
 .form-container img,
