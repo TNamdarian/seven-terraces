@@ -108,3 +108,23 @@ function notification(message, alertType = "success") {
     const bsAlert = new bootstrap.Alert(alert);
     document.body.appendChild(wrapper);
 }
+
+// Menu items: show active page
+/* Orginal code from with modifications for project:
+ https://www.infoworld.com/article/3304440/setting-an-active-menu-item-based-on-the-current-url-with-jquery.html */
+$(function() {
+    setNavigation();
+});
+
+function setNavigation() {
+    var path = window.location.pathname;
+    path = path.replace(/\/$/, "");
+    path = decodeURIComponent(path);
+
+    $("li a").each(function() {
+        var href = $(this).attr('href');
+        if (path.substring(0, href.length) === href) {
+            $(this).closest('li').addClass('active');
+        }
+    });
+}

@@ -72,6 +72,16 @@ nav h4 {
     color: var(--orange);
 }
 
+nav ul li.active {
+    -webkit-text-decoration-color: var(--grey);
+    text-decoration-color: var(--grey);
+    -webkit-text-decoration-line: underline;
+    text-decoration-line: underline;
+    -webkit-text-decoration-style: solid;
+    text-decoration-style: solid;
+    text-decoration-thickness: 5px;
+}
+
 /* Flashed Messages */
 .flashes h4 {
     line-height: 2;
