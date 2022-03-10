@@ -73,8 +73,8 @@ nav h4 {
 }
 
 nav ul li.active {
-    -webkit-text-decoration-color: var(--grey);
-    text-decoration-color: var(--grey);
+    -webkit-text-decoration-color: var(--light-blue);
+    text-decoration-color: var(--light-blue);
     -webkit-text-decoration-line: underline;
     text-decoration-line: underline;
     -webkit-text-decoration-style: solid;
