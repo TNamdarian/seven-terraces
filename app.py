@@ -1,6 +1,6 @@
 import os
 from flask import (
-    Flask, flash, render_template,
+    Flask, flash, render_template, jsonify,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -39,11 +39,13 @@ def get_properties():
 def update_property_feature(property_id):
     """ Update property feature
     """
-    # import pdb;pdb.set_trace()
-    featured = request.json['featured']
-    result = mongo.db.properties.update_one(
-        {"_id": ObjectId(property_id)}, {"$set": {"featured": featured }})
-    return result
+    try:
+        featured = request.json['featured']
+        mongo.db.properties.update_one(
+            {"_id": ObjectId(property_id)}, {"$set": {"featured": featured}})
+        return "", 204
+    except Exception as e:
+        return "Bad Request", 400
 
 
 # --- SIGN UP / REGISTER FUNCTIONALITY --- #

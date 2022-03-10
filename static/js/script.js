@@ -58,11 +58,12 @@ $(document).ready(function() {
         const checked = e.target.checked;
         $.ajax({
             url: `${BASE_URL}${propertyId}`,
-            method: 'POST',
+            type: 'POST',
+            dataType: 'json',
             contentType: 'application/json',
-            data: {
+            data: JSON.stringify({
                 "featured": checked
-            }
+            })
         }, (data) => {
             console.log(data);
         });
