@@ -27,34 +27,37 @@
         </div>
     </div>
     <!-- Property Cards -->
-    {% if featured_properties|length > 0 %}
+    {% if properties|length > 0 %}
     <div class="row" id="featured-section">
-        {% for featured_property in featured_properties %}
+        {% for property in properties %}
         <div class="col s12 m6 l3">
             <div class="card sticky-action blue-section property-card">
                 <!-- Card Img -->
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="{{ featured_property.featured_img }}">
+                    <img class="activator" src="{{ property.img_link }}">
                 </div>
                 <!-- Card Category -->
                 <div class="card-content">
-                    <h4 class="card-title activator">{{ featured_property.category_name }}<i class="fas fa-caret-down right"></i></h4>
+                    <h4 class="card-title activator">{{ property.category_name }}<i class="fas fa-caret-down right"></i></h4>
                 </div>
                 <!-- Card Reveal -->
                 <div class="card-reveal">
                     <h5 class="card-title">
-                        {{ featured_property.featured_name }}<i class="fas fa-xmark right"></i></h5>
-                    <p>{{ featured_property.featured_description }}</p>
-                    <p>{{ featured_property.featured_added_date }}</p>
-                    <p>{{ featured_property.created_by }}</p>
+                        {{ property.property_name }}<i class="fas fa-xmark right"></i></h5>
+                    <span>Description:</span>
+                    <p>{{ property.property_description }}</p>
+                    <span>Date added:</span>
+                    <p>{{ property.property_added_date }}</p>
+                    <span>Added by:</span>
+                    <p>{{ property.author|capitalize }}</p>
                 </div>
-                {% if session.user|lower == featured_property.created_by|lower %}
+                {% if session.user|lower == property.author|lower %}
                 <!-- Modal Trigger -->
-                <a class="waves-effect waves-light btn-small modal-delete-btn modal-trigger center-align" href="#modal1{{ featured_property._id }}"><i class="material-icons left"></i>Delete</a>
-                <a href="{{ url_for('edit_featured_property', featured_property_id=featured_property._id) }}" class="waves-effect waves-light btn-small modal-edit-btn center-align"><i class="material-icons left"></i>Edit</a>
+                <a class="waves-effect waves-light btn-small modal-delete-btn modal-trigger center-align" href="#modal1{{ property._id }}"><i class="material-icons left"></i>Delete</a>
+                <a href="{{ url_for('edit_property', property_id=property._id) }}" class="waves-effect waves-light btn-small modal-edit-btn center-align"><i class="material-icons left"></i>Edit</a>
                 {% endif %}
                 <!-- Modal Structure -->
-                <div id="modal1{{ featured_property._id }}" class="modal delete-modal">
+                <div id="modal1{{ property._id }}" class="modal delete-modal">
                     <div class="modal-content">
                         <i class="material-icons prefix" id="delete-warning-icon">error_outline</i>
                         <h4>Delete Featured Property</h4>
@@ -62,7 +65,7 @@
                     </div>
                     <div class="center-align">
                         <!-- cancel button -->
-                        <a href="{{ url_for('get_featured_properties') }}" class="waves-effect waves-light btn modal-cancel-btn"><i class="fa-solid fa-ban"></i>
+                        <a href="{{ url_for('update_property_feature') }}" class="waves-effect waves-light btn modal-cancel-btn"><i class="fa-solid fa-ban"></i>
                         </a>
                         <!-- submit button -->
                         <a href="{{ url_for('delete_featured_property', featured_property_id=featured_property._id) }}" class="waves-effect waves-light btn modal-delete-btn"><i class="fa-solid fa-trash"></i></a>

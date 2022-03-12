@@ -17,13 +17,14 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 
-# setup an instance of PyMongo
+# SET AN INSTANCE OF PyMongo
 mongo = PyMongo(app)
 
 
 # --- ADMIN USER FUNCTION --- #
 def admin():
-    """ Verify is user is in session and is the admin user
+    """ 
+    Verify is user is in session and is the admin user
     """
     return session['user'] == 'admin'
 
@@ -31,13 +32,17 @@ def admin():
 # --- READ PROPERTIES FUNCTIONALITY --- #
 @app.route("/get_properties")
 def get_properties():
+    """
+    READ PROPERTIES FUNCTIONALITY
+    """
     properties = list(mongo.db.properties.find())
     return render_template("properties.html", properties=properties)
 
 
 @app.route("/update_property_feature/<property_id>", methods=["POST"])
 def update_property_feature(property_id):
-    """ Update property feature
+    """ 
+    Update property featured
     """
     try:
         featured = request.json['featured']
@@ -51,6 +56,9 @@ def update_property_feature(property_id):
 # --- SIGN UP / REGISTER FUNCTIONALITY --- #
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """
+    SIGN UP / REGISTER FUNCTIONALITY
+    """
     if request.method == "POST":
         # then check if the username exists within the database
         existing_user = mongo.db.users.find_one(
@@ -83,6 +91,9 @@ def register():
 # --- LOG IN FUNCTIONALITY --- #
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """
+     LOG IN FUNCTIONALITY
+    """
     if request.method == "POST":
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
@@ -113,7 +124,9 @@ def login():
 # --- PROFILE FUNCTIONALITY --- #
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    # grab the session user's username from db
+    """
+    PROFILE FUNCTIONALITY
+    """
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
@@ -126,7 +139,9 @@ def profile(username):
 # --- LOG OUT FUNCTIONALITY --- #
 @app.route("/logout")
 def logout():
-    # Delete user from session cookie
+    """
+    LOG OUT FUNCTIONALITY
+    """
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("get_properties"))
@@ -135,6 +150,9 @@ def logout():
 # --- Add_PROPERTY FUNCTIONALITY --- #
 @app.route("/add_property", methods=["GET", "POST"])
 def add_property():
+    """
+    Add_PROPERTY FUNCTIONALITY 
+    """
     if request.method == "POST":
         property = {
             "category_name": request.form.get("category_name"),
@@ -142,7 +160,7 @@ def add_property():
             "property_description": request.form.get("property_description"),
             "property_added_date": request.form.get("property_added_date"),
             "img_link": request.form.get("img_link"),
-            "created_by": session["user"]
+            "author": session["user"]
         }
         mongo.db.properties.insert_one(property)
         flash("Your Property Successfully Added")
@@ -155,6 +173,9 @@ def add_property():
 # --- Edit_PROPERTY FUNCTIONALITY --- #
 @app.route("/edit_property/<property_id>", methods=["GET", "POST"])
 def edit_property(property_id):
+    """
+    Edit_PROPERTY FUNCTIONALITY
+    """
     if request.method == "POST":
         submit = {
             "category_name": request.form.get("category_name"),
@@ -162,7 +183,7 @@ def edit_property(property_id):
             "property_description": request.form.get("property_description"),
             "property_added_date": request.form.get("property_added_date"),
             "img_link": request.form.get("img_link"),
-            "created_by": session["user"]
+            "author": session["user"]
         }
         mongo.db.properties.update_one(
             {"_id": ObjectId(property_id)}, {"$set": submit})
@@ -176,6 +197,9 @@ def edit_property(property_id):
 # --- DELETE_PROPERTY FUNCTIONALITY --- #
 @app.route("/delete_property/<property_id>")
 def delete_property(property_id):
+    """
+    DELETE_PROPERTY FUNCTIONALITY
+    """
     mongo.db.properties.delete_one({"_id": ObjectId(property_id)})
     flash("Property Successfully deleted!")
     return redirect(url_for("get_properties"))
@@ -184,17 +208,20 @@ def delete_property(property_id):
 # --- SEARCH FOR A PROPERTY FUNCTIONALITY --- #
 @app.route("/search", methods=["GET", "POST"])
 def search():
+    """
+    SEARCH FOR A PROPERTY FUNCTIONALITY 
+    """
     query = request.form.get("query")
     properties = list(mongo.db.properties.find({"$text": {"$search": query}}))
     for property in properties:
         try:
             user = mongo.db.users.find_one({
-                '_id': ObjectId(property['created_by'])
+                '_id': ObjectId(property['author'])
             })
             category = mongo.db.categories.find_one({
                 '_id': ObjectId(property['category_name'])
             })
-            property['created_by'] = user['username']
+            property['author'] = user['username']
             property['category_name'] = category['category_name']
         except Exception:
             pass
@@ -206,6 +233,9 @@ def search():
 # --- ADMIN DASHBOARD FUNCTIONALITY --- #
 @app.route("/admin_dashboard")
 def admin_dashboard():
+    """
+    ADMIN DASHBOARD FUNCTIONALITY
+    """
     # check that someone isn't brute-forcing the url get admin functionalities
     if admin():
         categories = list(mongo.db.categories.find().sort("category_name", 1))
@@ -312,6 +342,9 @@ def delete_featured_property(featured_property_id):
 # --- ADD A CATEGORY FUNCTIONALITY --- #
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
+    """
+    ADD A CATEGORY FUNCTIONALITY
+    """
     if admin():
         if request.method == "POST":
             category = {
@@ -331,6 +364,9 @@ def add_category():
 # --- EDIT A CATEGORY FUNCTIONALITY --- #
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
+    """
+    EDIT A CATEGORY FUNCTIONALITY
+    """
     if admin():
         if request.method == "POST":
             submit = {
@@ -351,6 +387,9 @@ def edit_category(category_id):
 # --- DELETE A CATEGORY FUNCTIONALITY --- #
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
+    """
+    DELETE A CATEGORY FUNCTIONALITY
+    """
     mongo.db.categories.delete_one({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
     return redirect(url_for("admin_dashboard"))
@@ -359,6 +398,9 @@ def delete_category(category_id):
 # --- CHANGE PASSWORD FUNCTIONALITY --- #
 @app.route('/change_password/<username>', methods=["GET", "POST"])
 def change_password(username):
+    """
+    DELETE A CATEGORY FUNCTIONALITY
+    """
     if request.method == "POST":
         newPassword = generate_password_hash(request.form.get
                                              ("password_change"))
@@ -377,6 +419,9 @@ def change_password(username):
 # --- DELETE PROFILE FUNCTIONALITY --- #
 @app.route('/delete_account/<user_id>', methods=["GET", "POST"])
 def delete_account(user_id):
+    """
+    DELETE PROFILE FUNCTIONALITY 
+    """
     user = mongo.db.users.find_one({'username': session["user"]})
     # Checks if password matches existing password in database
     if check_password_hash(user["password"],
