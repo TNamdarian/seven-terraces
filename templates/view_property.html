@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <!-- property name -->
+    <div class="row">
+        <div class="col s12 m9">
+            <h4>{{property.property_name}}</h4>
+        </div>
+        <div class="col offset-s6 s6 m3 right-align">
+            <!-- if the same property is votes twice we will display an error message below using a flash message-->
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <p class="error_message">{{ message }}</p>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <div class="row">
+                <div class="col s12 right-align">
+                    <div>
+                        <h5>{{property.likes}} likes <i class="fa-solid fa-thumbs-up"></i></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row img-details">
+        <!-- property image -->
+        <div class="col s12 m12 l6 img-wrapper">
+            {% if property.property_image %}
+            <img src="{{url_for('img_uploads', filename=property['property_image'])}}" alt="property_image">
+            {% else %}
+            <img src="{{url_for('static', filename='img/default.jpg')}}" alt="default_property_image">
+            {% endif %}
+        </div>
+        <!-- property details -->
+        <div class="col s11 m12 l6">
+            <div class="row">
+                <div class="col s6">
+                    <div class="row details-item">
+                        <div class="col s6 right-align">
+                            <i class="fa-solid fa-info"></i>
+                        </div>
+                        <div class="col s6 ">
+                            <h6><strong>Property Details</h6>
+                            <p>{{property.property_details}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col s6">
+                    <div class="row details-item">
+                        <div class="col s6 right-align">
+                            <i class="fa-solid fa-circle-dollar"></i>
+                        </div>
+                        <div class="col s6">
+                            <h6><strong>Price </h6>
+                            <p>{{property.price}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <div class="row details-item">
+                        <div class="col s6 right-align">
+                            <i class="fa-solid fa-location-smile"></i>
+                        </div>
+                        <div class="col s6">
+                            <h6><strong>Amenities</strong></h6>
+                            <p>{{property.amenities}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s6">
+                    <div class="row details-item">
+                        <div class="col s6 right-align">
+                            <i class="fa-solid fa-house-building"></i>
+                        </div>
+                        <div class="col s6">
+                            <h6><strong>Category</strong></h6>
+                            <p>{{property.category_name}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 offset-m1 m8 details">
+        <div class="row">
+            <!-- Details -->
+            <div class="col s12">
+                <h5 class="center-align">Property Details</h5>
+                <ol>
+                    {% for details in property.details %}
+                    <li>
+                        {{details}}
+                    </li>
+                    {% endfor %}
+                </ol>
+                <p class="center-align author-date">Property by <b><em>{{property.author}}</em></b> - {{property.property_added_date}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% if property.author == username %}
+<div class="row">
+    <div class="col s12 right-align btn-view">
+        <a href="#modal_delete_property" class="btn waves-effect waves-light modal-trigger">
+            <i class="fa fa-trash"></i>
+        </a>
+        <a href="{{url_for('edit_property', property_id=property._id)}}" class="btn waves-effect waves-light">
+            <i class="fa fa-edit"></i>
+        </a>
+    </div>
+</div>
+{% else %}
+<div class="row">
+    <div class="col s12 right-align btn-view">
+        <a href="{{url_for('vote', property_id=property._id)}}" class="btn waves-effect waves-light">
+            <i class="fa fa-thumbs-up"></i>
+        </a>
+    </div>
+</div>
+{% endif %}
+<!-- Modal Structure -->
+<div id="modal_delete_property" class="modal">
+    <div class="modal-content">
+        <p>Are you sure you want to remove the property?</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="modal-action modal-close waves-effect waves-light btn">No</a>
+        <a href="{{url_for('delete_property', property_id=property._id)}}" class="modal-action modal-close waves-effect waves-green btn">Yes</a>
+    </div>
+</div>
+
+
+{% endblock %}

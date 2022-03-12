@@ -147,6 +147,18 @@ def logout():
     return redirect(url_for("get_properties"))
 
 
+# FUNTION TO SEE A PROPERTY AFTER CLICKING ON "VIEW PROPERTY" BUTTON
+@app.route("/view_property/<property_id>")
+def view_property(property_id):
+    """
+    FUNTION TO SEE A PROPERTY AFTER CLICKING ON "VIEW PROPERTY" BUTTON
+    """
+    #Increment the number of views everytime a property is seen
+    mongo.db.properties.update_one({"_id":ObjectId(property_id)}, {'$inc': {'views': 1}})
+    property = mongo.db.properties.find_one({"_id": ObjectId(property_id)})
+    return render_template('view_property.html', property=property)
+                            
+
 # --- Add_PROPERTY FUNCTIONALITY --- #
 @app.route("/add_property", methods=["GET", "POST"])
 def add_property():

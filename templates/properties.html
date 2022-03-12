@@ -102,5 +102,9 @@
     <h3 class="red-text text-darken-4 centre-align">No results found</h3>
     {% endif %}
 </div>
+<div class="center-align">
+    <!-- View Property Button -->
+    <a href="{{ url_for('view_property', property_id=property._id) }}" class="waves-effect waves-light btn modal-edit-btn">View Property
+</div>
 
 {% endblock %}
