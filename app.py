@@ -21,6 +21,15 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+# FUNCTION USED TO CONVER STRINGS SEPARATED BY '/N' TO ARRAYS
+def string_to_array(string):
+    """
+    FUNCTION USED TO CONVER STRINGS SEPARATED BY '/N' TO ARRAYS
+    """
+    array = string.split("\n")
+    return array
+
+
 # --- ADMIN USER FUNCTION --- #
 def admin():
     """ 
@@ -59,7 +68,6 @@ def update_property_feature(property_id):
 def like(property_id):
     """
     FUNTION TO like FOR PROPERTIES.
-    The property author is not allowed to like for their properties. Each user is only allowed to like once for each property.
     """
     users = mongo.db.Users
     already_liked = users.find_one({"$and":[{"author":session['username']},{'likes':property_id}]})

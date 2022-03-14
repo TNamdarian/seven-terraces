@@ -38,77 +38,52 @@
         <div class="col s12 m12 l6">
             <div class="row">
                 <div class="col s6">
-                    <div class="row details-item">
-                        <div class="col s6 right-align">
-                            <i class="material-icons">info</i>
-                        </div>
-                        <div class="col s6">
-                            <h6><strong>Type of property</strong></h6>
-                            <p>{{property.property_details}}</p>
-                        </div>
-                    </div>
+                    <h6><strong><i class="material-icons">location_city</i>Property Type</strong></h6>
+                    <p>{{property.type}}</p>
                 </div>
                 <div class=" col s6">
-                    <div class="row details-item">
-                        <div class="col s6 right-align">
-                            <i class="material-icons">monetization_on</i>
-                        </div>
-                        <div class="col s6">
-                            <h6><strong>Price</strong></h6>
-                            <p>{{property.price}}</p>
-                        </div>
-                    </div>
+                    <h6><strong><i class="material-icons">monetization_on</i>Price</strong></h6>
+                    <p>{{property.price}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col s6">
-                    <div class="row details-item">
-                        <div class="col s6 right-align">
-                            <i class="material-icons">location_on</i>
-                        </div>
-                        <div class="col s6">
-                            <h6><strong>Amenities</strong></h6>
-                            <p>{{property.amenities}}</p>
-                        </div>
-                    </div>
+                    <h6><strong><i class="material-icons">location_searching</i>Amenities</strong></h6>
+                    <p>{{property.amenities}}</p>
                 </div>
                 <div class="col s6">
-                    <div class="row details-item">
-                        <div class="col s6 right-align">
-                            <i class="material-icons">folder</i>
-                        </div>
-                        <div class="col s6">
-                            <h6><strong>Category</strong></h6>
-                            <p>{{property.category_name}}</p>
-                        </div>
-                    </div>
+                    <h6><strong> <i class="material-icons">trending_up</i>Strategy</strong></h6>
+                    <p>{{property.category_name}}</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
+</div>
+</div>
+</div>
 <div class="row">
-    <div class="col s12 m12 l6">
+    <div class="col s12 m3 features">
         <!-- Features -->
-        <h5 class="center-align">Features</h5>
-        <ul>
+        <h5 class="center-align"><i class="material-icons">storage</i>Features</h5>
+        <ol>
             {% for feature in property.features %}
             <li>
-                {{features}}
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-    <div class="col s12 m12 l6 details">
-        <!-- Details -->
-        <h5 class="center-align">Property Details</h5>
-        <ol>
-            {% for detail in property.details %}
-            <li>
-                {{details}}
+                {{feature}}
             </li>
             {% endfor %}
         </ol>
+    </div>
+    <div class="col s12 m8 details">
+        <!-- Details -->
+        <h5 class="center-align"><i class="material-icons">info</i>Property Details</h5>
+        <ul>
+            {% for detail in property.property_details %}
+            <li>
+                {{detail}}
+            </li>
+            {% endfor %}
+        </ul>
         <p class="center-align author-date">Property by <b><em>{{property.author}}</em></b> - {{property.property_added_date}}
         </p>
     </div>
@@ -143,6 +118,5 @@
         <a href="{{url_for('delete_property', property_id=property._id)}}" class="modal-action modal-close waves-effect waves-green btn">Yes</a>
     </div>
 </div>
-
 
 {% endblock %}
