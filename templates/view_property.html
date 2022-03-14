@@ -4,10 +4,10 @@
 <div class="container">
     <!-- property name -->
     <div class="row">
-        <div class="col s12 s6 m3">
+        <div class="col s12 m12 l6">
             <h4>{{property.property_name}}</h4>
         </div>
-        <div class="col s12 s6 m3 right-align">
+        <div class="col s12 m12 l6 right-align">
             <!-- if the same property is liked twice it will display an error message below using a flash message-->
             {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -17,7 +17,7 @@
             {% endif %}
             {% endwith %}
             <div class="row">
-                <div class="col s12 right-align">
+                <div class="col s12 m6 right-align">
                     <div>
                         <h5>{{property.likes}} likes <i class="material-icons">favorite</i></h5>
                     </div>
@@ -88,22 +88,29 @@
     </div>
 </div>
 <div class="row">
-    <div class="col s12 details">
-        <div class="row">
-            <!-- Details -->
-            <div class="col s12">
-                <h5 class="center-align">Property Details</h5>
-                <ol>
-                    {% for details in property.details %}
-                    <li>
-                        {{details}}
-                    </li>
-                    {% endfor %}
-                </ol>
-                <p class="center-align author-date">Property by <b><em>{{property.author}}</em></b> - {{property.property_added_date}}
-                </p>
-            </div>
-        </div>
+    <div class="col s12 m12 l6">
+        <!-- Features -->
+        <h5 class="center-align">Features</h5>
+        <ul>
+            {% for feature in property.features %}
+            <li>
+                {{features}}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col s12 m12 l6 details">
+        <!-- Details -->
+        <h5 class="center-align">Property Details</h5>
+        <ol>
+            {% for detail in property.details %}
+            <li>
+                {{details}}
+            </li>
+            {% endfor %}
+        </ol>
+        <p class="center-align author-date">Property by <b><em>{{property.author}}</em></b> - {{property.property_added_date}}
+        </p>
     </div>
 </div>
 {% if property.author == username %}

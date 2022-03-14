@@ -39,6 +39,7 @@ def get_properties():
     return render_template("properties.html", properties=properties)
 
 
+# UPDATE PROPERTY FEATURED.
 @app.route("/update_property_feature/<property_id>", methods=["POST"])
 def update_property_feature(property_id):
     """ 
@@ -53,6 +54,7 @@ def update_property_feature(property_id):
         return "Bad Request", 400
 
 
+#  FUNTION TO like FOR PROPERTIES.
 @app.route('/view_property/like/<property_id>')
 def like(property_id):
     """
@@ -69,6 +71,15 @@ def like(property_id):
         flash("You have already liked for this property")
         
     return redirect(url_for("view_property", property_id=property_id))
+
+
+#  FUNTION FOR UPLOADING IMAGES
+@app.route('/img_uploads/<filename>')
+def img_uploads(filename):
+    """
+    FUNTION FOR UPLOADING IMAGES
+    """
+    return mongo.send_file(filename)
 
 
 # --- SIGN UP / REGISTER FUNCTIONALITY --- #
