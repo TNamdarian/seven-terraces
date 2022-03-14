@@ -24,7 +24,7 @@ mongo = PyMongo(app)
 # FUNCTION USED TO CONVER STRINGS SEPARATED BY '/N' TO ARRAYS
 def string_to_array(string):
     """
-    FUNCTION USED TO CONVER STRINGS SEPARATED BY '/N' TO ARRAYS
+    FUNCTION USED TO CONVER STRINGS SEPARATED BY "/N" TO ARRAYS
     """
     array = string.split("\n")
     return array

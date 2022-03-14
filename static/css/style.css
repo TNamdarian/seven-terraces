@@ -5,6 +5,8 @@
     /* color: var(--blue); */
     --grey: #E5E5E5;
     /* color: var(--grey); */
+    --dark-grey: #777777;
+    /* color: var(--dark-grey); */
     --light-blue: #8ecae6;
     /* color: var(--light-blue); */
     --teal: #219ebc;
@@ -40,6 +42,18 @@ body {
 
 .grey-section {
     background-color: var(--grey);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+body {
+    background-color: var(--white);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1em;
 }
 
 /* Navbar */
@@ -220,29 +234,22 @@ nav ul li.active {
 }
 
 /* Property View Page */
-.details-item .fa {
-    margin-top: 17px;
-    padding-right: 20px;
+.view-property-container h1,
+.details-row h6,
+.details h6 {
+    font-family: 500;
 }
 
-.details-item h6 {
-    padding-bottom: 10px;
-}
 
-.details ol {
-    padding: 0px 60px 20px 60px;
-}
-
-.details ol li {
-    padding: 0px 15px 15px 15px;
-}
-
-.details-item {
-    margin-bottom: 20px;
-}
-
-.details-item p {
-    font-size: 0.7em;
+.img-details img,
+.details {
+    width: 100%;
+    width: 100%;
+    padding-bottom: 30px;
+    background-color: var(--white);
+    padding: 15px;
+    box-shadow: 2px 2px 4px var(--dark-grey);
+    margin-bottom: 40px;
 }
 
 .author-date {
@@ -253,6 +260,30 @@ nav ul li.active {
 .img-wrapper img {
     width: 100%;
 }
+
+.details-row i,
+.features i,
+.details i,
+.likes i {
+    color: var(--orange);
+    padding-right: 10px;
+}
+
+.features ul:not(.browser-default)>li {
+    list-style-type: circle;
+    margin-left: 10px;
+}
+
+.featured ul,
+.details ul {
+    margin-bottom: 10px;
+}
+
+.features ul li,
+.details ul li {
+    padding: 0px 15px 15px 15px;
+}
+
 
 /* Add Properties Page */
 .form-container i {
