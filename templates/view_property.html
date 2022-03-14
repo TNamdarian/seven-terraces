@@ -4,11 +4,11 @@
 <div class="container">
     <!-- property name -->
     <div class="row">
-        <div class="col s12 m9">
+        <div class="col s12 s6 m3">
             <h4>{{property.property_name}}</h4>
         </div>
-        <div class="col offset-s6 s6 m3 right-align">
-            <!-- if the same property is votes twice we will display an error message below using a flash message-->
+        <div class="col s12 s6 m3 right-align">
+            <!-- if the same property is liked twice it will display an error message below using a flash message-->
             {% with messages = get_flashed_messages() %}
             {% if messages %}
             {% for message in messages %}
@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col s12 right-align">
                     <div>
-                        <h5>{{property.likes}} likes <i class="fa-solid fa-thumbs-up"></i></h5>
+                        <h5>{{property.likes}} likes <i class="material-icons">favorite</i></h5>
                     </div>
                 </div>
             </div>
@@ -31,19 +31,19 @@
             {% if property.property_image %}
             <img src="{{url_for('img_uploads', filename=property['property_image'])}}" alt="property_image">
             {% else %}
-            <img src="{{url_for('static', filename='img/default.jpg')}}" alt="default_property_image">
+            <img src="{{url_for('static', filename='images/default.jpg')}}" alt="default_property_image">
             {% endif %}
         </div>
         <!-- property details -->
-        <div class="col s11 m12 l6">
+        <div class="col s12 m12 l6">
             <div class="row">
                 <div class="col s6">
                     <div class="row details-item">
                         <div class="col s6 right-align">
-                            <i class="fa-solid fa-info"></i>
+                            <i class="material-icons">info</i>
                         </div>
-                        <div class="col s6 ">
-                            <h6><strong>Property Details</h6>
+                        <div class="col s6">
+                            <h6><strong>Type of property</strong></h6>
                             <p>{{property.property_details}}</p>
                         </div>
                     </div>
@@ -51,10 +51,10 @@
                 <div class=" col s6">
                     <div class="row details-item">
                         <div class="col s6 right-align">
-                            <i class="fa-solid fa-circle-dollar"></i>
+                            <i class="material-icons">monetization_on</i>
                         </div>
                         <div class="col s6">
-                            <h6><strong>Price </h6>
+                            <h6><strong>Price</strong></h6>
                             <p>{{property.price}}</p>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                 <div class="col s6">
                     <div class="row details-item">
                         <div class="col s6 right-align">
-                            <i class="fa-solid fa-location-smile"></i>
+                            <i class="material-icons">location_on</i>
                         </div>
                         <div class="col s6">
                             <h6><strong>Amenities</strong></h6>
@@ -75,7 +75,7 @@
                 <div class="col s6">
                     <div class="row details-item">
                         <div class="col s6 right-align">
-                            <i class="fa-solid fa-house-building"></i>
+                            <i class="material-icons">folder</i>
                         </div>
                         <div class="col s6">
                             <h6><strong>Category</strong></h6>
@@ -88,7 +88,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col s12 offset-m1 m8 details">
+    <div class="col s12 details">
         <div class="row">
             <!-- Details -->
             <div class="col s12">
@@ -120,8 +120,8 @@
 {% else %}
 <div class="row">
     <div class="col s12 right-align btn-view">
-        <a href="{{url_for('vote', property_id=property._id)}}" class="btn waves-effect waves-light">
-            <i class="fa fa-thumbs-up"></i>
+        <a href="{{url_for('like', property_id=property._id)}}" class="btn waves-effect waves-light">
+            <i class="material-icons">favorite</i>
         </a>
     </div>
 </div>

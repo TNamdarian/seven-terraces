@@ -250,6 +250,10 @@ nav ul li.active {
     font-style: italic;
 }
 
+.img-wrapper img {
+    width: 100%;
+}
+
 /* Add Properties Page */
 .form-container i {
     color: var(--orange)

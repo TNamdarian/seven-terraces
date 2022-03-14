@@ -53,6 +53,24 @@ def update_property_feature(property_id):
         return "Bad Request", 400
 
 
+@app.route('/view_property/like/<property_id>')
+def like(property_id):
+    """
+    FUNTION TO like FOR PROPERTIES.
+    The property author is not allowed to like for their properties. Each user is only allowed to like once for each property.
+    """
+    users = mongo.db.Users
+    already_liked = users.find_one({"$and":[{"author":session['username']},{'likes':property_id}]})
+
+    if already_liked is None:
+        mongo.db.properties.update_one({"_id":ObjectId(property_id)}, {'$inc': {'like': 1}})
+        users.update_one({"author":session['username']},{"$push":{"likes":property_id}})
+    else:
+        flash("You have already liked for this property")
+        
+    return redirect(url_for("view_property", property_id=property_id))
+
+
 # --- SIGN UP / REGISTER FUNCTIONALITY --- #
 @app.route("/register", methods=["GET", "POST"])
 def register():
