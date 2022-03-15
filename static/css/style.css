@@ -565,7 +565,7 @@ form i:hover {
     margin-bottom: 50px;
 }
 
-.input-field .hint-text {
+.input-field .helper-text {
     font-size: 10px;
     color: var(--teal);
     font-style: italic;
