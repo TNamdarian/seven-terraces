@@ -491,6 +491,8 @@ form i:hover {
     font-weight: 600;
     font-size: 16px;
     margin-right: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .cancel-button {
@@ -569,6 +571,10 @@ form i:hover {
     font-size: 10px;
     color: var(--teal);
     font-style: italic;
+}
+
+.input-field i {
+    color: var(--orange)
 }
 
 /* Footer - Social Media  */
