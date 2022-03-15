@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,500;1,700;1,900&display=swap');
+
 :root {
     --orange: #FCA311;
     /* color: var(--orange); */
@@ -54,6 +56,16 @@ body {
     background-color: var(--white);
     font-family: 'Roboto', sans-serif;
     font-size: 1.1em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    color: var(--blue);
 }
 
 /* Navbar */
@@ -234,13 +246,6 @@ nav ul li.active {
 }
 
 /* Property View Page */
-.view-property-container h1,
-.details-row h6,
-.details h6 {
-    font-family: 500;
-}
-
-
 .img-details img,
 .details {
     width: 100%;
@@ -254,11 +259,18 @@ nav ul li.active {
 
 .author-date {
     margin-top: 25px;
+    margin-bottom: 25px;
     font-style: italic;
 }
 
+.details h6,
+.features h6 {
+    margin-top: 25px;
+    line-height: 2;
+}
+
 .img-wrapper img {
-    width: 100%;
+    width: 80%;
 }
 
 .details-row i,
@@ -284,6 +296,9 @@ nav ul li.active {
     padding: 0px 15px 15px 15px;
 }
 
+.prop-name h1 {
+    font-size: 36px;
+}
 
 /* Add Properties Page */
 .form-container i {
