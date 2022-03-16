@@ -57,10 +57,12 @@
                         <input placeholder="price" id="price" name="price" type="number" class="validate" min="1" required="">
                     </div>
                 </div>
-                <div class="row details-row">
-                    <div class="col s6">
+                <div class="row field-row features">
+                    <div class="input-field col s6">
                         <h6><i class="material-icons">location_searching</i>Amenities</h6>
-                        <input placeholder="Amenities" id="amenities" name="amenities" type="text" class="validate" min="1" required="">
+                        <textarea placeholder="Amenities" id="amenities" name="amenities" class="materialize-textarea validate" min="1" required></textarea>
+                        <label for="amenities"></label>
+                        <span class="helper-text" data-error="Write each amenity on a new line." data-success="Sounds interesting!">Write each amenity on a new line.</span>
                     </div>
                     <div class="col s6">
                         <h6><i class="material-icons">trending_up</i>Strategy</h6>
@@ -80,7 +82,7 @@
                     <i class="fa-solid fa-align-left prefix"></i>
                     <textarea id="property_description" name="property_description" minlength="5" maxlength="200" class="materialize-textarea validate" required></textarea>
                     <label for="property_description">Property Tag Line</label>
-                    <span class="helper-text" data-error="The description should be between 5 - 200 characters" data-success="Sounds interesting!">Write a description of the property in 5 - 200 characters. Write each sentence on a new line.</span>
+                    <span class="helper-text" data-error="The description should be between 5 - 200 characters. Write each sentence on a new line." data-success="Sounds interesting!">Write a description of the property in 5 - 200 characters. Write each sentence on a new line.</span>
                 </div>
             </div>
             <!-- Property Full Details -->
@@ -89,7 +91,7 @@
                     <i class="fa-solid fa-circle-info prefix"></i>
                     <textarea id="property_details" name="property_details" minlength="100" maxlength="1000" class="materialize-textarea validate" required></textarea>
                     <label for="property_details">Property Details</label>
-                    <span class="helper-text" data-error="The description should be between 100 - 1000 characters" data-success="Sounds interesting!">Write a full description of the property in 100 - 1000 characters. Write each paragraph on a new line.</span>
+                    <span class="helper-text" data-error="The description should be between 100 - 1000 characters. Write each paragraph on a new line." data-success="Sounds interesting!">Write a full description of the property in 100 - 1000 characters. Write each paragraph on a new line.</span>
                 </div>
             </div>
             <!-- Date picker -->
