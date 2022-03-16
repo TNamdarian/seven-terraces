@@ -69,7 +69,7 @@ def like(property_id):
     """
     FUNTION TO like FOR PROPERTIES.
     """
-    users = mongo.db.Users
+    users = mongo.db.users
     already_liked = users.find_one({"$and":[{"author":session['username']},{'likes':property_id}]})
 
     if already_liked is None:
@@ -202,21 +202,33 @@ def add_property():
     """
     Add_PROPERTY FUNCTIONALITY 
     """
+    if 'property_image' in request.files:
+        property_image = request.files['property_image']
+        if property_image != "":
+            mongo.save_file(property_image.filename, property_image)
+
     if request.method == "POST":
         property = {
             "category_name": request.form.get("category_name"),
-            "property_name": request.form.get("property_name"),
+            "property_name": request.form.get("property_name").capitalize(),
             "property_description": request.form.get("property_description"),
+            "property_details": request.form.get("property_details"),
             "property_added_date": request.form.get("property_added_date"),
             "img_link": request.form.get("img_link"),
-            "author": session["user"]
+            "author": session["user"],
+            "type": request.form.get("type"),
+            "price": request.form.get("price"),
+            "amenities":request.form.get('amenities'),
+            "features":string_to_array(request.form.get('features'))
         }
         mongo.db.properties.insert_one(property)
         flash("Your Property Successfully Added")
         return redirect(url_for("get_properties"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("add_property.html", categories=categories)
+    type = mongo.db.type.find().sort("type")
+    price = mongo.db.type.find().sort("price")
+    return render_template("add_property.html", categories=categories, type=type, price=price)
 
 
 # --- Edit_PROPERTY FUNCTIONALITY --- #

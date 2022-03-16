@@ -46,21 +46,27 @@
                         <h6 class="heading"><i class="material-icons">location_city</i>Property Type</h6>
                         <select id="type" name="type" class="validate" required>
                             <option value="" disabled selected>Types</option>
-                            {% for type in types %}
-                            <option value="{{ type.type }}">{{ type.type }}</option>
+                            {% for kind in type %}
+                            <option value="{{ kind.type }}">{{ kind.type }}</option>
                             {% endfor %}
                         </select>
                         <label for="type">Property Type</label>
                     </div>
                     <div class="col s6">
                         <h6><i class="material-icons">monetization_on</i>Price</h6>
-                        <input placeholder="Price" id="price" name="price" type="number" class="validate" min="100,000" required="">
+                        <select id="price" name="price" class="validate" required>
+                            <option value="" disabled selected>Price</option>
+                            {% for cost in price %}
+                            <option value="{{ cost.price }}">{{ cost.price }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="price">Price</label>
                     </div>
                 </div>
                 <div class="row details-row">
                     <div class="col s6">
                         <h6><i class="material-icons">location_searching</i>Amenities</h6>
-                        <input placeholder="Property type" id="property_type" name="property_type" type="text" class="validate" min="1" required="">
+                        <input placeholder="Amenities" id="amenities" name="amenities" type="text" class="validate" min="1" required="">
                     </div>
                     <div class="col s6">
                         <h6><i class="material-icons">trending_up</i>Strategy</h6>
