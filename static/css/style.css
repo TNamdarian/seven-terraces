@@ -195,10 +195,22 @@ nav ul li.active {
 }
 
 .modal-cancel-btn:hover,
-.modal-edit-btn:hover {
+.modal-edit-btn:hover,
+.view-property-btn:hover {
     background-color: var(--teal);
     color: var(--blue);
     border-style: 1px solid var(--teal);
+}
+
+.view-property-btn {
+    background-color: var(--light-blue);
+    color: var(--blue);
+    border-style: 1px solid var(--orange);
+    border-radius: 8px;
+    border-color: var(--orange);
+    margin-top: 20px;
+    margin-right: 10px;
+    font-weight: 700;
 }
 
 .modal-delete-btn {
@@ -243,6 +255,30 @@ nav ul li.active {
 
 .modal-content h3 {
     font-size: 24px;
+}
+
+.card .card-reveal {
+    background-color: var(--grey);
+}
+
+.card .card-title {
+    color: var(--orange);
+}
+
+.card-reveal p {
+    color: var(--blue)
+}
+
+.property-card {
+    border-radius: 5px;
+}
+
+.views p {
+    font-size: 18px;
+    color: var(--grey);
+    margin-left: 20px;
+    margin-top: 20px;
+    font-style: italic;
 }
 
 /* Property View Page */
@@ -314,23 +350,6 @@ form.sign-in-form {
 
 form i:hover {
     color: var(--blue);
-}
-
-/* Properties  */
-.card .card-reveal {
-    background-color: var(--grey);
-}
-
-.card .card-title {
-    color: var(--orange);
-}
-
-.card-reveal p {
-    color: var(--blue)
-}
-
-.property-card {
-    border-radius: 5px;
 }
 
 /* LOG IN PAGE  */

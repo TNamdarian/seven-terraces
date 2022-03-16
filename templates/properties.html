@@ -50,6 +50,20 @@
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" src="{{ property.img_link }}">
                 </div>
+                <!--Card Views-->
+                <div class="row">
+                    <div class="col s6 views">
+                        <p>{{ property.views }}
+                            <i class="fa-solid fa-eye"></i></p>
+                        <p>{{ property.likes }}
+                            <i class="fa-solid fa-bookmark"></i></p>
+                    </div>
+                    <div class="col s6 right-align">
+                        <!-- View Property Button -->
+                        <a href="{{ url_for('view_property', property_id=property._id) }}" class="waves-effect waves-light btn-small view-property-btn right">View Property</a>
+                        </a>
+                    </div>
+                </div>
                 <!-- Card Category -->
                 <div class="card-content">
                     <div class="switch">
@@ -72,8 +86,6 @@
                     <p>{{ property.property_added_date }}</p>
                     <span>Created by:</span>
                     <p>{{ property.author|capitalize }}</p>
-                    <!-- View Property Button -->
-                    <a href="{{ url_for('view_property', property_id=property._id) }}" class="waves-effect waves-light btn-small modal-edit-btn right">View Property</a>
                 </div>
                 {% if session.user|lower == property.author|lower %}
                 <!-- Modal Trigger -->
