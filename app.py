@@ -227,8 +227,7 @@ def add_property():
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     type = mongo.db.type.find().sort("type")
-    price = mongo.db.type.find().sort("price")
-    return render_template("add_property.html", categories=categories, type=type, price=price)
+    return render_template("add_property.html", categories=categories, type=type)
 
 
 # --- Edit_PROPERTY FUNCTIONALITY --- #

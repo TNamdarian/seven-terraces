@@ -54,13 +54,7 @@
                     </div>
                     <div class="col s6">
                         <h6><i class="material-icons">monetization_on</i>Price</h6>
-                        <select id="price" name="price" class="validate" required>
-                            <option value="" disabled selected>Price</option>
-                            {% for cost in price %}
-                            <option value="{{ cost.price }}">{{ cost.price }}</option>
-                            {% endfor %}
-                        </select>
-                        <label for="price">Price</label>
+                        <input placeholder="price" id="price" name="price" type="number" class="validate" min="1" required="">
                     </div>
                 </div>
                 <div class="row details-row">
