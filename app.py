@@ -206,7 +206,6 @@ def add_property():
         property_image = request.files['property_image']
         if property_image != "":
             mongo.save_file(property_image.filename, property_image)
-
     if request.method == "POST":
         property = {
             "category_name": request.form.get("category_name"),
@@ -214,7 +213,7 @@ def add_property():
             "property_description": request.form.get("property_description"),
             "property_details": request.form.get("property_details"),
             "property_added_date": request.form.get("property_added_date"),
-            "img_link": request.form.get("img_link"),
+            "propery_image": request.form.get("property_image.filename"),
             "author": session["user"],
             "type": request.form.get("type"),
             "price": request.form.get("price"),
