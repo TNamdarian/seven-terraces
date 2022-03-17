@@ -208,9 +208,19 @@ nav ul li.active {
     border-style: 1px solid var(--orange);
     border-radius: 8px;
     border-color: var(--orange);
-    margin-top: 20px;
-    margin-right: 10px;
     font-weight: 700;
+    margin-top: 10px;
+    margin-left: 0px;
+}
+
+.bookmark_btn {
+    background-color: var(--light-blue);
+    color: var(--blue);
+    border-style: 1px solid var(--orange);
+    border-radius: 20px;
+    border-color: var(--orange);
+    margin-top: 10px;
+    margin-right: 10px;
 }
 
 .modal-delete-btn {

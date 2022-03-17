@@ -88,16 +88,6 @@
             {% endfor %}
             {% endif %}
             {% endwith %}
-            <div class="col s6 left-align">
-                <div>
-                    <h6>{{property.likes}} Likes <i class="material-icons">favorite</i></h6>
-                </div>
-            </div>
-        </div>
-        <div class="col s6 right-align btn-view">
-            <a href="{{url_for('like', property_id=property._id)}}" class="btn waves-effect waves-light">
-                <i class="material-icons">favorite</i>Add to your favorites
-            </a>
         </div>
     </div>
 </div>

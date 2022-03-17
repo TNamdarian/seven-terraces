@@ -42,7 +42,7 @@
     </div>
     <!-- Property Cards -->
     {% if properties|length > 0 %}
-    <div class="row" id="properties-container">
+    <div class="row">
         {% for property in properties %}
         <div class="col s12 m6 l6">
             <div class="card sticky-action blue-section property-card">
@@ -55,13 +55,10 @@
                     <div class="col s6 views">
                         <p>{{ property.views }}
                             <i class="fa-solid fa-eye"></i></p>
-                        <p>{{ property.likes }}
-                            <i class="fa-solid fa-bookmark"></i></p>
                     </div>
-                    <div class="col s6 right-align">
-                        <!-- View Property Button -->
-                        <a href="{{ url_for('view_property', property_id=property._id) }}" class="waves-effect waves-light btn-small view-property-btn right">View Property</a>
-                        </a>
+                    <div class="col s6 right">
+                        <!-- Save Button -->
+                        <a class="waves-effect waves-light btn-floating right bookmark_btn {%if property.bookmarked%}bookmarked{% endif %}" data-resource="{{property._id}}"><i class="material-icons save-icon">bookmark_border</i></a>
                     </div>
                 </div>
                 <!-- Card Category -->
@@ -86,6 +83,11 @@
                     <p>{{ property.property_added_date }}</p>
                     <span>Created by:</span>
                     <p>{{ property.author|capitalize }}</p>
+                    <div class="col s6 right">
+                        <!-- View Property Button -->
+                        <a href="{{ url_for('view_property', property_id=property._id) }}" class="waves-effect waves-light btn-small view-property-btn right">View Property</a>
+                        </a>
+                    </div>
                 </div>
                 {% if session.user|lower == property.author|lower %}
                 <!-- Modal Trigger -->

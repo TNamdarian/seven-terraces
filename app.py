@@ -63,24 +63,6 @@ def update_property_feature(property_id):
         return "Bad Request", 400
 
 
-#  FUNTION TO like FOR PROPERTIES.
-@app.route('/view_property/like/<property_id>')
-def like(property_id):
-    """
-    FUNTION TO like FOR PROPERTIES.
-    """
-    users = mongo.db.users
-    already_liked = users.find_one({"$and":[{"author":session['username']},{'likes':property_id}]})
-
-    if already_liked is None:
-        mongo.db.properties.update_one({"_id":ObjectId(property_id)}, {'$inc': {'like': 1}})
-        users.update_one({"author":session['username']},{"$push":{"likes":property_id}})
-    else:
-        flash("You have already liked for this property")
-        
-    return redirect(url_for("view_property", property_id=property_id))
-
-
 #  FUNTION FOR UPLOADING IMAGES
 @app.route('/img_uploads/<filename>')
 def img_uploads(filename):
@@ -113,6 +95,7 @@ def register():
             "username": request.form.get("username").lower(),
             "email": request.form.get("email"),
             "password": generate_password_hash(request.form.get("password")),
+            "bookmarks": []
         }
         mongo.db.users.insert_one(register)
 
@@ -162,15 +145,104 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     """
-    PROFILE FUNCTIONALITY
+    User Profile. Find username in the database and retrieve the
+    username. Then render the profile template with the user's name.
     """
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+    if session["user"] == username:
+        # find the user in the database
+        user = mongo.db.users.find_one(
+            # take the session user's username from Mongo
+            {"username": session["user"]})
+        # if the user has a bookmark try the execute the below
+        try:
+            # check if session user
+            if session["user"]:
+                user_properties = []
+                for property in user['bookmarks']:
+                    user_property = mongo.db.properties.find_one({
+                        '_id': property})
+                    if user_property:
+                        user = mongo.db.users.find_one({
+                            '_id': ObjectId(user_property['created_by'])
+                        })
+                        category = mongo.db.categories.find_one({
+                            '_id': ObjectId(user_property['category_name'])
+                        })
+                        if user:
+                            user_properties['created_by'] = user[
+                                'username']
+                        else:
+                            user_property['created_by'] = "No User"
+                        if category:
+                            user_property['category_name'] = category[
+                                'category_name']
+                        else:
+                            user_property['category_name'] = "No Category"
+                    else:
+                        user_property = dict()
+                        user_property['_id'] = property
+                        user_property['created_by'] = "N/A"
+                        user_property['category_name'] = "N/A"
+                    user_properties.append(user_property)
+                # render appropriate profile template
+                return render_template(
+                    "profile.html", username=username,
+                    properties=user_properties)
+        # if the user has no bookmarks try render their profile
+        except KeyError:
+            pass
+    else:
+        flash('You are not authorised to view this page')
+        return redirect(url_for("get_featured_properties"))
+    # return profile page with user's unique name
+    return render_template("profile.html", username=username)
 
-    if session["user"]:
-        return render_template("profile.html", username=username)
 
-    return redirect(url_for("login"))
+# --- BOOKMARK A PROPERTY FUNCTIONALITY --- #
+@app.route("/bookmark/<property_id>", methods=["POST"])
+def bookmark(property_id):
+    """
+    Bookmark Functionality. To bookmark a property on their profile.
+    """
+    if request.method == "POST":
+        user_bookmarks = list(mongo.db.users.find_one({"username": session
+                                                      ["user"].lower()})
+                              ['bookmarks'])
+        if ObjectId(property_id) not in user_bookmarks:
+            mongo.db.users.find_one_and_update(
+                {"username": session["user"].lower()},
+                {"$push": {"bookmarks": ObjectId(property_id)}})
+            flash("Property added your bookmarks on your profile")
+        else:
+            flash("Property already bookmarked, skipping")
+        return redirect(url_for(
+                        "profile", username=session["user"]))
+
+    return redirect(url_for(
+                        "profile", username=session["user"]))
+
+
+# --- DELETE A BOOKMARK FUNCTIONALITY --- #
+@app.route("/delete_bookmark/<property_id>")
+def delete_bookmark(property_id):
+    """
+    Delete Bookmark Functionality. To remove a bookmark from their profile.
+    """
+    try:
+        mongo.db.users.find_one_and_update(
+            {"username": session["user"].lower()},
+            {"$pull": {"bookmarks": ObjectId(property_id)}})
+        flash("Bookmark successfully removed.")
+    except Exception:
+        user_bookmarks = mongo.db.users.find_one({"username": session["user"].
+                                                 lower()})['bookmarks']
+        user_bookmarks.remove(property_id)
+        mongo.db.users.find_one_and_update({"username": session["user"].
+                                            lower()}, {'$set': {"bookmarks":
+                                                                user_bookmarks
+                                                                }})
+    finally:
+        return redirect(url_for("profile", username=session["user"]))
 
 
 # --- LOG OUT FUNCTIONALITY --- #
