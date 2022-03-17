@@ -63,10 +63,6 @@
                             <i class="material-icons">close</i>
                         </a>
                     </div>
-                    <div class="col s6">
-                        <!-- View Property Button -->
-                        <a href="{{ url_for('view_property', property_id=property._id) }}" class="waves-effect waves-light btn-small view-property-btn right">View Property</a>
-                    </div>
                 </div>
                 <!-- Card Category -->
                 <div class="card-content">
@@ -90,6 +86,11 @@
                     <p>{{ property.property_added_date }}</p>
                     <span>Created by:</span>
                     <p>{{ property.author|capitalize }}</p>
+                    <div class="col s6 right">
+                        <!-- View Property Button -->
+                        <a href="{{ url_for('view_property', property_id=property._id) }}" class="waves-effect waves-light btn-small view-property-btn right">View Property</a>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
