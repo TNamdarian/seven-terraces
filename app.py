@@ -153,6 +153,8 @@ def profile(username):
         user = mongo.db.users.find_one(
             # take the session user's username from Mongo
             {"username": session["user"]})
+        bookmarks = mongo.db.users.find_one(
+            ["bookmarks"])
         # if the user has a bookmark try the execute the below
         try:
             # check if session user
@@ -163,16 +165,16 @@ def profile(username):
                         '_id': property})
                     if user_property:
                         user = mongo.db.users.find_one({
-                            '_id': ObjectId(user_property['author'])
+                            '_id': ObjectId(user_property['username'])
                         })
                         category = mongo.db.categories.find_one({
                             '_id': ObjectId(user_property['category_name'])
                         })
                         if user:
-                            user_property['author'] = user[
+                            user_property['username'] = user[
                                 'username']
                         else:
-                            user_property['author'] = "No User"
+                            user_property['username'] = "No User"
                         if category:
                             user_property['category_name'] = category[
                                 'category_name']
@@ -199,12 +201,12 @@ def profile(username):
 
 
 # --- BOOKMARK A PROPERTY FUNCTIONALITY --- #
-@app.route("/bookmark/<property_id>", methods=["POST"])
+@app.route("/bookmark/<property_id>", methods=["GET", "POST"])
 def bookmark(property_id):
     """
-    Bookmark Functionality. 
+    Bookmark Functionality
     """
-    if request.method == "POST":
+    if request.method == "GET":
         user_bookmarks = list(mongo.db.users.find_one({"username": session
                                                       ["user"].lower()})
                               ['bookmarks'])
@@ -212,9 +214,9 @@ def bookmark(property_id):
             mongo.db.users.find_one_and_update(
                 {"username": session["user"].lower()},
                 {"$push": {"bookmarks": ObjectId(property_id)}})
-            flash("Property added your bookmarks on your profile")
+            flash("Property has been added to your profile.")
         else:
-            flash("Property already bookmarked, skipping")
+            flash("Property have already been bookmarked.")
         return redirect(url_for(
                         "profile", username=session["user"]))
 
@@ -297,8 +299,9 @@ def add_property():
         return redirect(url_for("get_properties"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
-    type = mongo.db.type.find().sort("type")
-    return render_template("add_property.html", categories=categories, type=type)
+    type = mongo.db.type.find().sort("type", 1)
+    amenities = mongo.db.amenities.find().sort("amenity", 1)
+    return render_template("add_property.html", categories=categories, type=type, amenities=amenities)
 
 
 # --- Edit_PROPERTY FUNCTIONALITY --- #

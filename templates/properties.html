@@ -58,7 +58,7 @@
                     </div>
                     <div class="col s6 right">
                         <!-- Save Button -->
-                        <a class="waves-effect waves-light btn-floating right bookmark_btn" href="{ ('bookmark', property_id=property._id) }" data-resource="{{property._id}}"><i class="material-icons save-icon">bookmark_border</i></a>
+                        <a class="waves-effect waves-light btn-floating right bookmark_btn" href="{{ url_for('bookmark', property_id=property._id) }}" data-resource="{{property._id}}"><i class="material-icons save-icon">bookmark_border</i></a>
                     </div>
                 </div>
                 <!-- Card Category -->

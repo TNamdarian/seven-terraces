@@ -63,7 +63,7 @@
                         <select id="amenities" name="amenities" class="validate" multiple required>
                             <option value="" selected disabled>Choose Amenities</option>
                             {% for amenity in amenities %}
-                            <option value="{{ amenity.amenities }}">{{ amenity.amenities }}</option>
+                            <option value="{{ amenity.amenity }}">{{ amenity.amenity }}</option>
                             {% endfor %}
                         </select>
                         <label for="amenities">Amenities</label>
