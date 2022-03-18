@@ -153,8 +153,6 @@ def profile(username):
         user = mongo.db.users.find_one(
             # take the session user's username from Mongo
             {"username": session["user"]})
-        bookmarks = mongo.db.users.find_one(
-            ["bookmarks"])
         # if the user has a bookmark try the execute the below
         try:
             # check if session user
