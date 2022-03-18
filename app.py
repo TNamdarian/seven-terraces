@@ -163,16 +163,16 @@ def profile(username):
                         '_id': property})
                     if user_property:
                         user = mongo.db.users.find_one({
-                            '_id': ObjectId(user_property['created_by'])
+                            '_id': ObjectId(user_property['author'])
                         })
                         category = mongo.db.categories.find_one({
                             '_id': ObjectId(user_property['category_name'])
                         })
                         if user:
-                            user_properties['created_by'] = user[
+                            user_property['author'] = user[
                                 'username']
                         else:
-                            user_property['created_by'] = "No User"
+                            user_property['author'] = "No User"
                         if category:
                             user_property['category_name'] = category[
                                 'category_name']
@@ -181,7 +181,7 @@ def profile(username):
                     else:
                         user_property = dict()
                         user_property['_id'] = property
-                        user_property['created_by'] = "N/A"
+                        user_property['author'] = "N/A"
                         user_property['category_name'] = "N/A"
                     user_properties.append(user_property)
                 # render appropriate profile template
@@ -202,7 +202,7 @@ def profile(username):
 @app.route("/bookmark/<property_id>", methods=["POST"])
 def bookmark(property_id):
     """
-    Bookmark Functionality. To bookmark a property on their profile.
+    Bookmark Functionality. 
     """
     if request.method == "POST":
         user_bookmarks = list(mongo.db.users.find_one({"username": session

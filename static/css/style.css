@@ -223,6 +223,13 @@ nav ul li.active {
     margin-right: 10px;
 }
 
+.bookmark_btn:hover,
+.btn-floating:hover {
+    background-color: var(--teal);
+    color: var(--blue);
+    border-style: 1px solid var(--teal);
+}
+
 .modal-delete-btn {
     background-color: var(--youtube);
     border: 1px solid var(--youtube);

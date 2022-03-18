@@ -57,12 +57,16 @@
                         <input placeholder="price" id="price" name="price" type="number" class="validate" min="1" required="">
                     </div>
                 </div>
-                <div class="row field-row features">
-                    <div class="input-field col s6">
+                <div class="row details-row">
+                    <div class="col s6">
                         <h6><i class="material-icons">location_searching</i>Amenities</h6>
-                        <textarea placeholder="Amenities" id="amenities" name="amenities" class="materialize-textarea validate" min="1" required></textarea>
-                        <label for="amenities"></label>
-                        <span class="helper-text" data-error="Write each amenity on a new line." data-success="Sounds interesting!">Write each amenity on a new line.</span>
+                        <select id="amenities" name="amenities" class="validate" multiple required>
+                            <option value="" selected disabled>Choose Amenities</option>
+                            {% for amenity in amenities %}
+                            <option value="{{ amenity.amenities }}">{{ amenity.amenities }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="amenities">Amenities</label>
                     </div>
                     <div class="col s6">
                         <h6><i class="material-icons">trending_up</i>Strategy</h6>
