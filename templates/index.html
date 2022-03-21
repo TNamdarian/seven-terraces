@@ -65,10 +65,10 @@
                     </div>
                     <div class="center-align">
                         <!-- cancel button -->
-                        <a href="{{ url_for('update_property_feature') }}" class="waves-effect waves-light btn modal-cancel-btn"><i class="fa-solid fa-ban"></i>
+                        <a href="{{ url_for('get_properties') }}" class="waves-effect waves-light btn modal-cancel-btn"><i class="fa-solid fa-ban"></i>
                         </a>
                         <!-- submit button -->
-                        <a href="{{ url_for('delete_featured_property', featured_property_id=featured_property._id) }}" class="waves-effect waves-light btn modal-delete-btn"><i class="fa-solid fa-trash"></i></a>
+                        <a href="{{ url_for('delete_property', property_id=property._id) }}" class="waves-effect waves-light btn modal-delete-btn"><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
             </div>

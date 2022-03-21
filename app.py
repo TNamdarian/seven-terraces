@@ -154,48 +154,13 @@ def profile(username):
             # take the session user's username from Mongo
             {"username": session["user"]})
         # if the user has a bookmark try the execute the below
-        try:
-            # check if session user
-            if session["user"]:
-                user_properties = []
-                for property in user['bookmarks']:
-                    user_property = mongo.db.properties.find_one({
-                        '_id': property})
-                    if user_property:
-                        user = mongo.db.users.find_one({
-                            '_id': ObjectId(user_property['username'])
-                        })
-                        category = mongo.db.categories.find_one({
-                            '_id': ObjectId(user_property['category_name'])
-                        })
-                        if user:
-                            user_property['username'] = user[
-                                'username']
-                        else:
-                            user_property['username'] = "No User"
-                        if category:
-                            user_property['category_name'] = category[
-                                'category_name']
-                        else:
-                            user_property['category_name'] = "No Category"
-                    else:
-                        user_property = dict()
-                        user_property['_id'] = property
-                        user_property['author'] = "N/A"
-                        user_property['category_name'] = "N/A"
-                    user_properties.append(user_property)
-                # render appropriate profile template
-                return render_template(
-                    "profile.html", username=username,
-                    properties=user_properties)
-        # if the user has no bookmarks try render their profile
-        except KeyError:
-            pass
+        bookmarks = mongo.db.properties.find({'_id': {'$in': user['bookmarks']}})
     else:
         flash('You are not authorised to view this page')
         return redirect(url_for("get_featured_properties"))
     # return profile page with user's unique name
-    return render_template("profile.html", username=username)
+    return render_template("profile.html", username=username, properties=bookmarks)
+    
 
 
 # --- BOOKMARK A PROPERTY FUNCTIONALITY --- #
@@ -378,26 +343,14 @@ def admin_dashboard():
     return render_template("admin_dashboard.html", categories=categories)
 
 
-# --- READ FEATURED PROPERTY FUNCTIONALITY --- #
 @app.route('/')
 @app.route("/get_featured_properties")
 def get_featured_properties():
     """
+    READ FEATURED PROPERTY FUNCTIONALITY
     """
-    featured_properties = list(mongo.db.featured_properties.find())
-
-    for featured_property in featured_properties:
-        try:
-            category = mongo.db.categories.find_one({
-                '_id': ObjectId(featured_property['category_name'])
-            })
-            if category:
-                featured_property['category_name'] = category['category_name']
-            else:
-                featured_property['category_name'] = "No Category"
-        except Exception:
-            pass
-    return render_template("index.html", featured_properties=featured_properties)
+    featured_properties = list(mongo.db.properties.find({'featured':True}))
+    return render_template("index.html", properties=featured_properties)
 
 
 # --- ADD A FEATURED PPROPERTY FUNCTIONALITY --- #
