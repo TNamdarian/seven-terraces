@@ -27,8 +27,8 @@
                 <div id="modal1" class="modal">
                     <div class="file-field input-field">
                         <div class="btn">
-                            <span>File</span>
-                            <input type="file" name="recipe_image" onchange="previewFile()" accept="image/gif, image/jpeg, image/png">
+                            <a href="{{ url_for('img_uploads') }}" class="btn btn-primary m-3">Upload Images</a>
+                            <input type="file" name="property_image" id="property_image" accept="image/*" onchange="previewFile()">
                         </div>
                         <div class="file-path-wrapper">
                             <input class="file-path validate" type="text" placeholder="Upload image">

@@ -4,6 +4,9 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from bson import json_util
+from bson.json_util import dumps
+from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
@@ -21,12 +24,12 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-# FUNCTION USED TO CONVER STRINGS SEPARATED BY '/N' TO ARRAYS
+# FUNCTION TO CONVER STRINGS SEPARATED BY '\N' TO ARRAYS
 def string_to_array(string):
     """
-    FUNCTION USED TO CONVER STRINGS TO ARRAYS
+    FUNCTION TO CONVER STRINGS SEPARATED BY '/N' TO ARRAYS
     """
-    array = string.split("\n")
+    array = str.split("\n")
     return array
 
 
@@ -69,7 +72,7 @@ def img_uploads(filename):
     """
     FUNTION FOR UPLOADING IMAGES
     """
-    return mongo.send_file(filename)
+    return mongo.db.send_file(filename)
 
 
 # --- SIGN UP / REGISTER FUNCTIONALITY --- #
@@ -247,14 +250,14 @@ def add_property():
             "category_name": request.form.get("category_name"),
             "property_name": request.form.get("property_name").capitalize(),
             "property_description": request.form.get("property_description"),
-            "property_details": request.form.get("property_details"),
+            "property_details": string_to_array(request.form.get(("property_details"))),
             "property_added_date": request.form.get("property_added_date"),
             "propery_image": request.form.get("property_image.filename"),
             "author": session["user"],
             "type": request.form.get("type"),
             "price": request.form.get("price"),
             "amenities":request.form.get('amenities'),
-            "features":string_to_array(request.form.get('features'))
+            "features":string_to_array(request.form.get(("features")))
         }
         mongo.db.properties.insert_one(property)
         flash("Your Property Successfully Added")
@@ -263,7 +266,8 @@ def add_property():
     categories = mongo.db.categories.find().sort("category_name", 1)
     type = mongo.db.type.find().sort("type", 1)
     amenities = mongo.db.amenities.find().sort("amenity", 1)
-    return render_template("add_property.html", categories=categories, type=type, amenities=amenities)
+    features = mongo.db.amenities.find().sort("feature", 1)
+    return render_template("add_property.html", categories=categories, type=type, amenities=amenities, property=features)
 
 
 # --- Edit_PROPERTY FUNCTIONALITY --- #
@@ -279,15 +283,17 @@ def edit_property(property_id):
             "property_description": request.form.get("property_description"),
             "property_added_date": request.form.get("property_added_date"),
             "img_link": request.form.get("img_link"),
-            "author": session["user"]
+            "author": session["user"],
         }
         mongo.db.properties.update_one(
             {"_id": ObjectId(property_id)}, {"$set": submit})
         flash("Property successfully updated")
 
+    list_property_details = '\n'.join(property['property_details'])
+    list_features = '\n'.join(property['features'])
     property = mongo.db.properties.find_one({"_id": ObjectId(property_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_property.html", property=property, categories=categories)
+    return render_template("edit_property.html", property=property, categories=categories, list_features=list_features, list_property_details=list_property_details)
 
 
 # --- DELETE_PROPERTY FUNCTIONALITY --- #
