@@ -160,7 +160,6 @@ def profile(username):
         return redirect(url_for("get_featured_properties"))
     # return profile page with user's unique name
     return render_template("profile.html", username=username, properties=bookmarks)
-    
 
 
 # --- BOOKMARK A PROPERTY FUNCTIONALITY --- #
@@ -351,77 +350,6 @@ def get_featured_properties():
     """
     featured_properties = list(mongo.db.properties.find({'featured':True}))
     return render_template("index.html", properties=featured_properties)
-
-
-# --- ADD A FEATURED PPROPERTY FUNCTIONALITY --- #
-@app.route("/add_featured_property", methods=["GET", "POST"])
-def add_featured_property():
-    if admin():
-        if request.method == "POST":
-            # find the collections and the keys
-            category = mongo.db.categories.find_one({'category_name':
-                                                    request.form.get(
-                                                        "category_name")})
-            # create dictionary for items in form by ObjectId
-            featured_property = {
-                "category_name": ObjectId(category['_id']),
-                "featured_name": request.form.get("featured_name"),
-                "featured_description": request.form.get(
-                    "featured_description"),
-                "featured_added_date": request.form.get("featured_added_date"),
-                "featured_img": request.form.get("featured_img")
-            }
-            mongo.db.featured_properties.insert_one(featured_property)
-            flash("Featured Property Successfully Added")
-            return redirect(url_for("get_featured_properties"))
-    else:
-        flash('You are not authorised to view this page')
-        return redirect(url_for("get_featured_properties"))
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("add_featured_property.html", categories=categories)
-
-
-# --- EDIT A FEATURED PROPERTY FUNCTIONALITY --- #
-@app.route("/edit_featured_property/<featured_property_id>",
-           methods=["GET", "POST"])
-def edit_featured_property(featured_property_id):
-    if admin():
-        if request.method == "POST":
-            # find the collections and the keys
-            category = mongo.db.categories.find_one({'category_name':
-                                                    request.form.get(
-                                                        "category_name")})
-            submit = {
-                "category_name": ObjectId(category['_id']),
-                "featured_name": request.form.get("featured_name"),
-                "featured_description": request.form.get(
-                    "featured_description"),
-                "featured_added_date": request.form.get("featured_added_date"),
-                "featured_img": request.form.get("featured_img")
-            }
-            mongo.db.featured_properties.update_one({
-                "_id": ObjectId(featured_property_id)}, {"$set": submit})
-            flash("The Featured property was successfully edited and updated")
-            return redirect(url_for("get_featured_properties"))
-        featured_property = mongo.db.featured_properties.find_one({
-            "_id": ObjectId(featured_property_id)})
-
-        categories = mongo.db.categories.find().sort("category_name", 1)
-    else:
-        flash('You are not authorised to view this page')
-        return redirect(url_for("get_featured_properties"))
-
-    return render_template("edit_featured_property.html",
-                           featured_property=featured_property, categories=categories)
-
-
-# --- DELETE A FEATURED PROPERTY FUNCTIONALITY --- #
-@app.route("/delete_featured_property/<featured_property_id>")
-def delete_featured_property(featured_property_id):
-    mongo.db.featured_properties.delete_one(
-        {"_id": ObjectId(featured_property_id)})
-    flash("The Featured property was successfully deleted")
-    return redirect(url_for("get_featured_properties"))
 
 
 # --- ADD A CATEGORY FUNCTIONALITY --- #
