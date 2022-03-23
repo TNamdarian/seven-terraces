@@ -21,7 +21,7 @@
                         <i class="material-icons prefix">search</i>
                         <input type="text" name="query" id="query" class="validate" minlength="2" required>
                         <label class="form-label search-label" for="query">Search Properties</label>
-                        <span class="helper-text">Search properties by type.</span>
+                        <span class="helper-text">Search properties by name $ description.</span>
                     </div>
                     <!-- Buttons-->
                     <div class="col s12 m4 button-wrapper">
@@ -104,10 +104,10 @@
                     </div>
                     <div class="center-align">
                         <!-- cancel button -->
-                        <a href="{{ url_for('get_properties') }}" class="waves-effect waves-light btn modal-cancel-btn"><i class="fa-solid fa-ban"></i>
+                        <a href="{{ url_for('get_properties') }}" class="waves-effect waves-light btn modal-cancel-btn">Cancel
                         </a>
                         <!-- submit button -->
-                        <a href="{{ url_for('delete_property', property_id=property._id) }}" class="waves-effect waves-light btn modal-delete-btn"><i class="fa-solid fa-trash"></i></a>
+                        <a href="{{ url_for('delete_property', property_id=property._id) }}" class="waves-effect waves-light btn modal-delete-btn">Delete</a>
                     </div>
                 </div>
             </div>

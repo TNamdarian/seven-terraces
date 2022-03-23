@@ -30,7 +30,7 @@
     {% if properties|length > 0 %}
     <div class="row" id="featured-section">
         {% for property in properties %}
-        <div class="col s12 m6 l3">
+        <div class="col s12 m6 l4">
             <div class="card sticky-action blue-section property-card">
                 <!-- Card Img -->
                 <div class="card-image waves-effect waves-block waves-light">
@@ -61,6 +61,11 @@
                     <p>{{ property.property_added_date }}</p>
                     <span>Added by:</span>
                     <p>{{ property.author|capitalize }}</p>
+                    <div class="col s6 right">
+                        <!-- View Property Button -->
+                        <a href="{{ url_for('view_property', property_id=property._id) }}" class="waves-effect waves-light btn-small view-property-btn right">View Property</a>
+                        </a>
+                    </div>
                 </div>
                 {% if session.user|lower == property.author|lower %}
                 <!-- Modal Trigger -->
@@ -76,10 +81,10 @@
                     </div>
                     <div class="center-align">
                         <!-- cancel button -->
-                        <a href="{{ url_for('get_properties') }}" class="waves-effect waves-light btn modal-cancel-btn"><i class="fa-solid fa-ban"></i>
+                        <a href="{{ url_for('get_properties') }}" class="waves-effect waves-light btn modal-cancel-btn">Cancel
                         </a>
                         <!-- submit button -->
-                        <a href="{{ url_for('delete_property', property_id=property._id) }}" class="waves-effect waves-light btn modal-delete-btn"><i class="fa-solid fa-trash"></i></a>
+                        <a href="{{ url_for('delete_property', property_id=property._id) }}" class="waves-effect waves-light btn modal-delete-btn">Delete</a>
                     </div>
                 </div>
             </div>

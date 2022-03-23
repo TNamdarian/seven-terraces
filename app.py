@@ -279,18 +279,21 @@ def edit_property(property_id):
     if request.method == "POST":
         submit = {
             "category_name": request.form.get("category_name"),
-            "property_name": request.form.get("property_name"),
+            "property_name": request.form.get("property_name").capitalize(),
             "property_description": request.form.get("property_description"),
+            "property_details": string_to_array(request.form.get(("property_details"))),
             "property_added_date": request.form.get("property_added_date"),
-            "img_link": request.form.get("img_link"),
+            "propery_image": request.form.get("property_image.filename"),
             "author": session["user"],
+            "type": request.form.get("type"),
+            "price": request.form.get("price"),
+            "amenities":request.form.get('amenities'),
+            "features":string_to_array(request.form.get(("features")))
         }
         mongo.db.properties.update_one(
             {"_id": ObjectId(property_id)}, {"$set": submit})
         flash("Property successfully updated")
 
-    list_property_details = '\n'.join(property['property_details'])
-    list_features = '\n'.join(property['features'])
     property = mongo.db.properties.find_one({"_id": ObjectId(property_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_property.html", property=property, categories=categories, list_features=list_features, list_property_details=list_property_details)
@@ -315,18 +318,6 @@ def search():
     """
     query = request.form.get("query")
     properties = list(mongo.db.properties.find({"$text": {"$search": query}}))
-    for property in properties:
-        try:
-            user = mongo.db.users.find_one({
-                '_id': ObjectId(property['author'])
-            })
-            category = mongo.db.categories.find_one({
-                '_id': ObjectId(property['category_name'])
-            })
-            property['author'] = user['username']
-            property['category_name'] = category['category_name']
-        except Exception:
-            pass
     categories = list(mongo.db.categories.find().sort("category_name", 1))
     return render_template("properties.html", properties=properties,
                            categories=categories)
