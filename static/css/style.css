@@ -177,8 +177,19 @@ nav ul li.active {
     width: 90%;
 }
 
+h4.warning {
+    color: var(--blue);
+    font-size: 24px;
+}
+
 /* Properties Page */
-/* Propertices Cards Delete and Edit Button */
+.card-reveal .helper-text {
+    font-size: 18px;
+    color: var(--teal);
+    font-weight: 500;
+    line-height: 2;
+}
+
 .modal-cancel-btn,
 .modal-edit-btn {
     background-color: var(--light-blue);
@@ -251,8 +262,9 @@ nav ul li.active {
 }
 
 .card .card-title {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 500;
+    color: var(--orange);
 }
 
 .modal-content {
@@ -276,10 +288,6 @@ nav ul li.active {
 
 .card .card-reveal {
     background-color: var(--grey);
-}
-
-.card .card-title {
-    color: var(--orange);
 }
 
 .card-reveal p {
@@ -353,11 +361,6 @@ nav ul li.active {
     font-size: 36px;
 }
 
-/* Add Properties Page */
-.form-container i {
-    color: var(--orange)
-}
-
 /* Form - Sing UP Page */
 form.sign-up-form,
 form.sign-in-form {
@@ -394,6 +397,10 @@ form i:hover {
     background-image: url(/static/images/circle-scatter-haikei.svg);
 }
 
+.form-container i {
+    color: var(--orange)
+}
+
 .form-container img,
 .property-header img {
     width: 50%;
@@ -421,7 +428,11 @@ form i:hover {
     margin-bottom: 30px;
 }
 
-/* Change Password Button*/
+.bookmark-p {
+    color: var(--blue);
+    font-weight: 500;
+}
+
 .change-pw-btn,
 .change-pw-modal-btn {
     background-color: var(--orange);
@@ -440,6 +451,10 @@ form i:hover {
     background-color: var(--light-blue);
     border: 1px solid var(--light-blue);
     color: var(--blue);
+}
+
+.change-pw-btn {
+    margin-top: 50px
 }
 
 .change-pw-modal-btn {
@@ -463,7 +478,7 @@ form i:hover {
     border: 1px solid var(--black);
 }
 
-/* Delete Password Button*/
+
 .delete-p {
     font-size: 18px;
     color: var(--blue);

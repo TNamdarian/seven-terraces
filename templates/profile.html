@@ -75,18 +75,17 @@
                             <span class="lever"></span>
                         </label>
                     </div>
-                    <h6 class="card-title activator">{{ property.category_name }}<i class="fas fa-caret-down right"></i>
-                    </h6>
+                    <h5 class="card-title activator">{{ property.property_name }}<i class="fas fa-caret-down right"></i>
+                    </h5>
                 </div>
                 <!-- Card Reveal -->
                 <div class="card-reveal">
-                    <h5 class="card-title">
-                        {{ property.property_name }}<i class="fas fa-xmark right"></i></h5>
-                    <span>Description:</span>
+                    <h5 class="card-title">{{ property.category_name }}<i class="fas fa-xmark right"></i></h5>
+                    <span class="helper-text">Description:</span>
                     <p>{{ property.property_description }}</p>
-                    <span>Date added:</span>
+                    <span class="helper-text">Date added:</span>
                     <p>{{ property.property_added_date }}</p>
-                    <span>Created by:</span>
+                    <span class="helper-text">Created by:</span>
                     <p>{{ property.author|capitalize }}</p>
                     <div class="col s6 right">
                         <!-- View Property Button -->
@@ -106,7 +105,7 @@
             <!-- Change password -->
             <div>
                 <!-- Change password Modal Trigger -->
-                <a href="#change_password_modal" class="waves-effect waves-light change-pw-btn modal-trigger"> <i class="material-icons left">lock_outline</i>
+                <a href="#change_password_modal" class="waves-effect waves-light change-pw-btn modal-trigger"><i class="material-icons left">lock_outline</i>
                     Change Password
                 </a>
                 <!-- Change password Modal Structure -->
@@ -128,9 +127,7 @@
                         <!--Form Buttons -->
                         <div class="center-align">
                             <!-- Cancel Button -->
-                            <a href="{{ url_for('profile', username=session['user']) }}" class="waves-effect waves-light btn modal-cancel-btn">
-                                <i class="fa-solid fa-ban"></i>
-                            </a>
+                            <a href="{{ url_for('profile', username=session['user']) }}" class="waves-effect waves-light btn modal-cancel-btn">Cancel</a>
                             <!-- Submit Button -->
                             <button type="submit" class="btn modal-delete-btn" aria-label="Change Password">Change Password</button>
                         </div>
@@ -164,10 +161,10 @@
                         <!--Form Buttons -->
                         <div class="center-align">
                             <!-- Cancel Button -->
-                            <a href="{{ url_for('profile', username=session['user']) }}" class="btn modal-cancel-btn"><i class="fa-solid fa-ban"></i>
+                            <a href="{{ url_for('profile', username=session['user']) }}" class="btn modal-cancel-btn">Cancel
                             </a>
                             <!-- Submit Button -->
-                            <button type="submit" class="btn modal-delete-btn" aria-label="Delete account"><i class="fa-solid fa-trash"></i>
+                            <button type="submit" class="btn modal-delete-btn" aria-label="Delete account">Delete
                             </button>
                         </div>
                     </form>

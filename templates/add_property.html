@@ -4,6 +4,7 @@
 <!-- Add a Property Form -->
 <div class="container">
     <div class="row">
+        <!--Add a Property Form-->
         <form method="POST" action="{{ url_for('add_property') }}" enctype="multipart/form-data">
             <!-- Property Name -->
             <div class="row">
@@ -27,7 +28,7 @@
                 <div id="modal1" class="modal">
                     <div class="file-field input-field">
                         <div class="btn">
-                            <a href="{{ url_for('img_uploads') }}" class="btn btn-primary m-3">Upload Images</a>
+                            <a href="#" class="btn btn-primary m-3">Upload Images</a>
                             <input type="file" name="property_image" id="property_image" accept="image/*" onchange="previewFile()">
                         </div>
                         <div class="file-path-wrapper">

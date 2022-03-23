@@ -49,17 +49,17 @@
                 </div>
                 <!-- Card Category -->
                 <div class="card-content">
-                    <h4 class="card-title activator">{{ property.category_name }}<i class="fas fa-caret-down right"></i></h4>
+                    <h5 class="card-title activator">{{ property.property_name }}<i class="fas fa-caret-down right"></i>
+                    </h5>
                 </div>
                 <!-- Card Reveal -->
                 <div class="card-reveal">
-                    <h5 class="card-title">
-                        {{ property.property_name }}<i class="fas fa-xmark right"></i></h5>
-                    <span>Description:</span>
+                    <h5 class="card-title">{{ property.category_name }}<i class="fas fa-xmark right"></i></h5>
+                    <span class="helper-text">Description:</span>
                     <p>{{ property.property_description }}</p>
-                    <span>Date added:</span>
+                    <span class="helper-text">Date added:</span>
                     <p>{{ property.property_added_date }}</p>
-                    <span>Added by:</span>
+                    <span class="helper-text">Created by:</span>
                     <p>{{ property.author|capitalize }}</p>
                     <div class="col s6 right">
                         <!-- View Property Button -->
@@ -92,7 +92,7 @@
         {% endfor %}
     </div>
     {% else %}
-    <h3 class="red-text text-darken-4 centre-align">No results found</h3>
+    <h4 class="centre-align warning">No results found</h4>
     {% endif %}
 </div>
 

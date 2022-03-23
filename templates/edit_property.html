@@ -1,70 +1,110 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container form-container">
-    <!-- Page Header -->
-    <div class="row property-header">
-        <div class="col s12 m12 l6">
-            <h1 class="center-align add-property-heading">Edit a property you have already added.</h1>
-        </div>
-        <div class="col s12 m12 l6 center-align">
-            <img src="{{ url_for('static', filename='images/add_property.svg') }}" alt="add property">
-        </div>
-    </div>
-    <!-- Add a Property Form -->
+<div class="container">
     <div class="row">
-        <form class="col s12 m8 offset-m2 " method="POST" action="{{ url_for('edit_property', property_id=property._id) }}">
-            <!-- Category Selection -->
-            <div class="row field-row">
-                <div class="input-field col s12">
-                    <i class="fa-solid fa-folder prefix"></i>
-                    <select id="category_name" name="category_name" class="validate" required>
-                        <option value="" disabled>Choose Category</option>
-                        {% for category in categories %}
-                        {% if category.category_name == property.category_name %}
-                        <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
-                        {% else %}
-                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                        {% endif %}
-                        {% endfor %}
-                    </select>
-                    <label for="category_name">Category</label>
-                </div>
-            </div>
+        <!-- Edit a Property Form -->
+        <form method="POST" action="{{ url_for('edit_property', property_id=property._id) }}" enctype="multipart/form-data">
             <!-- Property Name -->
-            <div class="row field-row">
-                <div class="input-field col s12">
-                    <i class="fa-regular fa-pen-to-square prefix"></i>
-                    <input id="property_name" name="property_name" minlength="5" maxlength="50" value="{{ property.property_name }}" type="text" class="validate" required>
-                    <label for="property_name">Property Name</label>
-                    <span class="helper-text" data-error="The property name should be between 5-50 characters." data-success="Awesome!">Give the new property a cool name that is between 5-50 characters.</span>
+            <div class="row">
+                <div class="input-field col s12 m12 l6">
+                    <h5>Property name</h5>
+                    <input placeholder="Property name" id="property_name" name="property_name" type="text" class="validate" required="">
                 </div>
             </div>
-            <!-- Property Description -->
-            <div class="row field-row">
+            <!-- Property Image -->
+            <div class="img-details col s12 m12 l6">
+                <!-- Modal Trigger -->
+                <div class="row">
+                    <a class="modal-trigger" href="#modal1">Upload image</a>
+                </div>
+                <div class="row img-wrapper">
+                    <a class="modal-trigger" href="#modal1">
+                        <img src="{{url_for('static', filename='images/default.jpg')}}" alt="default_property_image">
+                    </a>
+                </div>
+                <!-- Modal Structure-->
+                <div id="modal1" class="modal">
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <a href="#" class="btn btn-primary m-3">Upload Images</a>
+                            <input type="file" name="property_image" id="property_image" accept="image/*" onchange="previewFile()">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="Upload image">
+                        </div>
+                        <div class="right-align">
+                            <a href="#!" class="modal-action modal-close waves-effect waves-green">Done</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- property details -->
+            <div class="col s12 m12 l6">
+                <div class="row details-row">
+                    <div class="col s6">
+                        <h6 class="heading"><i class="material-icons">location_city</i>Property Type</h6>
+                        <select id="type" name="type" class="validate" required>
+                            <option value="" disabled selected>Types</option>
+                            {% for kind in type %}
+                            <option value="{{ kind.type }}">{{ kind.type }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="type">Property Type</label>
+                    </div>
+                    <div class="col s6">
+                        <h6><i class="material-icons">monetization_on</i>Price</h6>
+                        <input placeholder="price" id="price" name="price" type="number" class="validate" min="1" required="">
+                    </div>
+                </div>
+                <div class="row details-row">
+                    <div class="col s6">
+                        <h6><i class="material-icons">location_searching</i>Amenities</h6>
+                        <select id="amenities" name="amenities" class="validate" multiple required>
+                            <option value="" selected disabled>Choose Amenities</option>
+                            {% for amenity in amenities %}
+                            <option value="{{ amenity.amenity }}">{{ amenity.amenity }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="amenities">Amenities</label>
+                    </div>
+                    <div class="col s6">
+                        <h6><i class="material-icons">trending_up</i>Strategy</h6>
+                        <select id="category_name" name="category_name" class="validate" required>
+                            <option value="" disabled selected>Choose Strategy</option>
+                            {% for category in categories %}
+                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="category_name">Property Category</label>
+                    </div>
+                </div>
+            </div>
+            <!-- Property Short Description -->
+            <div class="row field-row features">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-align-left prefix"></i>
-                    <textarea id="property_description" name="property_description" minlength="5" maxlength="200" class="materialize-textarea validate" required>{{ property.property_description }}</textarea>
-                    <label for="property_description">Property Description</label>
-                    <span class="helper-text" data-error="The description should be between 5 - 200 characters" data-success="Sounds interesting!">Write a description of the property in 5-200 characters.</span>
+                    <textarea id="property_description" name="property_description" minlength="5" maxlength="200" class="materialize-textarea validate" required></textarea>
+                    <label for="property_description">Property Tag Line</label>
+                    <span class="helper-text" data-error="The description should be between 5 - 200 characters. Write each sentence on a new line." data-success="Sounds interesting!">Write a description of the property in 5 - 200 characters. Write each sentence on a new line.</span>
+                </div>
+            </div>
+            <!-- Property Full Details -->
+            <div class="row field-row features">
+                <div class="input-field col s12">
+                    <i class="fa-solid fa-circle-info prefix"></i>
+                    <textarea id="property_details" name="property_details" minlength="100" maxlength="1000" class="materialize-textarea validate" required></textarea>
+                    <label for="property_details">Property Details</label>
+                    <span class="helper-text" data-error="The description should be between 100 - 1000 characters. Write each paragraph on a new line." data-success="Sounds interesting!">Write a full description of the property in 100 - 1000 characters. Write each paragraph on a new line.</span>
                 </div>
             </div>
             <!-- Date picker -->
-            <div class="row field-row">
+            <div class="row field-row features">
                 <div class="input-field col s12">
                     <i class="fa-regular fa-calendar-days prefix"></i>
-                    <input id="property_added_date" name="property_added_date" type="text" value="{{ property.property_added_date }}" class="datepicker validate">
+                    <input id="property_added_date" name="property_added_date" type="text" class="datepicker validate">
                     <label for="property_added_date">Date Added</label>
                     <span class="helper-text" data-success="Can't wait!">The date will indicate when this property is added.</span>
-                </div>
-            </div>
-            <!-- property Link -->
-            <div class="row field-row">
-                <div class="input-field col s12">
-                    <i class="fa-solid fa-link prefix"></i>
-                    <input id="img_link" name="img_link" minlength="5" type="url" value="{{ property.img_link }}" class="validate" required>
-                    <label for="img_link">Link to the image of the property</label>
-                    <span class="helper-text" data-error="Rather try using a valid URL for example: https://www.google.com/" data-success="Excellent!">Paste the URL of the property picture here, for example: https://www.google.com/</span>
                 </div>
             </div>
             <!-- Form Buttons -->
@@ -81,9 +121,5 @@
         </form>
     </div>
 </div>
-
-
-
-
 
 {% endblock %}
