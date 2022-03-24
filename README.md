@@ -31,31 +31,59 @@ Below you can see the mock-ups that I drew using
 
 ![Home](/documents/mockups/landing_page.png)
 
-##### View property
+##### View property page
 
 ![view_property](/Documents/mockups/view_property.jpg)
 
-##### Add property
+##### Add property page
 
 ![add_property](/documents/mockups/add_property.png)
 
-##### Edit property
+##### Edit property page
 
 ![edit_property](/Documents/mockups/edit_property.png)
 
-##### Manage featured properties / categories
+##### Admin Dashboard page
 
 ![admin_dashboard](/documents/mockups/admin_dashboard.png)
 
-##### Profile
+##### Profile page
 
 ![profile](/documents/mockups/profile.png)
 
-##### Contact Us
+##### Contact Us page
 
 ![contact](/documents/mockups/contact_us.png)
 
 - The final website differs from the original wire-frames because, when working on the design, I sometimes I found more appropriate ways to display the different sections.
+
+## **UX**
+
+### **User Persona**
+This website project will target users who are interested in viewing and sharing information about property deals. The priority focus is on providing an easy to navigate and responsive website that allows users to be a part of a community with a collection of properties. 
+
+### **User Goals**
+- View featured **properties posts per month** created by the admin;
+- View ** property posts** created by the Seven Terraces community;
+- View, edit, search, delete ** property posts** created by them;
+- The website has to work well on all kinds of devices like mobile phones, tablets and desktops.
+
+### **Site Owners Goals**
+- Be the “go-to” place for users to source property deals. 
+- To create a community for users to offer each other their property deals.
+
+### **User Requirements and Expectations**
+#### **Requirements**
+- Easy to navigate by using the navigation menu.
+- Relevant content for each category.
+- Appealing visual elements.
+- Easy way to find properties relevant to the user.
+
+#### **Expectations**
+- When clicking on “view property” button (properties and social media links), expect the page to open in a separate browser.
+- Expect that the navigation links work properly to take the user where they intended to go.
+- Expect to be able to add, edit or delete items added by the user.
+- Feedback whether or not registered, logged in, logged out.
 
 ### User stories
 
@@ -192,11 +220,11 @@ In the first section the admin is able to add and edit featured properties by cl
 
 #### Database:
 
-- **[MongoDB](<[https://www.mongodb.com/](https://www.mongodb.com/)>)**
+- **[MongoDB](https://www.mongodb.com/)**
 
 #### Mock-up tool:
 
-- **[Balsamiq]( https://balsamiq.com/#)** I have used Pencil to create the mock-ups for the website.
+- **[Balsamiq](https://balsamiq.com/#)** I have used Pencil to create the mock-ups for the website.
 
 #### Languages:
 
@@ -206,16 +234,16 @@ In the first section the admin is able to add and edit featured properties by cl
 
 - **[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)** This is the language used to add interactivity to the website. It has been used to create the initialise cards, navbar, date picker, modal, validate Materialize selects,  and the function to preview the image uploaded using input type file.
 
-- **[Python](<[https://www.python.org/](https://www.python.org/)>)** The main logic of the website has been created using Python.
+- **[Python](https://www.python.org/](https://www.python.org/)** The main logic of the website has been created using Python.
 
-- **[Flask](<[https://palletsprojects.com/p/flask/](https://palletsprojects.com/p/flask/)>)** I have used the web Flask framework.
+- **[Flask](https://palletsprojects.com/p/flask/](https://palletsprojects.com/p/flask/)** I have used the web Flask framework.
 
-- **[Pymongo]**(https://pypi.org/project/pymongo/) and [Flask-PyMongo](https://flask-pymongo.readthedocs.io/en/latest/) 
+- **[Pymongo](https://pypi.org/project/pymongo/** and **[Flask-PyMongo](https://flask-pymongo.readthedocs.io/en/latest/)** 
     - To connect Python and Flask to the MongoDB database
 
-- **[Jinja](<[http://jinja.pocoo.org/](http://jinja.pocoo.org/)>)** I have used Jinja templating engine in order to use template inheritance, add **for loops** and **if statements** in the html files and in order to pass information between back and frontend.
+- **[Jinja](http://jinja.pocoo.org/](http://jinja.pocoo.org/)** I have used Jinja templating engine in order to use template inheritance, add **for loops** and **if statements** in the html files and in order to pass information between back and frontend.
 
-- **[Werkzeug]**(https://werkzeug.palletsprojects.com/en/2.0.x/ )
+- **[Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/)**
     - A WSGI web application library used for passwords for Python.
 
 #### Dependencies:
@@ -224,19 +252,19 @@ In order to run the app I had to install the following packages, these packages 
 
 **flask:**  Flask is a lightweight WSGI web application framework. It is designed to make getting started quick and easy, with the ability to scale up to complex applications. 
 
-` Flask==1.0.3 `
+` Flask==2.0.1 `
 
 **dnspython:** dnspython is a DNS toolkit for Python. It supports almost all record types. It can be used for queries, zone transfers, and dynamic updates.
 
-` dnspython==1.16.0`
+` dnspython==2.2.1`
 
 **flask-pymongo:** MongoDB support for Flask applications.
 
-` Flask-PyMongo==2.3.0`
+` Flask-PyMongo==2.0.1`
 
 **bcrypt:** In order to do the password hashing when user register.
 
-`bcrypt==3.1.7  `
+`bcrypt==3.2.0  `
 
 **mockupdb** Mock server for testing MongoDB clients and creating MongoDB Wire Protocol servers.
 
@@ -246,11 +274,11 @@ In order to run the app I had to install the following packages, these packages 
 
 - **[jQuery](https://jquery.com/)** Is needed for the [Materialize](<[https://materializecss.com/](https://materializecss.com/)>) JavaScript components to function.
 
-- **[Material Icons:](<[https://material.io/tools/icons/?style=baseline](https://material.io/tools/icons/?style=baseline)>)** Has been used to add extra meaning on several parts of the website.
+- **[Material Icons:](https://material.io/tools/icons/?style=baseline](https://material.io/tools/icons/?style=baseline)** Has been used to add extra meaning on several parts of the website.
 
-- **[FontAwesome:](https://fontawesome.com/ "https://fontawesome.com/")** In some cases if a FontAwesome icon was more appropriate I have also used FontAwesome.
+- **[FontAwesome:](https://fontawesome.com/)** In some cases if a FontAwesome icon was more appropriate I have also used FontAwesome.
 
-- **[Google Fonts:](https://fonts.google.com/ "https://fonts.google.com/")** I’ve used the fonts from Google Fonts to style the fonts in the website.
+- **[Google Fonts:](https://fonts.google.com/)** I’ve used the fonts from Google Fonts to style the fonts in the website.
 
 
 #### Version control system:
