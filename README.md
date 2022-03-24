@@ -43,7 +43,7 @@ Below you can see the mock-ups that I drew using
 
 ##### Edit property page
 
-![edit_property](/Documents/mockups/edit_property.png)
+![edit_property](/documents/mockups/edit_property.png)
 
 ##### Admin Dashboard page
 
