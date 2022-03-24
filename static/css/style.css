@@ -151,7 +151,6 @@ nav ul li.active {
 }
 
 .home-p {
-
     padding-bottom: 30px;
     color: var(--black);
     font-size: 30px;
@@ -796,4 +795,10 @@ footer .copyright {
     background-color: var(--light-blue);
     color: var(--blue);
     border: 1px solid var(--light-blue);
+}
+
+@media only screen and (min-width: 1000px) {
+    .home-p {
+        font-size: 30px;
+    }
 }
