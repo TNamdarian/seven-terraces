@@ -296,7 +296,9 @@ def edit_property(property_id):
 
     property = mongo.db.properties.find_one({"_id": ObjectId(property_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_property.html", property=property, categories=categories)
+    type = mongo.db.type.find().sort("type", 1)
+    amenities = mongo.db.amenities.find().sort("amenity", 1)
+    return render_template("edit_property.html", property=property, categories=categories, type=type, amenities=amenities)
 
 
 # --- DELETE_PROPERTY FUNCTIONALITY --- #

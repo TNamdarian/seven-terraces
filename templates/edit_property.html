@@ -47,7 +47,7 @@
                     <div class="col s6">
                         <h6 class="heading"><i class="material-icons">location_city</i>Property Type</h6>
                         <select id="type" name="type" class="validate" required>
-                            <option value="" disabled selected>Types</option>
+                            <option value="" disabled>Types</option>
                             {% for kind in type %}
                             {% if kind.type == property.type %}
                             <option value="{{ kind.type }}" selected>{{ kind.type }}</option>
@@ -59,24 +59,24 @@
                         <label for="type">Property Type</label>
                     </div>
                     <div class="col s6">
-                        <h6><i class="material-icons">monetization_on</i>Price</h6>
-                        <input placeholder="price" id="price" name="price" type="number" class="validate" min="1" value="{{property.price}}" required="">
+                        <h6><i class="material-icons">monetization_on</i>Price<span class="helper-text">(£)</span></h6>
+                        <input placeholder="Price" id="price" name="price" type="number" class="validate" min="1" value="{{property.price}}" required="">
                     </div>
                 </div>
                 <div class="row details-row">
                     <div class="col s6">
-                        <h6><i class="material-icons">monetization_on</i>Sourcing Fee</h6>
-                        <input placeholder="price" id="price" name="price" type="number" class="validate" min="1" value="{{property.sourcing_fee}}" required="">
+                        <h6><i class="material-icons">monetization_on</i>Sourcing Fee<span class="helper-text">(£)</span></h6>
+                        <input placeholder="Sourcing Fee" id="sourcing_fee" name="sourcing_fee" type="text" class="validate" min="1" value="{{property.sourcing_fee}}" required="">
                     </div>
                     <div class="col s6">
                         <h6><i class="material-icons">trending_up</i>Strategy</h6>
                         <select id="category_name" name="category_name" class="validate" required>
-                            <option value="" disabled selected>Choose Strategy</option>
+                            <option value="" disabled>Choose Strategy</option>
                             {% for category in categories %}
                             {% if category.category_name == property.category_name %}
-                            <option value="{{ category.category_name }}" seleted>{{ category.category_name }}</option>
+                            <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
                             {% else %}
-                            <option value=" {{ category.category_name }}">{{ category.category_name }}</option>
+                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                             {% endif %}
                             {% endfor %}
                         </select>
@@ -125,7 +125,7 @@
                 <div class="col s12">
                     <h6><i class="material-icons">location_searching</i>Amenities</h6>
                     <select id="amenities" name="amenities" class="validate" multiple required>
-                        <option value="" selected disabled>Choose Amenities</option>
+                        <option value="" disabled>Choose Amenities</option>
                         {% for amenity in amenities %}
                         {% if amenity.amenity == property.amenity %}
                         <option value="{{ amenity.amenity }}" selected></option>{{ amenity.amenity }}</option>
