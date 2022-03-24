@@ -238,7 +238,7 @@ In the first section the admin is able to add and edit featured properties by cl
 
 - **[Flask](https://palletsprojects.com/p/flask/)** I have used the web Flask framework.
 
-- **[Pymongo](https://pypi.org/project/pymongo/** & **[Flask-PyMongo](https://flask-pymongo.readthedocs.io/en/latest/)** 
+- **[Pymongo](https://pypi.org/project/pymongo/)** & **[Flask-PyMongo](https://flask-pymongo.readthedocs.io/en/latest/)** 
     - To connect Python and Flask to the MongoDB database
 
 - **[Jinja](http://jinja.pocoo.org/)** I have used Jinja templating engine in order to use template inheritance, add **for loops** and **if statements** in the html files and in order to pass information between back and frontend.
