@@ -4,12 +4,11 @@ Seven Terraces is an app that allows its users to save their properties online a
 
 The app also gives the users the option to search for properties based on names and descriptions. 
 
-
 ![Seven Terraces](/documents/mockups/am_i_responsive.png)
 [View live version of website via Heroku](https://seven-terraces.herokuapp.com/)
 
-
-### Mock-ups:
+## **Wireframes**
+I have used Balsamic to create low-fidelity wireframes. First I created a basic wireframe for desktops. The website will be easy to navigate by using the navigation bar or by scrolling down the page.
 
 Below you can see the mock-ups that I drew using 
 [Balsamiq](https://balsamiq.com/#) 
@@ -87,29 +86,63 @@ This website project will target users who are interested in viewing and sharing
 - Expect to be able to add, edit or delete items added by the user.
 - Feedback whether or not registered, logged in, logged out.
 
-### User stories
+## **UI Design**
+### **Font**
+- I used [Google Fonts](https://fonts.google.com/) to explore the various options.
+- The project has the main font of [Roboto](https://fonts.google.com/specimen/Roboto) as it is easy to read and modern
+- “Sans-Serif” is used as the default backup font in cases where these fonts have difficulty loading.
 
-- As a user I want to see properties from other users to be able to made decisions whether I’d like to invest in them or not.
+### **Colour Scheme**
+- The colour scheme is based on creating an environment with energy, excitement and warmth;
+- The logo was created on [Wix logo maker](https://www.wix.com/logo/maker/esh/zoe-editor?industry=%7B%22industry%22%3A%22609d10f90c3f7f79f9eed882_bf61b613f48c3e7af17cfc6c_property%20landing%20page%22%2C%22isCustom%22%3Afalse%7D&tags=creative%2Cformal%2Ctimeless%2Cdynamic&selectedWebsiteId=0&logoId=f9be001c-54be-4ac7-81c2-eea8e24dd21e&referralAdditionalInfo=arenaSplitPage) 
+- All colours were checked with WebAIM [https://webaim.org/resources/contrastchecker/](https://webaim.org/resources/contrastchecker/) to check the accessibility of the colours and present a pass.
 
-- As a user I want to be able to save properties added by other users so I can do further due diligence.
+#### **Colour Palette**
+Colours was used to map out my colour scheme.
+![Colour Palette](/documentats/mockups/colour_palette.png) using [https://coolors.co/](https://coolors.co/)
+- #FFFFFF: This colour is used for the background.
+- #FCA311: This colour is used as the main text colour and where the background of the CTA buttons.
+- #14213D: This colour is used as the primary colour and sets the tone for the website. It’s the dominant colour in the footer, header and background images in the heading. It’s also the colour of some texts. 
+- #000000: This colour is used as a secondary colour for fonts.
+- #E5E5E5: This colour is used as a tertiary accent colour where something to highlight forms. 
+- #8ECAE6: This colour is used as an accent colour and mainly used for hovering over some buttons. 
+- #219EBC: This colour is also used as an accent colour and mainly used for hovering over some buttons. 
+For the social media, the colurs match the exact tones of these applications using [https://www.webnots.com/color-codes-for-social-networking-site-icons/](https://www.webnots.com/color-codes-for-social-networking-site-icons/). 
 
-- As a user I want to know how many views properties get to identify the most popular ones. 
+### **Icons**
+- Majority of icons from the Materialized Icons library was used unless there was not an appropriate icon available then the Font Awesome library is used. 
 
-- As a user who wants to have access to my properties from anywhere I want to be able to store my properties online.
+### **Structure**
+The overall structure that was used is the Materialize framework. Materialize provides various elements of CSS and Javascript which is very helpful to keep a good structure on your page.
 
-- As a user I want to be able to edit my properties.
+### **User Stories**
+*Guest User*
+1. As a Guest User, I want the main purpose of the site to be clear so that I immediately know what the site is intended for upon entering;
+2. As a Guest User, I want to be met with a visually appealing and easy to read layout of created items;
+3. As a Guest User, I want to view the featured **property posts** of the month to get a sense of the value if I sign up as a registered user and they don't have to search for it;
+4. As a Guest User, I want to be able to sign-up to create and edit my own **property posts**;
+5. As a Guest User, I want to be able to get in contact via social media if I like the site or have suggestions.
 
-- As a user who wants to organise my properties I want to be able to remove the properties that I don't want to keep anymore.
+*Registered User*
+1. As a Registered User, I want the main purpose of the site to be clear so that I immediately know what the site is intended for upon entering;
+2. As a Registered User, I want to be met with a visually appealing and easy to read layout of created items;
+3. As a Registered User, I want to view the featured items of the month so that I don't have to search for them;
+4. As a Registered User, I want to be able to log back into the site with my credentials;
+5. As a Registered User, I want to be able to view **property posts** added by other members of the community;
+6. As a Registered User, I want to be able to create, edit and delete the **property posts** I have added;
+7. As a Registered User, I would like to be able to search the site so that I can easily find properties that I am looking for;
+8. As a Registered User, I want to be able to bookmark properties I find interesting and remove a bookmark.
+9. As a Registered User, I want to be able to change my password on my profile;
+10. As a Registered User, I want to be able to delete my account and profile;
+11. As a Registered User, I want to be able to log out of my account;
+12. As a Registered User, I want to be able to get in contact via social media if I like the site or have suggestions.
+13. As a Registered User, I wan to be able to get in touch with the admin regarding the deals I’m interested in viewing. 
 
-- As a user, I’d like to be able to log in and log out to so I can have a personalised profile. 
+*Admin User*
+The Admin user the same user stories as the Registered user above with the additional extras below:
+1. As an Admin User, I would like the ability to **log in to an admin account** so that I can **create, edit and delete featured property posts** for each month;
+2. As an Admin User, I want to be able to view all **property posts** added by other members of the community as well as the ability to **edit or delete any property posts** so that I can **maintain the site to stay updated**
 
-- As a user who wants to make sure the properties displayed have certain amenities and features. 
-
-- As a user who wants to see a specific type of strategy (i.e. commercial, residential, …). 
-
-- As a user who is happy with the app I want to follow Seven Terraces on social media
-
-- As a user who has experienced any issues with the app or has any questions I want to be able to contact Seven Terraces’ admin.
 
 ## Features
 
@@ -151,7 +184,6 @@ This website project will target users who are interested in viewing and sharing
 - A Admin user will have to log in again if they want to see their Profile, Resources Page or the Manage Resource Dashboard Page.
 
 ### get_properties.html
-
 This is the home page where the cards with all the properties are displayed. In this page the user can search properties entering words in the search box. 
 
 - **Search input box**: On the top of the page the users can enter text to search for a specific word in the name or description of the property in the properties database. As a result all the properties containing that word will be displayed. This can be very useful if users are looking for specific property.
@@ -435,16 +467,12 @@ You have to create an account with MongoDB. You can see [here](https://docs.atla
 - Background svg image from [Haikei](https://app.haikei.app/)
 
 ### **Code**
-- HTML for Shapes adapted from [CSS Tricks](https://css-tricks.com/the-shapes-of-css/)
-- HTML & JS for scroll up function adapted from [W3Schools](https://www.w3schools.com/howto/howto_js_scroll_to_top.asp)
+- CSS for color roots adapted from [CSS Tricks](https://css-tricks.com/the-shapes-of-css/)
 - HTML for the navbar and form adapted from [Materialize](https://materializecss.com/)
 - HTML for modals adapted from [Materialize](https://materializecss.com/)
-- CSS for smooth scroll adapted from [CSS Tricks](https://css-tricks.com/snippets/jquery/smooth-scrolling/*/)
-- CSS for Logo and other underlined items from [CSS Tricks](https://css-tricks.com/almanac/properties/t/text-decoration-thickness/)
 - JQuery for validation from Task Manager walkhtrough project by Code Institute
 - JQuery for navbar menu active item adapted from [InfoWorld](https://www.infoworld.com/article/3304440/setting-an-active-menu-item-based-on-the-current-url-with-jquery.html)
 - JQuery for bookmark from adpated from https://stackoverflow.com/questions/5828965/bookmark-on-click-using-jquery
-- HTML, CSS and JQuery for scroll up button from adpated from [Stack Overflow] https://stackoverflow.com/questions/14249998/jquery-back-to-top and [Tutorial Republic] https://www.tutorialrepublic.com/faq/how-to-scroll-to-the-top-of-the-page-using-jquery.php
 
 ### **Acknowledgements**
 As always the **slack** community has been very helpful when I had any question.
