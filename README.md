@@ -87,7 +87,7 @@ This website project will target users who are interested in viewing and sharing
 
 #### **Colour Palette**
 Colours was used to map out my colour scheme.
-![Colour Palette](/documents/mockups/colour_palette.png) using [https://coolors.co/](https://coolors.co/)
+![Colour Palette](/documents/mockups/colour_palette.png) & ![Colour Palette](/documents/mockups/colour_palette2.png)using [https://coolors.co/](https://coolors.co/)
 - #FFFFFF: This colour is used for the background.
 - #FCA311: This colour is used as the main text colour and where the background of the CTA buttons.
 - #14213D: This colour is used as the primary colour and sets the tone for the website. It’s the dominant colour in the footer, header and background images in the heading. It’s also the colour of some texts. 
