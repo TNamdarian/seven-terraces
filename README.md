@@ -35,7 +35,7 @@ Below you can see the mock-ups that I drew using
 
 ##### View property page
 
-![view_property](/Documents/mockups/view_property.jpg)
+![view_property](/Documents/mockups/view_property.png)
 
 ##### Add property page
 
