@@ -1,5 +1,4 @@
 # Seven Terraces! – Third milestone project
-
 Seven Terraces is an app that allows its users to save their properties online and edit them anytime they need to. This app also allows the users to share their properties with other users, save the properties that they like and contact the admin if they have enquiries. 
 
 The app also gives the users the option to search for properties based on names and descriptions. 
@@ -14,52 +13,41 @@ Below you can see the mock-ups that I drew using
 [Balsamiq](https://balsamiq.com/#) 
 
 ##### Log in page
-
 ![login](/documents/mockups/log_in.png)
 
 ##### Log out page
 ![logout](/documents/mockups/properties.png)
 
 ##### Logged in page
-
 ![login](/documents/mockups/logged_in.png)
 
 ##### Register page
-
 ![registration](/documents/mockups/sign_up.png)
 
 ##### Home page
-
 ![Home](/documents/mockups/landing_page.png)
 
 ##### View property page
-
-![view_property](/Documents/mockups/view_property.png)
+![view_property](/documents/mockups/view_property.png)
 
 ##### Add property page
-
 ![add_property](/documents/mockups/add_property.png)
 
 ##### Edit property page
-
 ![edit_property](/documents/mockups/edit_property.png)
 
 ##### Admin Dashboard page
-
 ![admin_dashboard](/documents/mockups/admin_dashboard.png)
 
 ##### Profile page
-
 ![profile](/documents/mockups/profile.png)
 
 ##### Contact Us page
-
 ![contact](/documents/mockups/contact_us.png)
 
 - The final website differs from the original wire-frames because, when working on the design, I sometimes I found more appropriate ways to display the different sections.
 
 ## **UX**
-
 ### **User Persona**
 This website project will target users who are interested in viewing and sharing information about property deals. The priority focus is on providing an easy to navigate and responsive website that allows users to be a part of a community with a collection of properties. 
 
@@ -145,9 +133,7 @@ The Admin user the same user stories as the Registered user above with the addit
 
 
 ## Features
-
 ### On all pages
-
 - **Navigation Bar:** I have created the navigation bar using [Materialize](<[https://materializecss.com/](https://materializecss.com/)>) nav bar with **Icon Links** and I have also included the **Mobile Collapse Button**. Then I have customised it to be in line with the website design.
 
 - **Mobile Collapse Button / Sidebar:** The **Mobile Collapse Button** will appear on smaller screens (tablets and mobiles) and by clicking on it, it will then show the navigation bar as a sidebar.
@@ -161,21 +147,16 @@ The Admin user the same user stories as the Registered user above with the addit
 - **Contact Us:** Provides the user with the website contact details in case he/she wants to get in touch.
 
 ### login.html
-
 - The login page has an input form where the users will enter their username and password.
 
 - **Flash message** If the username is not registered or if the password is incorrect an error message will appear.
-
 - New users can click on the link "Register here" to get redirected to the register page.
 
 ### register.html
-
 - New users will have to register using the input form in this page in order to start using the app.
 
 - **Flash message** If the username entered in the form has already been used by another user then an error message indicating this issue will be displayed.
-
 - In order to store the passwords securely in MongoDB, the passwords have been hashed using the bcrypt function.
-
 - Users already registered can click on the link "Login here" to get redirected to the login page.
 
 ### Log Out 
@@ -199,7 +180,6 @@ This is the home page where the cards with all the properties are displayed. In 
 - **Switch “Featured”:** : The Admin can activate this switch if they’d like to add that particular property on the home page. 
 
 ### View property page
-
 This page will display the main attributes for the property. If the property belongs to the user they will have the option to remove or edit the property. Each time the property is viewed, the number of views will increase by 1. 
 
 - **Delete button:** This button will only be visible if the property belongs to the user and will allow the user to remove the property. Before the property gets removed a confirmation message will appear so the user can confirm if they want to delete the property or not.
@@ -209,7 +189,6 @@ This page will display the main attributes for the property. If the property bel
 - **Modal:** When the user clicks on "delete button" the confirmation message will be displayed on a modal window and the property will only be removed if "YES" is selected. This modal has been taken from [Materialize](<[https://materializecss.com/](https://materializecss.com/)>).
 
 ### add_property.html & edit_property.html
-
 These pages will be used by the user to enter a new property or to edit an existing one.
 
 - **Form:** The whole page is a form with different input types. The form used and all the input fields inside the form have been taken from [Materialize](<[https://materializecss.com/](https://materializecss.com/)>).
@@ -236,7 +215,6 @@ I have also used "multiple" select input to select the “amenities” and “fe
 - **Button 'Save changes':** By clicking this button the form will be submitted and the property will be updated in the database. After editing a property the user gets redirected to the property that they have just edited.
 
 ### Manage categories
-
 - **Input box** This input box also comes from [Materialize](<[https://materializecss.com/](https://materializecss.com/)>) and allows the user to enter a new type of strategy if the type of strategy that they need is not already on the list displayed.
 
 - **container** I'm using a container from [Materialize](<[https://materializecss.com/](https://materializecss.com/)>) in order to display the list of categories on the admin dashboard page. 
@@ -245,23 +223,18 @@ In the first section the admin is able to add and edit featured properties by cl
 - **Modal:** When the user clicks on "delete strategy" the confirmation message will be displayed on a modal window and the type of strategy will only be removed if "delete" is selected. This modal has been taken from [Materialize](<[https://materializecss.com/](https://materializecss.com/)>).
 
 ## Features Left to Implement
-
 - **Favourites:** Adding filters to only display properties according to amenities, price, types and dates. I thought of this feature once the website was finished and I couldn't spend more time working on the project as I needed to get going with the rest of the course.
 
 - **Arranging properties from the most to the least viewed:**
-
 ## Technologies Used
 
 #### Database:
-
 - **[MongoDB](https://www.mongodb.com/)**
 
 #### Mock-up tool:
-
 - **[Balsamiq](https://balsamiq.com/#)** I have used Pencil to create the mock-ups for the website.
 
 #### Languages:
-
 - **HTML5:** Is the main language used to create the structure of the website.
 
 - **CSS3:** Is the language used to add styles to the HTML.
@@ -281,7 +254,6 @@ In the first section the admin is able to add and edit featured properties by cl
     - A WSGI web application library used for passwords for Python.
 
 #### Dependencies:
-
 In order to run the app I had to install the following packages, these packages are listed in the requirements.txt file. Each of these packages had installed additional packages but the additional packages have been removed from the requirements.txt file because they will be automatically installed when installing the main packages on the list:
 
 **flask:**  Flask is a lightweight WSGI web application framework. It is designed to make getting started quick and easy, with the ability to scale up to complex applications. 
@@ -305,7 +277,6 @@ In order to run the app I had to install the following packages, these packages 
 `mockupdb==1.7.0 `
 
 #### Libraries:
-
 - **[jQuery](https://jquery.com/)** Is needed for the **[Materialize](https://materializecss.com/)** JavaScript components to function.
 
 - **[Material Icons:](https://material.io/tools/icons/?style=baseline)** Has been used to add extra meaning on several parts of the website.
@@ -314,9 +285,7 @@ In order to run the app I had to install the following packages, these packages 
 
 - **[Google Fonts:](https://fonts.google.com/)** I’ve used the fonts from Google Fonts to style the fonts in the website.
 
-
 #### Version control system:
-
 - **[Gitpod](https://www.gitpod.io/)**
     - IDE used to build the website
 
@@ -324,7 +293,6 @@ In order to run the app I had to install the following packages, these packages 
     - Used to host the repository of all previous versions of the build and linked to Heroku to push the latest changes to the deployed build version held there.
 
 #### Hosting service:
-
 **[Heroku:](https://www.heroku.com/)** I have used Heroku in order to deploy the website.
 
 ## Testing
