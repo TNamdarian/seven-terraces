@@ -4,6 +4,8 @@ Seven Terraces is an app that allows its users to save their properties online a
 
 The app also gives the users the option to search for properties based on names and descriptions. 
 
+
+![Seven Terraces](/documents/mockups/am_i_responsive.png)
 [View live version of website via Heroku](https://seven-terraces.herokuapp.com/)
 
 
