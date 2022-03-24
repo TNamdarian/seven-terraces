@@ -238,7 +238,7 @@ In the first section the admin is able to add and edit featured properties by cl
 
 - **[Flask](https://palletsprojects.com/p/flask/)** I have used the web Flask framework.
 
-- **[Pymongo](https://pypi.org/project/pymongo/** and **[Flask-PyMongo](https://flask-pymongo.readthedocs.io/en/latest/)** 
+- **[Pymongo](https://pypi.org/project/pymongo/** & **[Flask-PyMongo](https://flask-pymongo.readthedocs.io/en/latest/)** 
     - To connect Python and Flask to the MongoDB database
 
 - **[Jinja](http://jinja.pocoo.org/)** I have used Jinja templating engine in order to use template inheritance, add **for loops** and **if statements** in the html files and in order to pass information between back and frontend.
@@ -272,9 +272,9 @@ In order to run the app I had to install the following packages, these packages 
 
 #### Libraries:
 
-- **[jQuery](https://jquery.com/)** Is needed for the [Materialize](<[https://materializecss.com/](https://materializecss.com/)>) JavaScript components to function.
+- **[jQuery](https://jquery.com/)** Is needed for the **[Materialize](https://materializecss.com/)** JavaScript components to function.
 
-- **[Material Icons:](https://material.io/tools/icons/?style=baseline](https://material.io/tools/icons/?style=baseline)** Has been used to add extra meaning on several parts of the website.
+- **[Material Icons:](https://material.io/tools/icons/?style=baseline)** Has been used to add extra meaning on several parts of the website.
 
 - **[FontAwesome:](https://fontawesome.com/)** In some cases if a FontAwesome icon was more appropriate I have also used FontAwesome.
 
@@ -283,11 +283,11 @@ In order to run the app I had to install the following packages, these packages 
 
 #### Version control system:
 
-**[Gitpod](https://www.gitpod.io/)**
+- **[Gitpod](https://www.gitpod.io/)**
     - IDE used to build the website
 
 - **[Github](https://github.com/)**
-- Used to host the repository of all previous versions of the build and linked to Heroku to push the latest changes to the deployed build version held there.
+    - Used to host the repository of all previous versions of the build and linked to Heroku to push the latest changes to the deployed build version held there.
 
 #### Hosting service:
 
@@ -315,7 +315,7 @@ In order to run the app I had to install the following packages, these packages 
 - **[Link Checker](https://validator.w3.org/checklink)**
     - For checking all links on the website and see if all links work
 
-- Lighthouse in Google dev tool]**
+- Lighthouse in Google dev tool
     - For testing the performance of the website
 
 - **[TestProject](https://testproject.io/)**
