@@ -256,6 +256,7 @@ def add_property():
             "author": session["user"],
             "type": request.form.get("type"),
             "price": request.form.get("price"),
+            "sourcing_fee": request.form.get("sourcing_fee"),
             "amenity":request.form.get('amenity'),
             "features":string_to_array(request.form.get(("features")))
         }
@@ -288,6 +289,7 @@ def edit_property(property_id):
             "type": request.form.get("type"),
             "price": request.form.get("price"),
             "amenity":request.form.get("amenity"),
+            "sourcing_fee": request.form.get("sourcing_fee"),
             "features":string_to_array(request.form.get(("features")))
         }
         mongo.db.properties.update_one(

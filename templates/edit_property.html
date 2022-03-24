@@ -128,7 +128,7 @@
                         <option value="" disabled>Choose Amenities</option>
                         {% for amenity in amenities %}
                         {% if amenity.amenity == property.amenity %}
-                        <option value="{{ amenity.amenity }}" selected></option>{{ amenity.amenity }}</option>
+                        <option value="{{ property.amenity }}" selected></option>{{ property.amenity }}</option>
                         {% else %}
                         <option value="{{ amenity.amenity }}">{{ amenity.amenity }}</option>
                         {% endif %}
