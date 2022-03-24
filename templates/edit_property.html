@@ -9,18 +9,20 @@
             <div class="row">
                 <div class="input-field col s12 m12 l6">
                     <h5>Property name</h5>
-                    <input placeholder="Property name" id="property_name" name="property_name" type="text" class="validate" required="">
+                    <input id="property_name" name="property_name" type="text" class="validate" value="{{property.property_name}}" required="">
                 </div>
             </div>
             <!-- Property Image -->
             <div class="img-details col s12 m12 l6">
                 <!-- Modal Trigger -->
-                <div class="row">
-                    <a class="modal-trigger" href="#modal1">Upload image</a>
-                </div>
+                <div class="row"><a class="modal-trigger" href="#modal1">Change image</a></div>
                 <div class="row img-wrapper">
                     <a class="modal-trigger" href="#modal1">
+                        {% if property.property_image %}
+                        <img src="{{url_for('img_uploads', filename=property['property_image'])}}" alt="property_image">
+                        {% else %}
                         <img src="{{url_for('static', filename='images/default.jpg')}}" alt="default_property_image">
+                        {% endif %}
                     </a>
                 </div>
                 <!-- Modal Structure-->
@@ -47,27 +49,35 @@
                         <select id="type" name="type" class="validate" required>
                             <option value="" disabled selected>Types</option>
                             {% for kind in type %}
+                            {% if kind.type == property.type %}
+                            <option value="{{ kind.type }}" selected>{{ kind.type }}</option>
+                            {% else %}
                             <option value="{{ kind.type }}">{{ kind.type }}</option>
+                            {% endif %}
                             {% endfor %}
                         </select>
                         <label for="type">Property Type</label>
                     </div>
                     <div class="col s6">
                         <h6><i class="material-icons">monetization_on</i>Price</h6>
-                        <input placeholder="price" id="price" name="price" type="number" class="validate" min="1" required="">
+                        <input placeholder="price" id="price" name="price" type="number" class="validate" min="1" value="{{property.price}}" required="">
                     </div>
                 </div>
                 <div class="row details-row">
                     <div class="col s6">
                         <h6><i class="material-icons">monetization_on</i>Sourcing Fee</h6>
-                        <input placeholder="price" id="price" name="price" type="number" class="validate" min="1" required="">
+                        <input placeholder="price" id="price" name="price" type="number" class="validate" min="1" value="{{property.sourcing_fee}}" required="">
                     </div>
                     <div class="col s6">
                         <h6><i class="material-icons">trending_up</i>Strategy</h6>
                         <select id="category_name" name="category_name" class="validate" required>
                             <option value="" disabled selected>Choose Strategy</option>
                             {% for category in categories %}
-                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                            {% if category.category_name == property.category_name %}
+                            <option value="{{ category.category_name }}" seleted>{{ category.category_name }}</option>
+                            {% else %}
+                            <option value=" {{ category.category_name }}">{{ category.category_name }}</option>
+                            {% endif %}
                             {% endfor %}
                         </select>
                         <label for="category_name">Property Category</label>
@@ -78,7 +88,7 @@
             <div class="row field-row features">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-align-left prefix"></i>
-                    <textarea id="property_description" name="property_description" minlength="5" maxlength="200" class="materialize-textarea validate" required></textarea>
+                    <textarea id="property_description" name="property_description" minlength="5" maxlength="200" class="materialize-textarea validate" required>{{property.property_description}}</textarea>
                     <label for="property_description">Property Tag Line</label>
                     <span class="helper-text" data-error="The description should be between 5 - 200 characters. Write each sentence on a new line." data-success="Sounds interesting!">Write a description of the property in 5 - 200 characters. Write each sentence on a new line.</span>
                 </div>
@@ -87,7 +97,7 @@
             <div class="row field-row features">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-circle-info prefix"></i>
-                    <textarea id="property_details" name="property_details" minlength="100" maxlength="1000" class="materialize-textarea validate" required></textarea>
+                    <textarea id="property_details" name="property_details" minlength="100" maxlength="1000" class="materialize-textarea validate" required>{{property.property_details}}</textarea>
                     <label for="property_details">Property Details</label>
                     <span class="helper-text" data-error="The description should be between 100 - 1000 characters. Write each paragraph on a new line." data-success="Sounds interesting!">Write a full description of the property in 100 - 1000 characters. Write each paragraph on a new line.</span>
                 </div>
@@ -96,7 +106,7 @@
             <div class="row field-row features">
                 <div class="input-field col s12">
                     <i class="fa-regular fa-calendar-days prefix"></i>
-                    <input id="property_added_date" name="property_added_date" type="text" class="datepicker validate">
+                    <input id="property_added_date" name="property_added_date" type="text" class="datepicker validate" value="{{property.property_added_date}}" required>
                     <label for="property_added_date">Date Added</label>
                     <span class="helper-text" data-success="Can't wait!">The date will indicate when this property is added.</span>
                 </div>
@@ -105,7 +115,7 @@
             <div class="row field-row features">
                 <div class="input-field col s12">
                     <i class="fa-regular fa-star prefix"></i>
-                    <textarea id="features" name="features" minlength="100" maxlength="1000" class="materialize-textarea validate" required></textarea>
+                    <textarea id="features" name="features" minlength="100" maxlength="1000" class="materialize-textarea validate" required>{{property.features}}</textarea>
                     <label for="features">Property Features</label>
                     <span class="helper-text" data-error="The description should be between 100 - 1000 characters. Write each paragraph on a new line." data-success="Sounds interesting!">Write each feature on a new line.</span>
                 </div>
@@ -117,7 +127,11 @@
                     <select id="amenities" name="amenities" class="validate" multiple required>
                         <option value="" selected disabled>Choose Amenities</option>
                         {% for amenity in amenities %}
+                        {% if amenity.amenity == property.amenity %}
+                        <option value="{{ amenity.amenity }}" selected></option>{{ amenity.amenity }}</option>
+                        {% else %}
                         <option value="{{ amenity.amenity }}">{{ amenity.amenity }}</option>
+                        {% endif %}
                         {% endfor %}
                     </select>
                     <label for="amenities">Amenities</label>
