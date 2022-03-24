@@ -234,14 +234,14 @@ In the first section the admin is able to add and edit featured properties by cl
 
 - **[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)** This is the language used to add interactivity to the website. It has been used to create the initialise cards, navbar, date picker, modal, validate Materialize selects,  and the function to preview the image uploaded using input type file.
 
-- **[Python](https://www.python.org/](https://www.python.org/)** The main logic of the website has been created using Python.
+- **[Python](https://www.python.org/)** The main logic of the website has been created using Python.
 
-- **[Flask](https://palletsprojects.com/p/flask/](https://palletsprojects.com/p/flask/)** I have used the web Flask framework.
+- **[Flask](https://palletsprojects.com/p/flask/)** I have used the web Flask framework.
 
 - **[Pymongo](https://pypi.org/project/pymongo/** and **[Flask-PyMongo](https://flask-pymongo.readthedocs.io/en/latest/)** 
     - To connect Python and Flask to the MongoDB database
 
-- **[Jinja](http://jinja.pocoo.org/](http://jinja.pocoo.org/)** I have used Jinja templating engine in order to use template inheritance, add **for loops** and **if statements** in the html files and in order to pass information between back and frontend.
+- **[Jinja](http://jinja.pocoo.org/)** I have used Jinja templating engine in order to use template inheritance, add **for loops** and **if statements** in the html files and in order to pass information between back and frontend.
 
 - **[Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/)**
     - A WSGI web application library used for passwords for Python.
