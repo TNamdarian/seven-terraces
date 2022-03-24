@@ -10,30 +10,26 @@ The app also gives the users the option to search for properties based on names 
 ### Mock-ups:
 
 Below you can see the mock-ups that I drew using 
-[Balsamiq]( https://balsamiq.com/#) 
+[Balsamiq](https://balsamiq.com/#) 
 
-##### Login page
+##### Log in page
 
 ![login](/documents/mockups/log_in.png)
 
-##### Logout page
+##### Log out page
 ![logout](/documents/mockups/properties.png)
 
 ##### Logged in page
 
 ![login](/documents/mockups/logged_in.png)
 
-##### Registr page
+##### Register page
 
 ![registration](/documents/mockups/sign_up.png)
 
 ##### Home page
 
-![Home](/documents/mockups/landing_page.jpg)
-
-##### Home page
-
-![get_properties](/documents/mockups/properties.png)
+![Home](/documents/mockups/landing_page.png)
 
 ##### View property
 
