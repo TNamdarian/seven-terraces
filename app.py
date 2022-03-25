@@ -290,7 +290,7 @@ def edit_property(property_id):
             "author": session["user"],
             "type": request.form.get("type"),
             "price": request.form.get("price"),
-            "amenities": string_to_array(request.form.get("amenities")),
+            "amenities": request.form.getlist('amenities'),
             "sourcing_fee": request.form.get("sourcing_fee"),
             "features": string_to_array(request.form.get("features"))
         }
@@ -303,10 +303,11 @@ def edit_property(property_id):
     read_property_obj = {**property} ## copy the object from the DataBase, because the object from the DB is immutable (you cannot change valeus)
     read_property_obj['property_details'] = "".join(read_property_obj['property_details'])
     read_property_obj['features'] = "".join(read_property_obj['features'])
+    read_property_obj['amenities'] = "".join(read_property_obj['amenities'])
     # read_property_obj.property_details = read_property_obj.property_details.join()
     categories = mongo.db.categories.find().sort("category_name", 1)
     type = mongo.db.type.find().sort("type", 1)
-    amenities = mongo.db.amenities.find().sort("amenity", 1)
+    amenities = mongo.db.amenities.find().sort("amenity")
 
     print(amenities)
 
