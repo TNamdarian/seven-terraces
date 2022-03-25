@@ -25,11 +25,11 @@ mongo = PyMongo(app)
 
 
 # FUNCTION TO CONVER STRINGS SEPARATED BY '\N' TO ARRAYS
-def string_to_array(string):
+def string_to_array(str_to_split):
     """
     FUNCTION TO CONVER STRINGS SEPARATED BY '/N' TO ARRAYS
     """
-    array = str.split("\n")
+    array = str_to_split.split("\n")
     return array
 
 
@@ -277,30 +277,40 @@ def edit_property(property_id):
     """
     Edit_PROPERTY FUNCTIONALITY
     """
+    print("FORM:",request.form)
+    print(request.form.get('amenities'))
     if request.method == "POST":
         submit = {
             "category_name": request.form.get("category_name"),
             "property_name": request.form.get("property_name").capitalize(),
             "property_description": request.form.get("property_description"),
-            "property_details": string_to_array(request.form.get(("property_details"))),
+            "property_details": string_to_array(request.form.get("property_details")),
             "property_added_date": request.form.get("property_added_date"),
             "propery_image": request.form.get("property_image.filename"),
             "author": session["user"],
             "type": request.form.get("type"),
             "price": request.form.get("price"),
-            "amenities":request.form.get("amenities"),
+            "amenities": string_to_array(request.form.get("amenities")),
             "sourcing_fee": request.form.get("sourcing_fee"),
-            "features":string_to_array(request.form.get(("features")))
+            "features": string_to_array(request.form.get("features"))
         }
         mongo.db.properties.update_one(
             {"_id": ObjectId(property_id)}, {"$set": submit})
         flash("Property successfully updated")
-
+        return redirect(url_for("edit_property", property_id=ObjectId(property_id)))
+    ## This object is used for rendering in the form
     property = mongo.db.properties.find_one({"_id": ObjectId(property_id)})
+    read_property_obj = {**property} ## copy the object from the DataBase, because the object from the DB is immutable (you cannot change valeus)
+    read_property_obj['property_details'] = "".join(read_property_obj['property_details'])
+    read_property_obj['features'] = "".join(read_property_obj['features'])
+    # read_property_obj.property_details = read_property_obj.property_details.join()
     categories = mongo.db.categories.find().sort("category_name", 1)
     type = mongo.db.type.find().sort("type", 1)
     amenities = mongo.db.amenities.find().sort("amenity", 1)
-    return render_template("edit_property.html", property=property, categories=categories, type=type, amenities=amenities)
+
+    print(amenities)
+
+    return render_template("edit_property.html", property=read_property_obj, categories=categories, type=type, amenities=amenities)
 
 
 # --- DELETE_PROPERTY FUNCTIONALITY --- #
