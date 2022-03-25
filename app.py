@@ -277,12 +277,10 @@ def edit_property(property_id):
     """
     Edit_PROPERTY FUNCTIONALITY
     """
-    print("FORM:",request.form)
-    print(request.form.get('amenities'))
     if request.method == "POST":
         submit = {
             "category_name": request.form.get("category_name"),
-            "property_name": request.form.get("property_name").capitalize(),
+            "property_name": request.form.get("property_name"),
             "property_description": request.form.get("property_description"),
             "property_details": string_to_array(request.form.get("property_details")),
             "property_added_date": request.form.get("property_added_date"),
@@ -300,7 +298,7 @@ def edit_property(property_id):
         return redirect(url_for("edit_property", property_id=ObjectId(property_id)))
     ## This object is used for rendering in the form
     property = mongo.db.properties.find_one({"_id": ObjectId(property_id)})
-    read_property_obj = {**property} ## copy the object from the DataBase, because the object from the DB is immutable (you cannot change valeus)
+    read_property_obj = {**property} ## copy the object from the DataBase, because the object from the DB is immutable (cannot change values)
     read_property_obj['property_details'] = "".join(read_property_obj['property_details'])
     read_property_obj['features'] = "".join(read_property_obj['features'])
     read_property_obj['amenities'] = "".join(read_property_obj['amenities'])
