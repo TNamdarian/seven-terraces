@@ -1,15 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container form-container">
-    <!-- Page Header -->
-    <div class="row property-header">
-        <div class="col s12 m12 l6">
-            <h1 class="center-align add-property-heading">Add category.</h1>
-        </div>
-        <div class="col s12 m12 l6 center-align">
-            <img src="{{ url_for('static', filename='images/undraw_selecting_team.svg') }}" alt="edit property">
-        </div>
+
+<!-- Page Header -->
+<div class="row property-header">
+    <div class="col s12 m12 center-align">
+        <div class="parallax" id="parallax9"></div>
     </div>
+    <div class="col s12 m12">
+        <h1 class="center-align add-property-heading">Add strategy.</h1>
+    </div>
+</div>
+<div class="container form-container">
     <div class="row ">
         <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('add_category') }}">
             <!--Category Name Input -->
@@ -17,8 +18,8 @@
                 <div class="input-field col s12">
                     <i class="material-icons prefix">folder_open</i>
                     <input id="category_name" name="category_name" minlength="3" maxlength="20" type="text" class="validate" required>
-                    <label for="category_name">Category Name</label>
-                    <span class="helper-text" data-error="Type a new category name in 3 - 20 characters" data-success="That sounds cool!">Type a new category name in 3 - 20 characters</span>
+                    <label for="category_name">Strategy Name</label>
+                    <span class="helper-text" data-error="Type a new category name in 3 - 20 characters" data-success="That sounds cool!">Type a new strategy name in 3 - 20 characters</span>
                 </div>
             </div>
             <!-- Form Buttons -->
@@ -30,7 +31,7 @@
                     </a>
                     <!-- Add Button -->
                     <button type="submit" class="general-btn">
-                        Add Category
+                        Add Strategy
                     </button>
                 </div>
             </div>

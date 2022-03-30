@@ -160,7 +160,6 @@ h4.warning {
 }
 
 .parallax {
-    height: 800px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -169,33 +168,48 @@ h4.warning {
 
 #parallax1 {
     background-image: url("../images/parallax/seventerraces.jpg");
+    height: 500px;
 }
 
 #parallax2 {
     background-image: url("../images/parallax/featured_property.jpg");
-    height: 300px;
+    height: 400px;
 }
 
 #parallax3 {
     background-image: url("../images/parallax/facade.jpg");
-    height: 300px;
+    height: 400px;
 }
 
 #parallax4 {
     background-image: url("../images/parallax/house.jpg");
-    height: 300px;
+    height: 400px;
 }
 
 #parallax5 {
     background-image: url("../images/parallax/laneofhouses.jpg");
-    height: 300px;
+    height: 400px;
 }
 
 #parallax6 {
     background-image: url("../images/parallax/houseandroses.jpg");
-    height: 300px;
+    height: 400px;
 }
 
+#parallax7 {
+    background-image: url("../images/parallax/countryhouse.jpg");
+    height: 400px;
+}
+
+#parallax8 {
+    background-image: url("../images/parallax/cityscape.jpg");
+    height: 400px;
+}
+
+#parallax9 {
+    background-image: url("../images/parallax/houseview.jpg");
+    height: 400px;
+}
 
 /* Properties Page */
 .card-reveal .helper-text {
