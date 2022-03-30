@@ -321,7 +321,7 @@ def update_property(property_id):
                 }})
 
             if property_image.filename != "":   
-                properties.update_one({"_id": ObjectId(property_id)},{ "$set": {'property_image':property_image.filename,}})       
+                properties.update_one({"_id": ObjectId(property_id)},{ "$set": {'property_image':property_image.filename}})       
     
     return redirect(url_for("view_property", property_id=property_id))
 
