@@ -15,6 +15,10 @@ if os.path.exists("env.py"):
 app = Flask(__name__)
 
 
+'''
+In development the environmental variables are saved on the env.py and in production the environmental variables are 
+saved on the Config Var in Heroku
+'''
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
@@ -64,15 +68,6 @@ def update_property_feature(property_id):
         return "", 204
     except Exception as e:
         return "Bad Request", 400
-
-
-#  FUNTION FOR UPLOADING IMAGES
-@app.route('/img_uploads/<filename>')
-def img_uploads(filename):
-    """
-    FUNTION FOR UPLOADING IMAGES
-    """
-    return mongo.db.send_file(filename)
 
 
 # --- SIGN UP / REGISTER FUNCTIONALITY --- #
@@ -233,83 +228,111 @@ def view_property(property_id):
     mongo.db.properties.update_one({"_id":ObjectId(property_id)}, {'$inc': {'views': 1}})
     property = mongo.db.properties.find_one({"_id": ObjectId(property_id)})
     return render_template('view_property.html', property=property)
-                            
 
-# --- Add_PROPERTY FUNCTIONALITY --- #
-@app.route("/add_property", methods=["GET", "POST"])
+
+# ADD NEW PROPERTY 
+@app.route('/add_property')
 def add_property():
     """
-    Add_PROPERTY FUNCTIONALITY 
+    ADD NEW PROPERTY 
+    """
+    return render_template('add_property.html', 
+                            title="Add property", 
+                            categories = mongo.db.categories.find(), 
+                            amenities=mongo.db.amenities.find(), 
+                            type=mongo.db.type.find())
+
+
+# I learn how to save and retrieve files in MongoDB by watching
+# the following tutorial: https://www.youtube.com/watch?v=DsgAuceHha4
+@app.route('/insert_property', methods=['POST'])
+def insert_property():
+    """
+    ADD PROPERTY FUNTION 
     """
     if 'property_image' in request.files:
         property_image = request.files['property_image']
         if property_image != "":
             mongo.save_file(property_image.filename, property_image)
-    if request.method == "POST":
-        property = {
-            "category_name": request.form.get("category_name"),
-            "property_name": request.form.get("property_name").capitalize(),
-            "property_description": request.form.get("property_description"),
-            "property_details": string_to_array(request.form.get(("property_details"))),
-            "property_added_date": request.form.get("property_added_date"),
-            "propery_image": request.form.get("property_image.filename"),
-            "author": session["user"],
-            "type": request.form.get("type"),
-            "price": request.form.get("price"),
-            "sourcing_fee": request.form.get("sourcing_fee"),
-           "amenities":request.form.get("amenities"),
-            "features":string_to_array(request.form.get(("features")))
-        }
-        mongo.db.properties.insert_one(property)
-        flash("Your Property Successfully Added")
-        return redirect(url_for("get_properties"))
 
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    type = mongo.db.type.find().sort("type", 1)
-    amenities = mongo.db.amenities.find().sort("amenity", 1)
-    features = mongo.db.amenities.find().sort("feature", 1)
-    return render_template("add_property.html", categories=categories, type=type, amenities=amenities, property=features)
+        mongo.db.properties.insert_one({
+                'property_name': request.form['property_name'],
+                'property_description': request.form['property_description'],
+                'type': request.form['type'],
+                'price': request.form['price'],
+                'sourcing_fee': request.form['sourcing_fee'],
+                'amenities': request.form.getlist('amenities'),
+                'property_details': string_to_array(request.form['property_details']),
+                'features': string_to_array(request.form['features']),
+                'property_image': property_image.filename,
+                'author': session['user'],
+                'property_added_date': request.form['property_added_date'],
+                'category_name': request.form['category_name']
+            })
+    return redirect(url_for('get_properties'))
 
 
-# --- Edit_PROPERTY FUNCTIONALITY --- #
-@app.route("/edit_property/<property_id>", methods=["GET", "POST"])
+# EDIT PROPERTY VIEW
+@app.route('/edit_property/<property_id>')
 def edit_property(property_id):
     """
-    Edit_PROPERTY FUNCTIONALITY
+    EDIT PROPERTY VIEW
     """
-    if request.method == "POST":
-        submit = {
-            "category_name": request.form.get("category_name"),
-            "property_name": request.form.get("property_name"),
-            "property_description": request.form.get("property_description"),
-            "property_details": string_to_array(request.form.get("property_details")),
-            "property_added_date": request.form.get("property_added_date"),
-            "propery_image": request.form.get("property_image.filename"),
-            "author": session["user"],
-            "type": request.form.get("type"),
-            "price": request.form.get("price"),
-            "amenities": request.form.getlist('amenities'),
-            "sourcing_fee": request.form.get("sourcing_fee"),
-            "features": string_to_array(request.form.get("features"))
-        }
-        mongo.db.properties.update_one(
-            {"_id": ObjectId(property_id)}, {"$set": submit})
-        flash("Property successfully updated")
-        return redirect(url_for("edit_property", property_id=ObjectId(property_id)))
-    ## This object is used for rendering in the form
     property = mongo.db.properties.find_one({"_id": ObjectId(property_id)})
-    read_property_obj = {**property} ## copy the object from the DataBase, because the object from the DB is immutable (cannot change values)
-    read_property_obj['property_details'] = "".join(read_property_obj['property_details'])
-    read_property_obj['features'] = "".join(read_property_obj['features'])
-    read_property_obj['amenities'] = "".join(read_property_obj['amenities'])
-    # read_property_obj.property_details = read_property_obj.property_details.join()
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    type = mongo.db.type.find().sort("type", 1)
-    amenities = mongo.db.amenities.find().sort("amenity")
+    list_features = '\n'.join(property['features'])
+    list_property_details = '\n'.join(property['property_details'])
 
-    print(amenities)
+    return render_template('edit_property.html', 
+                            property=property, 
+                            categories=mongo.db.categories.find(), 
+                            amenities=mongo.db.amenities.find(), 
+                            type=mongo.db.type.find(), 
+                            list_features=list_features,
+                            list_property_details=list_property_details)
+                            
 
-    return render_template("edit_property.html", property=read_property_obj, categories=categories, type=type, amenities=amenities)
+# In the video below I learned how to upload images into MongoDB:
+# https://www.youtube.com/watch?v=DsgAuceHha4 
+@app.route('/update_property/<property_id>', methods=['GET', 'POST'])
+def update_property(property_id):
+    """
+    Funcion to update properties.
+    """
+    properties = mongo.db.properties
+    property = mongo.db.properties.find({"_id": ObjectId(property_id)})
+    if 'property_image' in request.files:
+            property_image = request.files['property_image']
+            mongo.save_file(property_image.filename, property_image)
+
+            properties.update_one({"_id": ObjectId(property_id)}, {"$set":
+                {
+                    'property_name': request.form['property_name'].capitalize(),
+                    'property_description': request.form['property_description'],
+                    'type': request.form['type'],
+                    'price': request.form['price'],
+                    'sourcing_fee': request.form['sourcing_fee'],
+                    'amenities': request.form.getlist('amenities'),
+                    'property_details': string_to_array(request.form['property_details']),
+                    'features': string_to_array(request.form['features']),
+                    'property_image': property_image.filename,
+                    'author': session['user'],
+                    'property_added_date': request.form['property_added_date'],
+                    'category_name': request.form['category_name']
+                }})
+
+            if property_image.filename != "":   
+                properties.update_one({"_id": ObjectId(property_id)},{ "$set": {'property_image':property_image.filename,}})       
+    
+    return redirect(url_for("view_property", property_id=property_id))
+
+
+# FUNTION FOR UPLOADING IMAGES
+@app.route('/img_uploads/<filename>')
+def img_uploads(filename):
+    """
+    UPLOADING IMAGES
+    """
+    return mongo.db.send_file(filename)
 
 
 # --- DELETE_PROPERTY FUNCTIONALITY --- #

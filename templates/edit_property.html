@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <!-- Edit a Property Form -->
-        <form method="POST" action="{{ url_for('edit_property', property_id=property._id) }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ url_for('update_property', property_id=property._id) }}" enctype="multipart/form-data">
             <!-- Property Name -->
             <div class="row">
                 <div class="input-field col s12 m12 l6">
@@ -21,7 +21,7 @@
                         {% if property.property_image %}
                         <img src="{{url_for('img_uploads', filename=property['property_image'])}}" alt="property_image">
                         {% else %}
-                        <img src="{{url_for('static', filename='images/default.jpg')}}" alt="default_property_image">
+                        <img src="{{url_for('static', filename='images/upload_images/default.jpg')}}" alt="default_property_image">
                         {% endif %}
                     </a>
                 </div>
@@ -60,13 +60,13 @@
                     </div>
                     <div class="col s6">
                         <h6><i class="material-icons">monetization_on</i>Price</h6>
-                        <input placeholder="£" id="price" name="price" type="text" class="validate" min="1" value="{{property.price}}" required="">
+                        <input placeholder="Price" id="price" name="price" type="text" class="validate" min="1" value="{{property.price}}" required="">
                     </div>
                 </div>
                 <div class="row details-row">
                     <div class="col s6">
                         <h6><i class="material-icons">monetization_on</i>Sourcing Fee</h6>
-                        <input placeholder="£" id="sourcing_fee" name="sourcing_fee" type="text" class="validate" min="1" value="{{property.sourcing_fee}}" required="">
+                        <input placeholder="Sourcing Fee" id="sourcing_fee" name="sourcing_fee" type="text" class="validate" min="1" value="{{property.sourcing_fee}}" required="">
                     </div>
                     <div class="col s6">
                         <h6><i class="material-icons">trending_up</i>Strategy</h6>
@@ -97,7 +97,7 @@
             <div class="row field-row features">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-circle-info prefix"></i>
-                    <textarea id="property_details" name="property_details" minlength="100" maxlength="1000" class="materialize-textarea validate" required>{{property.property_details}}</textarea>
+                    <textarea id="property_details" name="property_details" minlength="100" maxlength="1000" class="materialize-textarea validate" required>{{list_property_details}}</textarea>
                     <label for="property_details">Property Details</label>
                     <span class="helper-text" data-error="The description should be between 100 - 1000 characters. Write each paragraph on a new line.">Write a full description of the property in 100 - 1000 characters. Write each paragraph on a new line.</span>
                 </div>
@@ -115,7 +115,7 @@
             <div class="row field-row features">
                 <div class="input-field col s12">
                     <i class="fa-regular fa-star prefix"></i>
-                    <textarea id="features" name="features" minlength="100" maxlength="1000" class="materialize-textarea validate" required>{{property.features}}</textarea>
+                    <textarea id="features" name="features" minlength="100" maxlength="1000" class="materialize-textarea validate" required>{{list_features}}</textarea>
                     <label for="features">Property Features</label>
                     <span class="helper-text" data-error="The description should be between 100 - 1000 characters. Write each paragraph on a new line." data-success="Sounds interesting!">Write each feature on a new line.</span>
                 </div>

@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <!--Add a Property Form-->
-        <form method="POST" action="{{ url_for('add_property') }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ url_for('insert_property') }}" enctype="multipart/form-data">
             <!-- Property Name -->
             <div class="row">
                 <div class="input-field col s12 m12 l6">
@@ -21,7 +21,7 @@
                 </div>
                 <div class="row img-wrapper">
                     <a class="modal-trigger" href="#modal1">
-                        <img src="{{url_for('static', filename='images/default.jpg')}}" alt="default_property_image">
+                        <img src="{{url_for('static', filename='images/upload_images/default.jpg')}}" alt="default_property_image">
                     </a>
                 </div>
                 <!-- Modal Structure-->
