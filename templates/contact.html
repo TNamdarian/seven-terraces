@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container form-container">
-    <!-- Page Header -->
-    <div class="row property-header">
-        <div class="col s12 m12 l6">
-            <h1 class="center-align add-property-heading">If you're interested in viewing any property, please get in touch.</h1>
-        </div>
-        <div class="col s12 m12 l6 center-align">
-            <img src="{{ url_for('static', filename='images/undraw_contact.svg') }}" alt="add property">
-        </div>
+<!-- Page Header -->
+<div class="row property-header">
+    <div class="col s12 m12 center-align">
+        <div class="parallax" id="parallax3"></div>
     </div>
+    <div class="col s12 m12">
+        <h1 class="center-align add-property-heading">If you're interested in viewing any property, please get in touch.</h1>
+    </div>
+</div>
+<div class="container form-container">
     <div class="row">
         <form class="col s12 m8 offset-m2 contact-form grey-section" onsubmit="return sendMail(this);" target="_blank">
             <!-- Option Selection -->

@@ -1,45 +1,42 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container">
-    <!-- Page Header -->
-    <div class="row property-header">
-        <div class="col s12 m6 l6">
-            <h1 class="center-align add-property-heading">Search Properties.</h1>
-        </div>
-        <div class="col s12 m12 l6 center-align">
-            <img src="{{ url_for('static', filename='images/undraw_buy_house.svg') }}" alt="property image">
-        </div>
+<!-- Page Header -->
+<div class="row property-header">
+    <div class="col s12 m12 center-align">
+        <div class="parallax" id="parallax2"></div>
     </div>
-    <!-- Search Form & Buttons-->
-    <div class="container center-align">
-        <div class="row">
-            <form action="{{ url_for('search') }}" method="post" class="col s12">
-                <div class="row search-section">
-                    <!-- Search Input-->
-                    <div class="input-field col s12 m8 left-align">
-                        <i class="material-icons prefix">search</i>
-                        <input type="text" name="query" id="query" class="validate" minlength="2" required>
-                        <label class="form-label search-label" for="query">Search Properties</label>
-                        <span class="helper-text">Search properties by name $ description.</span>
-                    </div>
-                    <!-- Buttons-->
-                    <div class="col s12 m4 button-wrapper">
-                        <button type="submit" id="search-btn">
-                            Search
-                        </button>
-                        <a href="{{ url_for('get_properties') }}" id="reset-btn">Reset</a>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    <!-- Add property Button-->
+</div>
+<!-- Search Form & Buttons-->
+<div class="container center-align">
     <div class="row">
-        <div class="center-align add-property-section">
-            <a href="{{ url_for('add_property') }}" class="add-property-btn center-align"><i class="fa-solid fa-circle-plus"></i>Add Property</a>
-        </div>
+        <form action="{{ url_for('search') }}" method="post" class="col s12">
+            <div class="row search-section">
+                <!-- Search Input-->
+                <div class="input-field col s12 m8 left-align">
+                    <i class="material-icons prefix">search</i>
+                    <input type="text" name="query" id="query" class="validate" minlength="2" required>
+                    <label class="form-label search-label" for="query">Search Properties</label>
+                    <span class="helper-text">Search properties by name $ description.</span>
+                </div>
+                <!-- Buttons-->
+                <div class="col s12 m4 button-wrapper">
+                    <button type="submit" id="search-btn">
+                        Search
+                    </button>
+                    <a href="{{ url_for('get_properties') }}" id="reset-btn">Reset</a>
+                </div>
+            </div>
+        </form>
     </div>
+</div>
+<!-- Add property Button-->
+<div class="row">
+    <div class="center-align add-property-section">
+        <a href="{{ url_for('add_property') }}" class="add-property-btn center-align"><i class="fa-solid fa-circle-plus"></i>Add Property</a>
+    </div>
+</div>
+<div class="container">
     <!-- Property Cards -->
     {% if properties|length > 0 %}
     <div class="row">

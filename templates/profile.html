@@ -2,14 +2,12 @@
 {% block content %}
 
 <!-- Page Header -->
-<div class="container">
-    <div class="row property-header">
-        <div class="col s12 m12 l6">
-            <h1 class="center-align add-property-heading">{{ username|capitalize }}'s profile.</h1>
-        </div>
-        <div class="col s12 m12 l6 center-align">
-            <img src="{{ url_for('static', filename='images/undraw_profile.svg') }}" alt="profile details">
-        </div>
+<div class="row property-header">
+    <div class="col s12 m12 center-align">
+        <div class="parallax" id="parallax3"></div>
+    </div>
+    <div class="col s12 m12">
+        <h1 class="center-align add-property-heading">{{ username|capitalize }}'s profile.</h1>
     </div>
 </div>
 <!--Access to the properties and featured properties-->

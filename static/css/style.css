@@ -133,53 +133,69 @@ nav ul li.active {
 /* Home Page */
 .banner {
     min-width: 100vw;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 8px;
     min-height: 100vh;
 }
 
 .banner-row {
-    margin-top: 50px;
+    margin-top: 0px;
 }
 
 .home-heading {
     font-weight: 900;
     font-size: 70px;
-    margin-top: 10px;
+    margin-top: 50px;
 }
 
 .home-p {
-    padding-bottom: 30px;
     color: var(--black);
     font-size: 30px;
+    text-align: center;
+    margin-bottom: 50px;
 }
 
-#home-featured-btn {
-    background-color: var(--blue);
-    color: var(--orange);
-    font-weight: 700;
-    font-size: 18px;
-    border-radius: 10px;
-    margin-bottom: 0px;
-    padding: 20px 20px 20px 20px;
-}
-
-#home-featured-btn:hover {
-    background-color: var(--light-blue);
-    color: var(--blue);
-    border: 1px solid var(--light-blue);
-}
-
-.banner-img {
-    width: 90%;
-}
 
 h4.warning {
     color: var(--blue);
     font-size: 24px;
 }
+
+.parallax {
+    height: 800px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#parallax1 {
+    background-image: url("../images/parallax/seventerraces.jpg");
+}
+
+#parallax2 {
+    background-image: url("../images/parallax/featured_property.jpg");
+    height: 300px;
+}
+
+#parallax3 {
+    background-image: url("../images/parallax/facade.jpg");
+    height: 300px;
+}
+
+#parallax4 {
+    background-image: url("../images/parallax/house.jpg");
+    height: 300px;
+}
+
+#parallax5 {
+    background-image: url("../images/parallax/laneofhouses.jpg");
+    height: 300px;
+}
+
+#parallax6 {
+    background-image: url("../images/parallax/houseandroses.jpg");
+    height: 300px;
+}
+
 
 /* Properties Page */
 .card-reveal .helper-text {
@@ -389,11 +405,9 @@ form i:hover {
 
 /* ADD PROPERTY PAGE  */
 .property-header {
-    border-radius: 20px;
     margin-top: 70px;
     padding-bottom: 20px;
     background-color: transparent;
-    background-image: url(/static/images/circle-scatter-haikei.svg);
 }
 
 .form-container i {

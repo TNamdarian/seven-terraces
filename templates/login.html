@@ -1,16 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container">
-    <!-- Page Header -->
-    <div class="row property-header">
-        <div class="col s12 m12 l6">
-            <h1 class="center-align add-property-heading">Log into my account.</h1>
-        </div>
-        <div class="col s12 m12 l6 center-align">
-            <img src="{{ url_for('static', filename='images/undraw_secure_login.svg') }}" alt="log in">
-        </div>
+<div class="row property-header">
+    <div class="col s12 m12 center-align">
+        <div class="parallax" id="parallax5"></div>
     </div>
+    <div class="col s12 m12">
+        <h1 class="center-align add-property-heading">Log into my account.</h1>
+    </div>
+</div>
+<div class="container">
     <!-- Form -->
     <div class="row">
         <form class="col s12 m8 offset-m2 sign-in-form" method="POST" action="{{ url_for('login') }}">
