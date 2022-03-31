@@ -13,6 +13,8 @@ I have used Balsamic to create low-fidelity wireframes. First I created a basic 
 Below you can see the mock-ups that I drew using 
 [Balsamiq](https://balsamiq.com/#) 
 
+[WireFrames](https://balsamiq.cloud/s8m4gdi/pwvh8nd)
+
 ##### Log in page
 ![login](/documents/mockups/log_in.png)
 
@@ -316,27 +318,22 @@ In order to run the app, I had to install the following packages, these packages
 
 - Chrome DevTools
     - For this project, the web developer tools built directly into the Google Chrome browser was used to help edit pages and diagnose problems quickly.
-    - Lighthouse in Google dev tool
+    
+- Lighthouse in Google dev tool
     - For testing the performance of the website
 
 - **[Link Checker](https://validator.w3.org/checklink)** to check all links on the website and see if all links work. 
 
 
+- **[TestProject](https://testproject.io/)** to automate testing of website
 
-- **[TestProject](https://testproject.io/)**
-    - For automated testing of website
+- **[Python Tester](https://extendsclass.com/python-tester.html)** Python code syntax checker
 
-- **[Python Tester](https://extendsclass.com/python-tester.html)**
-    - Python code syntax checker
+- **[Closing Tag Checker for HTML5](https://www.aliciaramirez.com/closing-tags-checker/)** to validates all tags are opening and closing correctly.
 
-- **[Closing Tag Checker for HTML5](https://www.aliciaramirez.com/closing-tags-checker/)**
-    - Validates all tags are opening and closing correctly.
+- **[Google Mobile-Friendly Test Mobile](https://search.google.com/test/mobile-friendly)** to check if site is mobiole friendly
 
-- **[Google Mobile-Friendly Test Mobile](https://search.google.com/test/mobile-friendly)**
-    - To check if site is mobiole friendly
-
-- **[AutoPrefixer](https://autoprefixer.github.io/)**
-    - Autoprefixer to parse CSS and adds vendor prefixes
+- **[AutoPrefixer](https://autoprefixer.github.io/)** to autoprefixer to parse CSS and adds vendor prefixes
 
 ## **Deployment**
 This project uses GitHub for version control, GitPod as the cloud-based IDE and Heroku to deploy the site into production. The below steps are specific to Gitpod therefore depending on your IDE, you might need to adjust the below steps.
@@ -378,6 +375,7 @@ You have to create an account with MongoDB. You can see [here](https://docs.atla
    touch .gitignore
     ```
 5. Double check in the gitignore file that you see "env.py" and "pycache/"
+
 6. Go to the env.py file and add the following:
     ```
     import os
@@ -431,7 +429,8 @@ You have to create an account with MongoDB. You can see [here](https://docs.atla
 ## **Credits**
 
 ### **Content**
-- The copy and text for this website was created by Teema Namdarian 
+- The contents for this website was written by Teema Namdarian. 
+- The information about each property was copied from [onthemarket](https://www.onthemarket.com/)
 
 ### **Media**
 - All Images used are from [Pixabay](https://pixabay.com/)
