@@ -167,6 +167,11 @@ h4.warning {
     height: 500px;
 }
 
+#parallax-1 {
+    background-image: url("../images/parallax/seventerraces.jpg");
+    height: 500px;
+}
+
 #parallax2 {
     background-image: url("../images/parallax/featured_property.jpg");
     height: 400px;
@@ -871,5 +876,11 @@ footer .copyright {
 @media only screen and (max-width: 1399px) {
     .parallax {
         background-attachment: scroll;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    #parallax-1 {
+        display: none;
     }
 }

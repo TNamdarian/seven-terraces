@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <!-- Edit a Property Form -->
-        <form method="POST" action="{{ url_for('update_property', property_id=property._id) }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ url_for('edit_property', property_id=property._id) }}" enctype="multipart/form-data">
             <!-- Property Name -->
             <div class="row">
                 <div class="input-field col s12 m12 l6">
@@ -12,33 +12,10 @@
                     <input id="property_name" name="property_name" type="text" class="validate" value="{{property.property_name}}" required="">
                 </div>
             </div>
-            <!-- Property Image -->
+            <!-- Default Image -->
             <div class="img-details col s12 m12 l6">
-                <!-- Modal Trigger -->
-                <div class="row"><a class="modal-trigger" href="#modal1">Change image</a></div>
                 <div class="row img-wrapper">
-                    <a class="modal-trigger" href="#modal1">
-                        {% if property.property_image %}
-                        <img src="{{property.property_image}}" alt="property_image">
-                        {% else %}
-                        <img src="{{url_for('static', filename='images/upload_images/default.jpg')}}" alt="default_property_image">
-                        {% endif %}
-                    </a>
-                </div>
-                <!-- Modal Structure-->
-                <div id="modal1" class="modal">
-                    <div class="file-field input-field">
-                        <div class="btn">
-                            <a href="#" class="btn btn-primary m-3">Upload Images</a>
-                            <input type="file" name="property_image" id="property_image" accept="image/*" onchange="previewFile()">
-                        </div>
-                        <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text" placeholder="Upload image">
-                        </div>
-                        <div class="right-align">
-                            <a href="#!" class="modal-action modal-close waves-effect waves-green">Done</a>
-                        </div>
-                    </div>
+                    <img src="{{property.property_image}}" alt="default_property_image">
                 </div>
             </div>
             <!-- property details -->
@@ -84,6 +61,15 @@
                     </div>
                 </div>
             </div>
+            <!-- Property Image-->
+            <div class="row field-row">
+                <div class="input-field col s12 m12">
+                    <i class="material-icons prefix">link</i>
+                    <input id="property_image" name="property_image" type="url" class="validate" value="{{property.property_image}}" required>
+                    <label for="property_image">Link to the property image</label>
+                    <span class="helper-text" data-error="Copy the url to the image and paste in the box." data-success="Excellent!">Paste the URL of the property image here</span>
+                </div>
+            </div>
             <!-- Property Short Description -->
             <div class="row field-row features">
                 <div class="input-field col s12">
@@ -97,7 +83,7 @@
             <div class="row field-row features">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-circle-info prefix"></i>
-                    <textarea id="property_details" name="property_details" minlength="100" maxlength="1000" class="materialize-textarea validate" required>{{list_property_details}}</textarea>
+                    <textarea id="property_details" name="property_details" minlength="100" maxlength="1000" class="materialize-textarea validate" required>{{property.property_details}}</textarea>
                     <label for="property_details">Property Details</label>
                     <span class="helper-text" data-error="The description should be between 100 - 1000 characters. Write each paragraph on a new line.">Write a full description of the property in 100 - 1000 characters. Write each paragraph on a new line.</span>
                 </div>
@@ -115,7 +101,7 @@
             <div class="row field-row features">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-wand-magic-sparkles prefix"></i>
-                    <textarea id="features" name="features" minlength="100" maxlength="1000" class="materialize-textarea validate" required>{{list_features}}</textarea>
+                    <textarea id="features" name="features" minlength="100" maxlength="1000" class="materialize-textarea validate" required>{{property.features}}</textarea>
                     <label for="features">Property Features</label>
                     <span class="helper-text" data-error="The description should be between 100 - 1000 characters. Write each paragraph on a new line." data-success="Sounds interesting!">Write each feature on a new line.</span>
                 </div>

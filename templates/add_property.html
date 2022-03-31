@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <!--Add a Property Form-->
-        <form method="POST" action="{{ url_for('insert_property') }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ url_for('add_property') }}" enctype="multipart/form-data">
             <!-- Property Name -->
             <div class="row">
                 <div class="input-field col s12 m12 l6">
@@ -13,31 +13,10 @@
                     <input placeholder="Property name" id="property_name" name="property_name" type="text" class="validate" required="">
                 </div>
             </div>
-            <!-- Property Image -->
+            <!-- Default Image -->
             <div class="img-details col s12 m12 l6">
-                <!-- Modal Trigger -->
-                <div class="row">
-                    <a class="modal-trigger" href="#modal1">Upload image</a>
-                </div>
                 <div class="row img-wrapper">
-                    <a class="modal-trigger" href="#modal1">
-                        <img src="{{url_for('static', filename='images/upload_images/default.jpg')}}" alt="default_property_image">
-                    </a>
-                </div>
-                <!-- Modal Structure-->
-                <div id="modal1" class="modal">
-                    <div class="file-field input-field">
-                        <div class="btn">
-                            <a href="#" class="btn btn-primary m-3">Upload Images</a>
-                            <input type="file" name="property_image" id="property_image" accept="image/*" onchange="previewFile()">
-                        </div>
-                        <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text" placeholder="Upload image">
-                        </div>
-                        <div class="right-align">
-                            <a href="#!" class="modal-action modal-close waves-effect waves-green">Done</a>
-                        </div>
-                    </div>
+                    <img src="{{url_for('static', filename='images/upload_images/default.jpg')}}" alt="default_property_image">
                 </div>
             </div>
             <!-- property details -->
@@ -55,13 +34,13 @@
                     </div>
                     <div class="col s6">
                         <h6><i class="material-icons">monetization_on</i>Price</h6>
-                        <input placeholder="£" id="price" name="price" type="number" class="validate" min="1" required="">
+                        <input placeholder="£" id="price" name="price" type="text" class="validate" min="1" required="">
                     </div>
                 </div>
                 <div class="row details-row">
                     <div class="col s6">
                         <h6><i class="material-icons">monetization_on</i>Sourcing Fee</h6>
-                        <input placeholder="£" id="sourcing_fee" name="sourcing_fee" type="number" class="validate" min="1" required="">
+                        <input placeholder="£" id="sourcing_fee" name="sourcing_fee" type="text" class="validate" min="1" required="">
                     </div>
                     <div class="col s6">
                         <h6><i class="material-icons">trending_up</i>Strategy</h6>
@@ -75,66 +54,76 @@
                     </div>
                 </div>
             </div>
-            <!-- Property Short Description -->
-            <div class="row field-row features">
-                <div class="input-field col s12">
-                    <i class="fa-solid fa-align-left prefix"></i>
-                    <textarea id="property_description" name="property_description" minlength="5" maxlength="200" class="materialize-textarea validate" required></textarea>
-                    <label for="property_description">Property Tag Line</label>
-                    <span class="helper-text" data-error="The description should be between 5 - 200 characters. Write each sentence on a new line." data-success="Sounds interesting!">Write a description of the property in 5 - 200 characters. Write each sentence on a new line.</span>
+            <!-- Property Image-->
+            <div class="row field-row">
+                <div class="img-details col s12 m12 l6">
+                    <div class="input-field col s12 m12">
+                        <i class="material-icons prefix">link</i>
+                        <input id="property_image" name="property_image" minlength="10" type="url" class="validate" required>
+                        <label for="property_image">Link to the property image</label>
+                        <span class="helper-text" data-error="Copy the url to the image and paste in the box." data-success="Excellent!">Paste the URL of the property image here</span>
+                    </div>
                 </div>
-            </div>
-            <!-- Property Full Details -->
-            <div class="row field-row features">
-                <div class="input-field col s12">
-                    <i class="fa-solid fa-circle-info prefix"></i>
-                    <textarea id="property_details" name="property_details" minlength="100" maxlength="1000" class="materialize-textarea validate" required></textarea>
-                    <label for="property_details">Property Details</label>
-                    <span class="helper-text" data-error="The description should be between 100 - 1000 characters. Write each paragraph on a new line." data-success="Sounds interesting!">Write a full description of the property in 100 - 1000 characters. Write each paragraph on a new line.</span>
+                <!-- Property Short Description -->
+                <div class="row field-row features">
+                    <div class="input-field col s12">
+                        <i class="fa-solid fa-align-left prefix"></i>
+                        <textarea id="property_description" name="property_description" minlength="5" maxlength="200" class="materialize-textarea validate" required></textarea>
+                        <label for="property_description">Property Tag Line</label>
+                        <span class="helper-text" data-error="The description should be between 5 - 200 characters. Write each sentence on a new line." data-success="Sounds interesting!">Write a description of the property in 5 - 200 characters. Write each sentence on a new line.</span>
+                    </div>
                 </div>
-            </div>
-            <!-- Date picker -->
-            <div class="row field-row features">
-                <div class="input-field col s12">
-                    <i class="fa-regular fa-calendar-days prefix"></i>
-                    <input id="property_added_date" name="property_added_date" type="text" class="datepicker validate">
-                    <label for="property_added_date">Date Added</label>
-                    <span class="helper-text" data-success="Can't wait!">The date will indicate when this property is added.</span>
+                <!-- Property Full Details -->
+                <div class="row field-row features">
+                    <div class="input-field col s12">
+                        <i class="fa-solid fa-circle-info prefix"></i>
+                        <textarea id="property_details" name="property_details" minlength="100" maxlength="1000" class="materialize-textarea validate" required></textarea>
+                        <label for="property_details">Property Details</label>
+                        <span class="helper-text" data-error="The description should be between 100 - 1000 characters. Write each paragraph on a new line." data-success="Sounds interesting!">Write a full description of the property in 100 - 1000 characters. Write each paragraph on a new line.</span>
+                    </div>
                 </div>
-            </div>
-            <!-- Property Features -->
-            <div class="row field-row features">
-                <div class="input-field col s12">
-                    <i class="fa-solid fa-wand-magic-sparkles prefix"></i>
-                    <textarea id="features" name="features" minlength="50" maxlength="1000" class="materialize-textarea validate" required></textarea>
-                    <label for="features">Property Features</label>
-                    <span class="helper-text" data-error="The description should be between 50 - 1000 characters. Write each paragraph on a new line." data-success="Sounds interesting!">Write each feature on a new line.</span>
+                <!-- Date picker -->
+                <div class="row field-row features">
+                    <div class="input-field col s12">
+                        <i class="fa-regular fa-calendar-days prefix"></i>
+                        <input id="property_added_date" name="property_added_date" type="text" class="datepicker validate">
+                        <label for="property_added_date">Date Added</label>
+                        <span class="helper-text" data-success="Can't wait!">The date will indicate when this property is added.</span>
+                    </div>
                 </div>
-            </div>
-            <!-- Property Amenities -->
-            <div class="row details-row">
-                <div class="col s12">
-                    <h6><i class="fa-solid fa-champagne-glasses"></i>Amenities</h6>
-                    <select id="amenities" name="amenities" class="validate" multiple required>
-                        <option value="" selected disabled>Choose Amenities</option>
-                        {% for amenity in amenities %}
-                        <option value="{{ amenity.amenity }}">{{ amenity.amenity }}</option>
-                        {% endfor %}
-                    </select>
-                    <label for="amenities">Amenities</label>
+                <!-- Property Features -->
+                <div class="row field-row features">
+                    <div class="input-field col s12">
+                        <i class="fa-solid fa-wand-magic-sparkles prefix"></i>
+                        <textarea id="features" name="features" minlength="50" maxlength="1000" class="materialize-textarea validate" required></textarea>
+                        <label for="features">Property Features</label>
+                        <span class="helper-text" data-error="The description should be between 50 - 1000 characters. Write each paragraph on a new line." data-success="Sounds interesting!">Write each feature on a new line.</span>
+                    </div>
                 </div>
-            </div>
-            <!-- Form Buttons -->
-            <div class="row center-align subit-btn-div">
-                <!-- Cancel Button -->
-                <a href="{{ url_for('get_properties')}}" class="cancel-button">
-                    Cancel
-                </a>
-                <!-- Add property Button -->
-                <button type=" submit" class="add-property-btn">
-                    Add property
-                </button>
-            </div>
+                <!-- Property Amenities -->
+                <div class="row details-row">
+                    <div class="col s12">
+                        <h6><i class="fa-solid fa-champagne-glasses"></i>Amenities</h6>
+                        <select id="amenities" name="amenities" class="validate" multiple required>
+                            <option value="" selected disabled>Choose Amenities</option>
+                            {% for amenity in amenities %}
+                            <option value="{{ amenity.amenity }}">{{ amenity.amenity }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="amenities">Amenities</label>
+                    </div>
+                </div>
+                <!-- Form Buttons -->
+                <div class="row center-align subit-btn-div">
+                    <!-- Cancel Button -->
+                    <a href="{{ url_for('get_properties')}}" class="cancel-button">
+                        Cancel
+                    </a>
+                    <!-- Add property Button -->
+                    <button type=" submit" class="add-property-btn">
+                        Add property
+                    </button>
+                </div>
         </form>
     </div>
 </div>
