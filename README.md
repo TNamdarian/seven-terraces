@@ -162,18 +162,25 @@ The Admin user shares the same expectations as the Registered user with some add
 
 - **Contact Us:** Provides the user with the website contact details in case he/she wants to get in touch.
 
-### login.html
+### login
 - The login page has an input form where the users will enter their username and password.
 
 - **Flash message** If the username is not registered or if the password is incorrect an error message will appear.
 - New users can click on the link "Register here" to get redirected to the register page.
 
-### register.html
+### register
 - New users will have to register using the input form in this page in order to start using the app.
 
 - **Flash message** If the username entered in the form has already been used by another user then an error message indicating this issue will be displayed.
 - In order to store the passwords securely in MongoDB, the passwords have been hashed using the bcrypt function.
 - Users already registered can click on the link "Login here" to get redirected to the login page.
+
+- **Profile Page** when the user logs in or register successfully they are taken to their Profile page.
+- This page will feature their username at the top to personalise the user experience.
+- There are links to take the user to the properties page or the Featured section on the landing page.
+- The user can see all their bookmarked properties on their profile if they have any.
+- The user can change their password if they click on the Change password button. A modal will pop up and ask for the new password. If they confirm to change their password, their password will be updated in the database under the Users collection.
+- The user can delete their profile if they click on the Delete Profile link. This will open a modal to confirm if they want to continue to delete their profile. If they confirm, their username, email and password will be detailed from the Users collection. They will then be logged out and returned to the landing page as Guest users.
 
 ### Log Out 
 - If a registered or admin user clicks on the log out button, they will be logged out of their current session and will no longer be able to see the pages they would if they were logged in.
@@ -211,17 +218,13 @@ These pages will be used by the user to enter a new property or to edit an exist
 
 - **Input (type text)** I have used input type text for name of the property and calories inputs. Name of properties is required. 
 
-- **Modal:** When the user clicks on "Upload image" a modal window will appear containing the input (type file).
+- **Input (type url):** Allows the user to upload an image for the property. This field is optional. If the user doesn't upload an image then the default image will be used for the property.
 
-- **Input (type file):** Allows the user to upload an image for the property. This field is optional. If the user doesn't upload an image then the default image will be used for the property.
+- **Input (price, sourcing fee):** I have used input type number for the "price" field. This field will be compulsory and needs to be a number. But for formating purposed texts are allowed. 
 
-- **Input (price):** I have used input type number for the "price" field. This field will be compulsory and needs to be a number.
+- **Select input:** I have used "single" select inputs for the fields "Strategy", "Property Type" and "multiple" select for "amenities". All of them are compulsory as they will also be used in the dashboard section and in order to show further details of the properties on the view_property page. 
 
-- **Select input:** I have used "single" select inputs for the fields "strategy", "Property Type". All of them are compulsory as they will also be used in the dashboard section and in order to show further details of the properties on the view_property page. 
- 
-I have also used "multiple" select input to select the “amenities” and “features” in the properties. 
-
-- **Textarea:** I have used textareas for the fields "Property details", “Property description” and “Date added”. 
+- **Textarea:** I have used textareas for the fields "Property details", "Property description”, and "features" and "Date added”. 
  These fields are compulsory because they are the most important information about any property.
  The user needs to enter every "Property details” on a different line to make sure it displays correctly in the view property page and also to be able to convert the input to array.
 
@@ -236,7 +239,7 @@ I have also used "multiple" select input to select the “amenities” and “fe
 - **container** I'm using a container from [Materialize](<[https://materializecss.com/](https://materializecss.com/)>) in order to display the list of categories on the admin dashboard page. 
 In the first section the admin is able to add and edit featured properties by clicking on the relevant buttons. In the second part, the user can delete or edit strategies/categories. 
 
-- **Modal:** When the user clicks on "delete strategy" the confirmation message will be displayed on a modal window and the type of strategy will only be removed if "delete" is selected. This modal has been taken from [Materialize](<[https://materializecss.com/](https://materializecss.com/)>).
+- **Modal:** When the user clicks on "delete strategy" the confirmation message will be displayed on a modal window and the type of strategy will only be removed if "delete" is selected. This modal has been taken from [Materialize](<[https://materializecss.com/](https://materializecss.com/)).
 
 ## Features Left to Implement
 - **Filters:** Adding filters to only display properties according to amenities, price, types and dates. I thought of this feature once the website was finished and I couldn't spend more time working on the project as I needed to get going with the rest of the course.
