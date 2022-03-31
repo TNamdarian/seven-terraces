@@ -60,6 +60,13 @@ This website project will target users who are interested in viewing and sharing
 - View, edit, search, delete **property posts** created by them;
 - The website has to work well on all kinds of devices like mobile phones, tablets and desktops.
 
+## **Data Structure**
+A database structure was designed to be specifically suited for Seven Terraces. It was important to make sure the nesting relationships between the collections and the keys worked logically. The database was created as a usable non-relational database where data is stored in a consistent and well-organised manner. To maintain a database configuration in a single location where it can be changed easily, ObjectId's are used in several collections to ensure key values are more accurate by using the ObjectId's rather than strings.
+
+**[MongoDB](https://www.mongodb.com/)** is utilised to store data for The Growth Club. It is a non-relational database-backed Flask web application that allows users to easily create, locate, display, edit and delete data records on the Growth Club web app.
+
+The data structure outline: ![Data Structure](/documents/mockups/collections.png)
+
 ### **Site Owners Goals**
 - Be the “go-to” place for users to source property deals. 
 - To create a community for users to source property deals for one another.
