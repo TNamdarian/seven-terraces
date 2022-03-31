@@ -12,7 +12,7 @@
         <!-- property image -->
         <div class="col s12 m12 l6 img-wrapper">
             {% if property.property_image %}
-            <img src="{{url_for('img_uploads', filename=property['property_image'])}}" alt="property_image">
+            <img src="{{property.property_image}}" alt="property_image">
             {% else %}
             <img src="{{url_for('static', filename='images/default.jpg')}}" alt="default_property_image">
             {% endif %}
@@ -84,8 +84,8 @@
 <div class="row">
     <div class="col s12 right-align btn-view">
         <!-- Modal Trigger -->
-        <a class="waves-effect waves-light btn-small modal-delete-btn modal-trigger center-align" href="#modal1{{ property._id }}"><i class="material-icons left"></i>Delete</a>
-        <a href="{{ url_for('edit_property', property_id=property._id) }}" class="waves-effect waves-light btn-small modal-edit-btn center-align"><i class="material-icons left"></i>Edit</a>
+        <a class="waves-effect waves-light btn-small delete-btn modal-trigger center-align" href="#modal1{{ property._id }}"><i class="material-icons left"></i>Delete</a>
+        <a href="{{ url_for('edit_property', property_id=property._id) }}" class="waves-effect waves-light btn-small edit-btn center-align"><i class="material-icons left"></i>Edit</a>
     </div>
 </div>
 {% else %}

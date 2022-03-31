@@ -19,7 +19,7 @@
                 <div class="row img-wrapper">
                     <a class="modal-trigger" href="#modal1">
                         {% if property.property_image %}
-                        <img src="{{url_for('img_uploads', filename=property['property_image'])}}" alt="property_image">
+                        <img src="{{property.property_image}}" alt="property_image">
                         {% else %}
                         <img src="{{url_for('static', filename='images/upload_images/default.jpg')}}" alt="default_property_image">
                         {% endif %}
