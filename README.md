@@ -135,7 +135,7 @@ The overall structure that was used is the Materialize framework. Materialize pr
 13. As a Registered User, I wan to be able to get in touch with the admin regarding the deals I’m interested in viewing. 
 
 *Admin User*
-The Admin user the same as the Registered user above with the additional extra expectations as below:
+The Admin user shares the same expectations as the Registered user with some additional ones as below:
 1. As an Admin User, I would like the ability to **log in to an admin account** so that I can **create, edit and delete featured property posts** for each month;
 2. As an Admin User, I want to be able to view all **property posts** added by other members of the community as well as the ability to **edit or delete any property posts** so that I can **maintain the site to stay updated**
 
@@ -235,15 +235,15 @@ In the first section the admin is able to add and edit featured properties by cl
 ## Technologies Used
 
 #### Database:
-- **[MongoDB](https://www.mongodb.com/)**
+- **[MongoDB](https://www.mongodb.com/)** to store user data. 
 
 #### Mock-up tool:
-- **[Balsamiq](https://balsamiq.com/#)** I have used Pencil to create the mock-ups for the website.
+- **[Balsamiq](https://balsamiq.com/#)** to create the mock-ups for the website.
 
 #### Languages:
-- **HTML5:** Is the main language used to create the structure of the website.
+- **HTML5:** is the main language used to create the structure of the website.
 
-- **CSS3:** Is the language used to add styles to the HTML.
+- **CSS3:** is the language used to add styles to the HTML.
 
 - **[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)** This is the language used to add interactivity to the website. It has been used to create the initialise cards, navbar, date picker, modal, validate Materialize selects,  and the function to preview the image uploaded using input type file.
 
@@ -251,22 +251,18 @@ In the first section the admin is able to add and edit featured properties by cl
 
 - **[Flask](https://palletsprojects.com/p/flask/)** I have used the web Flask framework.
 
-- **[Pymongo](https://pypi.org/project/pymongo/)** & **[Flask-PyMongo](https://flask-pymongo.readthedocs.io/en/latest/)** 
-    - To connect Python and Flask to the MongoDB database
+- **[PyMongo](https://pypi.org/project/pymongo/)** & **[Flask-PyMongo](https://flask-pymongo.readthedocs.io/en/latest/)** to connect Python and Flask to the MongoDB database
 
-- **[Jinja](http://jinja.pocoo.org/)** I have used Jinja templating engine in order to use template inheritance, add **for loops** and **if statements** in the html files and in order to pass information between back and frontend.
+- **[Jinja](http://jinja.pocoo.org/)** I have used Jinja templating engine in order to use template inheritance, add **for loops** and **if statements** in the html files and in order to pass information between back and front ends.
 
-- **[Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/)**
-    - A WSGI web application library used for passwords for Python.
+- **[Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/)** a WSGI web application library used for passwords on Python.
 
-- **[Tiny-PNG](https://tinypng.com/)**
-    - I used tinypng for big images up to 5M needed to be compressed to improve the website's loading time.
+- **[Tiny-PNG](https://tinypng.com/)** I used tinypng for big images up to 5M needed to be compressed to improve the website's loading time.
 
-- **[CompressJPEG](https://compressjpeg.com/)**
-    - The big images bigger than 5M needed to be compressed to improve the website's loading time.
+- **[CompressJPEG](https://compressjpeg.com/)** The big images bigger than 5M needed to be compressed to improve the website's loading time.
 
 #### Dependencies:
-In order to run the app I had to install the following packages, these packages are listed in the requirements.txt file. Each of these packages had installed additional packages but the additional packages have been removed from the requirements.txt file because they will be automatically installed when installing the main packages on the list:
+In order to run the app, I had to install the following packages, these packages are listed in the requirements.txt file. Each of these packages had installed additional packages but the additional packages have been removed from the requirements.txt file because they will be automatically installed when installing the main packages on the list:
 
 **flask:**  Flask is a lightweight WSGI web application framework. It is designed to make getting started quick and easy, with the ability to scale up to complex applications. 
 
@@ -291,44 +287,41 @@ In order to run the app I had to install the following packages, these packages 
 #### Libraries:
 - **[jQuery](https://jquery.com/)** Is needed for the **[Materialize](https://materializecss.com/)** JavaScript components to function.
 
-- **[Material Icons:](https://material.io/tools/icons/?style=baseline)** Has been used to add extra meaning on several parts of the website.
+- **[Material Icons:](https://material.io/tools/icons/?style=baseline)** to add extra features on several parts of the website.
 
-- **[Google Fonts:](https://fonts.google.com/)** I’ve used the fonts from Google Fonts to style the fonts in the website.
+- **[Google Fonts:](https://fonts.google.com/)** to style the fonts on the website.
 
 #### Version control system:
-- **[Gitpod](https://www.gitpod.io/)**
-    - IDE used to build the website
+- **[Gitpod](https://www.gitpod.io/)** to code the website.
 
-- **[Github](https://github.com/)**
-    - Used to host the repository of all previous versions of the build and linked to Heroku to push the latest changes to the deployed build version held there.
+- **[Github](https://github.com/)** to host the repository of all previous versions of the build and linked to Heroku to push the latest changes to the deployed build version held there.
 
 #### Hosting service:
-**[Heroku:](https://www.heroku.com/)** I have used Heroku in order to deploy the website.
+**[Heroku:](https://www.heroku.com/)** to deploy the website.
 
 ## Testing
 
 ### Validation
 
-- **[HTML:](https://validator.w3.org/)** in order to validate the HTML code.
+- **[HTML:](https://validator.w3.org/)** to validate the HTML code.
 
-- **[CSS:](https://jigsaw.w3.org/css-validator/)** in order to validate the CSS code.
+- **[CSS:](https://jigsaw.w3.org/css-validator/)** to validate the CSS code.
 
-- **[JavaScript](https://jshint.com/)** in order to check the JavaScript code.
+- **[JavaScript](https://jshint.com/)** to check the JavaScript code.
 
 - **[Responsinator](http://www.responsinator.com/)**
     - The project used **Responsinator** to determine if the site was responsive to various devices.
 
-- **[Am I Responsive](http://ami.responsivedesign.is/#)**
-    - The project used **Am I Responsive** to view images of the website on different devices if the site was responsive to various devices.
+- **[Am I Responsive](http://ami.responsivedesign.is/#)** to view images of the website on different devices if the site was responsive to various devices.
 
 - Chrome DevTools
     - For this project, the web developer tools built directly into the Google Chrome browser was used to help edit pages and diagnose problems quickly.
-
-- **[Link Checker](https://validator.w3.org/checklink)**
-    - For checking all links on the website and see if all links work
-
-- Lighthouse in Google dev tool
+    - Lighthouse in Google dev tool
     - For testing the performance of the website
+
+- **[Link Checker](https://validator.w3.org/checklink)** to check all links on the website and see if all links work. 
+
+
 
 - **[TestProject](https://testproject.io/)**
     - For automated testing of website
