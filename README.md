@@ -316,12 +316,6 @@ In order to run the app, I had to install the following packages, these packages
 
 - **[Am I Responsive](http://ami.responsivedesign.is/#)** to view images of the website on different devices if the site was responsive to various devices.
 
-- Chrome DevTools
-    - For this project, the web developer tools built directly into the Google Chrome browser was used to help edit pages and diagnose problems quickly.
-    
-- Lighthouse in Google dev tool
-    - For testing the performance of the website
-
 - **[Link Checker](https://validator.w3.org/checklink)** to check all links on the website and see if all links work. 
 
 
@@ -333,7 +327,13 @@ In order to run the app, I had to install the following packages, these packages
 
 - **[Google Mobile-Friendly Test Mobile](https://search.google.com/test/mobile-friendly)** to check if site is mobiole friendly
 
-- **[AutoPrefixer](https://autoprefixer.github.io/)** to autoprefixer to parse CSS and adds vendor prefixes
+- **[AutoPrefixer](https://autoprefixer.github.io/)** to autoprefixer to parse CSS and adds vendor prefixes.
+
+- Chrome DevTools
+    - For this project, the web developer tools built directly into the Google Chrome browser was used to help edit pages and diagnose problems quickly.
+    
+- Lighthouse in Google dev tool
+    - For testing the performance of the website
 
 ## **Deployment**
 This project uses GitHub for version control, GitPod as the cloud-based IDE and Heroku to deploy the site into production. The below steps are specific to Gitpod therefore depending on your IDE, you might need to adjust the below steps.
