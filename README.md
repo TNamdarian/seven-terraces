@@ -84,6 +84,7 @@ This website project will target users who are interested in viewing and sharing
 - The colour scheme is based on creating an environment with energy, excitement and warmth;
 - The logo was created on [Wix logo maker](https://www.wix.com/logo/maker/esh/zoe-editor?industry=%7B%22industry%22%3A%22609d10f90c3f7f79f9eed882_bf61b613f48c3e7af17cfc6c_property%20landing%20page%22%2C%22isCustom%22%3Afalse%7D&tags=creative%2Cformal%2Ctimeless%2Cdynamic&selectedWebsiteId=0&logoId=f9be001c-54be-4ac7-81c2-eea8e24dd21e&referralAdditionalInfo=arenaSplitPage) 
 - All colours were checked with WebAIM [https://webaim.org/resources/contrastchecker/](https://webaim.org/resources/contrastchecker/) to check the accessibility of the colours and present a pass.
+
 ![Results](/documents/mockups/contrast_test.png)
 
 
@@ -133,7 +134,6 @@ The overall structure that was used is the Materialize framework. Materialize pr
 The Admin user the same as the Registered user above with the additional extra expectations as below:
 1. As an Admin User, I would like the ability to **log in to an admin account** so that I can **create, edit and delete featured property posts** for each month;
 2. As an Admin User, I want to be able to view all **property posts** added by other members of the community as well as the ability to **edit or delete any property posts** so that I can **maintain the site to stay updated**
-
 
 ## Features
 ### On all pages
