@@ -133,11 +133,6 @@ nav ul li.active {
 /* Home Page */
 .banner {
     min-width: 100vw;
-    min-height: 100vh;
-}
-
-.banner-row {
-    margin-top: 0px;
 }
 
 .home-heading {
@@ -159,6 +154,7 @@ h4.warning {
     font-size: 24px;
 }
 
+/* Parallax images */
 .parallax {
     background-attachment: fixed;
     background-position: center;
@@ -209,6 +205,10 @@ h4.warning {
 #parallax9 {
     background-image: url("../images/parallax/houseview.jpg");
     height: 400px;
+}
+
+.parallax-row .col {
+    padding: 0px;
 }
 
 /* Properties Page */
@@ -298,6 +298,8 @@ h4.warning {
 
 .modal-content {
     text-align: center;
+    background-color: var(--grey);
+    border-radius: 10px;
 }
 
 .delete-modal {
@@ -419,34 +421,12 @@ form i:hover {
 
 /* ADD PROPERTY PAGE  */
 .property-header {
-    margin-top: 70px;
+    margin-top: 30px;
     padding-bottom: 20px;
-    background-color: transparent;
-}
-
-.form-container i {
-    color: var(--orange)
-}
-
-.form-container img,
-.property-header img {
-    width: 50%;
-    padding-top: 30px;
-    padding-left: 20px;
 }
 
 .property-header h1 {
     font-size: 30px;
-}
-
-.add-property-heading {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    padding-left: 20px;
-    background-color: var(--AccentTransparent);
-    border-radius: 20px;
-    padding-right: 20px;
-    color: var(--blue);
 }
 
 /* Profile page */
