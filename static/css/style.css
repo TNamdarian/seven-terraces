@@ -805,6 +805,7 @@ footer .copyright {
     border: 1px solid var(--light-blue);
 }
 
+/* Edit home page for smaller devices */
 @media only screen and (max-width: 500px) {
 
     .home-heading,
@@ -818,5 +819,12 @@ footer .copyright {
         font-weight: 300;
         margin-bottom: 30px;
         border-radius: 5px;
+    }
+}
+
+/* Disable parallax images scrolling for ipads and phones */
+@media only screen and (max-width: 1399px) {
+    .parallax {
+        background-attachment: scroll;
     }
 }

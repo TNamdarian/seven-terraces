@@ -49,7 +49,7 @@ Below you can see the mock-ups that I drew using
 
 ## **UX**
 ### **User Persona**
-This website project will target users who are interested in viewing and sharing information about property deals. The priority focus is on providing an easy to navigate and responsive website that allows users to be a part of a community with a collection of properties. 
+This website project will target users who are interested in viewing and sharing information about property deals. The priority focus is on providing an easy to navigate and responsive website that allows users to be a part of a community with a collection of properties. Most pages except "View property", "Add property" and "Edit proeprty" use parallax feature to make the site more visually appealing. As these three pages content heavy, parallax feature has been excluded for them. 
 
 ### **User Goals**
 - View featured **properties posts per month** created by the admin;
@@ -59,7 +59,7 @@ This website project will target users who are interested in viewing and sharing
 
 ### **Site Owners Goals**
 - Be the “go-to” place for users to source property deals. 
-- To create a community for users to offer each other their property deals.
+- To create a community for users to source property deals for one another.
 
 ### **User Requirements and Expectations**
 #### **Requirements**
@@ -225,7 +225,6 @@ In the first section the admin is able to add and edit featured properties by cl
 ## Features Left to Implement
 - **Favourites:** Adding filters to only display properties according to amenities, price, types and dates. I thought of this feature once the website was finished and I couldn't spend more time working on the project as I needed to get going with the rest of the course.
 
-- **Arranging properties from the most to the least viewed:**
 ## Technologies Used
 
 #### Database:
@@ -252,6 +251,12 @@ In the first section the admin is able to add and edit featured properties by cl
 
 - **[Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/)**
     - A WSGI web application library used for passwords for Python.
+
+- **[Tiny-PNG](https://tinypng.com/)**
+    - I used tinypng for big images up to 5M needed to be compressed to improve the website's loading time.
+
+- **[CompressJPEG](https://compressjpeg.com/)**
+    - The big images bigger than 5M needed to be compressed to improve the website's loading time.
 
 #### Dependencies:
 In order to run the app I had to install the following packages, these packages are listed in the requirements.txt file. Each of these packages had installed additional packages but the additional packages have been removed from the requirements.txt file because they will be automatically installed when installing the main packages on the list:
@@ -431,8 +436,7 @@ You have to create an account with MongoDB. You can see [here](https://docs.atla
 - The copy and text for this website was created by Teema Namdarian 
 
 ### **Media**
-- All Images used are from [Undraw](https://undraw.co/)
-- Background svg image from [Haikei](https://app.haikei.app/)
+- All Images used are from [Pixabay](https://pixabay.com/)
 
 ### **Code**
 - CSS for color roots adapted from [CSS Tricks](https://css-tricks.com/the-shapes-of-css/)
