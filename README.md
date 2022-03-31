@@ -45,16 +45,16 @@ Below you can see the mock-ups that I drew using
 ##### Contact Us page
 ![contact](/documents/mockups/contact_us.png)
 
-- The final website differs from the original wire-frames because, when working on the design, I sometimes I found more appropriate ways to display the different sections.
+- The final website differs from the original wire-frames because, when working on the design, I sometimes I found more appropriate ways to display different sections.
 
 ## **UX**
 ### **User Persona**
-This website project will target users who are interested in viewing and sharing information about property deals. The priority focus is on providing an easy to navigate and responsive website that allows users to be a part of a community with a collection of properties. Most pages except "View property", "Add property" and "Edit proeprty" use parallax feature to make the site more visually appealing. As these three pages content heavy, parallax feature has been excluded for them. 
+This website project will target users who are interested in viewing and sharing information about property deals. The main focus is on providing an easy to navigate and responsive website that allows users to be a part of a community with a portfolio of properties. Most pages except "View property", "Add property" and "Edit proeprty" use parallax feature to make the site more visually appealing. As these three pages are content heavy, parallax feature has been excluded for them. 
 
 ### **User Goals**
-- View featured **properties posts per month** created by the admin;
-- View ** property posts** created by the Seven Terraces community;
-- View, edit, search, delete ** property posts** created by them;
+- View **featured properties** posts per month created by the admin;
+- View **property posts** created by the Seven Terraces community;
+- View, edit, search, delete **property posts** created by them;
 - The website has to work well on all kinds of devices like mobile phones, tablets and desktops.
 
 ### **Site Owners Goals**
@@ -65,25 +65,27 @@ This website project will target users who are interested in viewing and sharing
 #### **Requirements**
 - Easy to navigate by using the navigation menu.
 - Relevant content for each category.
-- Appealing visual elements.
+- Appealing visuals.
 - Easy way to find properties relevant to the user.
 
 #### **Expectations**
-- When clicking on “view property” button (properties and social media links), expect the page to open in a separate browser.
+- When clicking social media links expect the page to open in a separate browser.
 - Expect that the navigation links work properly to take the user where they intended to go.
-- Expect to be able to add, edit or delete items added by the user.
+- Expect to be able to read, add, edit or delete items created by the user.
 - Feedback whether or not registered, logged in, logged out.
 
 ## **UI Design**
 ### **Font**
-- I used [Google Fonts](https://fonts.google.com/) to explore the various options.
+- I used [Google Fonts](https://fonts.google.com/) to highlight the various texts.
 - The project has the main font of [Roboto](https://fonts.google.com/specimen/Roboto) as it is easy to read and modern
-- “Sans-Serif” is used as the default backup font in cases where these fonts have difficulty loading.
+- “Sans-Serif” is used as the default backup font in cases Roboto has difficulty loading.
 
 ### **Colour Scheme**
 - The colour scheme is based on creating an environment with energy, excitement and warmth;
 - The logo was created on [Wix logo maker](https://www.wix.com/logo/maker/esh/zoe-editor?industry=%7B%22industry%22%3A%22609d10f90c3f7f79f9eed882_bf61b613f48c3e7af17cfc6c_property%20landing%20page%22%2C%22isCustom%22%3Afalse%7D&tags=creative%2Cformal%2Ctimeless%2Cdynamic&selectedWebsiteId=0&logoId=f9be001c-54be-4ac7-81c2-eea8e24dd21e&referralAdditionalInfo=arenaSplitPage) 
 - All colours were checked with WebAIM [https://webaim.org/resources/contrastchecker/](https://webaim.org/resources/contrastchecker/) to check the accessibility of the colours and present a pass.
+![Results](/documents/mockups/contrast_test.png)
+
 
 #### **Colour Palette**
 Colours was used to map out my colour scheme.
@@ -98,18 +100,19 @@ Colours was used to map out my colour scheme.
 For the social media, the colurs match the exact tones of these applications using [https://www.webnots.com/color-codes-for-social-networking-site-icons/](https://www.webnots.com/color-codes-for-social-networking-site-icons/). 
 
 ### **Icons**
-- Majority of icons from the Materialized Icons library was used unless there was not an appropriate icon available then the Font Awesome library is used. 
+- **[Materialized:](https://materializecss.com/)** Majority of icons from the Materialized Icons library was used unless there was not an appropriate icon available then the Font Awesome library is used. 
+- **[FontAwesome:](https://fontawesome.com/)** In some cases if a FontAwesome icon was more appropriate I have also used FontAwesome.
 
 ### **Structure**
-The overall structure that was used is the Materialize framework. Materialize provides various elements of CSS and Javascript which is very helpful to keep a good structure on your page.
+The overall structure that was used is the Materialize framework. Materialize provides various elements of CSS and Javascript which is very helpful to keep a good structure on applications. 
 
 ### **User Stories**
 *Guest User*
 1. As a Guest User, I want the main purpose of the site to be clear so that I immediately know what the site is intended for upon entering;
 2. As a Guest User, I want to be met with a visually appealing and easy to read layout of created items;
-3. As a Guest User, I want to view the featured **property posts** of the month to get a sense of the value if I sign up as a registered user and they don't have to search for it;
+3. As a Guest User, I want to view the **featuredproperty** posts of the month to get a sense of the value if I sign up as a registered user and they don't have to search for it;
 4. As a Guest User, I want to be able to sign-up to create and edit my own **property posts**;
-5. As a Guest User, I want to be able to get in contact via social media if I like the site or have suggestions.
+5. As a Guest User, I want to be able to get in contact via social media if I like enquire about properties or have suggestions.
 
 *Registered User*
 1. As a Registered User, I want the main purpose of the site to be clear so that I immediately know what the site is intended for upon entering;
@@ -123,11 +126,11 @@ The overall structure that was used is the Materialize framework. Materialize pr
 9. As a Registered User, I want to be able to change my password on my profile;
 10. As a Registered User, I want to be able to delete my account and profile;
 11. As a Registered User, I want to be able to log out of my account;
-12. As a Registered User, I want to be able to get in contact via social media if I like the site or have suggestions.
+12. As a Registered User, I want to be able to get in contact via social media if I like enquire about properties or have suggestions.
 13. As a Registered User, I wan to be able to get in touch with the admin regarding the deals I’m interested in viewing. 
 
 *Admin User*
-The Admin user the same user stories as the Registered user above with the additional extras below:
+The Admin user the same as the Registered user above with the additional extra expectations as below:
 1. As an Admin User, I would like the ability to **log in to an admin account** so that I can **create, edit and delete featured property posts** for each month;
 2. As an Admin User, I want to be able to view all **property posts** added by other members of the community as well as the ability to **edit or delete any property posts** so that I can **maintain the site to stay updated**
 
@@ -285,8 +288,6 @@ In order to run the app I had to install the following packages, these packages 
 - **[jQuery](https://jquery.com/)** Is needed for the **[Materialize](https://materializecss.com/)** JavaScript components to function.
 
 - **[Material Icons:](https://material.io/tools/icons/?style=baseline)** Has been used to add extra meaning on several parts of the website.
-
-- **[FontAwesome:](https://fontawesome.com/)** In some cases if a FontAwesome icon was more appropriate I have also used FontAwesome.
 
 - **[Google Fonts:](https://fonts.google.com/)** I’ve used the fonts from Google Fonts to style the fonts in the website.
 
