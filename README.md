@@ -90,7 +90,7 @@ This website project will target users who are interested in viewing and sharing
 
 
 #### **Colour Palette**
-Colours was used to map out my colour scheme.
+Below is the colour scheme used for the website. 
 ![Colour Palette](/documents/mockups/colour_palette.png) 
 ![Colour Palette](/documents/mockups/colour_palette2.png) 
 
