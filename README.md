@@ -239,7 +239,7 @@ In the first section the admin is able to add and edit featured properties by cl
 - **Modal:** When the user clicks on "delete strategy" the confirmation message will be displayed on a modal window and the type of strategy will only be removed if "delete" is selected. This modal has been taken from [Materialize](<[https://materializecss.com/](https://materializecss.com/)>).
 
 ## Features Left to Implement
-- **Favourites:** Adding filters to only display properties according to amenities, price, types and dates. I thought of this feature once the website was finished and I couldn't spend more time working on the project as I needed to get going with the rest of the course.
+- **Filters:** Adding filters to only display properties according to amenities, price, types and dates. I thought of this feature once the website was finished and I couldn't spend more time working on the project as I needed to get going with the rest of the course.
 
 ## Technologies Used
 
