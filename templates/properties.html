@@ -11,7 +11,7 @@
 <div class="container center-align">
     <div class="row">
         <form action="{{ url_for('search') }}" method="post" class="col s12">
-            <div class="row search-section">
+            <div class="row search-section white-section">
                 <!-- Search Input-->
                 <div class="input-field col s12 m8 left-align">
                     <i class="material-icons prefix">search</i>
@@ -21,9 +21,7 @@
                 </div>
                 <!-- Buttons-->
                 <div class="col s12 m4 button-wrapper">
-                    <button type="submit" id="search-btn">
-                        Search
-                    </button>
+                    <button type="submit" id="search-btn">Search</button>
                     <a href="{{ url_for('get_properties') }}" id="reset-btn">Reset</a>
                 </div>
             </div>

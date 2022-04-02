@@ -46,6 +46,10 @@ body {
     background-color: var(--grey);
 }
 
+.white-section {
+    background-color: var(--white);
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -53,7 +57,7 @@ body {
 }
 
 body {
-    background-color: var(--white);
+    background-color: var(--grey);
     font-family: 'Roboto', sans-serif;
     font-size: 1.1em;
 }
@@ -77,6 +81,14 @@ h6 {
 
 nav ul a {
     font-size: 20px;
+}
+
+.sidenav li>a {
+    color: var(--orange)
+}
+
+.sidenav li>a:hover {
+    color: var(--teal)
 }
 
 nav ul a,
@@ -628,9 +640,11 @@ form i:hover {
     background-color: var(--blue);
     border-radius: 10px;
     color: var(--orange);
-    border: 1px solid var(--Orange);
+    border-style: solid;
+    border-color: var(--Orange);
     padding: 12px 10px;
     margin-right: 10px;
+    margin-top: 12px;
     cursor: pointer;
 }
 
@@ -645,8 +659,11 @@ form i:hover {
     padding: 10px;
     background-color: var(--orange);
     color: var(--blue);
-    border: 1px solid var(--Orange);
+    border-style: solid;
+    border-color: var(--Orange);
     border-radius: 10px;
+    padding: 12px 10px;
+    margin-right: 10px;
 }
 
 #reset-btn:hover {
@@ -671,6 +688,7 @@ form i:hover {
 .search-section {
     margin-top: 20px;
     border: 2px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
 .button-wrapper {

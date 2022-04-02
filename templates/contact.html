@@ -12,13 +12,13 @@
 </div>
 <div class="container form-container">
     <div class="row">
-        <form class="col s12 m8 offset-m2 contact-form grey-section" onsubmit="return sendMail(this);" target="_blank">
+        <form class="col s12 m8 offset-m2 contact-form white-section" onsubmit="return sendMail(this);" target="_blank">
             <!-- Option Selection -->
             <div class="row field-row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-folder prefix"></i>
-                    <select id="option_name" name="option_name" class="validate" required>
-                        <option selected>What's it regarding?</option>
+                    <select>
+                        <option value="" disabled selected>What's it regarding?</option>
                         <option value="1">I am inquiring about a property.</option>
                         <option value="2">I'd liek to view a property.</option>
                         <option value="3">I'd like to to say hi.</option>

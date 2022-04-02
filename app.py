@@ -69,6 +69,15 @@ def update_property_feature(property_id):
     except Exception as e:
         return "Bad Request", 400
 
+@app.route('/')
+@app.route("/get_featured_properties")
+def get_featured_properties():
+    """
+    READ FEATURED PROPERTY FUNCTIONALITY
+    """
+    featured_properties = list(mongo.db.properties.find({'featured': True}))
+    return render_template("index.html", properties=featured_properties)
+
 
 # --- SIGN UP / REGISTER FUNCTIONALITY --- #
 @app.route("/register", methods=["GET", "POST"])
@@ -353,17 +362,6 @@ def admin_dashboard():
         return redirect(url_for("get_featured_properties"))
     # return the admin dashboard template
     return render_template("admin_dashboard.html", categories=categories)
-
-
-@app.route('/')
-@app.route("/get_featured_properties")
-def get_featured_properties():
-    """
-    READ FEATURED PROPERTY FUNCTIONALITY
-    """
-    featured_properties = list(mongo.db.properties.find({'featured': True}))
-    return render_template("index.html", properties=featured_properties)
-
 
 # --- ADD A CATEGORY FUNCTIONALITY --- #
 @app.route("/add_category", methods=["GET", "POST"])

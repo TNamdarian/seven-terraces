@@ -28,7 +28,6 @@
 </div>
 <!-- Property Cards -->
 <div class="container">
-    {% if properties|length > 0 %}
     <div class="row">
         {% for property in properties %}
         <div class="col s12 m6 l6">
@@ -91,9 +90,6 @@
         </div>
         {% endfor %}
     </div>
-    {% else %}
-    <h4 class="centre-align warning">No results found</h4>
-    {% endif %}
 </div>
 
 {% endblock %}
