@@ -334,9 +334,6 @@ In order to run the app, I had to install the following packages, these packages
 
 - Chrome DevTools
     - For this project, the web developer tools built directly into the Google Chrome browser was used to help edit pages and diagnose problems quickly.
-    
-- Lighthouse in Google dev tool
-    - For testing the performance of the website
 
 ## **Deployment**
 This project uses GitHub for version control, GitPod as the cloud-based IDE and Heroku to deploy the site into production. The below steps are specific to Gitpod therefore depending on your IDE, you might need to adjust the below steps.
