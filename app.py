@@ -1,7 +1,7 @@
 import os
 from flask import (
-    Flask, flash, render_template, jsonify,
-    redirect, request, session, url_for)
+     Flask, flash, render_template, jsonify,
+     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from bson import json_util
@@ -14,7 +14,8 @@ app = Flask(__name__)
 
 
 '''
-In development the environmental variables are saved on the env.py and in production the environmental variables are 
+In development the environmental variables are saved on the env.py
+and in production the environmental variables are
 saved on the Config Var in Heroku
 '''
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -29,7 +30,8 @@ mongo = PyMongo(app)
 # FUNCTION TO CONVER STRINGS SEPARATED BY '\N' TO ARRAYS
 def string_to_array(str_to_split):
     """
-    FUNCTION TO CONVER STRINGS SEPARATED BY '/N' TO ARRAYS
+    FUNCTION TO CONVER STRINGS
+    SEPARATED BY '/N' TO ARRAYS
     """
     array = str_to_split.split("\n")
     return array
@@ -37,7 +39,7 @@ def string_to_array(str_to_split):
 
 # --- ADMIN USER FUNCTION --- #
 def admin():
-    """ 
+    """
     Verify is user is in session and is the admin user
     """
     return session['user'] == 'admin'
@@ -56,7 +58,7 @@ def get_properties():
 # UPDATE PROPERTY FEATURED.
 @app.route("/update_property_feature/<property_id>", methods=["POST"])
 def update_property_feature(property_id):
-    """ 
+    """
     Update property featured
     """
     try:
@@ -150,12 +152,14 @@ def profile(username):
             # take the session user's username from Mongo
             {"username": session["user"]})
         # if the user has a bookmark try the execute the below
-        bookmarks = mongo.db.properties.find({'_id': {'$in': user['bookmarks']}})
+        bookmarks = mongo.db.properties.find({'_id':
+                                             {'$in': user['bookmarks']}})
     else:
         flash('You are not authorised to view this page')
         return redirect(url_for("get_featured_properties"))
     # return profile page with user's unique name
-    return render_template("profile.html", username=username, properties=bookmarks)
+    return render_template("profile.html",
+                           username=username, properties=bookmarks)
 
 
 # --- BOOKMARK A PROPERTY FUNCTIONALITY --- #
@@ -222,8 +226,9 @@ def view_property(property_id):
     """
     FUNTION TO SEE A PROPERTY AFTER CLICKING ON "VIEW PROPERTY" BUTTON
     """
-    #Increment the number of views everytime a property is seen
-    mongo.db.properties.update_one({"_id":ObjectId(property_id)}, {'$inc': {'views': 1}})
+    # Increment the number of views everytime a property is seen
+    mongo.db.properties.update_one({"_id": ObjectId(property_id)},
+                                   {'$inc': {'views': 1}})
     property = mongo.db.properties.find_one({"_id": ObjectId(property_id)})
     return render_template('view_property.html', property=property)
 
@@ -232,14 +237,16 @@ def view_property(property_id):
 @app.route("/add_property", methods=["GET", "POST"])
 def add_property():
     """
-    Add_PROPERTY FUNCTIONALITY 
+    Add_PROPERTY FUNCTIONALITY
     """
     if request.method == "POST":
         property = {
             "category_name": request.form.get("category_name"),
             "property_name": request.form.get("property_name"),
-            "property_description": request.form.get("property_description"),
-            "property_details": string_to_array(request.form.get("property_details")),
+            "property_description": request.form.get
+                                    ("property_description"),
+            "property_details": string_to_array(request.form.get
+                                ("property_details")),
             "property_added_date": request.form.get("property_added_date"),
             "property_image": request.form.get("property_image"),
             "author": session["user"],
@@ -257,7 +264,9 @@ def add_property():
     type = mongo.db.type.find().sort("type", 1)
     amenities = mongo.db.amenities.find().sort("amenity", 1)
     features = mongo.db.amenities.find().sort("feature", 1)
-    return render_template("add_property.html", categories=categories, type=type, amenities=amenities, property=features)
+    return render_template("add_property.html", categories=categories,
+                           type=type, amenities=amenities,
+                           property=features)
 
 
 # --- Edit_PROPERTY FUNCTIONALITY --- #
@@ -268,13 +277,13 @@ def edit_property(property_id):
     """
     properties = mongo.db.properties
     property = mongo.db.properties.find({"_id": ObjectId(property_id)})
-        
     if request.method == "POST":
         submit = {
             "category_name": request.form.get("category_name"),
             "property_name": request.form.get("property_name"),
             "property_description": request.form.get("property_description"),
-            "property_details": string_to_array(request.form.get("property_details")),
+            "property_details": string_to_array(request.form.get
+                              ("property_details")),
             "property_added_date": request.form.get("property_added_date"),
             "property_image": request.form.get("property_image"),
             "author": session["user"],
@@ -287,19 +296,23 @@ def edit_property(property_id):
         mongo.db.properties.update_one(
             {"_id": ObjectId(property_id)}, {"$set": submit})
         flash("Property successfully updated")
-        return redirect(url_for("edit_property", property_id=ObjectId(property_id)))
-    ## This object is used for rendering in the form
+        return redirect(url_for("edit_property",
+                                property_id=ObjectId(property_id)))
+    # This object is used for rendering in the form
     property = mongo.db.properties.find_one({"_id": ObjectId(property_id)})
-    read_property_obj = {**property} ## copy the object from the DataBase, because the object from the DB is immutable (cannot change values)
-    read_property_obj['property_details'] = "".join(read_property_obj['property_details'])
+    read_property_obj = {**property}
+    # copy the object from the DataBase, because the object
+    # from the DB is immutable (cannot change values)
+    read_property_obj['property_details'] = "".join(read_property_obj
+         ['property_details'])
     read_property_obj['features'] = "".join(read_property_obj['features'])
     read_property_obj['amenities'] = "".join(read_property_obj['amenities'])
-    # read_property_obj.property_details = read_property_obj.property_details.join()
     categories = mongo.db.categories.find().sort("category_name", 1)
     type = mongo.db.type.find().sort("type", 1)
-    amenities = mongo.db.amenities.find().sort("amenity")     
-    
-    return render_template("edit_property.html", property=read_property_obj, categories=categories, type=type, amenities=amenities)
+    amenities = mongo.db.amenities.find().sort("amenity")
+    return render_template("edit_property.html",
+                           property=read_property_obj, categories=categories,
+                           type=type, amenities=amenities)
 
 
 # --- DELETE_PROPERTY FUNCTIONALITY --- #
@@ -317,7 +330,7 @@ def delete_property(property_id):
 @app.route("/search", methods=["GET", "POST"])
 def search():
     """
-    SEARCH FOR A PROPERTY FUNCTIONALITY 
+    SEARCH FOR A PROPERTY FUNCTIONALITY
     """
     query = request.form.get("query")
     properties = list(mongo.db.properties.find({"$text": {"$search": query}}))
@@ -348,7 +361,7 @@ def get_featured_properties():
     """
     READ FEATURED PROPERTY FUNCTIONALITY
     """
-    featured_properties = list(mongo.db.properties.find({'featured':True}))
+    featured_properties = list(mongo.db.properties.find({'featured': True}))
     return render_template("index.html", properties=featured_properties)
 
 
@@ -433,7 +446,7 @@ def change_password(username):
 @app.route('/delete_account/<user_id>', methods=["GET", "POST"])
 def delete_account(user_id):
     """
-    DELETE PROFILE FUNCTIONALITY 
+    DELETE PROFILE FUNCTIONALITY
     """
     user = mongo.db.users.find_one({'username': session["user"]})
     # Checks if password matches existing password in database
