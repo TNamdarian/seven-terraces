@@ -326,18 +326,11 @@ In order to run the app, I had to install the following packages, these packages
 
 - **[Am I Responsive](http://ami.responsivedesign.is/#)** to view images of the website on different devices if the site was responsive to various devices.
 
-- **[Link Checker](https://validator.w3.org/checklink)** to check all links on the website and see if all links work. 
-
-
-- **[TestProject](https://testproject.io/)** to automate testing of website
-
 - **[Python Tester](https://extendsclass.com/python-tester.html)** Python code syntax checker
 
-- **[Closing Tag Checker for HTML5](https://www.aliciaramirez.com/closing-tags-checker/)** to validates all tags are opening and closing correctly.
+- **[PEP8 online checker](pep8online.compep8online.com)** to ckeck Pyton code is PEP complient. 
 
 - **[Google Mobile-Friendly Test Mobile](https://search.google.com/test/mobile-friendly)** to check if site is mobiole friendly
-
-- **[AutoPrefixer](https://autoprefixer.github.io/)** to autoprefixer to parse CSS and adds vendor prefixes.
 
 - Chrome DevTools
     - For this project, the web developer tools built directly into the Google Chrome browser was used to help edit pages and diagnose problems quickly.
