@@ -37,13 +37,13 @@
                     </div>
                     <div class="col s6">
                         <h6><i class="material-icons">monetization_on</i>Price</h6>
-                        <input placeholder="Price" id="price" name="price" type="text" class="validate" min="1" value="{{property.price}}" required="">
+                        <input placeholder="Price" id="price" name="price" type="text" class="validate" value="{{property.price}}" required="">
                     </div>
                 </div>
                 <div class="row details-row">
                     <div class="col s6">
                         <h6><i class="material-icons">monetization_on</i>Sourcing Fee</h6>
-                        <input placeholder="Sourcing Fee" id="sourcing_fee" name="sourcing_fee" type="text" class="validate" min="1" value="{{property.sourcing_fee}}" required="">
+                        <input placeholder="Sourcing Fee" id="sourcing_fee" name="sourcing_fee" type="text" class="validate" value="{{property.sourcing_fee}}" required="">
                     </div>
                     <div class="col s6">
                         <h6><i class="material-icons">trending_up</i>Strategy</h6>
@@ -127,12 +127,10 @@
             <div class="row center-align">
                 <!-- Cancel Button -->
                 <a href="{{ url_for('get_properties')}}" class="cancel-button">
-                    Cancel
-                </a>
+                    Cancel</a>
                 <!-- Edit property Button -->
                 <button type="submit" class="waves-effect waves-light general-btn">
-                    Edit property
-                </button>
+                    Edit property</button>
             </div>
         </form>
     </div>

@@ -99,8 +99,6 @@ nav h4 {
 }
 
 nav ul li.active {
-    -webkit-text-decoration-color: var(--light-blue);
-    text-decoration-color: var(--light-blue);
     -webkit-text-decoration-line: underline;
     text-decoration-line: underline;
     -webkit-text-decoration-style: solid;
@@ -137,12 +135,13 @@ nav ul li.active {
 
 .home-heading {
     font-weight: 900;
-    font-size: 70px;
-    margin-top: 50px;
+    margin-top: 100px;
+    margin-left: 10px;
+    color: var(--orange);
 }
 
 .home-p {
-    color: var(--black);
+    color: var(--blue);
     font-size: 30px;
     text-align: center;
     margin-bottom: 50px;
@@ -232,9 +231,9 @@ h4.warning {
 .modal-edit-btn {
     background-color: var(--light-blue);
     color: var(--blue);
-    border-style: 1px solid var(--orange);
+    border-style: solid;
+    border-color: var(--light-blue);
     border-radius: 8px;
-    border-color: var(--orange);
     margin-top: 10px;
     margin-bottom: 20px;
     font-weight: 700;
@@ -248,15 +247,16 @@ h4.warning {
 .view-property-btn:hover {
     background-color: var(--teal);
     color: var(--blue);
-    border-style: 1px solid var(--teal);
+    border-style: solid;
+    border-color: var(--teal);
 }
 
 .view-property-btn {
     background-color: var(--light-blue);
     color: var(--blue);
-    border-style: 1px solid var(--orange);
+    border-style: solid;
+    border-color: var(--light-blue);
     border-radius: 8px;
-    border-color: var(--orange);
     font-weight: 700;
     margin-top: 10px;
     margin-left: 0px;
@@ -265,9 +265,9 @@ h4.warning {
 .bookmark_btn {
     background-color: var(--light-blue);
     color: var(--blue);
-    border-style: 1px solid var(--orange);
+    border-style: solid;
+    border-color: var(--light-blue);
     border-radius: 20px;
-    border-color: var(--orange);
     margin-top: 10px;
     margin-right: 10px;
 }
@@ -276,15 +276,16 @@ h4.warning {
 .btn-floating:hover {
     background-color: var(--teal);
     color: var(--blue);
-    border-style: 1px solid var(--teal);
+    border-style: solid;
+    border-color: var(--teal);
 }
 
 .modal-delete-btn {
     background-color: var(--youtube);
-    border: 1px solid var(--youtube);
+    border-style: solid;
+    border-color: var(--youtube);
     color: var(--blue);
     border-radius: 8px;
-    border-color: var(--youtube);
     margin-top: 10px;
     margin-bottom: 20px;
     font-weight: 700;
@@ -403,7 +404,7 @@ h4.warning {
 
 .delete-btn {
     background-color: var(--youtube);
-    border: 1px solid var(--youtube);
+    border-style: solid;
     color: var(--blue);
     border-radius: 8px;
     border-color: var(--youtube);
@@ -412,34 +413,38 @@ h4.warning {
     font-weight: 700;
     padding-left: 10px;
     padding-right: 10px;
-    margin-right: 10px;
+    margin-left: 10px;
+    font-size: 15px;
 }
 
 .delete-btn:hover {
     background-color: var(--black);
     color: var(--youtube);
-    border: 1px solid var(--black);
+    border-style: solid;
+    border-color: var(--black);
 }
 
 .edit-btn {
     background-color: var(--light-blue);
     color: var(--blue);
-    border-style: 1px solid var(--orange);
+    border-style: solid;
+    border-color: var(--light-blue);
     border-radius: 8px;
-    border-color: var(--orange);
     margin-top: 10px;
     margin-bottom: 20px;
     font-weight: 700;
     padding-left: 10px;
     padding-right: 10px;
-    margin-right: 200px;
+    margin-left: 10px;
+    font-size: 15px;
 }
 
 .edit-btn:hover,
 .view-property-btn:hover {
     background-color: var(--teal);
     color: var(--blue);
-    border-style: 1px solid var(--teal);
+    border-style: solid;
+    border-color: var(--teal);
 }
 
 /* Form - Sing UP Page */
@@ -469,14 +474,11 @@ form i:hover {
     color: var(--orange);
 }
 
-/* ADD PROPERTY PAGE  */
-.property-header {
-    margin-top: 30px;
-    padding-bottom: 20px;
-}
-
+/* Header Sectopn  */
 .property-header h1 {
     font-size: 30px;
+    color: var(--orange);
+    padding-bottom: 20px;
 }
 
 /* Profile page */
@@ -488,6 +490,10 @@ form i:hover {
 .bookmark-p {
     color: var(--blue);
     font-weight: 500;
+}
+
+.save-properties h4 {
+    color: var(--orange)
 }
 
 .change-pw-btn,
@@ -783,6 +789,7 @@ footer .copyright {
 .manage-properties-h {
     font-size: 24px;
     font-weight: 700;
+    color: var(--orange);
 }
 
 .manage-featured-p {
@@ -882,5 +889,42 @@ footer .copyright {
 @media only screen and (max-width: 1000px) {
     #parallax-1 {
         display: none;
+    }
+}
+
+/* Home Page */
+/* For Tablets */
+@media only screen and (min-width: 768px) {
+    .home-heading {
+        font-size: 70px;
+    }
+}
+
+/* For Desktops */
+@media only screen and (min-width: 1000px) {
+    .home-heading {
+        font-size: 75px;
+    }
+}
+
+/* For Large 4K Screens */
+@media only screen and (min-width: 2560px) {
+    .home-heading {
+        font-size: 90px;
+        margin-top: 150px;
+    }
+}
+
+/* For Desktops */
+@media only screen and (min-width: 1000px) {
+    .home-p {
+        font-size: 30px;
+    }
+}
+
+/* For Large 4K Screens */
+@media only screen and (min-width: 2560px) {
+    .home-p {
+        font-size: 35px;
     }
 }
