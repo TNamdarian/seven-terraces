@@ -75,13 +75,13 @@ This website project will target users who are interested in viewing and sharing
 
 <a></a>
 ### **User Stories**
-*Guest User*
+#### **Guest User**
 1. As a Guest User, I want the main purpose of the site to be clear so that I immediately know what the site is intended for upon entering;
 2. As a Guest User, I want to be met with a visually appealing and easy to read layout of created items;
 3. As a Guest User, I want to view the **featuredproperty** posts of the month to get a sense of the value if I sign up as a registered user and they don't have to search for it;
 4. As a Guest User, I want to be able to sign-up to create and edit my own **property posts**;
 5. As a Guest User, I want to be able to get in contact via social media if I like enquire about properties or have suggestions.
-*Registered User*
+#### ***Registered User**
 1. As a Registered User, I want the main purpose of the site to be clear so that I immediately know what the site is intended for upon entering;
 2. As a Registered User, I want to be met with a visually appealing and easy to read layout of created items;
 3. As a Registered User, I want to view the featured items of the month so that I don't have to search for them;
@@ -95,11 +95,10 @@ This website project will target users who are interested in viewing and sharing
 11. As a Registered User, I want to be able to log out of my account;
 12. As a Registered User, I want to be able to get in contact via social media if I like enquire about properties or have suggestions.
 13. As a Registered User, I wan to be able to get in touch with the admin regarding the deals I’m interested in viewing. 
-*Admin User*
+#### **Admin User**
 The Admin user shares the same expectations as the Registered user with some additional ones as below:
 1. As an Admin User, I would like the ability to **log in to an admin account** so that I can **create, edit and delete featured property posts** for each month;
 2. As an Admin User, I want to be able to view all **property posts** added by other members of the community as well as the ability to **edit or delete any property posts** so that I can **maintain the site to stay updated**
-
 ___
 <br>
 
