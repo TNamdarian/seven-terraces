@@ -33,7 +33,7 @@ ___
 * [Future Features](#future-features)
 * [Technologies used](#technologies-used)
     * [Languages](#languages)
-    * [Libraries-and-Frameworks](#libraries-and-frameworkes)
+    * [Libraries and Frameworks](#libraries-and-frameworkes)
     * [Tools](#tools)
     * [Design](#design)
 * [Testing](#testing)
