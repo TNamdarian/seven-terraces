@@ -75,7 +75,7 @@ def get_featured_properties():
     """
     READ FEATURED PROPERTY FUNCTIONALITY
     """
-    featured_properties = list(mongo.db.properties.find({'featured': True}))
+    featured_properties = list(mongo.db.properties.find({'featured':True}))
     return render_template("index.html", properties=featured_properties)
 
 
