@@ -33,7 +33,7 @@ ___
 * [Future Features](#future-features)
 * [Technologies used](#technologies-used)
     * [Languages](#languages)
-    * [Libraries](#libraries)
+    * [Libraries-and-Frameworks](#libraries-and-frameworkes)
     * [Tools](#tools)
     * [Design](#design)
 * [Testing](#testing)
@@ -81,7 +81,7 @@ This website project will target users who are interested in viewing and sharing
 3. As a Guest User, I want to view the **featuredproperty** posts of the month to get a sense of the value if I sign up as a registered user and they don't have to search for it;
 4. As a Guest User, I want to be able to sign-up to create and edit my own **property posts**;
 5. As a Guest User, I want to be able to get in contact via social media if I like enquire about properties or have suggestions.
-#### ***Registered User**
+#### **Registered User**
 1. As a Registered User, I want the main purpose of the site to be clear so that I immediately know what the site is intended for upon entering;
 2. As a Registered User, I want to be met with a visually appealing and easy to read layout of created items;
 3. As a Registered User, I want to view the featured items of the month so that I don't have to search for them;
