@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}500{% endblock %}
+{% block content %}
+<main class="container error-container center-align">
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <img src="/static/images/errors/500.png" alt="error image" class="error-img">
+        </div>
+        <div class="col s12 m12 l12">
+            <h1>Uh oh, there seems to be a problem.</h1>
+            <p class="error-p">It could be on our side.</p>
+            <a href="{{ url_for('get_featured_propertis') }}" class="error-btn">Try going back Home</a>
+        </div>
+    </div>
+</main>
+{% endblock %}
