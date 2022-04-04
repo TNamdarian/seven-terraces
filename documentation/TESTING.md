@@ -137,7 +137,9 @@ ___
    - Edit Category Page - No Errors in testing and final
       - [Edit Category Page - Final](/documentation/images/validator_screenshots/html_validator_edit_category_page_final.png)
    - Add properties Page - No Errors in testing and final
-      - [Add properties Page - Final](/documentation/images/validator_screenshots/html_validator_add_property_page_final.png)
+      - [Add property Page - Final](/documentation/images/validator_screenshots/html_validator_add_property_page_final.png)
+   - View properties Page - No Errors in testing and final
+      - [View property Page - Final](/documentation/images/validator_screenshots/html_validator_view_property_page_final.png)
    - Add Admin Dashboard Page - Some errors in testing and no errors finally
       - [Add Admin Dashboard Page - Test](/documentation/images/validator_screenshots/html_validator_admin_dashboard_page_test.png)
       - [Add Admin Dashboard Page - Final](/documentation/images/validator_screenshots/html_validator_admin_dashboard_page_final.png)
@@ -149,7 +151,7 @@ ___
       - [Home Page - Test](/documentation/images/validator_screenshots/html_validator_home_page_test.png)
       - [Home Page - Final](/documentation/images/validator_screenshots/html_validator_home_page_final.png)
    - Log In Page - Some errors in testing and no errors final
-       - [Log In Page - Test](/documentation/images/validator_screenshots/html_validator_login_page_test.png)
+      - [Log In Page - Test](/documentation/images/validator_screenshots/html_validator_login_page_test.png)
       - [Log In Page - Final](/documentation/images/validator_screenshots/html_validator_login_page_final.png)
    - Profile Page - Some errors in testing and no errors final
       - [Profile Page - Test](/documentation/images/validator_screenshots/html_validator_profile_page_test.png)
