@@ -101,16 +101,9 @@ The Admin user the same user stories as the Registered user above with the addit
 - The login features are similar to the above, but if the admin user is logged in, they can see the Manage properties Admin Dashboard. From here they can add & edit feature properties.
    - [Admin Dashboard Page](/documentation/images/test_screenshots/admin_dashboard.png)
 - The admin user can add a featured property by clicking on the "Add featured property" button which will take them to the Add Featured property page where they can fill in the form and add a property. The form will have helper text to guide the user as well as validation. The user will receive confirmation if the featured property is added to the Home page Featured Section.
-   - [Add Featured Properties Page](/documentation/images/test_screenshots/add_featured_property.png)
+   - [Add Featured Properties](/documentation/images/test_screenshots/properties_page.png)
    - [Add Featured Properties Confirmation](/documentation/images/test_screenshots/add_featured_property_confirmation.png)
 - The admin user can click on the "Edit or Delete Featured property" button on the Admin Dashboard and will be taken to the Featured property section on the Home page where they will be able to view Edit & Delete buttons. 
-   - [Featured Section on Home Page Admin View](/documentation/images/test_screenshots/featured_properties_admin_view.png)
-- If the edit button is clicked, the user will be taken to the Edit Featured property page. If the featured property is successfully updated, they will receive a confirmation message.
-   - [Edit Featured Properties Page](/documentation/images/test_screenshots/edit_featured_property_page.png)
-   - [Edit Featured Property Confirmation](/documentation/images/test_screenshots/edit_featured_property_confirmation.png)
-- If the delete button is clicked, a delete confirmation modal will display. If the featured property is successfully deleted, they will receive a confirmation message.
-   - [Delete Featured Property Modal](/documentation/images/test_screenshots/delete_featured_property_modal.png)
-   - [Delete Featured Property Confirmation](/documentation/images/test_screenshots/delete_featured_property_confirmation.png)
 2. As an Admin User, I want to be able to view all **property posts** added by other members of the community as well as the ability to **edit or delete any property posts** so that I can **maintain the site to stay updated**
 - The admin user can view all properties and also the edit & delete buttons. They can edit or delete any property regardless of who added the property.
     - [Admin User View of Property Page](/documentation/images/test_screenshots/property_page_view_admin.png)
@@ -121,8 +114,7 @@ ___
 ### [Link Checker](https://validator.w3.org/checklink)
 - To check that all links are working and not broken. 
 - [Link Validation Test](/documentation/images/validator_screenshots/linkchecker.png)
-   - Issue with https://fonts.googleapis.com/ in the header of the base template but this directly copied and pasted from the Google Fonts website to use a font. Therefore this can be safely ignored.
-   - Issue with Linkedin link was manually checked and resolved.
+   - Issue with Facebook link was manually checked and resolved.
    - Issue with Instagram link was manually checked and resolved.
 - Final version has no other link errors or warnings.
 
@@ -140,7 +132,7 @@ ___
 
 ### [Am I Responsive](http://ami.responsivedesign.is/)
 - To view images of the website on different devices.
-- Final version: [Am I Responsive ](/documentation/images/validator_screenshots/am_i_responsive_design.png)
+- Final version: [Am I Responsive ](/documentation/images/validator_screenshots/am_i_responsive.png)
 
 ### JavaScript
 - [JSHint](https://jshint.com/)
@@ -158,7 +150,7 @@ ___
    - The Validator states there is an error with regards to the "text-decoration-thickness" but this is acceptable according to [w3.org](https://www.w3.org/TR/css-text-decor-4/#propdef-text-decoration-thickness) and [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration-thickness). This property, sets the stroke thickness of underlines, overlines, and line-throughs specified on the element with text-decoration-line, and affects all decorations originating from this element even if descendant boxes specify a different thickness. Therefore, it can be safely ignored.
    - 8 warnings relating to custom colour variables. The W3C CSS validator cannot parse :root variables. Therefore it can be safely ignored.
    - Warnings for vendor extensions suggested by AutoPrefixer is valid to ensure CSS styles can work across multiple browsers, can be safely ignored.
-- [Final CSS Validation](/documentation/images/validator_screenshots/css_validator_final.png)
+- [Final CSS Validation](/documentation/images/validator_screenshots/css-validation.png)
 
 ### [HTML: W3C Markup Validation](https://validator.w3.org/)
 - To validate the HTML code of the project by pasting code in by direct input method. Note the W3C Validator for HTML does not understand the Jinja templating syntax therefore if there are warnings related to this, this can be safely ignored.
@@ -209,8 +201,8 @@ ___
 ### Python
 - [Extendsclass](https://extendsclass.com/python-tester.html) - No syntax errors
    - [Final Python Validated](/documentation/images/validator_screenshots/python_extendsclass_final.png)
-- [PEP8 Online](http://pep8online.com/) - Pythoon file is PEP8 compliant
-   - [Final Python Validated](/documentation/images/validator_screenshots/python_pep8online_final.png)
+- [PEP8 Online](/documentation/images/validator_screenshots/pep8-validation-results.png) 
+   - [Final Python Validated]()- Pythoon file is PEP8 compliant
 
 ### Google Dev Tool 
 - To check for errors in JavaScript code
