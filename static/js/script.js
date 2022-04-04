@@ -53,7 +53,7 @@ $(document).ready(function() {
         });
     }
 
-    $("#properties-container").on("click", ".feature-checkbox", (e) => {
+    $(".switch-container").on("click", ".feature-checkbox", (e) => {
         const propertyId = e.target.dataset.propertyId;
         const checked = e.target.checked;
         $.ajax({

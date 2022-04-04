@@ -69,6 +69,7 @@ def update_property_feature(property_id):
     except Exception as e:
         return "Bad Request", 400
 
+
 @app.route('/')
 @app.route("/get_featured_properties")
 def get_featured_properties():
