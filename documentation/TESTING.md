@@ -157,10 +157,10 @@ ___
    - Register Page - No Errors in testing and final
       - [Register Page - Test](/documentation/images/validator_screenshots/html_validator_register_page_test.png)
       - [Register Page - Final](/documentation/images/validator_screenshots/html_validator_register_page_final.png)
-   - property Page - Some errors in testing and no errors final
+   - Property Page - Some errors in testing and no errors final
       - [Properties Page - Test](/documentation/images/validator_screenshots/html_validator_property_page_test.png)
       - [Properties Page - Final](/documentation/images/validator_screenshots/html_validator_property_page_final.png)
-   -   - property Page - Some errors in testing and no errors final
+   - Contact Page - Some errors in testing and no errors final
       - [Contact Page - Test](/documentation/images/validator_screenshots/html_validator_contact_page_test.png)
       - [Contact Page - Final](/documentation/images/validator_screenshots/html_validator_contact_page_final.png)
 
