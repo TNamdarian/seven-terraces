@@ -74,7 +74,7 @@ Testing user stories from the UX section
 - On the properties page, the user can bookmark a property by clicking on the bookmark icon which will turn orange to show it was bookmarked. 
    - [Property Page: Bookmarked properties](/documentation/images/test_screenshots/bookmarked_property_page.png)
 - If the user has bookmarked properties, it will appear on their profile under the Bookmarks section.
-   - [Profile page: Bookmarked properties](/documentation/images/test_screenshots/bookmarked_profile.png)
+   - [Profile page: Bookmarked properties](/documentation/images/test_screenshots/bookmarked_profile.png)/documentation/test_screenshots
 - If the user wants to remove the bookmark they can click on the "x" button and the property will be removed, they will receive a confirmation message.
    - [Profile Page: Removed Bookmark confirmation](/documentation/images/test_screenshots/bookmark_remove_confirmation.png)
 9. As a Registered User, I want to be able to change my password on my profile;
