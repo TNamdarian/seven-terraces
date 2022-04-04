@@ -165,8 +165,8 @@ ___
    - Register Page - No Errors in testing and finally
       - [Register Page - Final](/documentation/images/validator_screenshots/html_validator_register_page_test.png)
    - property Page - Some errors in testing and no errors finally
-      - [property Page - Test](/documentation/images/validator_screenshots/html_validator_property_page_final.png)
-      - [property Page - Final](/documentation/images/validator_screenshots/html_validator_property_page_test.png)
+      - [Property Page - Test](/documentation/images/validator_screenshots/html_validator_property_page_final.png)
+      - [Property Page - Final](/documentation/images/validator_screenshots/html_validator_property_page_test.png)
 
 ### Python
 - [Extendsclass](https://extendsclass.com/python-tester.html) - No syntax errors

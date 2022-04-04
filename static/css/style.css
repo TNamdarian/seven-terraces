@@ -330,7 +330,10 @@ h4.warning {
     border-radius: 20px;
 }
 
-#delete-warning-icon,
+#delete-warning-icon-1,
+#delete-warning-icon-2,
+#delete-warning-icon-3,
+#delete-warning-icon-4,
 .warning {
     color: var(--orange);
     font-size: 50px;
