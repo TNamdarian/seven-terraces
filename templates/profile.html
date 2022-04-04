@@ -49,7 +49,7 @@
             <div class="card sticky-action blue-section property-card">
                 <!-- Card Img -->
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="{{ property.property_image }}">
+                    <img class="activator" src="{{ property.property_image }}" alt="property_image">
                 </div>
                 <!--Card Views-->
                 <div class="row">
@@ -88,7 +88,6 @@
                     <div class="col s6 right">
                         <!-- View Property Button -->
                         <a href="{{ url_for('view_property', property_id=property._id) }}" class="waves-effect waves-light btn-small view-property-btn right">View Property</a>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -103,9 +102,7 @@
             <!-- Change password -->
             <div>
                 <!-- Change password Modal Trigger -->
-                <a href="#change_password_modal" class="waves-effect waves-light change-pw-btn modal-trigger"><i class="material-icons left">lock_outline</i>
-                    Change Password
-                </a>
+                <a href="#change_password_modal" class="waves-effect waves-light change-pw-btn modal-trigger"><i class="material-icons left">lock_outline</i>Change Password</a>
                 <!-- Change password Modal Structure -->
                 <div id="change_password_modal" class="modal">
                     <div class="modal-content">
@@ -144,7 +141,7 @@
                 <!-- Delete account Modal Structure -->
                 <div id="deletemodal" class="modal delete-modal">
                     <div class="modal-content">
-                        <i class="material-icons prefix" id="delete-warning-icon-2">error_outline</i>
+                        <i class="material-icons prefix" id="delete-warning-icon">error_outline</i>
                         <h4 class="modal-h">Hi {{ username }}! </h4>
                         <p class="delete-modal-p">You are about to <u>delete</u> your account! Are you sure you would like to continue?</p>
                     </div>
@@ -159,8 +156,7 @@
                         <!--Form Buttons -->
                         <div class="center-align">
                             <!-- Cancel Button -->
-                            <a href="{{ url_for('profile', username=session['user']) }}" class="btn modal-cancel-btn">Cancel
-                            </a>
+                            <a href="{{ url_for('profile', username=session['user']) }}" class="btn modal-cancel-btn">Cancel</a>
                             <!-- Submit Button -->
                             <button type="submit" class="btn modal-delete-btn" aria-label="Delete account">Delete
                             </button>
