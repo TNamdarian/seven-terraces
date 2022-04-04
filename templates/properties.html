@@ -61,7 +61,11 @@
                     <div class="switch">
                         <label>
                             Featured
+                            {% if property.featured %}
+                            <input class="feature-checkbox" data-property-id="{{ property._id }}" type="checkbox" checked>
+                            {% else %}
                             <input class="feature-checkbox" data-property-id="{{ property._id }}" type="checkbox">
+                            {% endif %}
                             <span class="lever"></span>
                         </label>
                     </div>

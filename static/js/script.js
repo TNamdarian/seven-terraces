@@ -64,8 +64,8 @@ $(document).ready(function() {
             data: JSON.stringify({
                 "featured": checked
             })
-        }, (data) => {
-            console.log(data);
+        }).then(() => {
+            notification(`Your property has been ${checked ? 'featured' : 'unfeatured'}!`);
         });
     });
 });
@@ -79,34 +79,23 @@ function sendMail(contactForm) {
             "message": contactForm.message.value
         })
         .then(
-            function(response) {
+            function() {
                 notification("Thank you! Your message has been sent successfully.");
             },
             function(error) {
-                notification("Ooops! Something went wrong, please try again!", "danger");
+                notification("Ooops! Something went wrong, please try again!");
                 console.error(error);
             }
         );
     return false; // To block from loading a new page
 }
-// Set up notifications
-function notification(message, alertType = "success") {
-    let alert = document.getElementById('alert');
-    if (alert) {
-        alert.remove();
-    }
 
-    let wrapper = document.createElement("div");
-    wrapper.setAttribute("id", "alert");
-    wrapper.setAttribute("role", "alert");
-    wrapper.classList = `alert alert-${alertType} alert-dismissible fade show`;
-    wrapper.innerHTML = `
-            ${message}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        `;
-    alert = document.getElementById('alert');
-    const bsAlert = new bootstrap.Alert(alert);
-    document.body.appendChild(wrapper);
+// Set up notifications
+function notification(message) {
+    var toastHTML = `</span>${message}</span>`;
+    M.toast({
+        html: toastHTML
+    });
 }
 
 // Menu items: show active page

@@ -1,7 +1,7 @@
 import os
 from flask import (
-     Flask, flash, render_template, jsonify,
-     redirect, request, session, url_for)
+    Flask, flash, render_template, jsonify,
+    redirect, request, session, url_for, abort)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from bson import json_util
@@ -76,7 +76,7 @@ def get_featured_properties():
     """
     READ FEATURED PROPERTY FUNCTIONALITY
     """
-    featured_properties = list(mongo.db.properties.find({'featured':True}))
+    featured_properties = list(mongo.db.properties.find({'featured': True}))
     return render_template("index.html", properties=featured_properties)
 
 
@@ -193,7 +193,7 @@ def bookmark(property_id):
                         "profile", username=session["user"]))
 
     return redirect(url_for(
-                        "profile", username=session["user"]))
+        "profile", username=session["user"]))
 
 
 # --- DELETE A BOOKMARK FUNCTIONALITY --- #
@@ -254,9 +254,9 @@ def add_property():
             "category_name": request.form.get("category_name"),
             "property_name": request.form.get("property_name"),
             "property_description": request.form.get
-                                    ("property_description"),
+            ("property_description"),
             "property_details": string_to_array(request.form.get
-                                ("property_details")),
+                                                ("property_details")),
             "property_added_date": request.form.get("property_added_date"),
             "property_image": request.form.get("property_image"),
             "author": session["user"],
@@ -293,7 +293,7 @@ def edit_property(property_id):
             "property_name": request.form.get("property_name"),
             "property_description": request.form.get("property_description"),
             "property_details": string_to_array(request.form.get
-                              ("property_details")),
+                                                ("property_details")),
             "property_added_date": request.form.get("property_added_date"),
             "property_image": request.form.get("property_image"),
             "author": session["user"],
@@ -314,7 +314,7 @@ def edit_property(property_id):
     # copy the object from the DataBase, because the object
     # from the DB is immutable (cannot change values)
     read_property_obj['property_details'] = "".join(read_property_obj
-         ['property_details'])
+                                                    ['property_details'])
     read_property_obj['features'] = "".join(read_property_obj['features'])
     read_property_obj['amenities'] = "".join(read_property_obj['amenities'])
     categories = mongo.db.categories.find().sort("category_name", 1)
@@ -331,13 +331,24 @@ def delete_property(property_id):
     """
     DELETE_PROPERTY FUNCTIONALITY
     """
-    mongo.db.properties.delete_one({"_id": ObjectId(property_id)})
-    flash("Property Successfully deleted!")
+    if not is_authenticated():
+        flash("You are currently not logged in")
+        return redirect(url_for("login"))
+
+    if not is_object_id_valid(property_id):
+        abort(404)
+
+    result = mongo.db.properties.find_one_and_delete(
+        {"_id": ObjectId(property_id), "author": session['user']})
+
+    if result:
+        flash("Property Successfully Deleted!")
+
     return redirect(url_for("get_properties"))
 
 
 # --- SEARCH FOR A PROPERTY FUNCTIONALITY --- #
-@app.route("/search", methods=["GET", "POST"])
+@ app.route("/search", methods=["GET", "POST"])
 def search():
     """
     SEARCH FOR A PROPERTY FUNCTIONALITY
@@ -350,7 +361,7 @@ def search():
 
 
 # --- ADMIN DASHBOARD FUNCTIONALITY --- #
-@app.route("/admin_dashboard")
+@ app.route("/admin_dashboard")
 def admin_dashboard():
     """
     ADMIN DASHBOARD FUNCTIONALITY
@@ -365,7 +376,9 @@ def admin_dashboard():
     return render_template("admin_dashboard.html", categories=categories)
 
 # --- ADD A CATEGORY FUNCTIONALITY --- #
-@app.route("/add_category", methods=["GET", "POST"])
+
+
+@ app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     """
     ADD A CATEGORY FUNCTIONALITY
@@ -387,7 +400,7 @@ def add_category():
 
 
 # --- EDIT A CATEGORY FUNCTIONALITY --- #
-@app.route("/edit_category/<category_id>", methods=["GET", "POST"])
+@ app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
     """
     EDIT A CATEGORY FUNCTIONALITY
@@ -410,7 +423,7 @@ def edit_category(category_id):
 
 
 # --- DELETE A CATEGORY FUNCTIONALITY --- #
-@app.route("/delete_category/<category_id>")
+@ app.route("/delete_category/<category_id>")
 def delete_category(category_id):
     """
     DELETE A CATEGORY FUNCTIONALITY
@@ -421,7 +434,7 @@ def delete_category(category_id):
 
 
 # --- CHANGE PASSWORD FUNCTIONALITY --- #
-@app.route('/change_password/<username>', methods=["GET", "POST"])
+@ app.route('/change_password/<username>', methods=["GET", "POST"])
 def change_password(username):
     """
     DELETE A CATEGORY FUNCTIONALITY
@@ -442,7 +455,7 @@ def change_password(username):
 
 
 # --- DELETE PROFILE FUNCTIONALITY --- #
-@app.route('/delete_account/<user_id>', methods=["GET", "POST"])
+@ app.route('/delete_account/<user_id>', methods=["GET", "POST"])
 def delete_account(user_id):
     """
     DELETE PROFILE FUNCTIONALITY
@@ -462,16 +475,16 @@ def delete_account(user_id):
     return redirect(url_for("get_featured_properties"))
 
 
-@app.route("/contact")
+@ app.route("/contact")
 def contact():
     """ Navigates to contact page
     """
     return render_template("contact.html")
-    
+
 
 # Error Handling
 # -- 401 ERROR --- #
-@app.errorhandler(401)
+@ app.errorhandler(401)
 def unauthorized_access(e):
     """
     Renders a custom 401 error page with a button
@@ -481,7 +494,7 @@ def unauthorized_access(e):
 
 
 # -- 404 ERROR --- #
-@app.errorhandler(404)
+@ app.errorhandler(404)
 def page_not_found(e):
     """
     Renders a custom 404 error page with a button
@@ -491,7 +504,7 @@ def page_not_found(e):
 
 
 # -- 500 ERROR --- #
-@app.errorhandler(500)
+@ app.errorhandler(500)
 def not_found_server(e):
     """
     Renders a custom 500 error page with a button
@@ -500,8 +513,19 @@ def not_found_server(e):
     return render_template('errors/500.html'), 500
 
 
+def is_authenticated():
+    """ Ensure that user is authenticated
+    """
+    return 'user' in session
+
+
+def is_object_id_valid(id_value):
+    """ Validate is the id_value is a valid ObjectId
+    """
+    return id_value != "" and ObjectId.is_valid(id_value)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=False)
- 
