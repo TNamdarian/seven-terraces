@@ -178,7 +178,7 @@ ___
 ## **Data Structure**
 A database structure was designed to be specifically suited for Seven Terraces. It was important to make sure the nesting relationships between the collections and the keys worked logically. The database was created as a usable non-relational database where data is stored in a consistent and well-organised manner. To maintain a database configuration in a single location where it can be changed easily, ObjectId's are used in several collections to ensure key values are more accurate by using the ObjectId's rather than strings.
 
-**[MongoDB](https://www.mongodb.com/)** is utilised to store data for The Growth Club. It is a non-relational database-backed Flask web application that allows users to easily create, locate, display, edit and delete data records on the Growth Club web app.
+**[MongoDB](https://www.mongodb.com/)** is utilised to store data for Seven Terraces. It is a non-relational database-backed Flask web application that allows users to easily create, locate, display, edit and delete data records on Seven Terraces web app.
 
 The data structure outline: ![Data Structure](/documentation/mockups/collections.png)
 
@@ -275,7 +275,7 @@ The data structure outline: ![Data Structure](/documentation/mockups/collections
 ### Add Property Page
 - If the user clicked on the Add Property button on the Properties page then they will be taken to this page.
 - The add Properties page features a simple form, where the user can input the basic required information.
-- The user will be able to select from the current categories and topics as well as additional information to all the required fields for the Property.
+- The user will be able to select from the current categories as well as additional information to all the required fields for the Property.
 - There is helper text under each input field to guide the user as to the parameters they can input.
 - The user will receive validation or error feedback when they enter information in the input field which is also be accompanied by colours to show validation (green for correct and red for incorrect).
 - If the user clicks add property button, it will add the new property to the database.
@@ -326,9 +326,9 @@ ___
 ## **Future Features**
 These are possible future features to be added to the project which was suggested by users during the usability tests. As these features were not part of a minimum viable products launch phase, they will be implemented in future releases.
 - Have a 'forgot password' functionality on the log in page.
-- Have a more extensive user profile with, profile image, preferences and email to which you can send updates, newsletters etc. Have a profile feature to view the Properties the user added to the club.
+- Have a more extensive user profile with, profile image, preferences and email to which you can send updates, newsletters etc. Have a profile feature to view the Properties the user added there.
 - Events in the form of a calendar to visually represent events and not have it be part of the general Properties.
-- User can search by category and topic. Also, have the searched word stay in the search box
+- User can search by any word related to the property Also, have the searched word stay in the search box
 - Adding filters to only display properties according to amenities, price, types and dates. I thought of this feature once the website was finished and I couldn't spend more time working on the project as I needed to get going with the rest of the course.
 - Currently, the feedback for bookmarking appears on the profile page. In future, the plan is to have feedback to the user about bookmarking a Property on the Properties page.
 - If a user adds a Property, it will be added to the top. Therefore, a user will always see the most recent Properties added to the site.
@@ -420,7 +420,7 @@ This project uses GitHub for version control, GitPod as the cloud-based IDE and 
 ### To clone the project:
 From the application's repository, click the "code" button and download the zip of the repository. Alternatively, you can clone the repository using the following line in your terminal: 
 ```
-git clone https://github.com/Franciskadtt/the-growth-club.git
+git clone https://github.com/TNamdarian/seven-terraces
 ```
 
 The following must be installed on your IDE:

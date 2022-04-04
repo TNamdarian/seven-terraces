@@ -119,9 +119,10 @@ nav ul li.active {
 }
 
 /* Flashed Messages */
-.flashes h4 {
+.flashes h1 {
     line-height: 2;
     color: var(--blue);
+    font-size: 40px;
 }
 
 .flashed-container {
@@ -421,11 +422,11 @@ h4.warning {
     border-radius: 8px;
     border-color: var(--youtube);
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-weight: 700;
     padding-left: 10px;
     padding-right: 10px;
-    margin-left: 10px;
+    margin-right: 10px;
     font-size: 15px;
 }
 
@@ -443,7 +444,7 @@ h4.warning {
     border-color: var(--light-blue);
     border-radius: 8px;
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-weight: 700;
     padding-left: 10px;
     padding-right: 10px;
@@ -883,9 +884,16 @@ footer .copyright {
 /* Edit home page for smaller devices */
 @media only screen and (max-width: 500px) {
 
-    .home-heading,
+    .home-heading {
+        font-size: 34px;
+    }
+
     .home-p {
         font-size: 24px;
+    }
+
+    .home-heading {
+        text-align: center;
     }
 
     #home-featured-btn {
@@ -894,6 +902,14 @@ footer .copyright {
         font-weight: 300;
         margin-bottom: 30px;
         border-radius: 5px;
+    }
+
+    #search-btn {
+        margin-bottom: 20px;
+    }
+
+    .flashes h1 {
+        font-size: 24px;
     }
 }
 

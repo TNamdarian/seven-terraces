@@ -19,9 +19,8 @@ ___
 Testing user stories from the UX section
 ### *Guest User*
 1. As a Guest User, I want the main purpose of the site to be clear so that I immediately know what the site is intended for upon entering;
-- On the Home page landing section, it is clear what the site is about. In addition to this, the purpose of the site is in the Footer as well.
+- On the Home page landing section, it is clear what the site is about. 
    - [Landing section on Home page](/documentation/images/test_screenshots/landing_section_landing_page.png)
-   - [Footer](/documentation/images/test_screenshots/footer.png)
 2. As a Guest User, I want to be met with a visually appealing and easy to read layout of created items;
 - From the landing page and throughout the rest of the web app, the background is light and the text is darker for a modern and visually appealing site. The font is also large to ensure that the site is easy to read.
    - [Landing section on Home page](/documentation/images/test_screenshots/landing_section_landing_page.png)
@@ -38,21 +37,20 @@ Testing user stories from the UX section
 
 ### *Registered User*
 1. As a Registered User, I want the main purpose of the site to be clear so that I immediately know what the site is intended for upon entering;
-- On the Home page landing section, it is clear what the site is about. In addition to this, the purpose of the site is in the Footer as well.
+- On the Home page landing section, it is clear what the site is about.
    - [Landing section on Home page](/documentation/images/test_screenshots/landing_section_landing_page.png)
-   - [Footer](/documentation/images/test_screenshots/footer.png)
 2. As a Registered User, I want to be met with a visually appealing and easy to read layout of created items;
 - From the landing page and throughout the rest of the web app, the background is light and the text is darker for a modern and visually appealing site. The font is also large to ensure that the site is easy to read.
    - [Landing section on Home page](/documentation/images/test_screenshots/landing_section_landing_page.png)
 3. As a Registered User, I want to view the featured items of the month so that I don't have to search for them;
  - On the Home page a Registered user can see the featured items added by the administrator.
    - [Featured section on Home page](/documentation/images/test_screenshots/featured_section_landing_page.png)
-4. As a Registered User, I want to be able to log back into the Growth Club with my initial latest credentials;
-- The user can click on the login menu link in the navbar to be taken to the login page where they can use their credentials to log in to view the Club properties. The user will receive a login confirmation once they have logged in.
+4. As a Registered User, I want to be able to log back into site with my initial latest credentials;
+- The user can click on the login menu link in the navbar to be taken to the login page where they can use their credentials to log in to view the properties. The user will receive a login confirmation once they have logged in.
    - [Log In Page](/documentation/images/test_screenshots/log_in_page.png)
    - [Log In Confirmation](/documentation/images/test_screenshots/log_in_welcome_profile_page.png)
 5. As a Registered User, I want to be able to view **property posts** added by other members of the community;
-- The user can go to the properties page, either by clicking the button on the profile page or in the navbar. On the properties page, the user can view all the current properties in the Growth Club library.
+- The user can go to the properties page, either by clicking the button on the profile page or in the navbar. On the properties page, the user can view all the current properties.
    - [Properties Page](/documentation/images/test_screenshots/properties_page.png)
 6. As a Registered User, I want to be able to create, edit and delete the **property posts** I have added;
 - On the Properties Page the user can click on the "Add property" button and will be taken to the Add properties Page where they can fill in the form and add a property. The form will have helper text to guide the user as well as validation.
@@ -145,8 +143,6 @@ ___
    - Add properties Page - Some errors in testing and no errors finally
       - [Add properties Page - Test](/documentation/images/validator_screenshots/html_validator_add_property_page_test.png)
       - [Add properties Page - Final](/documentation/images/validator_screenshots/html_validator_add_property_page_final.png)
-   - Add Topic Page - No Errors in testing and finally
-      - [Add Topic Page - Final](/documentation/images/validator_screenshots/html_validator_add_topic_page_test.png)
    - Add Admin Dashboard Page - Some errors in testing and no errors finally
       - [Add Admin Dashboard Page - Test](/documentation/images/validator_screenshots/html_validator_admin_dashboard_page_test.png)
       - [Add Admin Dashboard Page - Final](/documentation/images/validator_screenshots/html_validator_admin_dashboard_page_final.png)
@@ -158,8 +154,6 @@ ___
    - Edit property Page - Some errors in testing and no errors finally
       - [Edit property Page - Test](/documentation/images/validator_screenshots/html_validator_edit_property_page_test.png)
       - [Edit property Page - Final](/documentation/images/validator_screenshots/html_validator_edit_property_page_final.png)
-   - Edit Topic Page - No Errors in testing and finally
-      - [Edit Topic Page  - Final](/documentation/images/validator_screenshots/html_validator_edit_topic_page_test.png)
    - Home Page - Some errors in testing and no errors finally
       - [Home Page - Test](/documentation/images/validator_screenshots/HTML_validator_home_page_test.png)
       - [Home Page - Final](/documentation/images/validator_screenshots/html_validator_edit_property_page_final.png)
@@ -178,7 +172,7 @@ ___
 - [Extendsclass](https://extendsclass.com/python-tester.html) - No syntax errors
    - [Final Python Validated](/documentation/images/validator_screenshots/python_extendsclass_final.png)
 - [PEP8 Online](/documentation/images/validator_screenshots/pep8-validation-results.png) 
-   - [Final Python Validated]()- Pythoon file is PEP8 compliant
+   - [Final PEP Validation]() - Pythoon file is PEP8 compliant
 ___
 <br>
 
@@ -203,7 +197,7 @@ Manual testing of all elements and functionality on every page
    - if *any user* click on each Featured property card "Visit property" button - go to the correct property external page
    - if *Guest user* click on "Log In to View More properties" button - got to Login page
    - if *Registered user* click on the "View More properties" button - go to the properties page
-6. Registration & Sign Up Page
+6. Registration & Sign Up Pages
    - if *Guest user* type in "Username", "Email" and "Password" fields - validation is given if correct and feedback is given if incorrect.
       - if click on the "Sign Up" button" user is added to the database, go to the profile page and feedback is given to the user that they are registered
    - if *any user* click on the "Login Here" link - go to the Login page
@@ -212,7 +206,7 @@ Manual testing of all elements and functionality on every page
       - if click on the "Login" button" the user is logged in, go to the profile page and feedback is given to the user that they are now logged in.
    - if *any user* click on the "Create an account here!" link - go to the Registration page
 8. Profile Page 
-   - if *Registered user* clicks on the "View Club properties" button - go to properties Page
+   - if *Registered user* clicks on the "View Properties" button - go to properties Page
    - if *Registered user* clicks on the "View Featured properties" button - go to Home Page
    - if *Registered user* clicks on the "Change Password" button - open modal to change the password
       - if type in a new password and click the "Change password" button - the password is changed in the database and a success message is given to the user
@@ -220,7 +214,7 @@ Manual testing of all elements and functionality on every page
    - if *Registered user* clicks on the "Click here to delete your profile" link - open modal to delete the account
       - if type in the password and click the "Delete my account forever" button - the account is deleted in the database and a success message is given to the user.
       - if click on "Cancel" go back to a Profile page
-9. properties Page
+9. Properties Page
    - if *Registered user* type text in the search field and click on the "Search" button", the relevant matching property is shown. If there are no matching properties, the user is notified to try again. 
    - if click on the "Reset" button, the search field is reset.
    - if *Registered user* clicks on "Add property" - go to the Add property page 
@@ -229,15 +223,13 @@ Manual testing of all elements and functionality on every page
       - if the user clicks on each property card "Delete" Button - open modal to confirm delete property. If the user clicks on the "Delete" button, the property is deleted, removed from the database and the user gets a confirmation. If the user clicks on the "Cancel" button the modal is closed.
       - if the user clicks on each property card "Edit" Button - go to the Edit property page
    - if *Registered user* clicks on the bookmark button, the property is added to their profile, the button changes to orange and a feedback message is given
-10. Add property Page
-   - if *Registered user* click on "Choose Category" and "Choose Topic" they can select a current category or topic.
+10. Add Property Page
    - if *Registered user* types in text in fields, validation is given if correct and feedback is given if incorrect.
    - if *Registered user* wants to select a date, a date picker opens with the current date and a date can be selected.
    - if *Registered user* click on the "Add property" button, a new property is added to the database and a success message is given to the user.
    - if *Registered user* click on cancel - go to properties Page
-11. Edit property Page
+11. Edit Property Page
    - view current details of property
-   - if click on "Choose Category" and "Choose Topic" they can select a current category or topic.
    - if type in text in fields, validation is given if correct and feedback is given if incorrect.
    - if want to select a date, a date picker opens with the current date and a date can be selected.
    - if click on the "Update property" button, the property is updated in the database and a success message is given to the user.
@@ -252,12 +244,7 @@ Manual testing of all elements and functionality on every page
    - if click on cancel - close modal
    - if click on the "Delete" button, the category is deleted and a success message appears.
    - if *Admin user* click the info button, open info modal about Categories.
-   - if *Admin user* click the "Add Topic" button, go to Add Topic page. 
-   - if *Admin user* click the "Edit" button in the Topic section, go to the Edit Topic page.
-   - if *Admin user* click the "Delete" button in the Topic section, the delete modal opens.
    - if click on cancel - close modal
-   - if click on the "Delete" button, the Topic is deleted and a success message appears.
-   - if *Admin user* click the info button, open info modal about Topics.
 13. Add New Category page
    - if *Admin user* types in text in fields, validation is given if correct and feedback is given if incorrect.
    - if *Admin user* click on the "Add Category" button, a new category is added to the database and a success message is given to the user.
@@ -275,7 +262,7 @@ Manual testing of all elements and functionality on every page
    - [Bugs, Expected Results & Fixes during Deployement Phase](/documentation/images/general_doc_images/bugs_and_fixes_deployment.png)
 
 ### Known Bugs
-- Firefox Browser: For all forms, if a cateogry or topic is selected, border-bottom does not change to green but red.
+- Firefox Browser: For all forms, if a cateogry is selected, border-bottom does not change to green but red.
 
 ## **Further testing** 
 - Usability tests were done with two users to analyse the User Experience. The feedback from the users were very helpful to determine what works, what can be improved and determine future features.  
