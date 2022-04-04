@@ -133,10 +133,9 @@ ___
    - Error Pages - No Errors in testing and finally
       - [Error Pages Final](/documentation/images/validator_screenshots/html_validator_404_page_test.png)
    - Add Category Page - No Errors in testing and finally
-      - [Add Category Page - Final](/documentation/images/validator_screenshots/html_validator_add_category_page_test.png)
-   - Add properties Page - Some errors in testing and no errors finally
-      - [Add properties Page - Test](/documentation/images/validator_screenshots/html_validator_add_property_page_test.png)
-      - [Add properties Page - Final](/documentation/images/validator_screenshots/html_validator_add_property_page_final.png)
+      - [Add Category Page - Final](/documentation/images/validator_screenshots/html_validator_add_category_page_final.png)
+   - Edit Category Page - No Errors in testing and finally
+      - [Edit Category Page - Final](/documentation/images/validator_screenshots/html_validator_edit_category_page_final.png)
    - Add properties Page - Some errors in testing and no errors finally
       - [Add properties Page - Test](/documentation/images/validator_screenshots/html_validator_add_property_page_test.png)
       - [Add properties Page - Final](/documentation/images/validator_screenshots/html_validator_add_property_page_final.png)
