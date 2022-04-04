@@ -142,7 +142,7 @@ ___
       - [Add Admin Dashboard Page - Test](/documentation/images/validator_screenshots/html_validator_admin_dashboard_page_test.png)
       - [Add Admin Dashboard Page - Final](/documentation/images/validator_screenshots/html_validator_admin_dashboard_page_final.png)
    - Edit Category Page - No Errors in testing and final
-      - [Edit Category Page  - Final](/documentation/images/validator_screenshots/html_validator_edit_category_page_test.png)
+      - [Edit Category Page  - Final](/documentation/images/validator_screenshots/html_validator_edit_category_page_final.png)
    - Edit property Page - No Errors in testing and final
       - [Edit property Page - Final](/documentation/images/validator_screenshots/html_validator_edit_property_page_final.png)
    - Home Page - Some errors in testing and no errors final
