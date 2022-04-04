@@ -31,10 +31,10 @@ Testing user stories from the UX section
 4. As a Guest User, I want to be able to sign-up to create and edit my own **property posts**;
 - The user can click on the signup button in the navbar which is indicated in orange. They will then be redirected to the Register page to sign up to view, add, search, edit, bookmark and delete properties. There is also a button on the bottom of the page that will take the user to the login page where they can log in or click on the registration link to be taken to the registration page. If the user successfully registers, they will see a confirmation message and be taken to their Profile page.
    - [Register Page](/documentation/images/test_screenshots/register_page.png)
-   - [New Registered User confirmation](/documentation/images/test_screenshots/new_registered_user_confirmation.png)
+   - [New Registered User Confirmation](/documentation/images/test_screenshots/new_registered_user_confirmation.png)
 5. As a Guest User, I want to be able to get in contact via social media if I like the site or have suggestions.
 - The user can get in contact or follow the created or the site on social media as their social links are in the footer on every page of the website.
-   - [Footer](d/ocumentation/images/test_screenshots/footer.png)
+   - [Footer](documentation/images/test_screenshots/footer.png)
 
 ### *Registered User*
 1. As a Registered User, I want the main purpose of the site to be clear so that I immediately know what the site is intended for upon entering;
@@ -46,35 +46,35 @@ Testing user stories from the UX section
    - [Landing section on Home page](/documentation/images/test_screenshots/landing_section_landing_page.png)
 3. As a Registered User, I want to view the featured items of the month so that I don't have to search for them;
  - On the Home page a Registered user can see the featured items added by the administrator.
-   - [Featured section on Home page](/documentation/images/test_screenshots/featured_section_landing_page_registered_user.png)
+   - [Featured section on Home page](/documentation/images/test_screenshots/featured_section_landing_page.png)
 4. As a Registered User, I want to be able to log back into the Growth Club with my initial latest credentials;
 - The user can click on the login menu link in the navbar to be taken to the login page where they can use their credentials to log in to view the Club properties. The user will receive a login confirmation once they have logged in.
    - [Log In Page](/documentation/images/test_screenshots/log_in_page.png)
-   - [ Log In confirmation](/documentation/images/test_screenshots/log_in_welcome_profile_page.png)
+   - [Log In Confirmation](/documentation/images/test_screenshots/log_in_welcome_profile_page.png)
 5. As a Registered User, I want to be able to view **property posts** added by other members of the community;
 - The user can go to the properties page, either by clicking the button on the profile page or in the navbar. On the properties page, the user can view all the current properties in the Growth Club library.
    - [Properties Page](/documentation/images/test_screenshots/properties_page.png)
 6. As a Registered User, I want to be able to create, edit and delete the **property posts** I have added;
 - On the Properties Page the user can click on the "Add property" button and will be taken to the Add properties Page where they can fill in the form and add a property. The form will have helper text to guide the user as well as validation.
    - [Properties Page](/documentation/images/test_screenshots/properties_page.png)
-   - [Add property Page](/documentation/images/test_screenshots/add_property_page.png)
+   - [Add Property Page](/documentation/images/test_screenshots/add_property_page.png)
    - [Property Added Confirmation](/documentation/images/test_screenshots/property_added_confirmation.png)
 - On the properties Page the user can see an edit or delete button if they created the property, otherwise, they will not be able to edit or delete a property. If the property is edited, the user will receive confirmation that the property is edited & updated.
    - [Viewing Edit & Delete Buttons](/documentation/images/test_screenshots/delete_edit_buttons.png)
-   - [Edit property Page](/documentation/images/test_screenshots/edit_property_page.png)
-   - [Edit property Confirmation](/documentation/images/test_screenshots/edit_property_confirmation.png)
+   - [Edit Property Page](/documentation/images/test_screenshots/edit_property_page.png)
+   - [Edit Property Confirmation](/documentation/images/test_screenshots/edit_property_confirmation.png)
 - If the user clicks on the delete button, they are asked for confirmation before they delete it. If the property is deleted, the user will receive confirmation that the property is deleted
    - [Delete Modal](/documentation/images/test_screenshots/delete_modal.png)
-   - [Delete property Confirmation](/documentation/images/test_screenshots/delete_property_confirmation.png)
+   - [Delete Property Confirmation](/documentation/images/test_screenshots/delete_property_confirmation.png)
 7. As a Registered User, I would like to be able to search the site so that I can easily find properties that I am looking for;
 - On the properties The user will be able to type text in the search input field and find properties that have keywords in their description. If no properties are found, then the user will see "No results found" and they can reset the search.
    - [Search Field](/documentation/images/test_screenshots/properties_search.png)
    - [No search results](/documentation/images/test_screenshots/no_results_search.png)
 8. As a Registered User, I want to be able to bookmark properties I find interesting and remove a bookmark.
 - On the properties page, the user can bookmark a property by clicking on the bookmark icon which will turn orange to show it was bookmarked. 
-   - [Property Page: Bookmarked properties](/documentation/images/test_screenshots/bookmarked_property_page.png)
+   - [Property Page: Bookmarked Properties](/documentation/images/test_screenshots/bookmarked_property_page.png)
 - If the user has bookmarked properties, it will appear on their profile under the Bookmarks section.
-   - [Profile page: Bookmarked properties](/documentation/images/test_screenshots/bookmarked_profile.png)/documentation/test_screenshots
+   - [Profile page: Bookmarked Properties](/documentation/images/test_screenshots/bookmarked_profile.png)/documentation/test_screenshots
 - If the user wants to remove the bookmark they can click on the "x" button and the property will be removed, they will receive a confirmation message.
    - [Profile Page: Removed Bookmark confirmation](/documentation/images/test_screenshots/bookmark_remove_confirmation.png)
 9. As a Registered User, I want to be able to change my password on my profile;
@@ -286,3 +286,4 @@ Manual testing of all elements and functionality on every page
 - Ensured Debug variable in app.py file is set to False.
 - Confirmed that there is no difference between the deployed version and the development version.
 
+##### back to [top](#table-of-contents)

@@ -466,10 +466,41 @@ def contact():
     """ Navigates to contact page
     """
     return render_template("contact.html")
+    
+
+# Error Handling
+# -- 401 ERROR --- #
+@app.errorhandler(401)
+def unauthorized_access(e):
+    """
+    Renders a custom 401 error page with a button
+    that takes the user back to the log in or register pages.
+    """
+    return render_template('errors/401.html'), 401
+
+
+# -- 404 ERROR --- #
+@app.errorhandler(404)
+def page_not_found(e):
+    """
+    Renders a custom 404 error page with a button
+    that takes the user back to the home page.
+    """
+    return render_template('errors/404.html'), 404
+
+
+# -- 500 ERROR --- #
+@app.errorhandler(500)
+def not_found_server(e):
+    """
+    Renders a custom 500 error page with a button
+    that takes the user back to the home page.
+    """
+    return render_template('errors/500.html'), 500
 
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
-    # Change this to False before submission #
+            debug=False)
+ 
