@@ -111,25 +111,6 @@ ___
 <br>
 
 ##  **Testing and Validation**
-### [Link Checker](https://validator.w3.org/checklink)
-- To check that all links are working and not broken. 
-- [Link Validation Test](/documentation/images/validator_screenshots/linkchecker.png)
-   - Issue with Facebook link was manually checked and resolved.
-   - Issue with Instagram link was manually checked and resolved.
-- Final version has no other link errors or warnings.
-
-### Lighthouse (Google dev tool)
-- To test the accessibility and performance of the website. 
-- Final versions: 
-   - [Lighthouse report desktop ](/documentation/images/validator_screenshots/lighthouse_desktop.png)
-   - [Lighthouse report mobile ](/documentation/images/validator_screenshots/lighthouse_mobile.png)
-
-### [Responsinator](http://www.responsinator.com/)
-- To test the responsiveness of the live website and functionalities on different size mobile devices.
-- Final version: 
-   - [Mobile view ](/documentation/images/validator_screenshots/responsinator_mobile.png)
-   - [Tablet view ](/documentation/images/validator_screenshots/responsinator_tablet.png)
-
 ### [Am I Responsive](http://ami.responsivedesign.is/)
 - To view images of the website on different devices.
 - Final version: [Am I Responsive ](/documentation/images/validator_screenshots/am_i_responsive.png)
@@ -145,11 +126,6 @@ ___
    - [Final JavaScript Validated](/documentation/images/validator_screenshots/js_esprima_final.png)
 
 ### [CSS: W3C CSS validation](https://jigsaw.w3.org/css-validator/)
-- To validate the CCS code of the project pasting code in by direct input method.
-- Final version - addressing errors and warnings: 
-   - The Validator states there is an error with regards to the "text-decoration-thickness" but this is acceptable according to [w3.org](https://www.w3.org/TR/css-text-decor-4/#propdef-text-decoration-thickness) and [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration-thickness). This property, sets the stroke thickness of underlines, overlines, and line-throughs specified on the element with text-decoration-line, and affects all decorations originating from this element even if descendant boxes specify a different thickness. Therefore, it can be safely ignored.
-   - 8 warnings relating to custom colour variables. The W3C CSS validator cannot parse :root variables. Therefore it can be safely ignored.
-   - Warnings for vendor extensions suggested by AutoPrefixer is valid to ensure CSS styles can work across multiple browsers, can be safely ignored.
 - [Final CSS Validation](/documentation/images/validator_screenshots/css-validation.png)
 
 ### [HTML: W3C Markup Validation](https://validator.w3.org/)
@@ -203,19 +179,6 @@ ___
    - [Final Python Validated](/documentation/images/validator_screenshots/python_extendsclass_final.png)
 - [PEP8 Online](/documentation/images/validator_screenshots/pep8-validation-results.png) 
    - [Final Python Validated]()- Pythoon file is PEP8 compliant
-
-### Google Dev Tool 
-- To check for errors in JavaScript code
-- Final version: no errors or warnings 
-
-### Browser Compatibility
-To ensure a broad range of users can successfully use this site, I tested it across the 6 major browsers in both desktop and mobile configuration. See the [Browser Compatibility Table](/documentation/images/validator_screenshots/browser_compatibility_table.png) for more detail. The following browsers were tested:
-- Chrome
-- Firefox 
-- Safari
-- Opera
-- Edge
-
 ___
 <br>
 
@@ -231,13 +194,11 @@ Manual testing of all elements and functionality on every page
    - if *Registered user* click on the Log Out link - log the user out and go to the Home page
    - if *Admin user* click on Admin Dashboard link - go to Admin Dashboard page
 3. Footer 
-   - if *any user* click on the Instagram link - go to Franciska Du Toit's Instagram page
-   - if *any user* click on the LinkedIn link - go to Franciska Du Toit's LinkedIn page
-   - if *any user* click on the Twitter link - go to Franciska Du Toit's Twitter page
-   - if *any user* click on the GitHub link - go to Franciska Du Toit's GitHub page
-4. Floating to top button 
-   - if click the float to top button, moves the view back up to the top of the page.
-5. Landing Page
+   - if *any user* click on the Instagram link - go to Instagram page
+   - if *any user* click on the LinkedIn link - go to LinkedIn page
+   - if *any user* click on the Twitter link - go to Twitter page
+   - if *any user* click on the GitHub link - go to YouTube page. 
+4. Landing Page
    - if *any user* click on the "View Featured properties of Month" Button - go to the Featured section at the bottom of the Home page
    - if *any user* click on each Featured property card "Visit property" button - go to the correct property external page
    - if *Guest user* click on "Log In to View More properties" button - got to Login page
@@ -297,13 +258,7 @@ Manual testing of all elements and functionality on every page
    - if click on cancel - close modal
    - if click on the "Delete" button, the Topic is deleted and a success message appears.
    - if *Admin user* click the info button, open info modal about Topics.
-13. Add Featured property Page 
-   - if *Admin user* click on "Choose Category" and "Choose Topic" they can select a current category or topic.
-   - if *Admin user* types in text in fields, validation is given if correct and feedback is given if incorrect.
-   - if *Admin user* wants to select a date, a date picker opens with the current date and a date can be selected.
-   - if *Admin user* click on the "Add Featured property" button, a new featured property is added to the database and a success message is given to the user.
-   - if *Admin user* click on cancel - go to Admin Dashboard Page
-14. Add New Category page
+13. Add New Category page
    - if *Admin user* types in text in fields, validation is given if correct and feedback is given if incorrect.
    - if *Admin user* click on the "Add Category" button, a new category is added to the database and a success message is given to the user.
    - if *Admin user* click on cancel - go to Admin Dashboard Page
@@ -311,15 +266,6 @@ Manual testing of all elements and functionality on every page
    - view current details of category
    - if *Admin user* types in text in fields, validation is given if correct and feedback is given if incorrect. 
    - if *Admin user* click on the "Update Category" button, the category is updated in the database and a success message is given to the user.
-   - if *Admin user* click on cancel - go to Admin Dashboard Page
-16. Add New Topic page
-   - if *Admin user* types in text in fields, validation is given if correct and feedback is given if incorrect.
-   - if *Admin user* click on the "Add Topic" button, a new Topic is added to the database and a success message is given to the user.
-   - if *Admin user* click on cancel - go to Admin Dashboard Page
-17. Edit Topic page
-   - view current details of category
-   - if *Admin user* types in text in fields, validation is given if correct and feedback is given if incorrect. 
-   - if *Admin user* click on the "Update Topic" button, the Topic is updated in the database and a success message is given to the user.
    - if *Admin user* click on cancel - go to Admin Dashboard Page
 
 ## **Bugs and Fixes**

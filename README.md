@@ -3,7 +3,7 @@ Seven Terraces is an app that allows its users to save their properties online a
 
 The app also gives the users the option to search for properties based on names and descriptions. 
 
-![Seven Terraces](/documents/mockups/am_i_responsive.png)
+![Seven Terraces](/documentation/mockups/am_i_responsive.png)
 
 [View live version of website via Heroku](https://seven-terraces.herokuapp.com/)
 ___
@@ -113,13 +113,13 @@ ___
 - The logo was created on [Wix logo maker](https://www.wix.com/logo/maker/esh/zoe-editor?industry=%7B%22industry%22%3A%22609d10f90c3f7f79f9eed882_bf61b613f48c3e7af17cfc6c_property%20landing%20page%22%2C%22isCustom%22%3Afalse%7D&tags=creative%2Cformal%2Ctimeless%2Cdynamic&selectedWebsiteId=0&logoId=f9be001c-54be-4ac7-81c2-eea8e24dd21e&referralAdditionalInfo=arenaSplitPage) 
 - All colours were checked with WebAIM [https://webaim.org/properties/contrastchecker/](https://webaim.org/properties/contrastchecker/) to check the accessibility of the colours and present a pass.
 
-![Results](/documents/mockups/contrast_test.png)
+![Results](/documentation/mockups/contrast_test.png)
 
 <a></a>
 #### **Colour Palette**
 Below is the colour scheme used for the website. 
-![Colour Palette](/documents/mockups/colour_palette.png) 
-![Colour Palette](/documents/mockups/colour_palette2.png) 
+![Colour Palette](/documentation/mockups/colour_palette.png) 
+![Colour Palette](/documentation/mockups/colour_palette2.png) 
 
 using [https://coolors.co/](https://coolors.co/)
 - #FFFFFF: This colour is used for the background.
@@ -153,24 +153,24 @@ Below you can see the mock-ups that I drew using
 [WireFrames](https://balsamiq.cloud/s8m4gdi/pwvh8nd)
 
 *Guest User*
-- [Landing Page](/documents/mockups/landing_page.png)
-- [Log In Page](/documents/mockups/log_in.png)
-- [Registration Page](/documents/mockups/sign_up.png)
+- [Landing Page](/documentation/mockups/landing_page.png)
+- [Log In Page](/documentation/mockups/log_in.png)
+- [Registration Page](/documentation/mockups/sign_up.png)
 
 *Registered User*
-- [Landing Page](/documents/mockups/landing_page.png)
-- [Profile Page](/documents/mockups/profile.png)
-- [Properties Page](/documents/mockups/properties.png)
-- [contact](/documents/mockups/contact_us.png)
-- [view_property](/documents/mockups/view_property.png)
-- [add_property](/documents/mockups/add_property.png)
-- [edit_property](/documents/mockups/edit_property.png)
+- [Landing Page](/documentation/mockups/landing_page.png)
+- [Profile Page](/documentation/mockups/profile.png)
+- [Properties Page](/documentation/mockups/properties.png)
+- [contact](/documentation/mockups/contact_us.png)
+- [view_property](/documentation/mockups/view_property.png)
+- [add_property](/documentation/mockups/add_property.png)
+- [edit_property](/documentation/mockups/edit_property.png)
 
 *Admin User*
-- [Landing Page](/documents/mockups/landing_page.png)
-- [Manage Properties Admin Dashboard Page](/documents/mockups/admin_dashboard.png)
+- [Landing Page](/documentation/mockups/landing_page.png)
+- [Manage Properties Admin Dashboard Page](/documentation/mockups/admin_dashboard.png)
 
-- The final website differs from the original wire-frames because, when working on the design, I sometimes I found more appropriate ways to display different sections.
+The final website differs from the original wire-frames because, when working on the design, I sometimes I found more appropriate ways to display different sections.
 ___
 <br>
 
@@ -180,7 +180,7 @@ A database structure was designed to be specifically suited for Seven Terraces. 
 
 **[MongoDB](https://www.mongodb.com/)** is utilised to store data for The Growth Club. It is a non-relational database-backed Flask web application that allows users to easily create, locate, display, edit and delete data records on the Growth Club web app.
 
-The data structure outline: ![Data Structure](/documents/mockups/collections.png)
+The data structure outline: ![Data Structure](/documentation/mockups/collections.png)
 
 ### **Collections**
 - **Categories collection**
@@ -374,8 +374,6 @@ ___
     - Used to host the repository of all previous versions of the build and linked to Heroku to push the latest changes to the deployed build version held there.
 - [Heroku](https://www.heroku.com/)
     - A cloud platform as a service enabling deployment of the site.
-- [Responsinator](http://www.responsinator.com/)
-    - The project used **Responsinator** to determine if the site was responsive to various devices.
 - [Am I Responsive](http://ami.responsivedesign.is/#)
     - The project used **Am I Responsive** to view images of the website on different devices if the site was responsive to various devices.
 - [W3C Markup Validator](https://validator.w3.org/)
