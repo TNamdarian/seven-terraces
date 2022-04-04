@@ -134,9 +134,6 @@ ___
       - [Error Pages Final](/documentation/images/validator_screenshots/html_validator_404_page_test.png)
    - Add Category Page - No Errors in testing and finally
       - [Add Category Page - Final](/documentation/images/validator_screenshots/html_validator_add_category_page_test.png)
-   - Add Featured properties Page - Some errors in testing and no errors finally
-      - [Add Featured properties Page - Test](/documentation/images/validator_screenshots/html_validator_add_featured_property_page_test.png)
-      - [Add Featured properties Page - Final](/documentation/images/validator_screenshots/html_validator_add_featured_property_page_final.png)
    - Add properties Page - Some errors in testing and no errors finally
       - [Add properties Page - Test](/documentation/images/validator_screenshots/html_validator_add_property_page_test.png)
       - [Add properties Page - Final](/documentation/images/validator_screenshots/html_validator_add_property_page_final.png)
@@ -148,30 +145,27 @@ ___
       - [Add Admin Dashboard Page - Final](/documentation/images/validator_screenshots/html_validator_admin_dashboard_page_final.png)
    - Edit Category Page - No Errors in testing and finally
       - [Edit Category Page  - Final](/documentation/images/validator_screenshots/html_validator_edit_category_page_test.png)
-   - Edit Featured property Page - Some errors in testing and no errors finally
-      - [Edit Featured property Page - Test](/documentation/images/validator_screenshots/html_validator_edit_featured_property_page_test.png)
-      - [Edit Featured property Page - Final](/documentation/images/validator_screenshots/html_validator_edit_featured_property_page_final.png)
    - Edit property Page - Some errors in testing and no errors finally
       - [Edit property Page - Test](/documentation/images/validator_screenshots/html_validator_edit_property_page_test.png)
       - [Edit property Page - Final](/documentation/images/validator_screenshots/html_validator_edit_property_page_final.png)
    - Home Page - Some errors in testing and no errors finally
       - [Home Page - Test](/documentation/images/validator_screenshots/HTML_validator_home_page_test.png)
-      - [Home Page - Final](/documentation/images/validator_screenshots/html_validator_edit_property_page_final.png)
+      - [Home Page - Final](/documentation/images/validator_screenshots/html_validator_home_page_final.png)
    - Log In Page - Some errors in testing and no errors finally
        - [Log In Page - Test](/documentation/images/validator_screenshots/html_validator_login_page_test.png)
       - [Log In Page - Final](/documentation/images/validator_screenshots/html_validator_login_page_final.png)
    - Profile Page - Some errors in testing and no errors finally
-      - [Profile Page - Test](/documentation/images/validator_screenshots/html_validator_profile_page_final.png)
+      - [Profile Page - Test](/documentation/images/validator_screenshots/html_validator_profile_page_test.png)
       - [Profile Page - Final](/documentation/images/validator_screenshots/html_validator_profile_page_final.png)
    - Register Page - No Errors in testing and finally
       - [Register Page - Test](/documentation/images/validator_screenshots/html_validator_register_page_test.png)
-   - [Register Page - Final](/documentation/images/validator_screenshots/html_validator_register_page_final.png)
+      - [Register Page - Final](/documentation/images/validator_screenshots/html_validator_register_page_final.png)
    - property Page - Some errors in testing and no errors finally
-      - [Property Page - Test](/documentation/images/validator_screenshots/html_validator_property_page_final.png)
-      - [Property Page - Final](/documentation/images/validator_screenshots/html_validator_property_page_test.png)
+      - [Properties Page - Test](/documentation/images/validator_screenshots/html_validator_property_page_test.png)
+      - [Properties Page - Final](/documentation/images/validator_screenshots/html_validator_property_page_final.png)
    -   - property Page - Some errors in testing and no errors finally
-      - [Contact Page - Test](/documentation/images/validator_screenshots/html_validator_property_page_final.png)
-      - [Contact Page - Final](/documentation/images/validator_screenshots/html_validator_property_page_test.png)
+      - [Contact Page - Test](/documentation/images/validator_screenshots/html_validator_contact_page_test.png)
+      - [Contact Page - Final](/documentation/images/validator_screenshots/html_validator_contact_page_final.png)
 
 ### Python
 - [Extendsclass](https://extendsclass.com/python-tester.html) - No syntax errors
