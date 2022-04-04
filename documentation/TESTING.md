@@ -157,16 +157,21 @@ ___
    - Home Page - Some errors in testing and no errors finally
       - [Home Page - Test](/documentation/images/validator_screenshots/HTML_validator_home_page_test.png)
       - [Home Page - Final](/documentation/images/validator_screenshots/html_validator_edit_property_page_final.png)
-   - Log In Page - No Errors in testing and finally
-      - [Log In Page - Final](/documentation/images/validator_screenshots/html_validator_login_page_test.png)
+   - Log In Page - Some errors in testing and no errors finally
+       - [Log In Page - Test](/documentation/images/validator_screenshots/html_validator_login_page_test.png)
+      - [Log In Page - Final](/documentation/images/validator_screenshots/html_validator_login_page_final.png)
    - Profile Page - Some errors in testing and no errors finally
       - [Profile Page - Test](/documentation/images/validator_screenshots/html_validator_profile_page_final.png)
       - [Profile Page - Final](/documentation/images/validator_screenshots/html_validator_profile_page_final.png)
    - Register Page - No Errors in testing and finally
-      - [Register Page - Final](/documentation/images/validator_screenshots/html_validator_register_page_test.png)
+      - [Register Page - Test](/documentation/images/validator_screenshots/html_validator_register_page_test.png)
+   - [Register Page - Final](/documentation/images/validator_screenshots/html_validator_register_page_final.png)
    - property Page - Some errors in testing and no errors finally
       - [Property Page - Test](/documentation/images/validator_screenshots/html_validator_property_page_final.png)
       - [Property Page - Final](/documentation/images/validator_screenshots/html_validator_property_page_test.png)
+   -   - property Page - Some errors in testing and no errors finally
+      - [Contact Page - Test](/documentation/images/validator_screenshots/html_validator_property_page_final.png)
+      - [Contact Page - Final](/documentation/images/validator_screenshots/html_validator_property_page_test.png)
 
 ### Python
 - [Extendsclass](https://extendsclass.com/python-tester.html) - No syntax errors
