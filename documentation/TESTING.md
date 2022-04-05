@@ -163,8 +163,8 @@ ___
 ### Python
 - [Extendsclass](https://extendsclass.com/python-tester.html) - No syntax errors
    - [Final Python Validated](/documentation/images/validator_screenshots/python_extendsclass_final.png)
-- [PEP8 Online](pep8online.compep8online.com) 
-   - [Final PEP Validation](/documentation/images/validator_screenshots/pep8-validation-results.png) - Pythoon file is PEP8 compliant
+- [PEP8 Online](pep8online.compep8online.com) - Pythoon file is PEP8 compliant
+   - [Final PEP Validation](/documentation/images/validator_screenshots/pep8-validation-results.png) - 
 ___
 <br>
 
