@@ -10,7 +10,6 @@
 * [Test User Stories](#test-user-stories)
 * [Testing and Validation](#testing-and-validation) 
 * [Manual testing](#manual-testing)
-* [Bugs and Fixes](#bugs-and-fixes)
 * [Further testing](#further-testing)
 ___
 <br>
@@ -252,15 +251,6 @@ Manual testing of all elements and functionality on every page
    - if *Admin user* types in text in fields, validation is given if correct and feedback is given if incorrect. 
    - if *Admin user* click on the "Update Category" button, the category is updated in the database and a success message is given to the user.
    - if *Admin user* click on cancel - go to Admin Dashboard Page
-
-## **Bugs and Fixes**
-### Bugs
-- There were a few bugs during the development and deployment. A sheet was created to keep track of the bugs, the expected results and the solutions/fixes.
-   - [Bugs, Expected Results & Fixes during Development Phase](/documentation/images/general_doc_images/bugs_and_fixes_development.png)
-   - [Bugs, Expected Results & Fixes during Deployement Phase](/documentation/images/general_doc_images/bugs_and_fixes_deployment.png)
-
-### Known Bugs
-- Firefox Browser: For all forms, if a cateogry is selected, border-bottom does not change to green but red.
 
 ## **Further testing** 
 - Usability tests were done with two users to analyse the User Experience. The feedback from the users were very helpful to determine what works, what can be improved and determine future features.  
