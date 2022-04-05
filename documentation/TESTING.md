@@ -32,7 +32,7 @@ Testing user stories from the UX section
    - [New Registered User Confirmation](/documentation/images/test_screenshots/new_registered_user_confirmation.png)
 5. As a Guest User, I want to be able to get in contact via social media if I like the site or have suggestions.
 - The user can get in contact or follow the created or the site on social media as their social links are in the footer on every page of the website.
-   - [Footer](documentation/images/test_screenshots/footer.png)
+   - [Footer](/documentation/images/test_screenshots/footer.png)
 
 ### *Registered User*
 1. As a Registered User, I want the main purpose of the site to be clear so that I immediately know what the site is intended for upon entering;
@@ -98,8 +98,9 @@ The Admin user the same user stories as the Registered user above with the addit
 - The login features are similar to the above, but if the admin user is logged in, they can see the Manage properties Admin Dashboard. From here they can add & edit feature properties.
    - [Admin Dashboard Page](/documentation/images/test_screenshots/admin_dashboard.png)
 - The admin user can add a featured property by clicking on the "Add featured property" button which will take them to the Add Featured property page where they can fill in the form and add a property. The form will have helper text to guide the user as well as validation. The user will receive confirmation if the featured property is added to the Home page Featured Section.
-   - [Add Featured Properties](/documentation/images/test_screenshots/properties_page.png)
+   - [Add Featured Properties](/documentation/images/test_screenshots/add_featured_properties.png)
    - [Add Featured Properties Confirmation](/documentation/images/test_screenshots/add_featured_property_confirmation.png)
+   - [Remove Featured Properties Confirmation](/documentation/images/test_screenshots/unfeatured_property_confirmation.png)
 - The admin user can click on the "Edit or Delete Featured property" button on the Admin Dashboard and will be taken to the Featured property section on the Home page where they will be able to view Edit & Delete buttons. 
 2. As an Admin User, I want to be able to view all **property posts** added by other members of the community as well as the ability to **edit or delete any property posts** so that I can **maintain the site to stay updated**
 - The admin user can view all properties and also the edit & delete buttons. They can edit or delete any property regardless of who added the property.
@@ -114,13 +115,7 @@ ___
 
 ### JavaScript
 - [JSHint](https://jshint.com/)
-   - [Test JavaScript Validation](/documentation/images/validator_screenshots/jshint_test.png)
-   - [Final JavaScript Validation](/documentation/images/validator_screenshots/jshint_final.png)
-   - Final version - addressing errors and warnings: 
-      - Warning for ''let' is available in ES6 (use 'esversion: 6'). Can be safely ignored. If add /*jshint esversion: 6 */ at top of code so that JSHint does not raise unnecessary warnings for ECMAScript 6 features.
-      - JSHint flags Jquery $ symbol as an undefined variable - safely ignored. 
-- [JSEsprima](https://esprima.org/)
-   - [Final JavaScript Validated](/documentation/images/validator_screenshots/js_esprima_final.png)
+   - [Test and Final JavaScript Validation](/documentation/images/validator_screenshots/jshint_final.png)
 
 ### [CSS: W3C CSS validation](https://jigsaw.w3.org/css-validator/)
 - [Final CSS Validation](/documentation/images/validator_screenshots/css-validation.png)
@@ -131,19 +126,19 @@ ___
 - Testing and Final results per page:
    - Error Pages - No Errors in testing and finally
       - [Error Pages Final](/documentation/images/validator_screenshots/html_validator_404_page_test.png)
-   - Add Category Page - No Errors in testing and final
-      - [Add Category Page - Final](/documentation/images/validator_screenshots/html_validator_add_category_page_final.png)
-   - Edit Category Page - No Errors in testing and final
-      - [Edit Category Page - Final](/documentation/images/validator_screenshots/html_validator_edit_category_page_final.png)
+   - Add Strategy Page - No Errors in testing and final
+      - [Add Strategy Page - Final](/documentation/images/validator_screenshots/html_validator_add_strategy_page_final.png)
+   - Edit Strategy Page - No Errors in testing and final
+      - [Edit Strategy Page - Final](/documentation/images/validator_screenshots/html_validator_edit_strategy_page_final.png)
    - Add properties Page - No Errors in testing and final
-      - [Add property Page - Final](/documentation/images/validator_screenshots/html_validator_add_property_page_final.png)
+      - [Add Property Page - Final](/documentation/images/validator_screenshots/html_validator_add_property_page_final.png)
    - View properties Page - No Errors in testing and final
-      - [View property Page - Final](/documentation/images/validator_screenshots/html_validator_view_property_page_final.png)
+      - [View Property Page - Final](/documentation/images/validator_screenshots/html_validator_view_property_page_final.png)
    - Add Admin Dashboard Page - Some errors in testing and no errors finally
       - [Add Admin Dashboard Page - Test](/documentation/images/validator_screenshots/html_validator_admin_dashboard_page_test.png)
       - [Add Admin Dashboard Page - Final](/documentation/images/validator_screenshots/html_validator_admin_dashboard_page_final.png)
    - Edit Category Page - No Errors in testing and final
-      - [Edit Category Page  - Final](/documentation/images/validator_screenshots/html_validator_edit_category_page_final.png)
+      - [Edit Strategy Page  - Final](/documentation/images/validator_screenshots/html_validator_edit_category_page_final.png)
    - Edit property Page - No Errors in testing and final
       - [Edit property Page - Final](/documentation/images/validator_screenshots/html_validator_edit_property_page_final.png)
    - Home Page - Some errors in testing and no errors final
@@ -168,8 +163,8 @@ ___
 ### Python
 - [Extendsclass](https://extendsclass.com/python-tester.html) - No syntax errors
    - [Final Python Validated](/documentation/images/validator_screenshots/python_extendsclass_final.png)
-- [PEP8 Online](/documentation/images/validator_screenshots/pep8-validation-results.png) 
-   - [Final PEP Validation]() - Pythoon file is PEP8 compliant
+- [PEP8 Online](pep8online.compep8online.com) 
+   - [Final PEP Validation](/documentation/images/validator_screenshots/pep8-validation-results.png) - Pythoon file is PEP8 compliant
 ___
 <br>
 
@@ -231,25 +226,25 @@ Manual testing of all elements and functionality on every page
    - if want to select a date, a date picker opens with the current date and a date can be selected.
    - if click on the "Update property" button, the property is updated in the database and a success message is given to the user.
    - if click on cancel - go to the properties Page
-12. Manage property Admin Dashboard Page
+12. Admin Dashboard Page
    - if *Admin user* click the "Add new Featured property" button, go to Add Featured property page. 
    - if *Admin user* click the "Delete or Edit Featured property" button, go to the Home page.
    - if *Admin user* click the info button, open info modal about Featured properties
-   - if *Admin user* click the "Add Category" button, go to Add Category page. 
-   - if *Admin user* click the "Edit" button in the Category section, go Edit Category page.
-   - if *Admin user* click the "Delete" button in the Category section, the delete modal opens.
+   - if *Admin user* click the "Add Strategy" button, go to Add Strategy page. 
+   - if *Admin user* click the "Edit" button in the Category section, go Edit Strategy page.
+   - if *Admin user* click the "Delete" button in the strategy section, the delete modal opens.
    - if click on cancel - close modal
-   - if click on the "Delete" button, the category is deleted and a success message appears.
+   - if click on the "Delete" button, the strategy is deleted and a success message appears.
    - if *Admin user* click the info button, open info modal about Categories.
    - if click on cancel - close modal
-13. Add New Category page
+13. Add New Strategy page
    - if *Admin user* types in text in fields, validation is given if correct and feedback is given if incorrect.
-   - if *Admin user* click on the "Add Category" button, a new category is added to the database and a success message is given to the user.
+   - if *Admin user* click on the "Add Strategy" button, a new strategy is added to the database and a success message is given to the user.
    - if *Admin user* click on cancel - go to Admin Dashboard Page
-15. Edit Category page
-   - view current details of category
+15. Edit Strategy page
+   - view current details of strategy
    - if *Admin user* types in text in fields, validation is given if correct and feedback is given if incorrect. 
-   - if *Admin user* click on the "Update Category" button, the category is updated in the database and a success message is given to the user.
+   - if *Admin user* click on the "Update Strategy" button, the strategy is updated in the database and a success message is given to the user.
    - if *Admin user* click on cancel - go to Admin Dashboard Page
 
 ## **Further testing** 
