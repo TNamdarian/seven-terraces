@@ -58,19 +58,19 @@
                 </div>
                 <!-- Card Category -->
                 <div class="card-content">
-                    {% if session.user|lower == "admin"|lower %}
                     <div class="switch">
                         <label>
                             Featured
+                            {% if session.user|lower == "admin" %}
                             {% if property.featured %}
                             <input class="feature-checkbox" data-property-id="{{ property._id }}" type="checkbox" checked>
                             {% else %}
                             <input class="feature-checkbox" data-property-id="{{ property._id }}" type="checkbox">
                             {% endif %}
+                            {% endif %}
                             <span class="lever"></span>
                         </label>
                     </div>
-                    {% endif %}
                     <h5 class="card-title activator">{{ property.property_name }}<i class="fas fa-caret-down right"></i>
                     </h5>
                 </div>
@@ -88,7 +88,7 @@
                         <a href="{{ url_for('view_property', property_id=property._id) }}" class="waves-effect waves-light btn-small view-property-btn right">View Property</a>
                     </div>
                 </div>
-                {% if session.user|lower == "admin"|lower %}
+                {% if session.user|lower == property.author|lower or session.user|lower == "admin"|lower %}
                 <!-- Modal Trigger -->
                 <a class="waves-effect waves-light btn-small modal-delete-btn modal-trigger center-align" href="#modal1{{ property._id }}"><i class="material-icons left"></i>Delete</a>
                 <a href="{{ url_for('edit_property', property_id=property._id) }}" class="waves-effect waves-light btn-small modal-edit-btn center-align"><i class=" material-icons left"></i>Edit</a>

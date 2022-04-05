@@ -86,6 +86,10 @@ def register():
     """
     SIGN UP / REGISTER FUNCTIONALITY
     """
+    if is_authenticated():
+        flash("Please Logout First to execute this operation.")
+        redirect(url_for("get_properties"))
+
     if request.method == "POST":
         # then check if the username exists within the database
         existing_user = mongo.db.users.find_one(
@@ -122,6 +126,10 @@ def login():
     """
      LOG IN FUNCTIONALITY
     """
+    if is_authenticated():
+        flash("Please Logout First to execute this operation.")
+        redirect(url_for("get_properties"))
+
     if request.method == "POST":
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
@@ -225,6 +233,11 @@ def logout():
     """
     LOG OUT FUNCTIONALITY
     """
+    # If not user in session Redirect to Properties
+    if not is_authenticated():
+        flash("You are currently not logged in")
+        return redirect(url_for('get_properties'))
+
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("get_properties"))
@@ -353,6 +366,11 @@ def search():
     """
     SEARCH FOR A PROPERTY FUNCTIONALITY
     """
+    # If not user in session Redirect to Features
+    if not is_authenticated():
+        flash("You are currently not logged in")
+        return redirect(url_for("get_properties"))
+
     query = request.form.get("query")
     properties = list(mongo.db.properties.find({"$text": {"$search": query}}))
     categories = list(mongo.db.categories.find().sort("category_name", 1))
