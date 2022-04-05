@@ -62,7 +62,7 @@ This website project will target users who are interested in viewing and sharing
 ### **User Requirements and Expectations**
 #### **Requirements**
 - Easy to navigate by using the navigation menu.
-- Relevant content for each category.
+- Relevant content for each strategy.
 - Appealing visuals.
 - Easy way to find properties relevant to the user.
 #### **Expectations**
@@ -76,7 +76,7 @@ This website project will target users who are interested in viewing and sharing
 #### **Guest User**
 1. As a Guest User, I want the main purpose of the site to be clear so that I immediately know what the site is intended for upon entering;
 2. As a Guest User, I want to be met with a visually appealing and easy to read layout of created items;
-3. As a Guest User, I want to view the **featuredproperty** posts of the month to get a sense of the value if I sign up as a registered user and they don't have to search for it;
+3. As a Guest User, I want to view the **featured property** posts of the month to get a sense of the value if I sign up as a registered user and they don't have to search for it;
 4. As a Guest User, I want to be able to sign-up to create and edit my own **property posts**;
 5. As a Guest User, I want to be able to get in contact via social media if I like enquire about properties or have suggestions.
 #### **Registered User**
@@ -92,7 +92,7 @@ This website project will target users who are interested in viewing and sharing
 10. As a Registered User, I want to be able to delete my account and profile;
 11. As a Registered User, I want to be able to log out of my account;
 12. As a Registered User, I want to be able to get in contact via social media if I like enquire about properties or have suggestions.
-13. As a Registered User, I wan to be able to get in touch with the admin regarding the deals I’m interested in viewing. 
+13. As a Registered User, I want to be able to get in touch with the admin regarding the deals I’m interested in viewing. 
 #### **Admin User**
 The Admin user shares the same expectations as the Registered user with some additional ones as below:
 1. As an Admin User, I would like the ability to **log in to an admin account** so that I can **create, edit and delete featured property posts** for each month;
@@ -129,7 +129,7 @@ using [https://coolors.co/](https://coolors.co/)
 - #E5E5E5: This colour is used as a tertiary accent colour where something to highlight forms. 
 - #8ECAE6: This colour is used as an accent colour and mainly used for hovering over some buttons. 
 - #219EBC: This colour is also used as an accent colour and mainly used for hovering over some buttons. 
-For the social media, the colurs match the exact tones of these applications using [https://www.webnots.com/color-codes-for-social-networking-site-icons/](https://www.webnots.com/color-codes-for-social-networking-site-icons/). 
+For the social media, the colours match the exact tones of these applications using [https://www.webnots.com/color-codes-for-social-networking-site-icons/](https://www.webnots.com/color-codes-for-social-networking-site-icons/). 
 
 <a></a>
 ### **Icons**
@@ -161,10 +161,10 @@ Below you can see the mock-ups that I drew using
 - [Landing Page](/documentation/mockups/landing_page.png)
 - [Profile Page](/documentation/mockups/profile.png)
 - [Properties Page](/documentation/mockups/properties.png)
-- [contact](/documentation/mockups/contact_us.png)
-- [view_property](/documentation/mockups/view_property.png)
-- [add_property](/documentation/mockups/add_property.png)
-- [edit_property](/documentation/mockups/edit_property.png)
+- [Contact Page](/documentation/mockups/contact_us.png)
+- [View_property](/documentation/mockups/view_property.png)
+- [Add_property](/documentation/mockups/add_property.png)
+- [Edit_property](/documentation/mockups/edit_property.png)
 
 *Admin User*
 - [Landing Page](/documentation/mockups/landing_page.png)
@@ -184,17 +184,16 @@ The data structure outline: ![Data Structure](/documentation/mockups/collections
 
 ### **Collections**
 - **Categories collection**
-    - This collection holds the category_name key which is a string datatype. 
+    - This collection holds the strategy_name key which is a string datatype. 
     - This field data is passed to other collections by utilising the ObjectID rather than the string above.
 
 - **Properties collection**
     - This collection holds several keys for the properties page where the user can view all the properties in the database.
-    - The data keys include the category name, property name, description, date added, features, link to the image, type, price, sourcies fee, property_details, property description and a created by. 
-    - All the above keys are strings except for the property detaisl, features, and amenities which are arrays. Featured is a Boolean. 
+    - The data keys include the strategy name, property name, description, date added, features, link to the image, type, price, sourcing fee, property_details, property description and author.  
+    - All the above keys are strings except for the property details, features, and amenities which are arrays. Featured is a Boolean. 
 
 - **Amenities collection**
     - This collection holds several keys for the amenities where the user can view all the amenities in the database.
-    - The data keys include the amenitiy. 
     - This field data is passed to other collections by utilising the ObjectID rather than the string above.
 
 - **Type collection**
@@ -214,7 +213,7 @@ The data structure outline: ![Data Structure](/documentation/mockups/collections
 ### Elements on every page
 #### Header
 1. Logo
-- Allows the user to easily recognise the brand of Seven Terraaces”. If the user clicks on the logo, it will return the users to the “Home” section as they would expect.
+- Allows the user to easily recognise the brand of Seven Terraces”. If the user clicks on the logo, it will return the users to the “Home” section as they would expect.
 
 2. Navbar
 - Navigation Bar - Allows the user to easily navigate the website's sections and find what they are looking for with ease and speed.
@@ -222,50 +221,55 @@ The data structure outline: ![Data Structure](/documentation/mockups/collections
 - For visitors to the site who are not logged in (*Guest Users*), these menu links are available for them to use:
     - Home
     - Log in
-    - Sign Up - This is a CTA and therefore it stands out so that the user is drawn to this button.
+    - Sign Up 
 - For users who are logged in(*Registered Users*), the list items are as follows:
     - Home
     - Properties
     - Profile 
+    - Contact
     - Log out
 - Python determines if the user is logged in or not by checking if 'user' in session and passes this data to Jinja to display the correct navbar for the user.
 - The navbar is collapsed into a burger icon on small screens.
 
 #### Footer
-- The footer features:
- - Links to social media for Admin -Social Icons - Allows the user to access the social platforms that the creator of the website use.
+- The footer features links to social media for Social Icons - Allows the user to access the social platforms. Since this is a fictional website, the links take the users to the home page of these sites. 
 
 ### Landing Page
 - The landing page gives the user an immediate welcome and indication of what the site is about.
-- Scrollign down, users can view the Featured Properties of the month (Featured Properties section) which was important that they go there if they want to quickly find the most recent Properties added by the administrator.
+- Scrolling down, users can view the Featured Properties of the month (Featured Properties section) which was important that they go there if they want to quickly find the most recent Properties added by the administrator.
 
 #### Featured Section
 - On the landing page the featured Properties of the month is selected and added by the administrator.
-- The purpose is to have one Property for each category each month to be showcased.
+- The purpose is to have one Property for each strategy each month to be showcased.
 - Guest users are also able to view these Properties as well as Registered users. 
 
 ### Log in Page
-- The login page features a simple **form** where the user can enter either their username and their password.
+- The login page features a simple **form** where the user can enter either their username and password.
 - There is helper text under each input field to guide the user as to the parameters they can input.
 - The user will receive validation or error feedback when they enter information in the input field which is also be accompanied by colours to show validation (green for correct and red for incorrect).
 - If the user lands on the log in page but realises they don't have an account yet and would like to register, there is a link on the page that will take them to the registration page or they can click on the navbar menu Sign up button.
 
 ### Profile Page 
-- Then if the user logs in or register successfully they are taken to their Profile page.
+- Then if the user logs in or register successfully they are taken to their Profile Page.
 - This page will feature their username at the top to personalise the user experience.
-- There are links to take the user to the Properties page or the Featured section on the landing page.
+- There are links to take the user to the Properties Page or the Featured section on the landing page.
 - The user can see all their bookmarked Properties on their profile if they have any.
-- The user can change their password if they click on the Change password button. A modal will pop up and ask for the new password. If they confirm to change their password, their password will be updated in the database under the Users collection.
+- The user can change their password if they click on the Change Password button. A modal will pop up and ask for the new password. If they confirm to change their password, their password will be updated in the database under the Users collection.
 - The user can delete their profile if they click on the Delete Profile link. This will open a modal to confirm if they want to continue to delete their profile. If they confirm, their username, email and password will be detailed from the Users collection. They will then be logged out and returned to the landing page as Guest users.
 
 ### Properties Page
 - Only a Registered user can view the Properties Page where the registered user can then view, search, add, edit or delete properties. The edit and delete functions will only be available if the user created the property.
 - The user can search by property description and reset the search box. If there are no results, there will be a message to the user to say there are no results.
-- If the user clicks on the "Add properties" button it will take them to the Add Property Page.
+- If the user clicks on the "Add Properties" button it will take them to the Add Property Page.
 - If the user created the property, they will see the edit button for the property. If the user clicks on the "Edit" button it will take them to the Edit Property Page.
 - If the user created the property, they will see the delete button for the property. If the user clicks on the "Delete" button, the property will be deleted.
 - The user can bookmark a property. If they click on the bookmark icon, this will confirm to them it has been added as a bookmark and appears on their profile.
-- A floating button appears on the lower right of the screen when the user starts to scroll downwards. Clicking this moves the view back up to the top of the page. This feature was added because the Properties page can be quite long and the navbar is not fixed to the top of the page.
+- Each time a property is viewed the number of views will increase which will indicate the popularity of the property. 
+
+### View Property Page
+- If the user clicked on the view property button on a property card then they will be taken to this page.
+- The view property page features all the details of the property including name, image, type, strategy, amenities, features, price and sourcing fees as well as propery descriptions and details. 
+- If the user is the creator of that property, they should be able to have access to the delete and edit buttons on the same page. 
 
 ### Registration & Sign Up Page
 - The sign-up page features a simple form, where the user can input a username and password. The form was kept deliberately simple so that signup has minimum barriers.
@@ -285,34 +289,34 @@ The data structure outline: ![Data Structure](/documentation/mockups/collections
 - The edit properties page features a simple form, where the user can edit only a property added by them. 
 - If the user clicked on the Edit Property button on the Properties Page then they will be taken to this page. They will only be able to edit the property if they created the property.
 - The current property information will be shown and the user can change the information and save it. This will update the database with the new information.
-- The user will be able to select from the current categories and topics as well as additional information to all the required fields for the Property.
+- The user will be able to select from the current categories and types, amenities as well as additional information to all the required fields for the property.
 - There is helper text under each input field to guide the user as to the parameters they can input.
 - The user will receive validation or error feedback when they enter information in the input field which is also be accompanied by colours to show validation (green for correct and red for incorrect).
 - If the user clicks on the cancel button it will take them back to the Properties Page.
 
-### Manage Property Admin Dashboard Page
+### Admin Dashboard Page
 - This page can only be viewed by the admin user.
 - From here the user can manage the featured Properties, and categories. 
 - The admin user can add a new featured Property or edit current featured Properties. If the admin user clicks on the Add new Featured Properties button, then they will be taken to the Property page. If the admin usercan toggle on the switch button on the property card, it will take them to the landing page so that they can view featured Property form directly from the featured section.
-- The admin user can add a new Category if they click on the Add Category button. This will take them to the Add New Category page.
-- The admin user can edit current Categories. If the user clicks on the edit button for that category, they will be taken to that edit category page. 
+- The admin user can add a new strategy if they click on the Add strategy button. This will take them to the Add New strategy page.
+- The admin user can edit current Categories. If the user clicks on the edit button for that strategy, they will be taken to that edit strategy page. 
 
-#### Add New Category page
+#### Add New Strategy page
 - This page can only be viewed by the admin user.
-- If the admin user clicked on Add new category button on the Dashboard, then this page will display.
-- The Add New Category page features a simple form, where the admin user can input the basic required information. 
+- If the admin user clicked on Add new strategy button on the Dashboard, then this page will display.
+- The Add New strategy page features a simple form, where the admin user can input the basic required information. 
 - There is helper text under each input field to guide the admin user as to the parameters they can input.
 - The admin user will receive validation or error feedback when they enter information in the input field which is also be accompanied by colours to show validation (green for correct and red for incorrect).
-- If the admin user clicks Add Category button, it will add the new category to the database in the Categories collection.
+- If the admin user clicks Add strategy button, it will add the new strategy to the database in the Categories collection.
 - If the user clicks on the cancel button it will take them back to the Manage Properties admin dashboard page.
 
-#### Edit Category page
+#### Edit Strategy page
 - This page can only be viewed by the admin user.
-- If the admin user clicked on the Edit category button on the Dashboard, then this page will display.
-- The current category information will be shown and the admin user can change the information and save it. This will update the database with the new information.
+- If the admin user clicked on the Edit strategy button on the Dashboard, then this page will display.
+- The current strategy information will be shown and the admin user can change the information and save it. This will update the database with the new information.
 - There is helper text under the input field to guide the user as to the parameters they can input.
 - The user will receive validation or error feedback when they enter information in the input field which is also be accompanied by colours to show validation (green for correct and red for incorrect).
-- If the admin user clicks the Update Category button, it will update the category in the database for the Categories collection.
+- If the admin user clicks the Update strategy button, it will update the strategy in the database for the Categories collection.
 - If the user clicks on the cancel button it will take them back to the Manage Properties admin dashboard page.
 
 ### Log Out 
@@ -327,11 +331,13 @@ ___
 These are possible future features to be added to the project which was suggested by users during the usability tests. As these features were not part of a minimum viable products launch phase, they will be implemented in future releases.
 - Have a 'forgot password' functionality on the log in page.
 - Have a more extensive user profile with, profile image, preferences and email to which you can send updates, newsletters etc. Have a profile feature to view the Properties the user added there.
-- Events in the form of a calendar to visually represent events and not have it be part of the general Properties.
-- User can search by any word related to the property Also, have the searched word stay in the search box
+- Events in the form of a calendar to visually represent events and not have it be part of the general properties.
+- User can search by any word related to the property also, have the searched word stay in the search box
 - Adding filters to only display properties according to amenities, price, types and dates. I thought of this feature once the website was finished and I couldn't spend more time working on the project as I needed to get going with the rest of the course.
 - Currently, the feedback for bookmarking appears on the profile page. In future, the plan is to have feedback to the user about bookmarking a Property on the Properties page.
-- If a user adds a Property, it will be added to the top. Therefore, a user will always see the most recent Properties added to the site.
+- If a user adds a property, it will be added to the top. Therefore, a user will always see the most recent properties added to the site. 
+- I'd like to add some feature to the site, so the users can view their properties added in one section. 
+- I would like the users to be able to filter properties from the most expensive to the cheapest in the future. 
 ___
 <br>
 
@@ -362,8 +368,6 @@ ___
     - Templating language for Python, to simplify displaying data from the backend of this project smoothly and effectively in HTML.
 - [jQuery](https://jquery.com/)
     - JavaScript library
-- [Flask-SSLify 0.1.5](https://pypi.org/project/Flask-SSLify/#description)
-    - Flask extension that configures your Flask application to redirect all incoming requests to https.
 - [MongoDB](https://www.mongodb.com/) 
     - to store user data. 
 
@@ -382,18 +386,12 @@ ___
     - For testing CSS code
 - [JSHint Validator](https://jshint.com/)
     - For detecting errors and potential problems in your JavaScript code
-- [Link Checker](https://validator.w3.org/checklink)
-    - For checking all links on the website and see if all links work
 - [Python Tester](https://extendsclass.com/python-tester.html) 
     - Python code syntax checker
 - [PEP8 online checker](pep8online.compep8online.com)
     - to ckeck Pyton code is PEP complient. 
-- [Closing Tag Checker for HTML5](https://www.aliciaramirez.com/closing-tags-checker/) 
-    - Validates all tags are opening and closing correctly.
 - [Google Mobile-Friendly Test Mobile](https://search.google.com/test/mobile-friendly)
     - To check if site is mobiole friendly
-- [AutoPrefixer](https://autoprefixer.github.io/)
-    - Autoprefixer to parse CSS and adds vendor prefixes
 - [Tiny-PNG](https://tinypng.com/)
     - I used tinypng for big images up to 5M needed to be compressed to improve the website's loading time.
 - [CompressJPEG](https://compressjpeg.com/) 
@@ -513,10 +511,10 @@ ___
 
 ### **Content**
 - The contents for this website was written by Teema Namdarian. 
-- The information about each property was copied from [onthemarket](https://www.onthemarket.com/)
+- The information about each property was copied from [onthemarket](https://www.onthemarket.com/). 
 
 ### **Media**
-- All Images used are from [Pixabay](https://pixabay.com/)
+- The images used are from [Pixabay](https://pixabay.com/) and [onthemarket](https://www.onthemarket.com/).
 
 ### **Code**
 - CSS for color roots adapted from [CSS Tricks](https://css-tricks.com/the-shapes-of-css/)
