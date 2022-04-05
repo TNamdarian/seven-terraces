@@ -61,7 +61,7 @@
                     <div class="switch">
                         <label>
                             Featured
-                            {% if session.user|lower == "admin" %}
+                            {% if session.user|lower == "admin"|lower %}
                             {% if property.featured %}
                             <input class="feature-checkbox" data-property-id="{{ property._id }}" type="checkbox" checked>
                             {% else %}
