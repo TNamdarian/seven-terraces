@@ -87,7 +87,7 @@ def register():
     SIGN UP / REGISTER FUNCTIONALITY
     """
     if is_authenticated():
-        flash("Please Logout First to execute this operation.")
+        flash("Please logout first to execute this operation.")
         redirect(url_for("get_properties"))
 
     if request.method == "POST":
@@ -115,7 +115,7 @@ def register():
         session["user"] = request.form.get("username").lower()
         # to replace with modal
         flash("Registration successful! You can now view or share properties!")
-        return redirect(url_for("profile", username=session["user"]))
+        return redirect(url_for("profile"))
 
     return render_template("register.html")
 
@@ -124,11 +124,10 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """
-     LOG IN FUNCTIONALITY
+    LOG IN FUNCTIONALITY
     """
     if is_authenticated():
-        flash("Please Logout First to execute this operation.")
-        redirect(url_for("get_properties"))
+        return redirect(url_for("get_properties"))
 
     if request.method == "POST":
         # check if username exists in db
@@ -140,8 +139,7 @@ def login():
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
-                flash("Welcome, {}".format(
-                    request.form.get("username")))
+                flash(f"Welcome, {request.form.get('username')}")
                 return redirect(url_for(
                     "profile", username=session["user"]))
             else:
@@ -158,26 +156,26 @@ def login():
 
 
 # --- PROFILE FUNCTIONALITY --- #
-@app.route("/profile/<username>", methods=["GET", "POST"])
-def profile(username):
+@app.route("/profile", methods=["GET"])
+def profile():
     """
     User Profile. Find username in the database and retrieve the
     username. Then render the profile template with the user's name.
     """
-    if session["user"] == username:
-        # find the user in the database
-        user = mongo.db.users.find_one(
-            # take the session user's username from Mongo
-            {"username": session["user"]})
-        # if the user has a bookmark try the execute the below
-        bookmarks = mongo.db.properties.find({'_id':
-                                             {'$in': user['bookmarks']}})
-    else:
+    if not is_authenticated():
         flash('You are not authorised to view this page')
         return redirect(url_for("get_featured_properties"))
+
+    # find the user in the database
+    user = mongo.db.users.find_one_or_404(
+        # take the session user's username from Mongo
+        {"username": session["user"]})
+    # if the user has a bookmark try the execute the below
+    bookmarks = mongo.db.properties.find({'_id':
+                                          {'$in': user['bookmarks']}})
     # return profile page with user's unique name
     return render_template("profile.html",
-                           username=username, properties=bookmarks)
+                           username=session["user"], properties=bookmarks)
 
 
 # --- BOOKMARK A PROPERTY FUNCTIONALITY --- #
@@ -224,7 +222,7 @@ def delete_bookmark(property_id):
                                                                 user_bookmarks
                                                                 }})
     finally:
-        return redirect(url_for("profile", username=session["user"]))
+        return redirect(url_for("profile"))
 
 
 # --- LOG OUT FUNCTIONALITY --- #
@@ -393,9 +391,8 @@ def admin_dashboard():
     # return the admin dashboard template
     return render_template("admin_dashboard.html", categories=categories)
 
+
 # --- ADD A CATEGORY FUNCTIONALITY --- #
-
-
 @ app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     """
@@ -488,14 +485,15 @@ def delete_account(user_id):
         return redirect(url_for("get_featured_properties"))
     else:
         flash("The password you entered was incorrect. Please try again!")
-        return redirect(url_for("profile", user=user.get("username")))
+        return redirect(url_for("profile"))
     # return to home page page
     return redirect(url_for("get_featured_properties"))
 
 
 @ app.route("/contact")
 def contact():
-    """ Navigates to contact page
+    """
+    Navigates to contact page
     """
     return render_template("contact.html")
 
@@ -532,13 +530,15 @@ def not_found_server(e):
 
 
 def is_authenticated():
-    """ Ensure that user is authenticated
+    """
+    Ensure that user is authenticated
     """
     return 'user' in session
 
 
 def is_object_id_valid(id_value):
-    """ Validate is the id_value is a valid ObjectId
+    """
+    Validate is the id_value is a valid ObjectId
     """
     return id_value != "" and ObjectId.is_valid(id_value)
 
