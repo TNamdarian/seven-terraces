@@ -41,7 +41,7 @@
     </div>
 </div>
 <!-- Property Cards -->
-<div class="container switch-container">
+<div class="container">
     <div class="row">
         {% for property in properties %}
         <div class="col s12 m6 l6">
@@ -66,13 +66,6 @@
                 </div>
                 <!-- Card Category -->
                 <div class="card-content">
-                    <div class="switch">
-                        <label>
-                            Featured
-                            <input class="feature-checkbox" data-property-id="{{ property._id }}" type="checkbox">
-                            <span class="lever"></span>
-                        </label>
-                    </div>
                     <h5 class="card-title activator">{{ property.property_name }}<i class="fas fa-caret-down right"></i>
                     </h5>
                 </div>
