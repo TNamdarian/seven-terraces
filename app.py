@@ -298,10 +298,11 @@ def edit_property(property_id):
     if not is_object_id_valid(property_id):
         abort(404)
 
-    properties = mongo.db.properties
-    property = mongo.db.properties.find({"_id": ObjectId(property_id)})
+    property = mongo.db.properties.find_one_or_404(
+        {"_id": ObjectId(property_id)})
     user = session['user']
-    if user == "admin" or user == property['author']:
+
+    if user == "admin" or user == property["author"]:
         if request.method == "POST":
             submit = {
                 "category_name": request.form.get("category_name"),
@@ -368,7 +369,6 @@ def search():
     """
     SEARCH FOR A PROPERTY FUNCTIONALITY
     """
-    # If not user in session Redirect to Features
     if not is_authenticated():
         flash("You are currently not logged in")
         return redirect(url_for("get_properties"))
@@ -407,7 +407,7 @@ def add_category():
     if not is_authenticated():
         flash("You are currently not logged in")
         return redirect(url_for("get_properties"))
-        
+
     if admin():
         if request.method == "POST":
             category = {
@@ -415,7 +415,7 @@ def add_category():
             }
 
             mongo.db.categories.insert_one(category)
-            flash("The new category was added")
+            flash("The new strategy was added")
             return redirect(url_for("admin_dashboard"))
     else:
         flash('You are not authorised to view this page')
@@ -440,7 +440,7 @@ def edit_category(category_id):
             }
             mongo.db.categories.update_one(
                 {"_id": ObjectId(category_id)}, {"$set": submit})
-            flash("Category Successfully Updated")
+            flash("Strategy Successfully Updated")
             return redirect(url_for("admin_dashboard"))
 
         category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
@@ -460,7 +460,7 @@ def delete_category(category_id):
         return redirect(url_for("login"))
 
     mongo.db.categories.delete_one({"_id": ObjectId(category_id)})
-    flash("Category Successfully Deleted")
+    flash("Strategy Successfully Deleted")
     return redirect(url_for("admin_dashboard"))
 
 

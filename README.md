@@ -338,6 +338,7 @@ These are possible future features to be added to the project which was suggeste
 - If a user adds a property, it will be added to the top. Therefore, a user will always see the most recent properties added to the site. 
 - I'd like to add some feature to the site, so the users can view their properties added in one section. 
 - I would like the users to be able to filter properties from the most expensive to the cheapest in the future. 
+- I'd like the rewrite the code for the bookmark funtionality using ajax, POST or PUT methods.
 ___
 <br>
 
