@@ -27,7 +27,6 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-# FUNCTION TO CONVER STRINGS SEPARATED BY '\N' TO ARRAYS
 def string_to_array(str_to_split):
     """
     FUNCTION TO CONVER STRINGS
@@ -37,7 +36,6 @@ def string_to_array(str_to_split):
     return array
 
 
-# --- ADMIN USER FUNCTION --- #
 def admin():
     """
     Verify is user is in session and is the admin user
@@ -45,7 +43,6 @@ def admin():
     return session['user'] == 'admin'
 
 
-# --- READ PROPERTIES FUNCTIONALITY --- #
 @app.route("/get_properties")
 def get_properties():
     """
@@ -55,7 +52,6 @@ def get_properties():
     return render_template("properties.html", properties=properties)
 
 
-# UPDATE PROPERTY FEATURED.
 @app.route("/update_property_feature/<property_id>", methods=["POST"])
 def update_property_feature(property_id):
     """
@@ -80,7 +76,6 @@ def get_featured_properties():
     return render_template("index.html", properties=featured_properties)
 
 
-# --- SIGN UP / REGISTER FUNCTIONALITY --- #
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """
@@ -120,7 +115,6 @@ def register():
     return render_template("register.html")
 
 
-# --- LOG IN FUNCTIONALITY --- #
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """
@@ -155,7 +149,6 @@ def login():
     return render_template("login.html")
 
 
-# --- PROFILE FUNCTIONALITY --- #
 @app.route("/profile", methods=["GET"])
 def profile():
     """
@@ -178,7 +171,6 @@ def profile():
                            username=session["user"], properties=bookmarks)
 
 
-# --- BOOKMARK A PROPERTY FUNCTIONALITY --- #
 @app.route("/bookmark/<property_id>", methods=["GET", "POST"])
 def bookmark(property_id):
     """
@@ -202,12 +194,15 @@ def bookmark(property_id):
         "profile", username=session["user"]))
 
 
-# --- DELETE A BOOKMARK FUNCTIONALITY --- #
 @app.route("/delete_bookmark/<property_id>")
 def delete_bookmark(property_id):
     """
-    Delete Bookmark Functionality. To remove a bookmark from their profile.
+    Delete Bookmark Functionality. To remove a bookmark from user profile.
     """
+    if not is_authenticated():
+        flash("You need to log in to execute this action.")
+        return redirect(url_for("login"))
+
     try:
         mongo.db.users.find_one_and_update(
             {"username": session["user"].lower()},
@@ -215,7 +210,7 @@ def delete_bookmark(property_id):
         flash("Bookmark successfully removed.")
     except Exception:
         user_bookmarks = mongo.db.users.find_one({"username": session["user"].
-                                                 lower()})['bookmarks']
+                                                  lower()})['bookmarks']
         user_bookmarks.remove(property_id)
         mongo.db.users.find_one_and_update({"username": session["user"].
                                             lower()}, {'$set': {"bookmarks":
@@ -225,8 +220,7 @@ def delete_bookmark(property_id):
         return redirect(url_for("profile"))
 
 
-# --- LOG OUT FUNCTIONALITY --- #
-@app.route("/logout")
+@ app.route("/logout")
 def logout():
     """
     LOG OUT FUNCTIONALITY
@@ -241,8 +235,7 @@ def logout():
     return redirect(url_for("get_properties"))
 
 
-# FUNTION TO SEE A PROPERTY AFTER CLICKING ON "VIEW PROPERTY" BUTTON
-@app.route("/view_property/<property_id>")
+@ app.route("/view_property/<property_id>")
 def view_property(property_id):
     """
     FUNTION TO SEE A PROPERTY AFTER CLICKING ON "VIEW PROPERTY" BUTTON
@@ -254,12 +247,15 @@ def view_property(property_id):
     return render_template('view_property.html', property=property)
 
 
-# --- Add_PROPERTY FUNCTIONALITY --- #
-@app.route("/add_property", methods=["GET", "POST"])
+@ app.route("/add_property", methods=["GET", "POST"])
 def add_property():
     """
     Add_PROPERTY FUNCTIONALITY
     """
+    if not is_authenticated():
+        flash("You don't have permission to execute this operation.")
+        return redirect("get_properties")
+
     if request.method == "POST":
         property = {
             "category_name": request.form.get("category_name"),
@@ -290,54 +286,63 @@ def add_property():
                            property=features)
 
 
-# --- Edit_PROPERTY FUNCTIONALITY --- #
-@app.route("/edit_property/<property_id>", methods=["GET", "POST"])
+@ app.route("/edit_property/<property_id>", methods=["GET", "POST"])
 def edit_property(property_id):
     """
     Edit_PROPERTY FUNCTIONALITY
     """
+    if not is_authenticated():
+        flash("You don't have permission to execute this operation.")
+        return redirect("get_properties")
+
+    if not is_object_id_valid(property_id):
+        abort(404)
+
     properties = mongo.db.properties
     property = mongo.db.properties.find({"_id": ObjectId(property_id)})
-    if request.method == "POST":
-        submit = {
-            "category_name": request.form.get("category_name"),
-            "property_name": request.form.get("property_name"),
-            "property_description": request.form.get("property_description"),
-            "property_details": string_to_array(request.form.get
-                                                ("property_details")),
-            "property_added_date": request.form.get("property_added_date"),
-            "property_image": request.form.get("property_image"),
-            "author": session["user"],
-            "type": request.form.get("type"),
-            "price": request.form.get("price"),
-            "amenities": request.form.getlist('amenities'),
-            "sourcing_fee": request.form.get("sourcing_fee"),
-            "features": string_to_array(request.form.get("features"))
-        }
-        mongo.db.properties.update_one(
-            {"_id": ObjectId(property_id)}, {"$set": submit})
-        flash("Property successfully updated")
-        return redirect(url_for("edit_property",
-                                property_id=ObjectId(property_id)))
-    # This object is used for rendering in the form
-    property = mongo.db.properties.find_one({"_id": ObjectId(property_id)})
-    read_property_obj = {**property}
-    # copy the object from the DataBase, because the object
-    # from the DB is immutable (cannot change values)
-    read_property_obj['property_details'] = "".join(read_property_obj
-                                                    ['property_details'])
-    read_property_obj['features'] = "".join(read_property_obj['features'])
-    read_property_obj['amenities'] = "".join(read_property_obj['amenities'])
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    type = mongo.db.type.find().sort("type", 1)
-    amenities = mongo.db.amenities.find().sort("amenity")
-    return render_template("edit_property.html",
-                           property=read_property_obj, categories=categories,
-                           type=type, amenities=amenities)
+    user = session['user']
+    if user == "admin" or user == property['author']:
+        if request.method == "POST":
+            submit = {
+                "category_name": request.form.get("category_name"),
+                "property_name": request.form.get("property_name"),
+                "property_description": request.form.get("property_description"),
+                "property_details": string_to_array(request.form.get
+                                                    ("property_details")),
+                "property_added_date": request.form.get("property_added_date"),
+                "property_image": request.form.get("property_image"),
+                "author": session["user"],
+                "type": request.form.get("type"),
+                "price": request.form.get("price"),
+                "amenities": request.form.getlist('amenities'),
+                "sourcing_fee": request.form.get("sourcing_fee"),
+                "features": string_to_array(request.form.get("features"))
+            }
+            mongo.db.properties.update_one(
+                {"_id": ObjectId(property_id)}, {"$set": submit})
+            flash("Property successfully updated")
+            return redirect(url_for("edit_property",
+                                    property_id=ObjectId(property_id)))
+
+        # This object is used for rendering in the form
+        property = mongo.db.properties.find_one({"_id": ObjectId(property_id)})
+        read_property_obj = {**property}
+        # copy the object from the DataBase, because the object
+        # from the DB is immutable (cannot change values)
+        read_property_obj['property_details'] = "".join(read_property_obj
+                                                        ['property_details'])
+        read_property_obj['features'] = "".join(read_property_obj['features'])
+        read_property_obj['amenities'] = "".join(
+            read_property_obj['amenities'])
+        categories = mongo.db.categories.find().sort("category_name", 1)
+        type = mongo.db.type.find().sort("type", 1)
+        amenities = mongo.db.amenities.find().sort("amenity")
+        return render_template("edit_property.html",
+                               property=read_property_obj, categories=categories,
+                               type=type, amenities=amenities)
 
 
-# --- DELETE_PROPERTY FUNCTIONALITY --- #
-@app.route("/delete_property/<property_id>")
+@ app.route("/delete_property/<property_id>")
 def delete_property(property_id):
     """
     DELETE_PROPERTY FUNCTIONALITY
@@ -358,7 +363,6 @@ def delete_property(property_id):
     return redirect(url_for("get_properties"))
 
 
-# --- SEARCH FOR A PROPERTY FUNCTIONALITY --- #
 @ app.route("/search", methods=["GET", "POST"])
 def search():
     """
@@ -376,12 +380,15 @@ def search():
                            categories=categories)
 
 
-# --- ADMIN DASHBOARD FUNCTIONALITY --- #
 @ app.route("/admin_dashboard")
 def admin_dashboard():
     """
     ADMIN DASHBOARD FUNCTIONALITY
     """
+    if not is_authenticated():
+        flash("You are currently not logged in")
+        return redirect(url_for("get_properties"))
+
     # check that someone isn't brute-forcing the url get admin functionalities
     if admin():
         categories = list(mongo.db.categories.find().sort("category_name", 1))
@@ -392,12 +399,15 @@ def admin_dashboard():
     return render_template("admin_dashboard.html", categories=categories)
 
 
-# --- ADD A CATEGORY FUNCTIONALITY --- #
 @ app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     """
     ADD A CATEGORY FUNCTIONALITY
     """
+    if not is_authenticated():
+        flash("You are currently not logged in")
+        return redirect(url_for("get_properties"))
+        
     if admin():
         if request.method == "POST":
             category = {
@@ -414,12 +424,15 @@ def add_category():
     return render_template("add_category.html")
 
 
-# --- EDIT A CATEGORY FUNCTIONALITY --- #
 @ app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
     """
     EDIT A CATEGORY FUNCTIONALITY
     """
+    if not is_authenticated():
+        flash("You are currently not logged in")
+        return redirect(url_for("login"))
+
     if admin():
         if request.method == "POST":
             submit = {
@@ -437,23 +450,29 @@ def edit_category(category_id):
     return render_template("edit_category.html", category=category)
 
 
-# --- DELETE A CATEGORY FUNCTIONALITY --- #
 @ app.route("/delete_category/<category_id>")
 def delete_category(category_id):
     """
     DELETE A CATEGORY FUNCTIONALITY
     """
+    if not is_authenticated():
+        flash("You are currently not logged in")
+        return redirect(url_for("login"))
+
     mongo.db.categories.delete_one({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
     return redirect(url_for("admin_dashboard"))
 
 
-# --- CHANGE PASSWORD FUNCTIONALITY --- #
 @ app.route('/change_password/<username>', methods=["GET", "POST"])
 def change_password(username):
     """
     DELETE A CATEGORY FUNCTIONALITY
     """
+    if not is_authenticated():
+        flash("You are currently not logged in")
+        return redirect(url_for("login"))
+
     if request.method == "POST":
         newPassword = generate_password_hash(request.form.get
                                              ("password_change"))
@@ -469,7 +488,6 @@ def change_password(username):
         "profile", username=session["user"]))
 
 
-# --- DELETE PROFILE FUNCTIONALITY --- #
 @ app.route('/delete_account/<user_id>', methods=["GET", "POST"])
 def delete_account(user_id):
     """
@@ -495,11 +513,13 @@ def contact():
     """
     Navigates to contact page
     """
+    if not is_authenticated():
+        flash("You are currently not logged in")
+        return redirect(url_for("login"))
+
     return render_template("contact.html")
 
 
-# Error Handling
-# -- 401 ERROR --- #
 @ app.errorhandler(401)
 def unauthorized_access(e):
     """
@@ -509,7 +529,6 @@ def unauthorized_access(e):
     return render_template('errors/401.html'), 401
 
 
-# -- 404 ERROR --- #
 @ app.errorhandler(404)
 def page_not_found(e):
     """
@@ -519,7 +538,6 @@ def page_not_found(e):
     return render_template('errors/404.html'), 404
 
 
-# -- 500 ERROR --- #
 @ app.errorhandler(500)
 def not_found_server(e):
     """
