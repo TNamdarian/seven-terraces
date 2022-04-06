@@ -526,10 +526,14 @@ ___
 - JQuery for bookmark from adpated from https://stackoverflow.com/questions/5828965/bookmark-on-click-using-jquery
 
 ### **Acknowledgements**
+For the design of the site, I was sinpired by the following sites in terms of UX and UI designs: 
+- [the-growth-club](https://github.com/Franciskadtt/the-growth-club). 
+- [CookBook](https://github.com/elenasacristan/CookBook)
+
 As always the **slack** community has been very helpful when I had any question.
 
 I'm also really thankful to the **tutors** who help me understand how to set up environmental variables in vscode.
 
-And thanks to my **mentor** Guido Cecilio Garcia for helping me with this project.
+And HUGE thanks to my **mentor** Guido Cecilio Garcia for helping me with this project.
 
 ##### back to [top](#table-of-contents)
